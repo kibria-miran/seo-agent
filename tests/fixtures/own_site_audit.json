@@ -1,0 +1,211 @@
+{
+  "url": "https://clearpath-mortgage.co.uk",
+  "audit_date": "2026-11-16 09:00",
+  "pages_crawled": 6,
+  "site_score": 87.5,
+  "grade": "B",
+  "total_issues": 7,
+  "critical_count": 1,
+  "warning_count": 5,
+  "info_count": 1,
+  "pages": [
+    {
+      "url": "https://clearpath-mortgage.co.uk/",
+      "status_code": 200,
+      "title": "Free Mortgage Advice from ClearPath Mortgages",
+      "meta_description": "Whole-of-market mortgage advice for UK buyers, remortgagers and first-time buyers.",
+      "h1_tags": ["Free mortgage advice, without the jargon"],
+      "h2_tags": ["How we help", "Popular guides", "Speak to an adviser"],
+      "h3_tags": ["First-time buyers", "Remortgaging", "Buy-to-let"],
+      "h1_count": 1,
+      "word_count": 940,
+      "page_score": 100.0,
+      "response_time_ms": 184.0,
+      "schema_types": ["FinancialService", "WebSite"],
+      "issues": []
+    },
+    {
+      "url": "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+      "status_code": 200,
+      "title": "Free Mortgage Advice | ClearPath",
+      "meta_description": "Speak to a whole-of-market mortgage adviser at no cost for the initial consultation.",
+      "h1_tags": ["Free mortgage advice"],
+      "h2_tags": ["What free means", "Who we help", "Book a call"],
+      "h3_tags": ["Fees explained"],
+      "h1_count": 1,
+      "word_count": 820,
+      "page_score": 92.0,
+      "response_time_ms": 210.0,
+      "schema_types": ["FinancialService", "FAQPage"],
+      "issues": [
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+          "issue_type": "Meta Description Too Long",
+          "severity": "WARNING",
+          "current_value": "Speak to a whole-of-market mortgage adviser at no cost for the initial consultation.",
+          "suggestion": "Shorten to 155 characters or fewer."
+        }
+      ]
+    },
+    {
+      "url": "https://clearpath-mortgage.co.uk/remortgage",
+      "status_code": 200,
+      "title": "Remortgage Advice | ClearPath",
+      "meta_description": "Compare remortgage options and understand the costs before you switch.",
+      "h1_tags": ["Remortgage advice"],
+      "h2_tags": ["When to remortgage", "Costs", "Next steps"],
+      "h3_tags": [],
+      "h1_count": 1,
+      "word_count": 610,
+      "page_score": 92.0,
+      "response_time_ms": 240.0,
+      "schema_types": ["FinancialService"],
+      "issues": [
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/remortgage",
+          "issue_type": "Duplicate Title",
+          "severity": "WARNING",
+          "current_value": "Remortgage Advice | ClearPath",
+          "suggestion": "Make the title unique and include the primary keyword."
+        }
+      ]
+    },
+    {
+      "url": "https://clearpath-mortgage.co.uk/remortgage-calculator",
+      "status_code": 200,
+      "title": "Remortgage Advice | ClearPath",
+      "meta_description": "Estimate your monthly payments before remortgaging.",
+      "h1_tags": ["Remortgage calculator"],
+      "h2_tags": ["Your estimate", "Assumptions"],
+      "h3_tags": [],
+      "h1_count": 1,
+      "word_count": 480,
+      "page_score": 92.0,
+      "response_time_ms": 302.0,
+      "schema_types": ["FinancialService"],
+      "issues": [
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/remortgage-calculator",
+          "issue_type": "Duplicate Title",
+          "severity": "WARNING",
+          "current_value": "Remortgage Advice | ClearPath",
+          "suggestion": "Give this calculator a distinct title."
+        }
+      ]
+    },
+    {
+      "url": "https://clearpath-mortgage.co.uk/first-time-buyer",
+      "status_code": 200,
+      "title": "First Time Buyer Mortgage Guide",
+      "meta_description": null,
+      "h1_tags": ["First-time buyer mortgage guide", "How much can I borrow?"],
+      "h2_tags": ["Deposits", "Affordability", "Fees"],
+      "h3_tags": [],
+      "h1_count": 2,
+      "word_count": 1180,
+      "page_score": 60.0,
+      "response_time_ms": 198.0,
+      "schema_types": ["FinancialService", "FAQPage", "BreadcrumbList"],
+      "issues": [
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/first-time-buyer",
+          "issue_type": "Missing Meta Description",
+          "severity": "WARNING",
+          "current_value": "",
+          "suggestion": "Add a 120-155 character meta description."
+        },
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/first-time-buyer",
+          "issue_type": "Multiple H1 Tags",
+          "severity": "CRITICAL",
+          "current_value": "First-time buyer mortgage guide | How much can I borrow?",
+          "suggestion": "Keep one H1 and demote the second to H2."
+        }
+      ]
+    },
+    {
+      "url": "https://clearpath-mortgage.co.uk/buy-to-let",
+      "status_code": 200,
+      "title": "Buy-to-let Mortgages",
+      "meta_description": "Buy-to-let mortgage guidance for landlords.",
+      "h1_tags": ["Buy-to-let mortgages"],
+      "h2_tags": ["Rates", "Criteria"],
+      "h3_tags": [],
+      "h1_count": 1,
+      "word_count": 260,
+      "page_score": 89.0,
+      "response_time_ms": 260.0,
+      "schema_types": ["FinancialService"],
+      "issues": [
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/buy-to-let",
+          "issue_type": "Thin Content",
+          "severity": "WARNING",
+          "current_value": "260 words",
+          "suggestion": "Expand the page or consolidate it."
+        },
+        {
+          "page_url": "https://clearpath-mortgage.co.uk/buy-to-let",
+          "issue_type": "Missing Image Alt Text",
+          "severity": "INFO",
+          "current_value": "2 images",
+          "suggestion": "Add descriptive alt text."
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+      "issue_type": "Meta Description Too Long",
+      "severity": "WARNING",
+      "current_value": "Speak to a whole-of-market mortgage adviser at no cost for the initial consultation.",
+      "suggestion": "Shorten to 155 characters or fewer."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/remortgage",
+      "issue_type": "Duplicate Title",
+      "severity": "WARNING",
+      "current_value": "Remortgage Advice | ClearPath",
+      "suggestion": "Make the title unique and include the primary keyword."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/remortgage-calculator",
+      "issue_type": "Duplicate Title",
+      "severity": "WARNING",
+      "current_value": "Remortgage Advice | ClearPath",
+      "suggestion": "Give this calculator a distinct title."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/first-time-buyer",
+      "issue_type": "Missing Meta Description",
+      "severity": "WARNING",
+      "current_value": "",
+      "suggestion": "Add a 120-155 character meta description."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/first-time-buyer",
+      "issue_type": "Multiple H1 Tags",
+      "severity": "CRITICAL",
+      "current_value": "First-time buyer mortgage guide | How much can I borrow?",
+      "suggestion": "Keep one H1 and demote the second to H2."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/buy-to-let",
+      "issue_type": "Thin Content",
+      "severity": "WARNING",
+      "current_value": "260 words",
+      "suggestion": "Expand the page or consolidate it."
+    },
+    {
+      "page_url": "https://clearpath-mortgage.co.uk/buy-to-let",
+      "issue_type": "Missing Image Alt Text",
+      "severity": "INFO",
+      "current_value": "2 images",
+      "suggestion": "Add descriptive alt text."
+    }
+  ],
+  "extras": {
+    "note": "Golden fixture captured from the vendored seoextract 0.3.0 shape. Replace with a real own-site capture before the first live run."
+  }
+}

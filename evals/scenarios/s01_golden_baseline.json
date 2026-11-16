@@ -1,0 +1,6 @@
+{
+  "id": "S01",
+  "title": "The deterministic fixture run matches the committed baseline",
+  "kind": "golden_baseline",
+  "params": {}
+}

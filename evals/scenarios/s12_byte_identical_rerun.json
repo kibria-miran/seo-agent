@@ -1,0 +1,6 @@
+{
+  "id": "S12",
+  "title": "Same run-id, fixture and clock produce byte-identical files",
+  "kind": "byte_identical_rerun",
+  "params": {}
+}

@@ -1,0 +1,8 @@
+{
+  "id": "S13",
+  "title": "Backlog is capped at 30 with deterministic order",
+  "kind": "backlog_cap_and_order",
+  "params": {
+    "gap_count": 40
+  }
+}

@@ -1,0 +1,13 @@
+# Vendored seoextract 0.3.0 — local path only, never PyPI.
+#
+# The runtime does not need this install: `src/audit_adapter.py` prepends
+# `third_party/seoextract/` to `sys.path`. This file exists so a fresh
+# environment can install the fork deliberately, without letting a resolver
+# pick an unrelated `seoextract` release from an index.
+#
+#   .venv/bin/python -m pip install --no-deps -r requirements-seoextract.txt
+#
+# Upstream/commit/sha256 provenance is recorded in third_party/PROVENANCE.md.
+# A local directory cannot carry a wheel hash; the reviewed git tree is the
+# unit of trust here, and `pip` will refuse to substitute a registry package.
+./third_party/seoextract

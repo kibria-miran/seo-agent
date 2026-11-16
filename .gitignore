@@ -1,0 +1,38 @@
+# secrets and local state
+.env
+.env.*
+!.env.example
+data/
+cache/
+logs/
+out/*/drafts/
+
+# out/ report and backlog are committed as definition-of-done samples.
+!out/
+!out/*/
+!out/*/report.md
+!out/*/backlog.json
+
+# Runtime state is never committed.
+out/state/
+out/cache/
+evals/results/
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# tool-local state, never commit
+.crush/

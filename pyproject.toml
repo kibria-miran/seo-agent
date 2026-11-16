@@ -1,0 +1,44 @@
+[project]
+name = "seo-agent"
+version = "0.1.0"
+description = "UK mortgage SEO growth agent: deterministic audit layer, keyword gap analysis, prioritised backlog."
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.6",
+    "requests>=2.31",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "typer>=0.9",
+    "rich>=13.0",
+    "ddgs>=9.0",
+    "python-dotenv>=1.0",
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+tokens = ["tiktoken>=0.7"]
+
+[project.scripts]
+seo-agent = "src.cli:app"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src", "src.sources"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra -m 'not slow and not live'"
+markers = [
+    "fast: deterministic, no network, no real LLM",
+    "slow: live network smoke test",
+    "live: one real LLM call",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

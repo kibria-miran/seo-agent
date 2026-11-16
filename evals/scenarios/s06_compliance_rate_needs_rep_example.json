@@ -1,0 +1,11 @@
+{
+  "id": "S06",
+  "title": "A rate claim without a representative example is blocked (C5)",
+  "kind": "compliance_text",
+  "params": {
+    "text": "Our remortgage rate is 4.9% today. Your home may be repossessed if you do not keep up repayments on your mortgage. FCA firm reference 123456.",
+    "page_kind": "content",
+    "expect_ok": false,
+    "expect_rule": "C5"
+  }
+}

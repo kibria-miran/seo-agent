@@ -1,0 +1,339 @@
+"""Central configuration.
+
+Everything that a test, budget check or compliance rule needs to know lives
+here. Modules must not hard-code caps, city lists, disclosure phrases or
+weights; they import them from this file.
+
+No timestamps are created here. Use ``src.clock.now()`` for time.
+"""
+
+from __future__ import annotations
+
+import os
+import warnings
+from pathlib import Path
+
+try:  # optional, the app works without a .env
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except Exception:  # pragma: no cover - dotenv is an optional convenience
+    pass
+
+
+ROOT = Path(__file__).resolve().parent.parent
+
+# ---------------------------------------------------------------------------
+# Identity
+# ---------------------------------------------------------------------------
+
+APP_NAME = "seo-agent"
+APP_VERSION = "1.0"
+CONTACT_EMAIL = os.getenv("SEO_AGENT_CONTACT", "seo-agent@example.co.uk")
+USER_AGENT = f"{APP_NAME}/{APP_VERSION} (+contact: {CONTACT_EMAIL})"
+
+# ---------------------------------------------------------------------------
+# Vendored audit layer (D-1)
+# ---------------------------------------------------------------------------
+
+SEOEXTRACT_COMMIT = "6544a74e340e6ac8b147b7f4ab0f09d55d142dd3"
+SEOEXTRACT_VERSION = "0.3.0"
+SEOEXTRACT_DIR = ROOT / "third_party" / "seoextract"
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+
+OUT_DIR = ROOT / "out"
+# D-15 allows writes only under out/ and logs/. App state and the future source
+# cache therefore live inside out/, not in sibling top-level directories.
+DATA_DIR = OUT_DIR / "state"
+CACHE_DIR = OUT_DIR / "cache"
+LOGS_DIR = ROOT / "logs"
+PROFILES_DIR = ROOT / "profiles"
+EVALS_DIR = ROOT / "evals"
+SCENARIOS_DIR = EVALS_DIR / "scenarios"
+RESULTS_DIR = EVALS_DIR / "results"
+FIXTURES_DIR = ROOT / "tests" / "fixtures"
+
+DB_PATH = DATA_DIR / "seo.db"
+TRACE_PATH = LOGS_DIR / "trace.jsonl"
+BANNED_CLAIMS_PATH = EVALS_DIR / "banned_claims.json"
+INJECTION_PAYLOADS_PATH = EVALS_DIR / "injection_payloads.json"
+BASELINES_PATH = EVALS_DIR / "baselines.json"
+
+# ---------------------------------------------------------------------------
+# Budgets (D-13). Enforced in code, never by prompts.
+# ---------------------------------------------------------------------------
+
+MAX_STEPS = 12
+MAX_LLM_CALLS = 20
+MAX_TOKENS_IN = 20_000
+MAX_TOKENS_OUT = 5_000
+MAX_LLM_SECONDS = 180
+MAX_FETCHES = 120
+MAX_RUN_SECONDS = 600
+
+# ---------------------------------------------------------------------------
+# Crawl / source limits (D-5)
+# ---------------------------------------------------------------------------
+
+MAX_OWN_PAGES = 50
+MAX_COMP_PAGES = 5
+MAX_SUGGEST = 400
+MAX_SERP_QUERIES = 25
+MAX_BACKLOG = 30
+
+HOST_DELAY_SECONDS = 2.0
+CACHE_TTL_SECONDS = 86_400
+HTTP_TIMEOUT_SECONDS = 10.0
+SLOW_PAGE_MS = 2_000
+
+# Kept explicit so tests can prove HEAD is not counted and GET is.
+COUNT_HEAD_AGAINST_FETCH_BUDGET = False
+
+# ---------------------------------------------------------------------------
+# LLM (NVIDIA NIM chat API; keyless features stay usable without it)
+# ---------------------------------------------------------------------------
+
+NIM_BASE_URL = os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
+NIM_MODEL = os.getenv("NIM_MODEL", "nvidia/llama-3.1-nemotron-70b-instruct")
+NIM_API_KEY_ENV = "NVIDIA_API_KEY"
+LLM_TIMEOUT_SECONDS = 30.0
+LLM_TEMPERATURE = 0.3
+
+# ---------------------------------------------------------------------------
+# UK cities. SiteProfile.cities must be a case-insensitive subset.
+# ---------------------------------------------------------------------------
+
+UK_CITIES: tuple[str, ...] = (
+    "London",
+    "Birmingham",
+    "Manchester",
+    "Leeds",
+    "Liverpool",
+    "Sheffield",
+    "Bristol",
+    "Newcastle upon Tyne",
+    "Nottingham",
+    "Leicester",
+    "Coventry",
+    "Bradford",
+    "Cardiff",
+    "Belfast",
+    "Edinburgh",
+    "Glasgow",
+    "Aberdeen",
+    "Dundee",
+    "Swansea",
+    "Newport",
+    "Southampton",
+    "Portsmouth",
+    "Brighton",
+    "Plymouth",
+    "Reading",
+    "Oxford",
+    "Cambridge",
+    "Milton Keynes",
+    "Norwich",
+    "Derby",
+    "Stoke-on-Trent",
+    "Wolverhampton",
+    "Sunderland",
+    "York",
+    "Bath",
+    "Exeter",
+    "Lincoln",
+    "Chester",
+    "Durham",
+    "Inverness",
+)
+
+CITY_LOOKUP = {c.casefold(): c for c in UK_CITIES}
+
+# ---------------------------------------------------------------------------
+# Intent rules (section 7). Order matters: the first matching rule wins.
+# ---------------------------------------------------------------------------
+
+TRANSACTIONAL_TOKENS = (
+    "near me",
+    "broker",
+    "adviser",
+    "advisor",
+    "apply",
+    "quote",
+)
+INFORMATIONAL_TOKENS = (
+    "how",
+    "what",
+    "can i",
+    "calculator",
+    "guide",
+    "cost",
+    "fees",
+)
+LOCAL_NEAR_ME = "near me"
+
+# ---------------------------------------------------------------------------
+# Keywords / coverage (I-9)
+# ---------------------------------------------------------------------------
+
+JACCARD_THRESHOLD = 0.6
+# Generic tokens that carry no coverage signal. "remortgage" is deliberately
+# NOT here: it is often the head term we must match in a title or H1.
+UK_MORTGAGE_STOPLIST = frozenset(
+    {
+        "mortgage",
+        "the",
+        "a",
+        "an",
+        "uk",
+        "for",
+        "in",
+        "with",
+        "and",
+        "of",
+        "to",
+        "on",
+        "is",
+        "are",
+        "near",
+        "me",
+        "how",
+        "what",
+        "can",
+        "i",
+        "my",
+        "your",
+        "best",
+    }
+)
+
+# ---------------------------------------------------------------------------
+# Scoring (section 7)
+# ---------------------------------------------------------------------------
+
+IMPACT_CRITICAL = 3
+IMPACT_WARNING = 2
+IMPACT_INFO = 1
+
+CONFIDENCE_AUDIT = 1.0
+CONFIDENCE_MULTI_SOURCE = 0.8
+CONFIDENCE_DUAL_SOURCE = 0.65
+CONFIDENCE_SINGLE_SOURCE = 0.5
+
+EFFORT_META = 1
+EFFORT_SCHEMA = 2
+EFFORT_PAGE = 3
+
+MULTI_SOURCE_THRESHOLD = 3
+
+# ---------------------------------------------------------------------------
+# Compliance (section 8.6 / 10). Starting point, not legal advice.
+# ---------------------------------------------------------------------------
+
+BANNED_CLAIMS: tuple[str, ...] = (
+    "guaranteed approval",
+    "guaranteed mortgage",
+    "guaranteed accepted",
+    "best rates",
+    "lowest rates",
+    "cheapest",
+    "100% success",
+    "risk-free",
+    "no credit check",
+)
+
+# C1b: bare "no fees" only passes with one of these in the same draft.
+FREE_DISCLOSURE_PHRASES: tuple[str, ...] = (
+    "we do not charge a fee for our initial consultation",
+    "we don't charge a fee for our initial consultation",
+    "no fees are payable by you",
+    "there is no fee for the initial consultation",
+    "free initial consultation",
+    "we may charge a fee",
+    "a fee may be payable",
+)
+
+RISK_WARNING = (
+    "your home may be repossessed if you do not keep up repayments on your mortgage"
+)
+
+REPRESENTATIVE_EXAMPLE = "representative example"
+
+# C6: invented social proof / partnerships. Matched case-insensitively.
+BANNED_SOCIAL_PROOF_PATTERNS: tuple[str, ...] = (
+    r"\b5[\s-]?star\b",
+    r"\bfive[\s-]?star\b",
+    r"\b\d(?:\.\d)?[\s-]?star\b",
+    r"\baward[\s-]?winning\b",
+    r"\btrusted by\b",
+    r"\bpartnered with\b",
+    r"\bofficial partner\b",
+    r"\bapproved by\s+(?!the\s+fca|fca\b)[a-z]",
+    r"\btestimonial",
+    r"\bverified reviews?\b",
+    r"\bnumber one broker\b",
+    r"\b#1 broker\b",
+)
+
+# C5: a rate or APR *figure* needs a representative example. A bare phrase such
+# as "interest rates explained" is not a figure and must not be gated.
+RATE_PATTERN = r"\b\d+(?:\.\d+)?\s*%|\b\d+(?:\.\d+)?\s*apr\b"
+
+CONTENT_PAGE_KINDS = frozenset({"content", "page", "mortgage", "brief", "draft", "faq"})
+
+# ---------------------------------------------------------------------------
+# Injection filter (10.1 / I-5)
+# ---------------------------------------------------------------------------
+
+INJECTION_MARKERS: tuple[str, ...] = (
+    "ignore previous",
+    "ignore all previous",
+    "disregard",
+    "system prompt",
+    "you are now",
+    "new instructions",
+    "reveal your",
+)
+
+# ---------------------------------------------------------------------------
+# Deterministic report / scoring helpers
+# ---------------------------------------------------------------------------
+
+GRADE_THRESHOLDS: tuple[tuple[float, str], ...] = (
+    (90.0, "A"),
+    (75.0, "B"),
+    (60.0, "C"),
+    (40.0, "D"),
+    (0.0, "F"),
+)
+
+
+def grade_for(score: float) -> str:
+    """Return the deterministic letter grade for a site score."""
+
+    for threshold, letter in GRADE_THRESHOLDS:
+        if score >= threshold:
+            return letter
+    return "F"
+
+
+def canonical_city(value: str) -> str | None:
+    """Return the canonical UK city spelling, or None if not a served city."""
+
+    return CITY_LOOKUP.get(value.strip().casefold())
+
+
+def _warn_com_domain(domain: str) -> None:
+    warnings.warn(
+        f"{domain!r} uses a .com host; the UK mortgage profile expects .co.uk or .uk",
+        UserWarning,
+        stacklevel=3,
+    )
+
+
+__all__ = [name for name in dir() if name.isupper()] + [
+    "grade_for",
+    "canonical_city",
+]

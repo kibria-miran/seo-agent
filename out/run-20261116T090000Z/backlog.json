@@ -1,0 +1,131 @@
+[
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Manchester",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "service": "mortgage advice manchester"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-advice-manchester",
+    "title": "Create a local page for 'mortgage advice manchester'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "London",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "service": "mortgage adviser london"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-adviser-london",
+    "title": "Create a local page for 'mortgage adviser london'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "bad credit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/bad-credit-mortgage",
+    "title": "Create a page targeting 'bad credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage broker near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-broker-near-me",
+    "title": "Create a page targeting 'mortgage broker near me'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage fees explained"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-fees-explained",
+    "title": "Create a page targeting 'mortgage fees explained'"
+  }
+]
