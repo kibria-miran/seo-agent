@@ -29,7 +29,7 @@ def test_zero_results_are_counted_not_silent(tmp_path, monkeypatch):
     )
     profile = make_profile()
     with Store(":memory:") as store:
-        _keywords, _serp, _pages, counts = pipeline.mine_live_sources(
+        _keywords, _serp, _pages, counts = pipeline.mine_scraping_sources(
             profile, store, TraceWriter(tmp_path / "trace.jsonl", "zero-block-test")
         )
     assert counts["suggest"] == 0

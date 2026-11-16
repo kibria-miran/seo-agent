@@ -49,8 +49,9 @@ from src.pipeline import (
     build_keywords,
     default_run_id,
     merge_keywords,
+    mine_file_sources,
     mine_gsc_pages,
-    mine_live_sources,
+    mine_scraping_sources,
     money_keywords_for,
 )
 from src.report import render_report, write_report
@@ -105,6 +106,7 @@ class AgentContext:
     out_root: str | None
     trace_path: str
     with_sources: bool = False
+    with_scraping: bool = False
     with_drafts: bool = False
     llm: Any | None = None
     fallback: bool = False
@@ -179,16 +181,33 @@ def tool_mine_keywords(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any
 
 
 def tool_mine_sources(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
-    if not ctx.with_sources:
-        return {"status": "skipped", "reason": "sources disabled (pass --with-sources)"}
-    mined, ctx.serp, ctx.competitor_pages, ctx.source_counts = mine_live_sources(
-        ctx.profile, ctx.store, ctx.trace
-    )
-    ctx.query_page_map, gsc_pages_status = mine_gsc_pages(ctx.store, ctx.trace)
-    ctx.source_counts = {
-        **ctx.source_counts,
-        "gsc_pages": len(ctx.query_page_map) if gsc_pages_status == "ok" else gsc_pages_status,
+    if not ctx.with_sources and not ctx.with_scraping:
+        return {"status": "skipped", "reason": "sources disabled (pass --with-sources and/or --with-scraping)"}
+    mined: list = []
+    counts: dict = {
+        "suggest": 0,
+        "serp": 0,
+        "gsc_csv": 0,
+        "competitor_pages": 0,
+        "suggest_empty": 0,
+        "serp_empty": 0,
+        "fetches": 0,
     }
+    if ctx.with_sources:
+        file_mined, file_counts = mine_file_sources(ctx.profile, ctx.store, ctx.trace)
+        mined += file_mined
+        counts.update(file_counts)
+        ctx.query_page_map, gsc_pages_status = mine_gsc_pages(ctx.store, ctx.trace)
+        counts["gsc_pages"] = (
+            len(ctx.query_page_map) if gsc_pages_status == "ok" else gsc_pages_status
+        )
+    if ctx.with_scraping:
+        scraped, ctx.serp, ctx.competitor_pages, scrape_counts = mine_scraping_sources(
+            ctx.profile, ctx.store, ctx.trace
+        )
+        mined += scraped
+        counts.update(scrape_counts)
+    ctx.source_counts = counts
     ctx.keywords = merge_keywords(build_keywords(ctx.profile), mined)
     return {"mined": len(mined), **{k: v for k, v in ctx.source_counts.items()}}
 
@@ -273,7 +292,7 @@ def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
         "mode": "agent",
     }
     budgets["drafts"] = len(ctx.draft_map)
-    if ctx.with_sources:
+    if ctx.with_sources or ctx.with_scraping:
         budgets["sources"] = ctx.source_counts
     markdown = render_report(
         run_row,
@@ -412,6 +431,7 @@ class AgentRunner:
         out_root: str | None = None,
         trace_path: str | None = None,
         with_sources: bool = False,
+        with_scraping: bool = False,
         with_drafts: bool = False,
         budget: LLMBudget | None = None,
     ) -> None:
@@ -421,6 +441,7 @@ class AgentRunner:
         self.out_root = out_root
         self.trace_path = trace_path
         self.with_sources = with_sources
+        self.with_scraping = with_scraping
         self.with_drafts = with_drafts
         # Budget source of truth: an explicit LLMBudget, else the client's own
         # ledger (LLMClient). FakeLLM exposes ``count`` — read in _sync_ledger.
@@ -445,6 +466,7 @@ class AgentRunner:
             out_root=self.out_root,
             trace_path=str(trace_path),
             with_sources=self.with_sources,
+            with_scraping=self.with_scraping,
             with_drafts=self.with_drafts,
             llm=self.llm,
         )

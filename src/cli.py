@@ -3,7 +3,8 @@
     seo-agent run --site profiles/site.json --no-llm
 
 Default runs execute the deterministic pipeline. --agent opts in to the LLM
-tool loop; both honour --with-sources and --with-drafts.
+tool loop; both honour --with-sources (file-based GSC) and --with-scraping
+(ToS-grey Suggest/SERP, off by default), and --with-drafts.
 """
 
 from __future__ import annotations
@@ -36,7 +37,12 @@ def run(
     with_sources: bool = typer.Option(
         False,
         "--with-sources",
-        help="Live keyless sources (Google Suggest, DuckDuckGo HTML, GSC CSV).",
+        help="File-based sources (GSC CSV via SEO_AGENT_GSC_CSV). Never scrapes.",
+    ),
+    with_scraping: bool = typer.Option(
+        False,
+        "--with-scraping",
+        help="ToS-grey Google Suggest / DuckDuckGo SERP scraping and competitor discovery. Off by default.",
     ),
     agent: bool = typer.Option(
         False,
@@ -102,9 +108,14 @@ def run(
 
     if with_sources:
         console.print(
-            "[dim]Live sources enabled: Google Suggest, DuckDuckGo HTML SERP, "
-            "GSC CSV (SEO_AGENT_GSC_CSV if set). Each HTTP call is throttled, "
-            "cached and GET-only.[/dim]"
+            "[dim]File-based sources enabled: GSC CSV (SEO_AGENT_GSC_CSV if set). "
+            "No scraping, no network calls to Google.[/dim]"
+        )
+    if with_scraping:
+        console.print(
+            "[yellow]ToS-grey scraping enabled: Google Suggest, DuckDuckGo HTML "
+            "SERP, competitor discovery. Each HTTP call is throttled, cached and "
+            "GET-only; results may be blocked or empty.[/yellow]"
         )
 
     if agent:
@@ -122,6 +133,7 @@ def run(
             db_path=str(db_path) if db_path else None,
             out_root=str(out_root) if out_root else None,
             with_sources=with_sources,
+            with_scraping=with_scraping,
             with_drafts=with_drafts,
         )
         report = runner.run(profile, fixture_path=fixture)
@@ -143,6 +155,7 @@ def run(
         db_path=db_path,
         out_root=out_root,
         with_sources=with_sources,
+        with_scraping=with_scraping,
         with_drafts=with_drafts,
     )
     console.print(

@@ -263,7 +263,7 @@ def test_pipeline_with_sources_produces_a_competitor_gap(tmp_path, inject_clock,
             "fetches": 3,
         }
 
-    monkeypatch.setattr(pipeline, "mine_live_sources", fake_mine)
+    monkeypatch.setattr(pipeline, "mine_scraping_sources", fake_mine)
     profile = _profile()
 
     report = run_deterministic(
@@ -272,7 +272,7 @@ def test_pipeline_with_sources_produces_a_competitor_gap(tmp_path, inject_clock,
         run_id="run-comp-gap",
         db_path=tmp_path / "seo.db",
         out_root=tmp_path / "out",
-        with_sources=True,
+        with_scraping=True,
     )
 
     with Store(tmp_path / "seo.db") as store:
@@ -304,7 +304,7 @@ def test_competitor_pages_render_in_the_report(tmp_path, inject_clock, monkeypat
     def fake_mine(profile, store, trace):
         return [], [], pages, {"fetches": 1, "competitor_pages": 1}
 
-    monkeypatch.setattr(pipeline, "mine_live_sources", fake_mine)
+    monkeypatch.setattr(pipeline, "mine_scraping_sources", fake_mine)
 
     report = run_deterministic(
         _profile(),
@@ -312,7 +312,7 @@ def test_competitor_pages_render_in_the_report(tmp_path, inject_clock, monkeypat
         run_id="run-comp-render",
         db_path=tmp_path / "seo.db",
         out_root=tmp_path / "out",
-        with_sources=True,
+        with_scraping=True,
     )
 
     assert "habito.com" in report.report_markdown

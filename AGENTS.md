@@ -101,14 +101,16 @@ python3.12 -m venv .venv
 - **Sources** (`src/sources/base.py`): one `Source` interface, fixed order:
   requirements → TTL cache → fetch (throttled, 2 s/host, honest UA, GET) →
   injection scrub. Errors raise `SourceError` into the pipeline which logs and
-  skips. Untrusted-text keys scanned: `keyword|title|snippet|text`. Live
-  sources are strictly opt-in (`--with-sources`); default path never touches
-  the network. Two GSC sources exist: `gsc_csv` (Queries.csv: demand
-  keywords) and `gsc_pages` (`SEO_AGENT_GSC_PAGES_CSV`: query→page map,
-  surfaced as `gsc_pages` evidence in gaps). Both fingerprint the export
-  (name/size/mtime) as cache key. Search/API endpoints are NOT robots-checked
-  by design; page crawls are. ddgs was removed 2026-11-16 (declared but never
-  wired; the HTML endpoints are used directly).
+  skips. Untrusted-text keys scanned: `keyword|title|snippet|text`. Sources
+  are off by default: `--with-sources` enables only the file-based GSC ingest
+  (`gsc_csv`: Queries.csv demand keywords; `gsc_pages`:
+  `SEO_AGENT_GSC_PAGES_CSV` query→page map, surfaced as `gsc_pages` evidence
+  in gaps). `--with-scraping` opts in to the ToS-grey Suggest/SERP scraping
+  and competitor discovery. The default path never touches the network. GSC
+  exports are fingerprinted (name/size/mtime) as cache key. Search/API
+  endpoints are NOT robots-checked by design; page crawls are. ddgs was
+  removed 2026-11-16 (declared but never wired; the HTML endpoints are used
+  directly).
 - **Report safety header.** `render_report` emits a first-block disclaimer:
   compliance is a lint, not legal/financial advice, and a qualified adviser
   must review before publication. Do not remove it; it is load-bearing for

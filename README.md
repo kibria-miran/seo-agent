@@ -95,12 +95,27 @@ without `NVIDIA_API_KEY` exits 2; `--agent --no-llm` is a usage error (exit 2).
 > reference `123456`. Change the domain, money pages, target keywords,
 > competitors, cities and FCA reference to your own values before a live run.
 
-### Mine live sources (optional)
+### File-based GSC sources (off by default, no scraping)
 
 ```bash
 export SEO_AGENT_GSC_CSV=/path/to/Queries.csv   # optional; unset = skipped (dep_unmet)
 .venv/bin/python -m src.cli run --site profiles/site.json --no-llm --with-sources
 ```
+
+`--with-sources` enables only the local-file GSC ingest: Queries.csv (demand
+keywords with clicks/impressions/CTR/position) and the Pages query→page map.
+It never touches the network. A missing requirement is logged as `dep_unmet`
+and skipped; it never fails the run.
+
+### ToS-grey scraping (off by default, opt-in)
+
+```bash
+.venv/bin/python -m src.cli run --site profiles/site.json --no-llm --with-scraping
+```
+
+`--with-scraping` enables Google Suggest and DuckDuckGo HTML scraping plus
+competitor discovery. Per the owner decision (2026-11-16, DECISIONS.md Q5),
+scraping is off by default; pass the flag only if you accept the trade-off.
 
 Sources are keyless and go through one `Source` interface
 (`src/sources/base.py`): cache (`source|query` key, 24 h TTL), per-host 2 s
@@ -111,20 +126,20 @@ untrusted items carrying marker phrases. A missing requirement is logged as
 Two endpoints are undocumented HTML/JSON surfaces rather than sanctioned
 APIs: `suggestqueries.google.com` and `html.duckduckgo.com/html/`. They are
 HTML scrapes that can break without notice (a site redesign silently yields
-0 SERP rows, which this tool treats as "no SERP", not as an error) and whose
-use is a terms-of-service judgement call for you to make. They are used at
-low volume with a 2 s per-host throttle and an honest user agent and are not
-robots-checked by design (search endpoints are not page crawls). If that
-trade-off is unacceptable to you, run without `--with-sources`; no ranked
-output depends on them.
+0 SERP rows, which this tool reports as "no data" with a possible-block note,
+not as an error) and whose use is a terms-of-service judgement call for you
+to make. They are used at low volume with a 2 s per-host throttle and an
+honest user agent and are not robots-checked by design (search endpoints are
+not page crawls). If that trade-off is unacceptable to you, omit
+`--with-scraping`; no ranked output depends on them.
 
-| Source | Endpoint | Data |
-|---|---|---|
-| Google Suggest | `suggestqueries.google.com` | autocomplete candidates per seed |
-| DuckDuckGo HTML | `html.duckduckgo.com/html/` | top-10 organic results per query |
-| DuckDuckGo HTML (`site:`) | `html.duckduckgo.com/html/` | competitor discovery for coverage evidence |
-| GSC CSV | local file / `SEO_AGENT_GSC_CSV` | clicks, impressions, CTR, position per query |
-| GSC pages mapping | local file / `SEO_AGENT_GSC_PAGES_CSV` | query→page attribution (e.g. Pages export or a two-column CSV prepared from the free Search Console API) |
+| Source | Flag | Endpoint | Data |
+|---|---|---|---|
+| Google Suggest | `--with-scraping` | `suggestqueries.google.com` | autocomplete candidates per seed |
+| DuckDuckGo HTML | `--with-scraping` | `html.duckduckgo.com/html/` | top-10 organic results per query |
+| DuckDuckGo HTML (`site:`) | `--with-scraping` | `html.duckduckgo.com/html/` | competitor discovery for coverage evidence |
+| GSC CSV | `--with-sources` | local file / `SEO_AGENT_GSC_CSV` | clicks, impressions, CTR, position per query |
+| GSC pages mapping | `--with-sources` | local file / `SEO_AGENT_GSC_PAGES_CSV` | query→page attribution (e.g. Pages export or a two-column CSV prepared from the free Search Console API) |
 
 SERP matches are evidence: a `NO_PAGE` gap backed by both keywords and SERP
 results moves from single-source (0.50) to dual-source (0.65) confidence,
@@ -322,7 +337,7 @@ previous one.
 | 1 | Compliance rules C1–C6, schema generator, SQLite store, trace redaction | done |
 | 1 | Injection filter and payload corpus | done |
 | 1 | Fixture tests S1, S2, S15, S16 and safety invariants | done |
-| 2 | Live sources (`suggest`, `serp`, `fetch`, `gsc_csv`), cache + throttle, opt-in `--with-sources` | done |
+| 2 | Sources (`gsc_csv` file ingest via `--with-sources`; `suggest`/`serp`/competitor scraping via `--with-scraping`, off by default), cache + throttle | done |
 | 3 | Competitor discovery (`site:` search), page parsing (title/H1–H6/word count/JSON-LD schema), `COMP_COVERS` gaps | done |
 | 4 | Eval harness: frozen v1.2 eight (`evals/scenarios/`) + 8 extras (`evals/extra/`), committed baseline, `seo-agent evals` | done |
 | 5 | LLM client (NVIDIA NIM), retry, strict D-13 budget ledger, redacted trace | done |

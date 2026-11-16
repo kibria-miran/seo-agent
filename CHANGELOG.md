@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-11-16 — report sources, GSC demand and scraping policy
+
+Owner answers Q5 recorded 2026-11-16 (DECISIONS.md): scraping off by default.
+
+- GSC metrics (clicks/impressions/CTR/position) now flow from the Queries.csv
+  parse through keywords into gap evidence (`evidence["gsc"]`, aggregated per
+  cluster) and into the backlog items derived from those gaps. New
+  `gsc_demand_for` in the pipeline; new report section "GSC demand (from your
+  export)" (absent when no GSC data). Keywords table gained nullable
+  `gsc_*` columns with an idempotent ALTER TABLE migration.
+- Report: explicit `## Source data` section when sources ran — each source
+  lists its item count, or "no data from <source>" (with attempt count and a
+  possible-block note when every attempt returned zero rows). Absent on the
+  default fixture path.
+- Scraping policy: `--with-sources` now enables only the file-based GSC
+  ingest (never touches the network); new `--with-scraping` flag enables the
+  ToS-grey Suggest/SERP scraping and competitor discovery. Off by default.
+  Agent mode honours both flags.
+- Suite: 464 passed, 2 deselected. Evals: frozen eight 8/8, `--all` 16/16.
+
 ## 2026-11-16 — v1.2 remaining fixes
 
 No spec revision; continues the 2026-11-16 v1.2 review.

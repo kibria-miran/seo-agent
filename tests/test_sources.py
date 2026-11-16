@@ -451,7 +451,7 @@ def stub_sources(monkeypatch):
             "fetches": 1,
         }
 
-    monkeypatch.setattr(pipeline, "mine_live_sources", fake_mine)
+    monkeypatch.setattr(pipeline, "mine_scraping_sources", fake_mine)
     return pipeline
 
 
@@ -465,7 +465,7 @@ def test_pipeline_with_sources_merges_keywords_and_serp(tmp_path, inject_clock, 
         run_id="run-sources",
         db_path=tmp_path / "seo.db",
         out_root=tmp_path / "out",
-        with_sources=True,
+        with_scraping=True,
     )
 
     with Store(tmp_path / "seo.db") as store:
@@ -507,7 +507,7 @@ def test_serp_evidence_flows_into_backlog_confidence(tmp_path, inject_clock, stu
         run_id="run-conf",
         db_path=tmp_path / "seo.db",
         out_root=tmp_path / "out",
-        with_sources=True,
+        with_scraping=True,
     )
     assert all(item.confidence >= 0.5 for item in report.backlog)
 

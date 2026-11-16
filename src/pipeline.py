@@ -85,31 +85,31 @@ def money_keywords_for(profile: SiteProfile) -> list[str]:
     return sorted(values)
 
 
-def mine_live_sources(
+def mine_scraping_sources(
     profile: SiteProfile,
     store: Store,
     trace: TraceWriter,
 ) -> tuple[list[Keyword], list[SerpResult], list[CompetitorPage], dict[str, int]]:
-    """Opt-in live demand/evidence mining (D-3, D-14).
+    """Opt-in scraping demand/evidence mining (D-3, D-14).
 
-    Returns ``(keywords, serp_results, counts)`` where counts maps each
-    source to the number of items it contributed. A source that fails
-    transport or parsing is recorded in the trace and skipped; a source whose
-    declared requirement is missing is logged as ``dep_unmet``. Neither stops
-    the run.
+    Google Suggest and DuckDuckGo HTML are keyless but ToS-grey; these run
+    only when the owner passes ``--with-scraping`` (off by default). Returns
+    ``(keywords, serp_results, counts)`` where counts maps each source to the
+    number of items it contributed. A source that fails transport or parsing
+    is recorded in the trace and skipped; a source whose declared requirement
+    is missing is logged as ``dep_unmet``. Neither stops the run.
     """
 
     from src.sources import fetch as sources_fetch
     from src.sources.base import SourceError
     from src.sources.competitor import mine_competitors
-    from src.sources.gsc_csv import GscCsvSource
     from src.sources.serp import SerpSource
     from src.sources.suggest import SuggestSource, seed_terms
 
     fetch_start = sources_fetch.fetch_count()
     keywords: list[Keyword] = []
     serp_results: list[SerpResult] = []
-    counts = {"suggest": 0, "serp": 0, "gsc_csv": 0}
+    counts = {"suggest": 0, "serp": 0, "competitor_pages": 0}
 
     suggest = SuggestSource()
     suggest_empty = 0
@@ -145,6 +145,34 @@ def mine_live_sources(
         counts["serp"] += len(found)
     counts["serp_empty"] = serp_empty
 
+    competitor_pages = mine_competitors(profile, store=store, trace=trace)
+    counts["competitor_pages"] = len(competitor_pages)
+
+    fetches = sources_fetch.fetch_count() - fetch_start
+    trace.emit(step="sources", tool="mine_sources", args={"fetches": fetches},
+               source="net", status="ok", kind="action")
+    counts = dict(counts)
+    counts["fetches"] = fetches
+    return keywords, serp_results, competitor_pages, counts
+
+
+def mine_file_sources(
+    profile: SiteProfile,
+    store: Store,
+    trace: TraceWriter,
+) -> tuple[list[Keyword], dict[str, int]]:
+    """File-based GSC ingest (``SEO_AGENT_GSC_CSV``). Never touches the network.
+
+    Returns ``(keywords, counts)``. An unmet requirement is logged as
+    ``dep_unmet`` and skipped; a configured-but-missing file is logged as an
+    error; either way the run continues.
+    """
+
+    from src.sources.base import SourceError
+    from src.sources.gsc_csv import GscCsvSource
+
+    keywords: list[Keyword] = []
+    counts = {"gsc_csv": 0}
     gsc = GscCsvSource()
     try:
         result = gsc.collect("queries", store=store, trace=trace)
@@ -155,16 +183,7 @@ def mine_live_sources(
         trace.emit(step="sources", tool="gsc_csv", args={},
                    source="file", status="error", kind="action",
                    error_type=type(exc).__name__)
-
-    competitor_pages = mine_competitors(profile, store=store, trace=trace)
-    counts["competitor_pages"] = len(competitor_pages)
-
-    fetches = sources_fetch.fetch_count() - fetch_start
-    trace.emit(step="sources", tool="mine_sources", args={"fetches": fetches},
-               source="net", status="ok", kind="action")
-    counts = dict(counts)
-    counts["fetches"] = fetches
-    return keywords, serp_results, competitor_pages, counts
+    return keywords, counts
 
 
 def mine_gsc_pages(
@@ -248,14 +267,17 @@ def run_deterministic(
     out_root: str | Path | None = None,
     trace_path: str | Path | None = None,
     with_sources: bool = False,
+    with_scraping: bool = False,
     with_drafts: bool = False,
 ) -> RunReport:
     """Run audit -> keywords -> clusters -> gaps -> backlog -> report.
 
     A fixture path bypasses the network entirely. Without one, the vendored
     seoextract crawl is used (polite wrapper configured by the adapter).
-    With ``with_sources=True`` the live keyless sources are mined after the
-    profile keywords (opt-in; the default path is byte-identical rerun-safe).
+    ``with_sources=True`` enables the file-based GSC ingest only;
+    ``with_scraping=True`` enables the ToS-grey Google Suggest / DuckDuckGo
+    SERP scraping and competitor discovery. Both are off by default; the
+    default path is byte-identical rerun-safe.
     """
 
     started_at = clock.now()
@@ -292,12 +314,33 @@ def run_deterministic(
         competitor_pages: list[CompetitorPage] = []
         counts: dict[str, str | int] = {}
         query_pages: dict[str, list[str]] = {}
-        if with_sources:
-            mined, serp, competitor_pages, counts = mine_live_sources(profile, store, trace)
-            keywords = merge_keywords(keywords, mined)
+        if with_sources or with_scraping:
+            mined_total: list[Keyword] = []
+            counts = {
+                "suggest": 0,
+                "serp": 0,
+                "gsc_csv": 0,
+                "competitor_pages": 0,
+                "suggest_empty": 0,
+                "serp_empty": 0,
+                "fetches": 0,
+            }
+            if with_sources:
+                mined, file_counts = mine_file_sources(profile, store, trace)
+                mined_total.extend(mined)
+                counts.update(file_counts)
+                query_pages, gsc_pages_status = mine_gsc_pages(store, trace)
+                counts["gsc_pages"] = (
+                    len(query_pages) if gsc_pages_status == "ok" else gsc_pages_status
+                )
+            if with_scraping:
+                mined, serp, competitor_pages, scrape_counts = mine_scraping_sources(
+                    profile, store, trace
+                )
+                mined_total.extend(mined)
+                counts.update(scrape_counts)
+            keywords = merge_keywords(keywords, mined_total)
             source_fetches = counts["fetches"] if isinstance(counts.get("fetches"), int) else 0
-            query_pages, gsc_pages_status = mine_gsc_pages(store, trace)
-            counts["gsc_pages"] = len(query_pages) if gsc_pages_status == "ok" else gsc_pages_status
         clusters = build_clusters(keywords)
         trace.emit(step=2, tool="mine_keywords", args={"count": len(keywords)})
 
@@ -350,7 +393,7 @@ def run_deterministic(
             "mode": "no-llm",
             "drafts": len(drafts),
         }
-        if with_sources:
+        if with_sources or with_scraping:
             budgets["sources"] = counts
         markdown = render_report(
             run_row,
@@ -433,8 +476,9 @@ __all__ = [
     "gsc_demand_for",
     "load_profile",
     "merge_keywords",
+    "mine_file_sources",
     "mine_gsc_pages",
-    "mine_live_sources",
+    "mine_scraping_sources",
     "money_keywords_for",
     "run_deterministic",
 ]
