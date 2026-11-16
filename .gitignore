@@ -36,3 +36,4 @@ htmlcov/
 
 # tool-local state, never commit
 .crush/
+seo-agent-findings*
