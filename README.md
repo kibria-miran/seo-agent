@@ -363,3 +363,4 @@ third_party/         vendored seoextract + PROVENANCE.md
 - `DECISIONS.md` — frozen decisions D-1..D-15 and forced revisions R-1..R-3.
 - `CHANGELOG.md` — implementation history.
 - `third_party/PROVENANCE.md` — upstream URL, commit, hashes and edit policy.
+- `evals/first-cycle.md` — template for the pre-change GSC baseline and the post-change comparison (F-8 success metric).

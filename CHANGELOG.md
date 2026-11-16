@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-11-16 — v1.2 remaining fixes
+
+No spec revision; continues the 2026-11-16 v1.2 review.
+
+- Success metric (F-8): first-cycle baseline template added at
+  `evals/first-cycle.md` (pre-change GSC impressions/clicks/CTR/position per
+  target and money keyword, dated change log per applied backlog item with
+  reviewer, 4–6 week re-check). Linked from README Documentation and the
+  DECISIONS F-8 note. Operational, not code; not run in CI.
+- C11: evidence blobs for NO_PAGE / LOCAL_MISSING / WEAK_PAGE gaps now list
+  the nearest pages by slug-term overlap (cap 5, alphabetical fill, byte-
+  stable) instead of the full crawled page census. Determinism preserved;
+  one new test pins the cap.
+- C3: sources that collect zero items now log a `source_empty` trace event
+  (cached/HTTP rows/dropped items distinguishable), so a site-redesign that
+  silently empties SERP results is visible in the trace instead of looking
+  like "no SERP".
+- Suite: 441 passed, 2 deselected. Default path byte-identical (S12
+  PASS), evals 16/16.
+
 ## 2026-11-16 — v1.2 review fixes
 
 No spec revision. Recorded from the v1.2 review (seo-agent-findings.txt,
@@ -263,4 +283,4 @@ No spec revision.
   files (`DECISIONS.md`, `CHANGELOG.md`, `third_party/PROVENANCE.md`,
   `README.md`, requirements with hashes) are tracked. The parent
   `/home/kibria` root repo was deliberately left untouched.
-- Suite: 429 passing.
+- Suite: 429 passing at the time (441 after the v1.2 review fixes).

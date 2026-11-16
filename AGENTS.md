@@ -26,7 +26,7 @@ python3.12 -m venv .venv
 - Test markers (see `[tool.pytest.ini_options]`): default suite excludes `slow`
   and `live`; the 2 deselected are both `live` tests in `tests/test_live.py`
   (one real NVIDIA NIM call; require `NVIDIA_API_KEY`). There are no `slow`-marked
-  tests. Expect 429 passed, 2 deselected, on 3.12 and 3.14.
+  tests. Expect 441 passed, 2 deselected, on 3.12 and 3.14.
 - `pyproject.toml` declares `[tool.ruff]` (line-length 100, py310) but no lint
   script is wired; tests are the gate.
 - `--agent` needs `NVIDIA_API_KEY`; `--agent --no-llm` is a usage error (exit 2).

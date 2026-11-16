@@ -2,7 +2,7 @@
 
 _This report is a lint, not legal or financial advice. Nothing in this file or in any draft it references makes the output compliant with UK financial-promotion rules, and the compliance checks are automated pattern matching, not a compliance review. A qualified adviser must review everything before anything is published. This tool never edits or publishes the site._
 
-_Run `run-20261116T090000Z` · generated 2026-11-16T18:40:44+00:00 · status ok_
+_Run `run-20261116T090000Z` · generated 2026-11-16T18:51:58+00:00 · status ok_
 
 ## Scorecard
 
@@ -45,23 +45,23 @@ Showing 5 of 5 items, highest priority first.
 BL-0001. **Create a local page for 'mortgage advice manchester'**  
    - priority `0.4333` · impact 2 · confidence 0.65 · effort 3
    - kind `create_local_page` · target `/mortgage-advice-manchester` · status `open`
-   - evidence: `{"city": "Manchester", "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage", "https://clearpath-mortgage.co.uk/remortgage-calculator"], "service": "mortgage advice manchester"}`
+   - evidence: `{"city": "Manchester", "pages": ["https://clearpath-mortgage.co.uk/free-mortgage-advice"], "service": "mortgage advice manchester"}`
 BL-0002. **Create a local page for 'mortgage adviser london'**  
    - priority `0.4333` · impact 2 · confidence 0.65 · effort 3
    - kind `create_local_page` · target `/mortgage-adviser-london` · status `open`
-   - evidence: `{"city": "London", "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage", "https://clearpath-mortgage.co.uk/remortgage-calculator"], "service": "mortgage adviser london"}`
+   - evidence: `{"city": "London", "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage"], "service": "mortgage adviser london"}`
 BL-0003. **Create a page targeting 'bad credit mortgage'**  
    - priority `0.3333` · impact 2 · confidence 0.50 · effort 3
    - kind `create_page` · target `/bad-credit-mortgage` · status `open`
-   - evidence: `{"cluster_keywords": ["bad credit mortgage"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage", "https://clearpath-mortgage.co.uk/remortgage-calculator"], "serp": []}`
+   - evidence: `{"cluster_keywords": ["bad credit mortgage"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage"], "serp": []}`
 BL-0004. **Create a page targeting 'mortgage broker near me'**  
    - priority `0.3333` · impact 2 · confidence 0.50 · effort 3
    - kind `create_page` · target `/mortgage-broker-near-me` · status `open`
-   - evidence: `{"cluster_keywords": ["mortgage broker near me"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage", "https://clearpath-mortgage.co.uk/remortgage-calculator"], "serp": []}`
+   - evidence: `{"cluster_keywords": ["mortgage broker near me"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage"], "serp": []}`
 BL-0005. **Create a page targeting 'mortgage fees explained'**  
    - priority `0.3333` · impact 2 · confidence 0.50 · effort 3
    - kind `create_page` · target `/mortgage-fees-explained` · status `open`
-   - evidence: `{"cluster_keywords": ["mortgage fees explained"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage", "https://clearpath-mortgage.co.uk/remortgage-calculator"], "serp": []}`
+   - evidence: `{"cluster_keywords": ["mortgage fees explained"], "competitors": [], "pages": ["https://clearpath-mortgage.co.uk/", "https://clearpath-mortgage.co.uk/buy-to-let", "https://clearpath-mortgage.co.uk/first-time-buyer", "https://clearpath-mortgage.co.uk/free-mortgage-advice", "https://clearpath-mortgage.co.uk/remortgage"], "serp": []}`
 
 ## Competitor coverage
 

@@ -25,7 +25,7 @@ AMENDMENTS IN 2ND REVISION
     first paragraph, report.md header, draft banner and DECISIONS (F-4 fix).
   - New GscPagesSource (SEO_AGENT_GSC_PAGES_CSV) gives query→page mapping
     without a new Source interface or paid APIs.
-  - Test count is now 440 (429 + 11 new): 440 passed, 2 deselected
+  - Test count is now 441 (429 + 12 new): 441 passed, 2 deselected
     (both `live`-marked tests in tests/test_live.py; there are NO slow-marked
     tests anywhere).
   - Placeholder demo profile is now refused for live runs unless
@@ -158,8 +158,8 @@ Phase 9  README/docs/hashed reqs/provenance: README.md (quickstart, sample
   - `slow`/`live` tests deselected by default; not run (require network/key).
   - GSC source untested against a real Queries.csv export in this checkout.
   - No actual scheduler installed; cron/systemd are documented examples only.
-  - No git repo present at /seo-agent (see section 7 discrepancy) - no
-    CI workflow files (.github/absent), no automated scheduled eval runs.
+  - Git repo now exists with committed history; CI workflow exists
+    (.github/workflows/ci.yml), no automated scheduled eval runs.
   - Draft publishing/editing is out of scope BY DESIGN (D-7); no CMS
     integration exists or is planned in-tree.
   - SEO value itself (real rankings/traffic improvement) is not measured by
@@ -216,7 +216,7 @@ Phase 9  README/docs/hashed reqs/provenance: README.md (quickstart, sample
   e) evals/results/ contains ~17 run artefacts (gitignored; harmless but
      noisy). AGENTS.md documents this.
   f) pyproject.toml declares [tool.ruff] but no lint script is wired; the
-     only enforced gate is pytest. CI is absent (no .github/).
+     only enforced gate is pytest. CI exists (.github/workflows/ci.yml).
   g) .crush/ tool state and logs/ are local artefacts in the tree; not
      part of the deliverable.
 
