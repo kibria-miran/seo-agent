@@ -132,22 +132,27 @@ which feeds the priority formula. The default (`--no-llm`, no flag) run is
 unchanged and byte-identical for the same run-id, fixture and clock; live
 sources are strictly opt-in.
 
-### Eval harness (S01–S16)
+### Eval harness (frozen v1.2 eight + extras)
 
 ```bash
-.venv/bin/python -m src.cli evals          # run every scenario, exit 1 on failure
+.venv/bin/python -m src.cli evals          # run the frozen v1.2 eight, exit 1 on failure
+.venv/bin/python -m src.cli evals --extra  # run the extra scenarios in evals/extra/
+.venv/bin/python -m src.cli evals --all    # run both sets (16)
 .venv/bin/python -m src.cli evals --list   # list scenarios only
 ```
 
-Each scenario is a JSON file in `evals/scenarios/` (`kind` from a small
-vocabulary in `src/evals.py`). Coverage: the golden baseline, clean-site gaps,
-the compliance gate (C1, C2, C5, negation), the injection corpus, frozen
-budgets, money-keyword impact, confidence weights, stale-run abort, byte-identical
-rerun, backlog cap/order, FCA validation, the two-run diff and the
-`COMP_COVERS` path. Scenarios fail as reported results — a broken checker
-never crashes the harness. Results are written to `evals/results/`
-(gitignored); `evals/baselines.json` is committed and is the regression
-anchor for the deterministic fixture run.
+The frozen v1.2 eight live in `evals/scenarios/` (S01, S03, S04, S05, S06,
+S07, S12, S14): the golden baseline, the compliance gate (C1, C2, C5,
+negation), the injection corpus, byte-identical rerun and FCA validation.
+The eight extra scenarios live in `evals/extra/` (S02, S08, S09, S10, S11,
+S13, S15, S16): clean-site gaps, frozen budgets, money-keyword impact,
+confidence weights, stale-run abort, backlog cap/order, the two-run diff and
+the `COMP_COVERS` path. They are supported but not part of the frozen set.
+Each scenario is a JSON file (`kind` from a small vocabulary in
+`src/evals.py`). Scenarios fail as reported results — a broken checker never
+crashes the harness. Results are written to `evals/results/` (gitignored);
+`evals/baselines.json` is committed and is the regression anchor for the
+deterministic fixture run.
 
 ### Agent mode (Phase 6, opt-in)
 
@@ -319,7 +324,7 @@ previous one.
 | 1 | Fixture tests S1, S2, S15, S16 and safety invariants | done |
 | 2 | Live sources (`suggest`, `serp`, `fetch`, `gsc_csv`), cache + throttle, opt-in `--with-sources` | done |
 | 3 | Competitor discovery (`site:` search), page parsing (title/H1–H6/word count/JSON-LD schema), `COMP_COVERS` gaps | done |
-| 4 | Eval harness: 16 scenarios (`evals/scenarios/`), committed baseline, `seo-agent evals` | done |
+| 4 | Eval harness: frozen v1.2 eight (`evals/scenarios/`) + 8 extras (`evals/extra/`), committed baseline, `seo-agent evals` | done |
 | 5 | LLM client (NVIDIA NIM), retry, strict D-13 budget ledger, redacted trace | done |
 | 6 | Agent tool loop (`agent.py`) — proposes, code decides; deterministic fallback | done |
 | 7 | Compliance-gated drafts (template + LLM paths, C1–C6 gate before any write) | done |
@@ -345,7 +350,7 @@ src/
   security.py        prompt-injection filter
   store.py           SQLite snapshots, diffs and TTL cache
   trace.py           redacted JSONL trace
-  evals.py           S01–S16 scenario harness (runner for evals/scenarios/)
+  evals.py           scenario harness (frozen eight in evals/scenarios/, extras in evals/extra/)
   llm.py             NVIDIA NIM client: retry, D-13 budget ledger, redacted trace
   agent.py           Phase 6 tool loop: LLM proposes, code decides, template fallback
   drafts.py          Phase 7 drafts: template skeleton or LLM copy, gated before write

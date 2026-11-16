@@ -60,6 +60,7 @@ LOGS_DIR = ROOT / "logs"
 PROFILES_DIR = ROOT / "profiles"
 EVALS_DIR = ROOT / "evals"
 SCENARIOS_DIR = EVALS_DIR / "scenarios"
+EXTRA_SCENARIOS_DIR = EVALS_DIR / "extra"
 RESULTS_DIR = EVALS_DIR / "results"
 FIXTURES_DIR = ROOT / "tests" / "fixtures"
 

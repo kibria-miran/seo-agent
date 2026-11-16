@@ -1,6 +1,7 @@
-"""Phase 4 eval harness (S1–S16).
+"""Phase 4 eval harness (frozen v1.2 eight + opt-in extras).
 
-Every scenario is a JSON file under ``evals/scenarios/`` with a ``kind`` from
+Every scenario is a JSON file under ``evals/scenarios/`` (the frozen v1.2
+eight) or ``evals/extra/`` (the extra scenarios, opt-in) with a ``kind`` from
 a small, explicit vocabulary. Checkers run in-process and pin ``clock.now()``
 so the deterministic checks stay byte-stable. A failing scenario is reported,
 never raised; ``run_evals`` returns the summary and the CLI exits non-zero
@@ -8,7 +9,9 @@ when any scenario fails.
 
 Usage::
 
-    seo-agent evals            # run every scenario
+    seo-agent evals            # run the frozen v1.2 eight
+    seo-agent evals --extra    # run the extra eight from evals/extra/
+    seo-agent evals --all      # run both sets
     seo-agent evals --list     # print scenario titles and exit
 """
 
@@ -41,19 +44,24 @@ class ScenarioResult:
     detail: str = ""
 
 
-def load_scenarios(scenarios_dir: Path | None = None) -> list[Scenario]:
-    directory = scenarios_dir or config.SCENARIOS_DIR
+def load_scenarios(
+    scenarios_dir: Path | None = None, *, include_extra: bool = False
+) -> list[Scenario]:
+    directories = [scenarios_dir or config.SCENARIOS_DIR]
+    if include_extra and scenarios_dir is None:
+        directories.append(config.EXTRA_SCENARIOS_DIR)
     scenarios: list[Scenario] = []
-    for path in sorted(directory.glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        scenarios.append(
-            Scenario(
-                id=str(data["id"]),
-                title=str(data.get("title", data["id"])),
-                kind=str(data["kind"]),
-                params=dict(data.get("params") or {}),
+    for directory in directories:
+        for path in sorted(directory.glob("*.json")):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            scenarios.append(
+                Scenario(
+                    id=str(data["id"]),
+                    title=str(data.get("title", data["id"])),
+                    kind=str(data["kind"]),
+                    params=dict(data.get("params") or {}),
+                )
             )
-        )
     return sorted(scenarios, key=lambda item: item.id)
 
 
@@ -453,14 +461,20 @@ def run_scenario(scenario: Scenario, tmp_path: Path, monkeypatch: _MiniMonkeyPat
     return ScenarioResult(scenario.id, scenario.title, bool(ok), str(detail))
 
 
-def run_evals(scenarios_dir: Path | None = None, *, write_results: bool = True) -> dict[str, Any]:
-    """Run every scenario and return the summary.
+def run_evals(
+    scenarios_dir: Path | None = None,
+    *,
+    include_extra: bool = False,
+    write_results: bool = True,
+) -> dict[str, Any]:
+    """Run the frozen v1.2 eight (plus ``evals/extra/`` when ``include_extra``)
+    and return the summary.
 
     Results are persisted to ``evals/results/evals-<ts>.json`` when
     ``write_results`` is true (the default for the CLI).
     """
 
-    scenarios = load_scenarios(scenarios_dir)
+    scenarios = load_scenarios(scenarios_dir, include_extra=include_extra)
     results: list[ScenarioResult] = []
     with tempfile.TemporaryDirectory(prefix="seo-evals-") as raw_tmp:
         for scenario in scenarios:

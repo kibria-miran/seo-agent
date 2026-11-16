@@ -1,7 +1,8 @@
 """Phase 4 eval harness tests.
 
-The full 16-scenario suite runs in-process; a handful of tests check the
-harness itself (unknown kinds, failing checkers, CLI exit codes).
+The frozen v1.2 eight run in-process by default; a handful of tests check the
+harness itself (unknown kinds, failing checkers, CLI exit codes). The extra
+scenarios in evals/extra/ are opt-in via --extra/--all.
 """
 
 from __future__ import annotations
@@ -20,13 +21,43 @@ pytestmark = pytest.mark.fast
 runner = CliRunner()
 
 
-def test_all_16_scenarios_exist_and_load():
+FROZEN_EIGHT = ["S01", "S03", "S04", "S05", "S06", "S07", "S12", "S14"]
+EXTRA_EIGHT = ["S02", "S08", "S09", "S10", "S11", "S13", "S15", "S16"]
+
+
+def test_frozen_eight_exist_and_load():
     scenarios = load_scenarios()
+    assert [scenario.id for scenario in scenarios] == FROZEN_EIGHT
+
+
+def test_extra_eight_exist_and_load():
+    scenarios = load_scenarios(config.EXTRA_SCENARIOS_DIR)
+    assert [scenario.id for scenario in scenarios] == EXTRA_EIGHT
+
+
+def test_all_sixteen_load_with_include_extra():
+    scenarios = load_scenarios(include_extra=True)
     assert [scenario.id for scenario in scenarios] == [f"S{index:02d}" for index in range(1, 17)]
 
 
 def test_the_full_eval_suite_passes():
     summary = run_evals(write_results=False)
+    assert summary["failed"] == 0, [
+        result for result in summary["results"] if not result["ok"]
+    ]
+    assert summary["total"] == 8
+
+
+def test_the_extra_eval_suite_passes():
+    summary = run_evals(config.EXTRA_SCENARIOS_DIR, write_results=False)
+    assert summary["failed"] == 0, [
+        result for result in summary["results"] if not result["ok"]
+    ]
+    assert summary["total"] == 8
+
+
+def test_all_sixteen_eval_suite_passes():
+    summary = run_evals(include_extra=True, write_results=False)
     assert summary["failed"] == 0, [
         result for result in summary["results"] if not result["ok"]
     ]
@@ -92,11 +123,23 @@ def test_baselines_file_is_committed_and_matches_the_harness():
 def test_cli_evals_runs_and_exits_zero():
     result = runner.invoke(app, ["evals"])
     assert result.exit_code == 0, result.output
+    assert "8/8" in result.output
+
+
+def test_cli_evals_all_runs_sixteen():
+    result = runner.invoke(app, ["evals", "--all"])
+    assert result.exit_code == 0, result.output
     assert "16/16" in result.output
+
+
+def test_cli_evals_extra_runs_eight():
+    result = runner.invoke(app, ["evals", "--extra"])
+    assert result.exit_code == 0, result.output
+    assert "8/8" in result.output
 
 
 def test_cli_evals_list_only():
     result = runner.invoke(app, ["evals", "--list"])
     assert result.exit_code == 0
     assert "S01" in result.output
-    assert "S16" in result.output
+    assert "S16" not in result.output

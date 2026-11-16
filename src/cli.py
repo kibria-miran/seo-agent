@@ -163,14 +163,33 @@ def evals_command(
         "--list",
         help="Print scenario ids and titles, then exit.",
     ),
+    extra: bool = typer.Option(
+        False,
+        "--extra",
+        help="Run the extra scenarios in evals/extra/ instead of the frozen v1.2 eight.",
+    ),
+    all_scenarios: bool = typer.Option(
+        False,
+        "--all",
+        help="Run both the frozen v1.2 eight and the evals/extra/ scenarios.",
+    ),
 ) -> None:
-    """Run the S01–S16 eval scenarios and write evals/results/evals-<ts>.json."""
+    """Run the frozen v1.2 eight by default and write evals/results/evals-<ts>.json."""
 
+    if extra and all_scenarios:
+        console.print("[red]--extra and --all are mutually exclusive[/red]")
+        raise typer.Exit(code=2)
+    if extra:
+        scenarios_dir = config.EXTRA_SCENARIOS_DIR
+        include_extra = False
+    else:
+        scenarios_dir = None
+        include_extra = all_scenarios
     if list_only:
-        for scenario in load_scenarios():
+        for scenario in load_scenarios(scenarios_dir, include_extra=include_extra):
             console.print(f"{scenario.id:5} {scenario.title}")
         return
-    summary = run_evals()
+    summary = run_evals(scenarios_dir, include_extra=include_extra)
     for result in summary["results"]:
         mark = "[green]PASS[/green]" if result["ok"] else "[red]FAIL[/red]"
         console.print(f"{mark} {result['id']:5} {result['title']}")

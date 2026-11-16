@@ -7,12 +7,12 @@ Every item carries file:line evidence. Nothing here is committed; see
 ## Done (works, verified here)
 
 - Deterministic pipeline (audit → gaps → backlog → report) — src/pipeline.py;
-  fixture run green, `S12` byte-identical rerun passes (evals 16/16).
-- Test suite — 441 passed, 2 deselected on Python 3.14.8 (deselected =
+  fixture run green, `S12` byte-identical rerun passes (evals: frozen eight 8/8, --all 16/16).
+- Test suite — 447 passed, 2 deselected on Python 3.14.8 (deselected =
   `tests/test_live.py::test_live_self_test_one_real_call` and
   `::test_live_client_budget_ledger_records_tokens`, both `@pytest.mark.live`,
   tests/test_live.py:1-21).
-- Eval harness S01–S16 — `python -m src.cli evals` → 16/16 PASS.
+- Eval harness — frozen v1.2 eight in `evals/scenarios/` (`python -m src.cli evals` → 8/8 PASS); 8 extras in `evals/extra/` (`--extra` → 8/8, `--all` → 16/16 PASS).
 - Compliance lint C1–C6 + C1b, negation-aware, per-rule pass/fail tests —
   src/compliance.py:71 (`_is_negated`), src/compliance.py:137 (C1b),
   tests/test_compliance.py (e.g. `test_C1b_permits_negated_no_fees` :99).
@@ -67,24 +67,20 @@ Every item carries file:line evidence. Nothing here is committed; see
 
 ## Cleanup
 
-- seo-agent-findings.txt is tracked in git (added in bd76f9e) but was
-  requested untracked; my v2 rewrite is uncommitted. Decide: `git rm --cached`
-  + .gitignore, or keep.
-- Stale lines: CODEBASE_REPORT.txt:43, :191, :226 ("429 passed",
-  "429 tests green"), :219 ("CI is absent (no .github/)" — false);
-  CHANGELOG.md:293 ("Suite: 429 passing", Phase 8/9 entry).
+- seo-agent-findings.txt — DONE: untracked via `git rm --cached` in 5abf778;
+  `seo-agent-findings*` is gitignored.
+- Stale lines: FIXED in 047cb33 (CI-absent claims in CODEBASE_REPORT.txt;
+  CHANGELOG.md "429 passing" annotated). Dated 429 test-count snapshots
+  remain intentionally (history).
 - Leftover "gate" nouns: README.md:144, :178, :325, :338, :351;
   src/compliance.py:1; src/drafts.py:136,158,161-162; src/agent.py:237;
   src/cli.py:49; src/schema_gen.py:8; src/evals.py:164,180;
   CODEBASE_REPORT.txt:60,108,112,179,219; AGENTS.md:31 ("tests are the gate").
-- 8 extra eval scenarios vs the frozen v1.2 eight — not decided
-  (keep + amend spec, or move to evals/extra/).
-- vulture (uvx, min-confidence 80): `src/store.py:230: unused variable
-  'exc_info' (100% confidence)` — `__exit__(self, *exc_info: Any)` signature;
-  the parameter is required by the context-manager protocol, so it cannot be
-  deleted; annotate with `del exc_info` or a leading underscore if the style
-  allows.
-- Working tree dirty: 11 modified + 1 untracked path (see `git status`);
-  seo-agent-findings.txt carries my uncommitted rewrite.
+- 8 extra eval scenarios — DECIDED 2026-11-16: moved to `evals/extra/` via
+  `git mv`; frozen v1.2 eight stay in `evals/scenarios/`; harness gains
+  `--extra` / `--all`; README and this file updated.
+- vulture (uvx, min-confidence 80): `src/store.py:230` — FIXED: param renamed
+  to `_exc_info` (518e3d2).
+- Working tree: clean at baseline-clean (5abf778), pushed; CI green.
 - AGENTS.md / CODEBASE_REPORT.txt / CHANGELOG.md are hand-maintained snapshots
   that rot; regenerate or add a check.
