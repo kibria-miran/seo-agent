@@ -126,11 +126,18 @@ def _sources_section(budgets: Mapping[str, Any]) -> list[str]:
     lines = ["## Source data", ""]
     for name in ("suggest", "serp", "gsc_csv", "gsc_pages", "competitor_pages"):
         value = counts.get(name)
+        empty = counts.get(f"{name}_empty")
         if isinstance(value, bool):
             value = int(value)
         if isinstance(value, int):
             if value > 0:
                 lines.append(f"- `{name}`: {value} item(s)")
+            elif isinstance(empty, int) and empty > 0:
+                lines.append(
+                    f"- `{name}`: no data from {name} "
+                    f"({empty} attempt(s) returned zero results; possible bot block or "
+                    f"empty response — check the trace for source_empty events)"
+                )
             else:
                 lines.append(f"- `{name}`: no data from {name}")
         elif value is None:

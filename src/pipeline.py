@@ -112,6 +112,7 @@ def mine_live_sources(
     counts = {"suggest": 0, "serp": 0, "gsc_csv": 0}
 
     suggest = SuggestSource()
+    suggest_empty = 0
     for seed in seed_terms(profile):
         try:
             result = suggest.collect(seed, store=store, trace=trace)
@@ -120,11 +121,15 @@ def mine_live_sources(
                        source="net", status="error", kind="action",
                        error_type=type(exc).__name__)
             break
+        if not result.skipped and not result.items:
+            suggest_empty += 1
         mined = SuggestSource.to_keywords(result.items, cities=profile.cities)
         keywords.extend(mined)
         counts["suggest"] += len(mined)
+    counts["suggest_empty"] = suggest_empty
 
     serp = SerpSource()
+    serp_empty = 0
     for query in profile.target_keywords[: config.MAX_SERP_QUERIES]:
         try:
             result = serp.collect(query, store=store, trace=trace)
@@ -133,9 +138,12 @@ def mine_live_sources(
                        source="net", status="error", kind="action",
                        error_type=type(exc).__name__)
             break
+        if not result.skipped and not result.items:
+            serp_empty += 1
         found = SerpSource.to_serp_results(result.items)
         serp_results.extend(found)
         counts["serp"] += len(found)
+    counts["serp_empty"] = serp_empty
 
     gsc = GscCsvSource()
     try:
