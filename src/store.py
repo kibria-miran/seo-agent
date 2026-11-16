@@ -227,7 +227,7 @@ class Store:
     def __enter__(self) -> "Store":
         return self
 
-    def __exit__(self, *exc_info: Any) -> None:
+    def __exit__(self, *_exc_info: Any) -> None:
         self.close()
 
     @contextmanager

@@ -88,6 +88,14 @@ class Source(ABC):
 
         raw = list((fetch or self.fetch)(query))
         clean, dropped = self._scrub(raw)
+        if not clean:
+            if raw:
+                # Items arrived but every one was dropped; or parser saw blocks and yielded nothing.
+                self._emit(trace, query=query, source="net", status="ok",
+                           kind="source_empty", dropped=dropped)
+            else:
+                self._emit(trace, query=query, source="net", status="ok",
+                           kind="source_empty", dropped=0)
         if dropped:
             self._emit(trace, query=query, source="net", status="ok",
                        kind="injection_attempt", dropped=dropped)

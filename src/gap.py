@@ -73,6 +73,26 @@ def candidate_page(cluster: Cluster, pages: Sequence[PageData]) -> PageData | No
     return best
 
 
+def nearest_pages(cluster: Cluster, pages: Sequence[PageData], limit: int = 5) -> list[str]:
+    """Pages closest (by slug-term overlap) to the cluster, capped and stable.
+
+    Alphabetical fill after overlap-scored candidates keeps a run byte-stable
+    while trimming the full page census from evidence blobs.
+    """
+
+    wanted = head_terms(cluster.head_term) if cluster.head_term else set()
+    if not wanted:
+        return sorted(page.url for page in pages)[:limit]
+
+    scored = sorted(
+        pages,
+        key=lambda page: (-len(wanted & set(_SLUG_RE.split(page.url.casefold()))), page.url),
+    )
+    matched = [page for page in scored if wanted & set(_SLUG_RE.split(page.url.casefold()))]
+    chosen = (matched or scored)[:limit]
+    return sorted(page.url for page in chosen)
+
+
 def competitor_matches(
     head_term: str, competitor_pages: Sequence[CompetitorPage]
 ) -> list[CompetitorPage]:
@@ -129,7 +149,7 @@ def _coverage_gap(
         evidence = {
             "city": city,
             "service": head,
-            "pages": sorted(page.url for page in pages),
+            "pages": nearest_pages(cluster, pages),
         }
         if gsc_pages:
             evidence["gsc_pages"] = gsc_pages
@@ -190,7 +210,7 @@ def _coverage_gap(
         cluster_id=cluster.cluster_id,
         gap_type=GapType.NO_PAGE,
         evidence={
-            "pages": sorted(page.url for page in pages),
+            "pages": nearest_pages(cluster, pages),
             "cluster_keywords": _cluster_keywords(cluster),
             "serp": [result.url for result in serps],
             "competitors": sorted(page.url for page in comps),

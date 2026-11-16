@@ -288,3 +288,27 @@ def test_duplicate_cluster_ids_are_deduplicated_deterministically():
     assert len(gaps) == 1
     # Sorted by (cluster_id, head_term), so the alphabetically first head wins.
     assert gaps[0].keyword == "alpha topic"
+
+
+def test_no_page_evidence_lists_nearest_pages_not_full_census():
+    from conftest import make_audit, make_cluster, make_page
+
+    pages = [
+        make_page(url=f"https://example.co.uk/{slug}", title="placeholder", h1_tags=[])
+        for slug in [
+            "bad-credit-mortgage",
+            "first-time-buyer",
+            "buy-to-let",
+            "remortgage",
+            "free-mortgage-advice",
+            "unrelated-page",
+        ]
+    ]
+    audit = make_audit(url="https://example.co.uk", pages=pages)
+    cluster = make_cluster(cluster_id="c1", keywords=["home loan guide"], head_term="home loan guide")
+    gaps = analyze(audit, [cluster], cities=["London"])
+    no_page = next(g for g in gaps if g.gap_type.value == "NO_PAGE")
+    listed = no_page.evidence["pages"]
+    assert listed == sorted(listed)
+    assert len(listed) == 5
+    assert "https://example.co.uk/unrelated-page" not in listed
