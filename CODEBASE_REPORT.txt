@@ -1,0 +1,207 @@
+================================================================================
+SEO GROWTH AGENT — IMPLEMENTATION AUDIT REPORT (.txt)
+Generated: 2026-11-16
+Scope: /seo-agent (UK-mortgage SEO audit -> gap analysis -> weekly backlog tool)
+Purpose: validate what is IMPLEMENTED vs what is still TO COME, from evidence
+         in this repo (code, tests, evals, docs), not from intent.
+Method: source inspection + executing the test suite (429 passed, 2 deselected)
+        and the eval harness (16/16 PASS).
+================================================================================
+
+0. TL;DR
+-------------------------------------------------------------------------------
+All 9 phases (0-9) declared in README/CHANGELOG are IMPLEMENTED and verified in
+this checkout. Nothing in the code is marked TODO/FIXME/NotImplemented.
+What remains is OPERATIONAL (real profile, real keys, cron install) plus a
+small set of doc/hygiene inconsistencies listed in section 7.
+
+Verification run on this machine, this checkout:
+  - .venv/bin/python -m pytest -q   -> 429 passed, 2 deselected (slow, live)
+  - .venv/bin/python -m src.cli evals -> 16/16 scenarios PASS
+  - ruff is configured in pyproject.toml but no lint target is wired/enforced
+
+1. VERIFIED IMPLEMENTED (with evidence)
+-------------------------------------------------------------------------------
+Phase 0  Pyproject, vendored seoextract 0.3.0 @ 6544a74e (third_party/seoextract,
+  verbatim copy per PROVENANCE.md; requirements-seoextract.txt @ --no-deps),
+  import-time capability probe src/audit_adapter.py:48, R-1 API translation.
+  Verified: probe errors are tested (tests/test_adapter.py).
+  Status: DONE.
+
+Phase 1  Deterministic pipeline (src/pipeline.py, src/backlog.py, src/gap.py,
+  src/keywords.py, src/schema_gen.py, src/report.py, src/store.py, src/trace.py,
+  src/security.py, src/compliance.py). NO_PAGE / WEAK_PAGE / LOCAL_MISSING /
+  SCHEMA_MISSING / COMP_COVERS gaps; priority = (impact*confidence)/effort, cap
+  30, stable tie-breaks; byte-identical rerun for same run-id+fixture+clock
+  (S12 PASS). Compliance gate C1..C6 + C1b (src/compliance.py). Injection
+  filter with homoglyph folding, NFKC, zero-width strip (src/security.py).
+  Redacted JSONL trace with args_hash (src/trace.py). SQLite snapshot store
+  with WAL, TTL cache and stale-run abort (S11 PASS).
+  Status: DONE. Fixture tests S1/S2/S15/S16 + safety invariants: DONE.
+
+Phase 2  Keyless live sources behind one Source interface
+  (src/sources/base.py, fetch.py robots+2s throttle+1MB cap+GET only,
+  suggest.py Google Suggest, serp.py DuckDuckGo HTML top-10, gsc_csv.py GSC
+  Queries.csv w/ export-fingerprint cache key): cache `source|query` + TTL,
+  dep_unmet skip, injection scrub before cache. Opt-in --with-sources only.
+  S16 (two-domain COMP_COVERS) PASS. Tests: tests/test_sources.py.
+  Status: DONE (live network paths intentionally NOT executed here; they are
+  exercised only under the `slow`/`live` markers).
+
+Phase 3  Competitor discovery (DuckDuckGo site: queries, MAX_SERP_QUERIES=25,
+  MAX_COMP_PAGES=5/domain, MAX_FETCHES=120 hard cap with global fetch counter
+  in src/sources/fetch.py; competitor page cache competitor_page|<url>;
+  COMP_COVERS gaps). tests/test_competitor.py.
+  Status: DONE.
+
+Phase 4  Eval harness: kind vocabulary in src/evals.py (~13 checkers),
+  scenarios s01..s16 JSON under evals/scenarios/, committed anchor
+  evals/baselines.json, results gitignored, failing scenario never crashes
+  the harness, exit 1 on failure. 16/16 PASS on this machine.
+  Status: DONE.
+
+Phase 5  LLM client (src/llm.py): NVIDIA NIM OpenAI-compatible endpoint,
+  env key NVIDIA_API_KEY, MAX_RETRIES via RETRY_DELAYS=(1.0, 2.0),
+  per-attempt budget ledger (calls incl. retries, tokens in/out, wall
+  clock), pre-spend chars/4 prompt estimate, server-usage reconciliation,
+  OpenAI SDK max_retries=0, LLMError/LLMUnavailable/LLMTransient/
+  BudgetExceeded, redacted trace. tests/test_llm.py, budget rules also pinned
+  by S08/S09/S10.
+  Status: DONE (live LLM calls NOT executed here).
+
+Phase 6  Agent tool loop (src/agent.py): one JSON proposal per turn
+  ({"tool","args"} or {"finish":true}); validate_args vs per-tool schema;
+  loop guard = same (tool,args) twice consecutively only; tool requires ->
+  dep_unmet skip (not a failure); two consecutive proposal failures ->
+  deterministic template fallback (D-12); observations scrubbed to 900 chars;
+  8-tool registry (audit_site, mine_keywords, mine_sources, build_clusters,
+  analyze_gaps, build_backlog, check_compliance, write_outputs); LLM proposes,
+  code decides. tests/test_agent.py incl. both contract tests.
+  --agent needs NVIDIA_API_KEY; --agent --no-llm exits 2 (verified in code
+  src/cli.py:63).
+  Status: DONE (real agent run needs a live key; not exercised here).
+
+Phase 7  Compliance-gated drafts (src/drafts.py): eligible kinds
+  create_page/create_local_page, top 3 (MAX_DRAFTS=3), template path
+  (deterministic, byte-stable, all mandatory UK disclosures baked in) and LLM
+  path (one retry with violations fed back -> compliance_reject, nothing
+  written). Gate C1..C6 BEFORE any write in both modes. Idempotent
+  per-run, no double LLM spend. tests/test_drafts.py.
+  Status: DONE.
+
+Phase 8  Weekly scheduling (Phase 8 in CHANGELOG): scripts/weekly.sh
+  (POSIX sh, set -eu; runs `src.cli doctor` then live polite run appending to
+  logs/weekly.log; SEO_AGENT_SITE override; cron example Monday 06:00 in
+  README; systemd unit/timer examples). tests/test_doctor.py covers
+  `seo-agent doctor` (profile validity + FCA ref, money-keyword derivation,
+  writable out/+logs/, vendored seoextract import + probe; LLM/GSC only
+  INFO). Doctor exits 2 on any problem.
+  Status: DONE. NOTE: script installed logic is tested only via `sh -n` +
+  content assertions, not by actually executing a weekly run.
+
+Phase 9  README/docs/hashed reqs/provenance: README.md (quickstart, sample
+  report, safety model, cron/systemd), DECISIONS.md (D-1..D-15 + R-1..R-3),
+  CHANGELOG.md, third_party/PROVENANCE.md, requirements*.txt with sha256,
+  AGENTS.md (this repo's agent onboarding, accurate as of 2026-11-16).
+  Status: DONE.
+
+2. ARCHITECTURE / INVARIANTS (verified, not aspirational)
+-------------------------------------------------------------------------------
+  - ONLY src/audit_adapter.py imports seoextract; upstream renames break 1
+    file + 1 probe test.
+  - src/config.py is the single source for budgets/caps/weights/cities/
+    disclosure phrases; modules must not hard-code them. No timestamps there;
+    time goes through src/clock.now() (D-10).
+  - Writes confined to out/ and logs/ (D-15); default DB out/state/seo.db,
+    cache out/cache/, logs/trace.jsonl (D-15 verified by test_safety.py and
+    conftest assert_write_paths_under).
+  - HTTP GET-only except the one LLM POST; HEAD not counted as fetch (R-3).
+  - Fetched text untrusted: stripped/normalised/scrubbed; injection marker ->
+    item dropped + injection_attempt trace; raw HTML never reaches the LLM.
+  - Human in the loop: outputs are files; nothing edits/publishes the site.
+  - Budgets frozen (S08): 12 steps / 20 LLM calls / 20k in / 5k out / 180 s /
+    120 fetches / 600 s / 30 backlog. D-13 enforced in code, never prompts.
+  - Fixture mode (--fixture tests/fixtures/own_site_audit.json) is the only
+    fully network-free, deterministic run mode (S12 byte-identical PASS).
+
+3. NOT IMPLEMENTED / NOT VERIFIED IN THIS CHECKOUT
+-------------------------------------------------------------------------------
+  - Real live crawl of THIS repo's profile (profiles/site.json still targets
+    the fictional demo site clearpath-mortgage.co.uk, FCA ref 123456). Never
+    run against a real domain yet.
+  - Real LLM call (Phases 5/6 verification is unit-level with FakeLLM).
+    `--agent` end-to-end effectiveness is unproven against NVIDIA NIM.
+  - `slow`/`live` tests deselected by default; not run (require network/key).
+  - GSC source untested against a real Queries.csv export in this checkout.
+  - No actual scheduler installed; cron/systemd are documented examples only.
+  - No git repo present at /seo-agent (see section 7 discrepancy) - no
+    CI workflow files (.github/absent), no automated scheduled eval runs.
+  - Draft publishing/editing is out of scope BY DESIGN (D-7); no CMS
+    integration exists or is planned in-tree.
+  - SEO value itself (real rankings/traffic improvement) is not measured by
+    anything in this repo; S15 diffs runs, it does not verify outcomes.
+
+4. TO COME / REMAINING (operational, in priority order)
+-------------------------------------------------------------------------------
+  1. Replace profiles/site.json with the real domain, money pages, keywords,
+     competitors, cities, FCA firm reference (6 digits), set SEO_AGENT_CONTACT.
+     (Blocking for any real use.)
+  2. Validate credentials: NVIDIA_API_KEY (agent mode, optional),
+     SEO_AGENT_GSC_CSV (optional); run `src.cli doctor` after configuring.
+  3. One opt-in live run: `src.cli run --site profiles/site.json --no-llm`
+     (polite crawl) and inspect out/<run-id>/report.md + backlog.json.
+  4. Install the weekly schedule (scripts/weekly.sh + cron/systemd in README).
+  5. Optionally validate agent mode end-to-end with a real key and inspect
+     budget behaviour and draft quality through the compliance gate.
+
+5. NOT EXPECTED / NEVER IN SCOPE
+-------------------------------------------------------------------------------
+  - Paid SERP/GSC/keyword APIs (D-3).
+  - Editing or publishing the site (D-7).
+  - Automatic PR/content deployment, CMS plugins, webhooks.
+  - Per-keyword historical rank tracking beyond SQLite run-to-run diffs.
+  - Multi-site or multi-tenant operation (one profile per invocation).
+
+6. VERIFICATION SNAPSHOT (this machine, 2026-11-16)
+-------------------------------------------------------------------------------
+  pytest -q            429 passed, 2 deselected (-m 'not slow and not live')
+  src.cli evals        16/16 PASS (S01..S16)
+  src.cli doctor       passes in fast tests (tests/test_doctor.py)
+  line count src/      ~6,671 incl. sources
+  test count           21 test modules in tests/ (+conftest)
+  eval scenarios       s01 golden baseline .. s16 competitor coverage
+  artefacts            out/run-20261116T090000Z/{report.md,backlog.json,drafts/}
+                       logs/trace.jsonl, out/state/seo.db (runtime artefacts)
+
+7. INCONSISTENCIES / HYGIENE FOUND (doc-vs-repo disagreements to fix)
+-------------------------------------------------------------------------------
+  a) CHANGELOG (Phase 8/9) claims a git repository was initialised INSIDE
+     seo-agent/, but no .git is present in this checkout and the environment
+     reports the directory is not a git repo. Either the .git dir was lost/
+     excluded or the claim no longer holds. Docs should not claim otherwise.
+  b) README "Implemented vs remaining" table (Phase 8 = "documented here") is
+     STALE: Phase 8 actually shipped src.cli doctor + scripts/weekly.sh +
+     tests/test_doctor.py. README should describe the doctor/weekly script.
+  c) data/seo.db at repo root is a STALE legacy snapshot from before the
+     D-15 relocation to out/state/seo.db. It is redundant; safe to delete
+     (after confirming no tooling points at it) and should be removed from
+     any future commit.
+  d) README quickstart still only exercises --fixture; the `doctor` command
+     and scripts/weekly.sh are undocumented in the README body (only in
+     CHANGELOG and scripts/weekly.sh comments).
+  e) evals/results/ contains ~17 run artefacts (gitignored; harmless but
+     noisy). AGENTS.md documents this.
+  f) pyproject.toml declares [tool.ruff] but no lint script is wired; the
+     only enforced gate is pytest. CI is absent (no .github/).
+  g) .crush/ tool state and logs/ are local artefacts in the tree; not
+     part of the deliverable.
+
+8. HONEST BOTTOM LINE
+-------------------------------------------------------------------------------
+Implementation per the frozen spec v1.1 is COMPLETE and test-verified in this
+checkout as of 2026-11-16: 429 tests green, 16/16 evals green. What does NOT
+exist yet is any real-world validation: a replaced production profile, a live
+crawl, a live LLM trajectory, installed scheduling and measured SEO impact.
+Any "what is to come" answer from the docs should be filtered through section
+3 and 7 above, not taken at face value.
+================================================================================
