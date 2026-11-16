@@ -9,7 +9,8 @@ text: each is normalised and injection-scanned by the shared scrub in
 from __future__ import annotations
 
 import json
-from typing import Any, Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 from urllib.parse import urlencode
 
 from src import config

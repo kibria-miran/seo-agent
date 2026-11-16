@@ -24,13 +24,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Any, Callable, Sequence
+from pathlib import Path
+from typing import Any
 
 from src import clock, config
 from src.backlog import build_backlog
+from src.drafts import write_drafts
 from src.gap import analyze
-from src.keywords import normalise
 from src.llm import BudgetExceeded, LLMBudget
 from src.models import (
     AuditSnapshot,
@@ -43,7 +45,6 @@ from src.models import (
     SerpResult,
     SiteProfile,
 )
-from src.drafts import write_drafts
 from src.pipeline import (
     build_clusters,
     build_keywords,
@@ -58,7 +59,6 @@ from src.report import render_report, write_report
 from src.security import find_injection
 from src.store import Store
 from src.trace import TraceWriter
-from pathlib import Path
 
 FOLLOW_UP = "You have budget left. Propose the next tool call, or finish."
 OBSERVATION_LIMIT = 900
@@ -92,7 +92,7 @@ class Tool:
     name: str
     description: str
     requires: tuple[str, ...]
-    handler: Callable[[dict[str, Any], "AgentContext"], dict[str, Any]]
+    handler: Callable[[dict[str, Any], AgentContext], dict[str, Any]]
     args_schema: dict[str, str] = field(default_factory=dict)  # name -> "string"|"int"|"bool"
 
 

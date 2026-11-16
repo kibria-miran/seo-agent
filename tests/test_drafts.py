@@ -3,15 +3,12 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
 import pytest
+from conftest import FakeLLM
 from typer.testing import CliRunner
 
-from conftest import FakeLLM
-
 from src import compliance, config
-from src.backlog import build_backlog
 from src.cli import app
 from src.drafts import MAX_DRAFTS, draft_slug, template_draft, write_drafts
 from src.models import BacklogItem

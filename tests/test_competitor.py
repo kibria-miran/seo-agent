@@ -233,7 +233,7 @@ def test_mine_competitors_tolerates_a_robots_block(monkeypatch, store, trace):
 def test_pipeline_with_sources_produces_a_competitor_gap(tmp_path, inject_clock, monkeypatch):
     inject_clock("2026-11-16T09:00:00+00:00")
 
-    import src.pipeline as pipeline
+    from src import pipeline
 
     pages = [
         CompetitorPage(
@@ -288,7 +288,7 @@ def test_pipeline_with_sources_produces_a_competitor_gap(tmp_path, inject_clock,
 def test_competitor_pages_render_in_the_report(tmp_path, inject_clock, monkeypatch):
     inject_clock("2026-11-16T09:00:00+00:00")
 
-    import src.pipeline as pipeline
+    from src import pipeline
 
     pages = [
         CompetitorPage(

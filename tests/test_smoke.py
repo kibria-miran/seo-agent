@@ -13,7 +13,6 @@ import pytest
 from src import clock
 from src.models import GapType
 
-
 pytestmark = pytest.mark.fast
 
 
@@ -63,9 +62,8 @@ def test_clock_is_injectable_and_utc(inject_clock):
 
 
 def test_write_guard_blocks_escape(tmp_path):
-    with pytest.raises(pytest.fail.Exception):
-        with conftest.assert_write_paths_under(tmp_path):
-            (tmp_path / "outside.txt").write_text("nope", encoding="utf-8")
+    with pytest.raises(pytest.fail.Exception), conftest.assert_write_paths_under(tmp_path):
+        (tmp_path / "outside.txt").write_text("nope", encoding="utf-8")
 
 
 def test_write_guard_allows_out_and_logs(tmp_path):

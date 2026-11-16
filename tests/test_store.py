@@ -5,7 +5,6 @@ from __future__ import annotations
 import sqlite3
 
 import pytest
-
 from conftest import (
     make_audit,
     make_backlog_item,
@@ -16,10 +15,10 @@ from conftest import (
     make_page,
     make_serp_result,
 )
-from src import clock, config
+
+from src import config
 from src.models import GapType, Severity
 from src.store import Store, StoreError, cache_key, diff_snapshots
-
 
 pytestmark = pytest.mark.fast
 
@@ -350,12 +349,11 @@ def test_diff_includes_gap_churn(store):
 
 def test_transaction_rolls_back_on_error(store):
     store.start_run("run-a", url="https://example.co.uk")
-    with pytest.raises(RuntimeError):
-        with store.transaction() as conn:
-            conn.execute(
-                "INSERT INTO cache(key, fetched_at, ttl_seconds, payload) VALUES ('x|y', 0, 1, '[]')"
-            )
-            raise RuntimeError("simulated crash")
+    with pytest.raises(RuntimeError), store.transaction() as conn:
+        conn.execute(
+            "INSERT INTO cache(key, fetched_at, ttl_seconds, payload) VALUES ('x|y', 0, 1, '[]')"
+        )
+        raise RuntimeError("simulated crash")
     assert store.cache_count() == 0
 
     with store.transaction() as conn:

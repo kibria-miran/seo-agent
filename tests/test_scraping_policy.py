@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from conftest import make_keyword, make_profile
 
-import src.pipeline as pipeline
+from src import pipeline
 
 pytestmark = pytest.mark.fast
 

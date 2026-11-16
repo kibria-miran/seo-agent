@@ -9,7 +9,6 @@ cascade into the pipeline.
 from __future__ import annotations
 
 import re
-import warnings
 from enum import Enum
 from typing import Any
 from urllib.parse import urlparse
@@ -17,7 +16,6 @@ from urllib.parse import urlparse
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from src import config
-
 
 # ---------------------------------------------------------------------------
 # Enums
@@ -205,7 +203,7 @@ class PageData(BaseModel):
     final_url: str | None = None
 
     @model_validator(mode="after")
-    def _sync_headings(self) -> "PageData":
+    def _sync_headings(self) -> PageData:
         if self.h1_tags and not self.h1_count:
             self.h1_count = len(self.h1_tags)
         if not self.h_tags:
@@ -244,7 +242,7 @@ class AuditSnapshot(BaseModel):
     extras: dict[str, Any] = Field(default_factory=dict)
 
     @model_validator(mode="after")
-    def _fill_counts(self) -> "AuditSnapshot":
+    def _fill_counts(self) -> AuditSnapshot:
         if self.pages and not self.pages_crawled:
             self.pages_crawled = len(self.pages)
         if self.issues:
@@ -304,7 +302,7 @@ class Cluster(BaseModel):
     keywords: list[str] = Field(default_factory=list)
 
     @model_validator(mode="after")
-    def _fill_head(self) -> "Cluster":
+    def _fill_head(self) -> Cluster:
         if not self.head_term and self.keywords:
             self.head_term = sorted(self.keywords, key=lambda k: (len(k), k))[0]
         return self
@@ -321,7 +319,7 @@ class SerpResult(BaseModel):
     domain: str = ""
 
     @model_validator(mode="after")
-    def _fill_domain(self) -> "SerpResult":
+    def _fill_domain(self) -> SerpResult:
         if not self.domain:
             self.domain = urlparse(self.url).hostname or ""
         return self

@@ -278,9 +278,10 @@ def doctor(
         vendor = str(config.SEOEXTRACT_DIR)
         if vendor not in sys.path:
             sys.path.insert(0, vendor)
-        from src.audit_adapter import probe_capabilities
         from seoextract import core as _core
         from seoextract import models as _models
+
+        from src.audit_adapter import probe_capabilities
 
         probe_capabilities(_models, _core)
         line("PASS", f"seoextract {config.SEOEXTRACT_VERSION} probe clean "

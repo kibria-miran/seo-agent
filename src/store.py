@@ -11,10 +11,11 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from collections.abc import Iterator, Sequence
 from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Iterator, Sequence
+from typing import Any
 
 from src import clock, config
 from src.models import (
@@ -161,7 +162,7 @@ def _iso(value: datetime | str | None) -> str | None:
     return value.isoformat(timespec="seconds")
 
 
-def _epoch(value: datetime | float | int | None) -> float:
+def _epoch(value: datetime | float | None) -> float:
     if value is None:
         return clock.now().timestamp()
     if isinstance(value, datetime):
@@ -234,10 +235,10 @@ class Store:
     def close(self) -> None:
         self.conn.close()
 
-    def __enter__(self) -> "Store":
+    def __enter__(self) -> Store:
         return self
 
-    def __exit__(self, *_exc_info: Any) -> None:
+    def __exit__(self, *_exc_info: object) -> None:
         self.close()
 
     @contextmanager
@@ -670,7 +671,7 @@ class Store:
         key: str,
         payload: Any,
         ttl_seconds: int = config.CACHE_TTL_SECONDS,
-        fetched_at: datetime | float | int | None = None,
+        fetched_at: datetime | float | None = None,
     ) -> None:
         with self.transaction() as conn:
             conn.execute(
@@ -681,7 +682,7 @@ class Store:
     def get_cache(
         self,
         key: str,
-        now: datetime | float | int | None = None,
+        now: datetime | float | None = None,
         *,
         delete_expired: bool = True,
     ) -> Any | None:

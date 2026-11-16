@@ -12,7 +12,8 @@ target.
 
 from __future__ import annotations
 
-from typing import Any, Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 from urllib.parse import parse_qs, urlencode, urlparse
 
 from bs4 import BeautifulSoup

@@ -11,11 +11,11 @@ import json
 from pathlib import Path
 
 import pytest
+from conftest import make_profile
 from pydantic import ValidationError
 
 from src import clock, config
 from src.models import SiteProfile
-from conftest import make_profile
 
 pytestmark = pytest.mark.fast
 

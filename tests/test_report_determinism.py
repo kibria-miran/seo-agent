@@ -9,7 +9,6 @@ import json
 import re
 
 import pytest
-
 from conftest import (
     make_audit,
     make_backlog_item,
@@ -20,6 +19,7 @@ from conftest import (
     make_page,
     make_serp_result,
 )
+
 from src import clock
 from src.models import AuditDiff, Severity
 from src.report import (

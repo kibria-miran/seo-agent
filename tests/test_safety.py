@@ -6,8 +6,8 @@ import json
 
 import pytest
 import requests
-
 from conftest import assert_write_paths_under, fake_http_get_only
+
 from src import config
 from src.pipeline import load_profile, run_deterministic
 from src.trace import TraceWriter, read_trace
@@ -71,9 +71,8 @@ def test_get_only_guard_rejects_other_methods(monkeypatch, method):
         return {"method": request_method, "url": url}
 
     monkeypatch.setattr(requests.sessions.Session, "request", fake_request)
-    with fake_http_get_only():
-        with pytest.raises(AssertionError, match="not allowed"):
-            getattr(requests, method)("https://example.co.uk/page", timeout=1)
+    with fake_http_get_only(), pytest.raises(AssertionError, match="not allowed"):
+        getattr(requests, method)("https://example.co.uk/page", timeout=1)
 
 
 def test_get_only_guard_rejects_post_to_a_non_llm_host(monkeypatch):
@@ -81,9 +80,8 @@ def test_get_only_guard_rejects_post_to_a_non_llm_host(monkeypatch):
         return {"method": request_method, "url": url}
 
     monkeypatch.setattr(requests.sessions.Session, "request", fake_request)
-    with fake_http_get_only():
-        with pytest.raises(AssertionError, match="not allowed"):
-            requests.post("https://example.co.uk/collect", json={}, timeout=1)
+    with fake_http_get_only(), pytest.raises(AssertionError, match="not allowed"):
+        requests.post("https://example.co.uk/collect", json={}, timeout=1)
 
 
 def test_fixture_pipeline_issues_zero_http_calls(tmp_path, profile):

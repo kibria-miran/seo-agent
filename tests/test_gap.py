@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from conftest import (
     make_audit,
     make_cluster,
@@ -11,6 +10,7 @@ from conftest import (
     make_page,
     make_serp_result,
 )
+
 from src.gap import analyze, candidate_page, competitor_matches, serp_matches
 from src.models import GapType
 

@@ -18,7 +18,7 @@ This gives each uncovered cluster exactly one coverage gap, plus independent
 from __future__ import annotations
 
 import re
-from typing import Iterable, Mapping, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 
 from src import config
 from src.keywords import city_in, head_covered, head_terms, normalise, page_covers

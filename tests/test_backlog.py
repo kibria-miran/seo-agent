@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+from conftest import make_gap
 
 from src import config
 from src.backlog import (
@@ -13,7 +14,6 @@ from src.backlog import (
     priority_for,
 )
 from src.models import GapType
-from conftest import make_gap
 
 pytestmark = pytest.mark.fast
 

@@ -6,7 +6,7 @@ never sets a priority, an effort or a rank (D-2).
 
 from __future__ import annotations
 
-from typing import Iterable, Sequence
+from collections.abc import Iterable, Sequence
 
 from src import config
 from src.models import BacklogItem, Gap, GapType

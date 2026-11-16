@@ -414,7 +414,7 @@ def _canned_serp_items(query):
 def stub_sources(monkeypatch):
     """Replace live mining with canned payloads; zero network."""
 
-    import src.pipeline as pipeline
+    from src import pipeline
 
     def fake_mine(profile, store, trace):
         keywords = [

@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import pytest
 from conftest import make_profile
+from test_report_determinism import render
 
 from src import pipeline
 from src.sources.base import SourceResult
 from src.store import Store
 from src.trace import TraceWriter
-from test_report_determinism import render
 
 pytestmark = pytest.mark.fast
 

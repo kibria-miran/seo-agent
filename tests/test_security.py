@@ -14,9 +14,9 @@ import pytest
 
 from src import config
 from src.security import (
+    UNTRIBUTED_OPEN,
     UNTRUSTED_CLOSE,
     UNTRUSTED_PREFACE,
-    UNTRIBUTED_OPEN,
     ScanResult,
     find_injection,
     scan,

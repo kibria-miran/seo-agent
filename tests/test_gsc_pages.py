@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import pytest
+from conftest import make_audit, make_cluster, make_page
 
 from src.gap import analyze
 from src.sources.base import SourceError
 from src.sources.gsc_pages import ENV_VAR, GscPagesSource
 from src.store import Store
 from src.trace import TraceWriter, read_trace
-from conftest import make_audit, make_cluster, make_page
 
 pytestmark = pytest.mark.fast
 

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import pytest
-
 from conftest import make_keyword, make_page
+
 from src import config
 from src.keywords import (
     city_in,

@@ -160,10 +160,10 @@ def wrap_untrusted(text: str) -> tuple[str, ScanResult]:
 
 
 __all__ = [
-    "ScanResult",
+    "UNTRIBUTED_OPEN",
     "UNTRUSTED_CLOSE",
     "UNTRUSTED_PREFACE",
-    "UNTRIBUTED_OPEN",
+    "ScanResult",
     "find_injection",
     "scan",
     "skeleton",

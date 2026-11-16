@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 
 import pytest
-
 from conftest import make_profile
+
 from src.schema_gen import (
     SchemaError,
     breadcrumb_list,

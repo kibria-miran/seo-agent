@@ -11,8 +11,8 @@ module for anything other than markup-aware parsing inside ``src/sources``.
 from __future__ import annotations
 
 import time
-from urllib.parse import urljoin, urlparse
 from urllib import robotparser
+from urllib.parse import urljoin, urlparse
 
 import requests
 
@@ -149,9 +149,9 @@ def _robots_allowed(url: str) -> bool:
 
 
 __all__ = [
-    "FetchError",
-    "USER_AGENT",
     "MAX_PAGE_BYTES",
+    "USER_AGENT",
+    "FetchError",
     "fetch_count",
     "fetch_page",
     "fetch_text",

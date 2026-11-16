@@ -3,16 +3,15 @@
 from __future__ import annotations
 
 import pytest
-
 from conftest import make_audit, make_cluster, make_keyword, make_page
+from test_report_determinism import render as _render
+
 from src.backlog import build_backlog
 from src.gap import analyze
 from src.models import GapType
 from src.pipeline import gsc_demand_for
-from src.report import render_report
 from src.sources.gsc_csv import GscCsvSource
 from src.store import Store
-from test_report_determinism import render as _render, sample_audit, sample_run
 
 pytestmark = pytest.mark.fast
 

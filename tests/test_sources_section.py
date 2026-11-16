@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from test_report_determinism import render
 
 pytestmark = pytest.mark.fast

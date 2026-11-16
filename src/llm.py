@@ -18,8 +18,9 @@ import json
 import os
 import re
 import time
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, Callable, Mapping, Sequence
+from typing import Any
 
 from src import config
 from src.trace import TraceWriter
@@ -155,7 +156,7 @@ class LLMClient:
         self._transport = transport or self._default_transport()
 
     @classmethod
-    def from_env(cls, **kwargs: Any) -> "LLMClient":
+    def from_env(cls, **kwargs: Any) -> LLMClient:
         api_key = os.environ.get(config.NIM_API_KEY_ENV)
         if not api_key:
             raise LLMUnavailable(
@@ -245,7 +246,7 @@ class LLMClient:
         timeout = self.timeout
 
         def transport(payload: dict[str, Any]) -> Mapping[str, Any]:
-            from openai import OpenAI, APIConnectionError, APIStatusError, APITimeoutError
+            from openai import APIConnectionError, APIStatusError, APITimeoutError, OpenAI
 
             client = OpenAI(base_url=base_url, api_key=api_key,
                             timeout=timeout, max_retries=0)

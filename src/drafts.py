@@ -22,7 +22,8 @@ Nothing here is written before the lint clears it, in either mode.
 from __future__ import annotations
 
 import re
-from typing import Any, Sequence
+from collections.abc import Sequence
+from typing import Any
 
 from src.compliance import Violation, check_text
 from src.models import BacklogItem, SiteProfile

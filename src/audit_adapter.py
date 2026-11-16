@@ -24,9 +24,9 @@ from typing import Any
 from urllib.parse import urlparse
 
 from src import config
-from src.models import AuditSnapshot, PageData as OurPageData
+from src.models import AuditSnapshot, Severity
+from src.models import PageData as OurPageData
 from src.models import SEOIssue as OurSEOIssue
-from src.models import Severity
 
 REQUIRED_MODEL_NAMES: tuple[str, ...] = ("AuditResult", "PageData", "SEOIssue")
 REQUIRED_CORE_ATTR = "SEOExtract.audit"
@@ -289,10 +289,10 @@ def run_audit(
 
 
 __all__ = [
-    "AuditFixtureError",
     "DEFAULT_FIXTURE_PATH",
     "REQUIRED_MODEL_NAMES",
     "SEOEXTRACT_AVAILABLE",
+    "AuditFixtureError",
     "_install_politeness",
     "load_fixture",
     "probe_capabilities",

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from typing import Sequence
+from collections.abc import Sequence
 
 from src import config
 from src.models import Cluster, Keyword, PageData

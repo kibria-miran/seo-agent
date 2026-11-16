@@ -22,9 +22,10 @@ import builtins
 import contextlib
 import copy
 import itertools
+from collections.abc import Iterator
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 from urllib.parse import urlparse
 
 import pytest
@@ -46,7 +47,6 @@ from src.models import (
     Severity,
     SiteProfile,
 )
-
 
 # ---------------------------------------------------------------------------
 # Fake LLM

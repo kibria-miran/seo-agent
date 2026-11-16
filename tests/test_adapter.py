@@ -36,8 +36,7 @@ SITE = "https://clearpath-mortgage.co.uk"
 
 def test_vendored_seoextract_is_importable_and_has_real_names():
     assert audit_adapter.SEOEXTRACT_AVAILABLE, audit_adapter.SEOEXTRACT_IMPORT_ERROR
-    from seoextract import SEOExtract
-    from seoextract import models
+    from seoextract import SEOExtract, models
 
     probe_capabilities(models, SEOExtract)
     for name in ("AuditResult", "PageData", "SEOIssue"):
@@ -203,9 +202,10 @@ def test_snapshot_from_value_accepts_our_fixture_shape(tmp_path):
 
 
 def test_snapshot_from_real_seoextract_models():
-    from seoextract.models import AuditResult, PageData as UpstreamPage
+    from seoextract.models import AuditResult, IssueType
+    from seoextract.models import PageData as UpstreamPage
     from seoextract.models import SEOIssue as UpstreamIssue
-    from seoextract.models import IssueType, Severity as UpstreamSeverity
+    from seoextract.models import Severity as UpstreamSeverity
 
     issue = UpstreamIssue(
         page_url="https://example.co.uk/remortgage",

@@ -18,8 +18,9 @@ from __future__ import annotations
 import csv
 import os
 import re
+from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 from src.keywords import normalise
 from src.sources.base import Source, SourceError
