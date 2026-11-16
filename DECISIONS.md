@@ -149,3 +149,14 @@ by this section; no sign-off is implied.
   green, README, and a documented setup."
 - Q11 (deadline): none.
 - Q12 (cut scope): nothing cut.
+
+Follow-ups recorded 2026-11-16:
+
+- GSC export method: UI CSV export; file to live at secrets/gsc-queries.csv
+  (gitignored; never committed).
+- OpenRouter API key: NOT set in env as of 2026-11-16. Needed before D3.
+- SEO_AGENT_CONTACT: "kibria".
+- Real profile values for commercialmortgageadvisorsnearme.co.uk: owner will
+  provide later (money_pages, target_keywords, competitors, cities, FCA firm
+  reference or instruction to make the FCA ref optional for non-UK finance).
+  Phase B is blocked until then.

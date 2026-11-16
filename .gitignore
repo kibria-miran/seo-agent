@@ -37,3 +37,6 @@ htmlcov/
 # tool-local state, never commit
 .crush/
 seo-agent-findings*
+
+# owner-provided GSC exports (never commit)
+secrets/
