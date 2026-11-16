@@ -119,6 +119,28 @@ def _gsc_demand_section(keywords: Sequence[Keyword], limit: int = 15) -> list[st
     return lines
 
 
+def _sources_section(budgets: Mapping[str, Any]) -> list[str]:
+    counts = budgets.get("sources")
+    if not isinstance(counts, Mapping):
+        return []
+    lines = ["## Source data", ""]
+    for name in ("suggest", "serp", "gsc_csv", "gsc_pages", "competitor_pages"):
+        value = counts.get(name)
+        if isinstance(value, bool):
+            value = int(value)
+        if isinstance(value, int):
+            if value > 0:
+                lines.append(f"- `{name}`: {value} item(s)")
+            else:
+                lines.append(f"- `{name}`: no data from {name}")
+        elif value is None:
+            lines.append(f"- `{name}`: no data from {name}")
+        else:
+            lines.append(f"- `{name}`: no data from {name} ({value})")
+    lines.append("")
+    return lines
+
+
 def _backlog_section(backlog: Sequence[BacklogItem], limit: int = 10) -> list[str]:
     lines = ["## Top backlog", ""]
     if not backlog:
@@ -252,6 +274,7 @@ def render_report(
     ]
     lines.extend(_scorecard(audit, run, diff, previous_run_id, keywords, gaps))
     lines.extend(_gsc_demand_section(keywords))
+    lines.extend(_sources_section(budgets or {}))
 
     if diff is not None:
         lines.extend(_gap_lines("New issues since previous run", diff.new_items))
