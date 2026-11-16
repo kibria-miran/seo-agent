@@ -8,7 +8,7 @@ Every item carries file:line evidence. Nothing here is committed; see
 
 - Deterministic pipeline (audit → gaps → backlog → report) — src/pipeline.py;
   fixture run green, `S12` byte-identical rerun passes (evals: frozen eight 8/8, --all 16/16).
-- Test suite — 447 passed, 2 deselected on Python 3.14.8 (deselected =
+- Test suite — 464 passed, 2 deselected on Python 3.14.8 (deselected =
   `tests/test_live.py::test_live_self_test_one_real_call` and
   `::test_live_client_budget_ledger_records_tokens`, both `@pytest.mark.live`,
   tests/test_live.py:1-21).
