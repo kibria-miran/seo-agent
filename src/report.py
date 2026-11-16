@@ -91,6 +91,34 @@ def _scorecard(
     ]
 
 
+def _gsc_demand_section(keywords: Sequence[Keyword], limit: int = 15) -> list[str]:
+    demand = [
+        item
+        for item in keywords
+        if item.gsc_impressions is not None or item.gsc_clicks is not None
+    ]
+    if not demand:
+        return []
+    rows = sorted(
+        demand,
+        key=lambda item: (-(item.gsc_impressions or 0.0), item.keyword),
+    )[:limit]
+    lines = [
+        "## GSC demand (from your export)",
+        "",
+        "| Keyword | Impressions | Clicks | CTR | Position |",
+        "|---|---|---|---|---|",
+    ]
+    for item in rows:
+        ctr = f"{item.gsc_ctr * 100:.1f}%" if item.gsc_ctr is not None else "n/a"
+        position = f"{item.gsc_position:.1f}" if item.gsc_position is not None else "n/a"
+        impressions = f"{item.gsc_impressions:.0f}" if item.gsc_impressions is not None else "n/a"
+        clicks = f"{item.gsc_clicks:.0f}" if item.gsc_clicks is not None else "n/a"
+        lines.append(f"| {item.keyword} | {impressions} | {clicks} | {ctr} | {position} |")
+    lines.append("")
+    return lines
+
+
 def _backlog_section(backlog: Sequence[BacklogItem], limit: int = 10) -> list[str]:
     lines = ["## Top backlog", ""]
     if not backlog:
@@ -223,6 +251,7 @@ def render_report(
         "",
     ]
     lines.extend(_scorecard(audit, run, diff, previous_run_id, keywords, gaps))
+    lines.extend(_gsc_demand_section(keywords))
 
     if diff is not None:
         lines.extend(_gap_lines("New issues since previous run", diff.new_items))

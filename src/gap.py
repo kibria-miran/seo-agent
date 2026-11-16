@@ -130,6 +130,42 @@ def _gsc_pages_for(
     return sorted(pages)
 
 
+def _gsc_demand_for(
+    cluster: Cluster,
+    gsc_demand: Mapping[str, Mapping[str, float | None]] | None,
+) -> dict[str, float | int] | None:
+    if not gsc_demand:
+        return None
+    wanted = {normalise(kw) for kw in _cluster_keywords(cluster)}
+    wanted.add(normalise(cluster.head_term))
+    clicks = 0.0
+    impressions = 0.0
+    position: float | None = None
+    queries = 0
+    for key, metrics in gsc_demand.items():
+        if normalise(key) not in wanted:
+            continue
+        queries += 1
+        clicks += float(metrics.get("clicks") or 0.0)
+        impressions += float(metrics.get("impressions") or 0.0)
+        raw_position = metrics.get("position")
+        if raw_position is not None:
+            value = float(raw_position)
+            position = value if position is None else min(position, value)
+    if queries == 0:
+        return None
+    demand: dict[str, float | int] = {
+        "clicks": round(clicks, 4),
+        "impressions": round(impressions, 4),
+        "queries": queries,
+    }
+    if impressions > 0:
+        demand["ctr"] = round(clicks / impressions, 6)
+    if position is not None:
+        demand["position"] = round(position, 4)
+    return demand
+
+
 def _coverage_gap(
     cluster: Cluster,
     pages: Sequence[PageData],
@@ -137,12 +173,15 @@ def _coverage_gap(
     serp: Sequence[SerpResult],
     cities: Sequence[str],
     query_page_map: Mapping[str, Sequence[str]] | None = None,
+    gsc_demand: Mapping[str, Mapping[str, float | None]] | None = None,
 ) -> Gap | None:
     head = cluster.head_term
     if not head:
         return None
 
     gsc_pages = _gsc_pages_for(cluster, query_page_map)
+    gsc = _gsc_demand_for(cluster, gsc_demand)
+    gsc_evidence = {"gsc": gsc} if gsc else {}
 
     city = city_in(head, tuple(cities))
     if city:
@@ -150,6 +189,7 @@ def _coverage_gap(
             "city": city,
             "service": head,
             "pages": nearest_pages(cluster, pages),
+            **gsc_evidence,
         }
         if gsc_pages:
             evidence["gsc_pages"] = gsc_pages
@@ -173,6 +213,7 @@ def _coverage_gap(
                 "title": weak.title,
                 "h1": weak.h1_tags,
                 "head_term": head,
+                **gsc_evidence,
                 **({"gsc_pages": gsc_pages} if gsc_pages else {}),
             },
             sources=[],  # audit rule -> confidence 1.0
@@ -194,6 +235,7 @@ def _coverage_gap(
                 "domains": domains,
                 "cluster_keywords": _cluster_keywords(cluster),
                 "serp": [result.url for result in serps],
+                **gsc_evidence,
                 **({"gsc_pages": gsc_pages} if gsc_pages else {}),
             },
             sources=sources,
@@ -214,6 +256,7 @@ def _coverage_gap(
             "cluster_keywords": _cluster_keywords(cluster),
             "serp": [result.url for result in serps],
             "competitors": sorted(page.url for page in comps),
+            **gsc_evidence,
             **({"gsc_pages": gsc_pages} if gsc_pages else {}),
         },
         sources=sources,
@@ -257,6 +300,7 @@ def analyze(
     cities: Iterable[str] | None = None,
     required_schema: Sequence[str] = ("LocalBusiness", "FinancialService", "FAQPage"),
     query_page_map: Mapping[str, Sequence[str]] | None = None,
+    gsc_demand: Mapping[str, Mapping[str, float | None]] | None = None,
 ) -> list[Gap]:
     """Return deterministic, evidence-backed gaps for one audit snapshot."""
 
@@ -271,7 +315,9 @@ def analyze(
     for cluster in sorted(unique_clusters.values(), key=lambda item: item.cluster_id):
         if any(page_covers(cluster.head_term, page) for page in pages):
             continue
-        gap = _coverage_gap(cluster, pages, competitor_pages, serp, city_values, query_page_map)
+        gap = _coverage_gap(
+            cluster, pages, competitor_pages, serp, city_values, query_page_map, gsc_demand
+        )
         if gap is not None:
             gaps.append(gap)
 

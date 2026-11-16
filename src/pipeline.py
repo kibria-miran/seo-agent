@@ -185,6 +185,24 @@ def mine_gsc_pages(
     return GscPagesSource.to_query_page_map(result.items), "ok"
 
 
+def gsc_demand_for(
+    keywords: list[Keyword],
+) -> dict[str, dict[str, float | None]]:
+    """Demand map from GSC-fed keywords: normalised keyword -> metrics."""
+
+    demand: dict[str, dict[str, float | None]] = {}
+    for item in keywords:
+        if item.gsc_impressions is None and item.gsc_clicks is None:
+            continue
+        demand[normalise(item.keyword)] = {
+            "clicks": item.gsc_clicks,
+            "impressions": item.gsc_impressions,
+            "ctr": item.gsc_ctr,
+            "position": item.gsc_position,
+        }
+    return demand
+
+
 def merge_keywords(primary: list[Keyword], extra: list[Keyword]) -> list[Keyword]:
     """Union by (keyword, source); profile keywords first, then sorted."""
 
@@ -282,6 +300,7 @@ def run_deterministic(
             serp=serp,
             cities=profile.cities,
             query_page_map=query_pages or None,
+            gsc_demand=gsc_demand_for(keywords),
         )
         backlog = build_backlog(gaps, money_keywords=money_keywords_for(profile))
         drafts: dict[str, str] = {}
@@ -403,6 +422,7 @@ __all__ = [
     "build_clusters",
     "build_keywords",
     "default_run_id",
+    "gsc_demand_for",
     "load_profile",
     "merge_keywords",
     "mine_gsc_pages",

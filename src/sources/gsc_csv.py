@@ -149,12 +149,26 @@ class GscCsvSource(Source):
             keyword = normalise(str(item.get("keyword", "")))
             if not keyword:
                 continue
+
+            def _metric(name: str) -> float | None:
+                value = item.get(name)
+                if value is None:
+                    return None
+                try:
+                    return float(value)
+                except (TypeError, ValueError):
+                    return None
+
             keywords.append(
                 Keyword(
                     keyword=keyword,
                     source="gsc_csv",
                     intent=intent_for(keyword, city_list),
                     city=city_in(keyword, city_list),
+                    gsc_clicks=_metric("clicks"),
+                    gsc_impressions=_metric("impressions"),
+                    gsc_ctr=_metric("ctr"),
+                    gsc_position=_metric("position"),
                 )
             )
         return keywords

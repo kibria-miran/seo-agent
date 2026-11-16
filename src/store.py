@@ -76,12 +76,16 @@ CREATE TABLE IF NOT EXISTS audit_issues (
 );
 
 CREATE TABLE IF NOT EXISTS keywords (
-    run_id     TEXT NOT NULL,
-    keyword    TEXT NOT NULL,
-    source     TEXT NOT NULL DEFAULT '',
-    cluster_id TEXT,
-    intent     TEXT NOT NULL DEFAULT 'informational',
-    city       TEXT,
+    run_id         TEXT NOT NULL,
+    keyword        TEXT NOT NULL,
+    source         TEXT NOT NULL DEFAULT '',
+    cluster_id     TEXT,
+    intent         TEXT NOT NULL DEFAULT 'informational',
+    city           TEXT,
+    gsc_clicks     REAL,
+    gsc_impressions REAL,
+    gsc_ctr        REAL,
+    gsc_position   REAL,
     FOREIGN KEY (run_id) REFERENCES runs(run_id) ON DELETE CASCADE
 );
 
@@ -215,6 +219,12 @@ class Store:
             self.conn.execute("PRAGMA foreign_keys=ON")
             self.conn.execute("PRAGMA busy_timeout=5000")
             self.conn.executescript(_SCHEMA)
+            columns = {
+                row["name"] for row in self.conn.execute("PRAGMA table_info(keywords)")
+            }
+            for column in ("gsc_clicks", "gsc_impressions", "gsc_ctr", "gsc_position"):
+                if column not in columns:
+                    self.conn.execute(f"ALTER TABLE keywords ADD COLUMN {column} REAL")
         except sqlite3.Error as exc:
             self.conn.close()
             raise StoreError(f"cannot initialise SQLite database {raw!r}: {exc}") from exc
@@ -434,9 +444,22 @@ class Store:
         with self.transaction() as conn:
             conn.execute("DELETE FROM keywords WHERE run_id = ?", (run_id,))
             conn.executemany(
-                "INSERT INTO keywords(run_id, keyword, source, cluster_id, intent, city) VALUES (?, ?, ?, ?, ?, ?)",
+                "INSERT INTO keywords(run_id, keyword, source, cluster_id, intent, city, "
+                "gsc_clicks, gsc_impressions, gsc_ctr, gsc_position) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [
-                    (run_id, k.keyword, k.source, k.cluster_id, k.intent.value, k.city)
+                    (
+                        run_id,
+                        k.keyword,
+                        k.source,
+                        k.cluster_id,
+                        k.intent.value,
+                        k.city,
+                        k.gsc_clicks,
+                        k.gsc_impressions,
+                        k.gsc_ctr,
+                        k.gsc_position,
+                    )
                     for k in sorted(keywords, key=lambda item: (item.keyword, item.source))
                 ],
             )
@@ -452,6 +475,10 @@ class Store:
                 cluster_id=row["cluster_id"],
                 intent=row["intent"],
                 city=row["city"],
+                gsc_clicks=row["gsc_clicks"],
+                gsc_impressions=row["gsc_impressions"],
+                gsc_ctr=row["gsc_ctr"],
+                gsc_position=row["gsc_position"],
             )
             for row in rows
         ]

@@ -284,6 +284,10 @@ class Keyword(BaseModel):
     cluster_id: str | None = None
     intent: Intent = Intent.INFORMATIONAL
     city: str | None = None
+    gsc_clicks: float | None = None
+    gsc_impressions: float | None = None
+    gsc_ctr: float | None = None
+    gsc_position: float | None = None
 
     @field_validator("keyword")
     @classmethod
