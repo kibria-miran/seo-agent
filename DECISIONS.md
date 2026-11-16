@@ -117,8 +117,10 @@ review brief takes precedence.
 - **F-3 (seoextract Plan B).** No change required: provenance is complete,
   probe tests pass, a requests+bs4 replacement is small if ever needed
   (~200–450 LOC).
-- **F-8 (success metric).** Still not implemented in code; see the review
-  findings for the proposed first-cycle baseline template (documentation
-  only, to be used when Phase B begins).
+- **F-8 (success metric).** The first-cycle baseline template now lives at
+  `evals/first-cycle.md`: record GSC impressions/clicks/CTR/position for
+  target and money keywords before any site change, log each applied
+  backlog item with its reviewer, and re-check after 4–6 weeks. Using it is
+  operational, not code; it does not run in CI.
 
 See `CHANGELOG.md` for dates and context.
