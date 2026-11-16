@@ -1,5 +1,46 @@
 # Changelog
 
+## 2026-11-16 — v1.2 review fixes
+
+No spec revision. Recorded from the v1.2 review (seo-agent-findings.txt,
+local). The v1.2 spec document is still not in the repo; DECISIONS.md gained a
+"v1.2 review supersessions" section instead.
+
+- Compliance is now labelled everywhere as a lint, not a gate: README first
+  paragraph + Safety model + Phase 7 + sample sections, `report.md` header
+  (compliance disclaimer on every generated report), draft banner ("THIS
+  DRAFT HAS NOT BEEN REVIEWED"), DECISIONS (D-6 row amended, F-4 note, lint
+  wording in implementation notes), AGENTS.md. C1b is now negation-aware in
+  line with C1/C6 (one new test).
+- `render_report` adds the compliance disclaimer block (F-4). Report is not
+  bare of disclaimers anymore; `out/run-20261116T090000Z/report.md` is
+  regenerated with the new template (score unchanged: 87.5 B).
+- Live runs against the placeholder demo profile
+  (`clearpath-mortgage.co.uk` + FCA `123456`) are now refused by the CLI
+  unless `SEO_AGENT_ALLOW_DEMO_PROFILE=1`; `doctor` PASSes the profile but
+  WARNs on the placeholder. New tests/test_placeholder_profile.py.
+- New `GscPagesSource` (env `SEO_AGENT_GSC_PAGES_CSV`): query→page mapping
+  from a two-column CSV (prepared by the operator, e.g. from the free
+  Search Console API dimensions=query,page). Wired into the pipeline when
+  `--with-sources`; surfaces as `gsc_pages` evidence keys in NO_PAGE /
+  WEAK_PAGE / LOCAL_MISSING / COMP_COVERS gaps and as a `gsc_pages` entry in
+  the report's Run budgets block when sources ran. New tests/test_gsc_pages.py.
+- Deterministic default path unchanged: report and backlog byte-identical
+  for same run-id+fixture+clock, and evals still 16/16.
+- `ddgs` was declared but never imported or wired; removed from pyproject
+  and recompiled hashed requirements (uv). SERP/Suggest keep the undocumented
+  HTML endpoints, now documented with their ToS caveat in README.
+- CI added: .github/workflows/ci.yml runs pytest + evals on Python 3.12 and
+  3.14. pyproject declares classifiers 3.10–3.14.
+- README rewritten to match code/artefacts: phases 0–9 all complete;
+  stale CLI paragraph and sample backlog excerpt corrected; doctor and
+  scripts/weekly.sh documented in-body; Python CI claim corrected;
+  compliance first-paragraph lint disclaimer.
+- AGENTS.md corrected; CODEBASE_REPORT.txt amended (phase-8/git/CI claims
+  were wrong).
+- Suite: 440 passed, 2 deselected (both `live`-marked, tests/test_live.py;
+  no `slow`-marked tests exist).
+
 ## 2026-11-16 — implementation start (spec v1.1)
 
 No spec revision was made. Three implementation clarifications were forced by

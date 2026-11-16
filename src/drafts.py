@@ -1,4 +1,4 @@
-"""Phase 7: compliance-gated draft generation (D-6, D-7).
+"""Phase 7: compliance-linted draft generation (D-6, D-7).
 
 Drafts are files for a human editor — the tool never publishes (D-7). Two
 generation paths exist, both behind one function:
@@ -6,12 +6,17 @@ generation paths exist, both behind one function:
 * ``--no-llm --with-drafts``: a deterministic skeleton with every mandatory UK
   mortgage disclosure baked in. Byte-stable for the same run/fixture/clock
   (D-12).
-* ``--agent --with-drafts``: the LLM proposes copy, the compliance gate
+* ``--agent --with-drafts``: the LLM proposes copy, and the compliance lint
   (C1–C6) decides whether it may be written (D-2, D-6). One retry with the
   violations fed back, then the item is rejected and logged — the draft is
-  never written to disk without passing the gate.
+  never written to disk without passing the lint.
 
-Nothing here is written before the gate clears it, in either mode.
+The lint is pattern matching, not a compliance review: it routinely misses
+things a qualified adviser would catch. Passing it does not make copy
+compliant; it only means no banned pattern was found. A qualified adviser
+must review every draft before anything is published.
+
+Nothing here is written before the lint clears it, in either mode.
 """
 
 from __future__ import annotations
@@ -64,8 +69,10 @@ def template_draft(item: BacklogItem, profile: SiteProfile) -> str:
         location = f" in {city}"
     return f"""# {phrase}
 
-> Draft prepared for {profile.domain}. Reviewed by a qualified adviser
-> before publication; not legal, financial or tax advice.
+> THIS DRAFT HAS NOT BEEN REVIEWED. A qualified adviser must review and
+> approve it before publication; the automated checks that produced it are a
+> lint and not a promise of compliance, and it is not legal, financial
+> or tax advice.
 
 ## {keyword.capitalize()}{location}
 

@@ -96,6 +96,11 @@ def test_C1b_passes_with_a_separate_disclosure_sentence():
     assert ok, [str(v) for v in violations]
 
 
+def test_C1b_permits_negated_no_fees():
+    ok, violations = check_text("We do not say there are no fees", "meta")
+    assert ok, [str(v) for v in violations]
+
+
 # ---------------------------------------------------------------------------
 # C2 -- "free" needs a disclosure sentence
 # ---------------------------------------------------------------------------

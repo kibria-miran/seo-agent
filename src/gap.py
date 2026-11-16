@@ -18,10 +18,10 @@ This gives each uncovered cluster exactly one coverage gap, plus independent
 from __future__ import annotations
 
 import re
-from typing import Iterable, Sequence
+from typing import Iterable, Mapping, Sequence
 
 from src import config
-from src.keywords import city_in, head_covered, head_terms, page_covers
+from src.keywords import city_in, head_covered, head_terms, normalise, page_covers
 from src.models import (
     AuditSnapshot,
     Cluster,
@@ -95,16 +95,34 @@ def _cluster_keywords(cluster: Cluster) -> list[str]:
     return sorted(set(cluster.keywords or [cluster.head_term]))
 
 
+def _gsc_pages_for(
+    cluster: Cluster,
+    query_page_map: Mapping[str, Sequence[str]] | None,
+) -> list[str]:
+    if not query_page_map:
+        return []
+    wanted = {normalise(kw) for kw in _cluster_keywords(cluster)}
+    wanted.add(normalise(cluster.head_term))
+    pages: set[str] = set()
+    for query, mapped in query_page_map.items():
+        if normalise(query) in wanted:
+            pages.update(mapped)
+    return sorted(pages)
+
+
 def _coverage_gap(
     cluster: Cluster,
     pages: Sequence[PageData],
     competitor_pages: Sequence[CompetitorPage],
     serp: Sequence[SerpResult],
     cities: Sequence[str],
+    query_page_map: Mapping[str, Sequence[str]] | None = None,
 ) -> Gap | None:
     head = cluster.head_term
     if not head:
         return None
+
+    gsc_pages = _gsc_pages_for(cluster, query_page_map)
 
     city = city_in(head, tuple(cities))
     if city:
@@ -113,6 +131,8 @@ def _coverage_gap(
             "service": head,
             "pages": sorted(page.url for page in pages),
         }
+        if gsc_pages:
+            evidence["gsc_pages"] = gsc_pages
         return Gap(
             keyword=head,
             cluster_id=cluster.cluster_id,
@@ -133,6 +153,7 @@ def _coverage_gap(
                 "title": weak.title,
                 "h1": weak.h1_tags,
                 "head_term": head,
+                **({"gsc_pages": gsc_pages} if gsc_pages else {}),
             },
             sources=[],  # audit rule -> confidence 1.0
             target=weak.url,
@@ -153,6 +174,7 @@ def _coverage_gap(
                 "domains": domains,
                 "cluster_keywords": _cluster_keywords(cluster),
                 "serp": [result.url for result in serps],
+                **({"gsc_pages": gsc_pages} if gsc_pages else {}),
             },
             sources=sources,
             target=f"/{slugify(head)}",
@@ -172,6 +194,7 @@ def _coverage_gap(
             "cluster_keywords": _cluster_keywords(cluster),
             "serp": [result.url for result in serps],
             "competitors": sorted(page.url for page in comps),
+            **({"gsc_pages": gsc_pages} if gsc_pages else {}),
         },
         sources=sources,
         target=f"/{slugify(head)}",
@@ -213,6 +236,7 @@ def analyze(
     *,
     cities: Iterable[str] | None = None,
     required_schema: Sequence[str] = ("LocalBusiness", "FinancialService", "FAQPage"),
+    query_page_map: Mapping[str, Sequence[str]] | None = None,
 ) -> list[Gap]:
     """Return deterministic, evidence-backed gaps for one audit snapshot."""
 
@@ -227,7 +251,7 @@ def analyze(
     for cluster in sorted(unique_clusters.values(), key=lambda item: item.cluster_id):
         if any(page_covers(cluster.head_term, page) for page in pages):
             continue
-        gap = _coverage_gap(cluster, pages, competitor_pages, serp, city_values)
+        gap = _coverage_gap(cluster, pages, competitor_pages, serp, city_values, query_page_map)
         if gap is not None:
             gaps.append(gap)
 

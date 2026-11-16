@@ -1,11 +1,13 @@
 # SEO growth report — clearpath-mortgage.co.uk
 
-_Run `run-20261116T090000Z` · generated 2026-11-16T17:33:55+00:00 · status ok_
+_This report is a lint, not legal or financial advice. Nothing in this file or in any draft it references makes the output compliant with UK financial-promotion rules, and the compliance checks are automated pattern matching, not a compliance review. A qualified adviser must review everything before anything is published. This tool never edits or publishes the site._
+
+_Run `run-20261116T090000Z` · generated 2026-11-16T18:40:44+00:00 · status ok_
 
 ## Scorecard
 
 - Site score: **87.5** (B)
-- Delta vs previous run: n/a (first run)
+- Delta vs previous run: +0.0
 - Pages crawled: 6
 - Issues: 7 total · 1 critical · 5 warning · 1 info
 - Keywords mined: 10
@@ -14,13 +16,7 @@ _Run `run-20261116T090000Z` · generated 2026-11-16T17:33:55+00:00 · status ok_
 
 ## New issues since previous run
 
-- https://clearpath-mortgage.co.uk/buy-to-let :: Missing Image Alt Text
-- https://clearpath-mortgage.co.uk/buy-to-let :: Thin Content
-- https://clearpath-mortgage.co.uk/first-time-buyer :: Missing Meta Description
-- https://clearpath-mortgage.co.uk/first-time-buyer :: Multiple H1 Tags
-- https://clearpath-mortgage.co.uk/free-mortgage-advice :: Meta Description Too Long
-- https://clearpath-mortgage.co.uk/remortgage :: Duplicate Title
-- https://clearpath-mortgage.co.uk/remortgage-calculator :: Duplicate Title
+_None._
 
 ## Issues closed since previous run
 
@@ -28,11 +24,7 @@ _None._
 
 ## New gaps since previous run
 
-- bad credit mortgage :: NO_PAGE
-- mortgage advice manchester :: LOCAL_MISSING
-- mortgage adviser london :: LOCAL_MISSING
-- mortgage broker near me :: NO_PAGE
-- mortgage fees explained :: NO_PAGE
+_None._
 
 ## Gaps closed since previous run
 

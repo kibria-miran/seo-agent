@@ -172,7 +172,7 @@ def _budget_section(run: Mapping[str, Any], budgets: Mapping[str, Any]) -> list[
     tokens_out = budgets.get("tokens_out", run.get("tokens_out", 0))
     fetches = budgets.get("fetches", 0)
     steps = budgets.get("steps", 0)
-    return [
+    lines = [
         "## Run budgets",
         "",
         f"- Status: `{run.get('status', 'unknown')}`",
@@ -182,8 +182,13 @@ def _budget_section(run: Mapping[str, Any], budgets: Mapping[str, Any]) -> list[
         f"(caps {config.MAX_TOKENS_IN} / {config.MAX_TOKENS_OUT})",
         f"- Fetches: {fetches} / {config.MAX_FETCHES}",
         f"- LLM wall-clock cap: {config.MAX_LLM_SECONDS}s \u00b7 run cap: {config.MAX_RUN_SECONDS}s",
-        "",
     ]
+    sources = budgets.get("sources")
+    if isinstance(sources, Mapping):
+        summary = ", ".join(f"{name}={value}" for name, value in sorted(sources.items()))
+        lines.append(f"- Live sources (opt-in): {summary}")
+    lines.append("")
+    return lines
 
 
 def render_report(
@@ -206,6 +211,13 @@ def render_report(
     host = _host(str(run.get("url") or audit.url))
     lines: list[str] = [
         f"# SEO growth report \u2014 {host}",
+        "",
+        "_This report is a lint, not legal or financial advice. Nothing in this "
+        "file or in any draft it references makes the output compliant with UK "
+        "financial-promotion rules, and the compliance checks are automated "
+        "pattern matching, not a compliance review. A qualified adviser must "
+        "review everything before anything is published. This tool never edits "
+        "or publishes the site._",
         "",
         _status_line(run, generated_at),
         "",

@@ -132,14 +132,16 @@ def check_text(
                 )
 
     # C1b -- bare "no fees" needs a disclosure sentence in the same draft.
-    if re.search(r"\bno fees?\b", text) and not _has_disclosure(text):
-        violations.append(
-            Violation(
-                "C1b",
-                "'no fees' needs a fee-disclosure sentence in the same draft",
-                "no fees",
+    no_fees_match = re.search(r"\bno fees?\b", text)
+    if no_fees_match and not _has_disclosure(text):
+        if not _is_negated(text, no_fees_match.start()):
+            violations.append(
+                Violation(
+                    "C1b",
+                    "'no fees' needs a fee-disclosure sentence in the same draft",
+                    "no fees",
+                )
             )
-        )
 
     # C2 -- "free" needs a disclosure sentence in the same draft.
     free_match = re.search(r"\bfree\b", text)

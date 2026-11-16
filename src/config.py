@@ -32,6 +32,13 @@ APP_VERSION = "1.0"
 CONTACT_EMAIL = os.getenv("SEO_AGENT_CONTACT", "seo-agent@example.co.uk")
 USER_AGENT = f"{APP_NAME}/{APP_VERSION} (+contact: {CONTACT_EMAIL})"
 
+# Placeholder demo values shipped in profiles/site.json. Live runs against
+# these are refused unless the operator explicitly acknowledges the demo
+# profile (SEO_AGENT_ALLOW_DEMO_PROFILE=1) or passes --fixture.
+PLACEHOLDER_DOMAIN = "https://clearpath-mortgage.co.uk"
+PLACEHOLDER_FCA_REF = "123456"
+ALLOW_DEMO_PROFILE_ENV = "SEO_AGENT_ALLOW_DEMO_PROFILE"
+
 # ---------------------------------------------------------------------------
 # Vendored audit layer (D-1)
 # ---------------------------------------------------------------------------

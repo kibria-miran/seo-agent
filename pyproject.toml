@@ -3,6 +3,14 @@ name = "seo-agent"
 version = "0.1.0"
 description = "UK mortgage SEO growth agent: deterministic audit layer, keyword gap analysis, prioritised backlog."
 requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
 dependencies = [
     "pydantic>=2.6",
     "requests>=2.31",
@@ -10,7 +18,6 @@ dependencies = [
     "lxml>=5.0",
     "typer>=0.9",
     "rich>=13.0",
-    "ddgs>=9.0",
     "python-dotenv>=1.0",
     "openai>=1.0",
 ]

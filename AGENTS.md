@@ -22,9 +22,11 @@ python3.12 -m venv .venv
 .venv/bin/python -m src.cli evals --list
 ```
 
-- Python 3.10+ required; development/CI use 3.12.
+- Python 3.10+ required; CI runs the suite on 3.12 and 3.14.
 - Test markers (see `[tool.pytest.ini_options]`): default suite excludes `slow`
-  (live network smoke) and `live` (one real LLM call). Expect 429 passed, 2 deselected.
+  and `live`; the 2 deselected are both `live` tests in `tests/test_live.py`
+  (one real NVIDIA NIM call; require `NVIDIA_API_KEY`). There are no `slow`-marked
+  tests. Expect 429 passed, 2 deselected, on 3.12 and 3.14.
 - `pyproject.toml` declares `[tool.ruff]` (line-length 100, py310) but no lint
   script is wired; tests are the gate.
 - `--agent` needs `NVIDIA_API_KEY`; `--agent --no-llm` is a usage error (exit 2).
@@ -75,7 +77,12 @@ python3.12 -m venv .venv
   export (name/size/mtime), not a fixed query, so a refreshed export is not
   served stale. `check_compliance` demonstrates the pattern, kept empty by
   design.
-- **D-6: compliance gate (`src/compliance.py`, C1–C6) runs BEFORE any draft
+- **Placeholder guard.** `src/cli.py` refuses a live (non-fixture) run when
+  the profile still carries clearpath-mortgage.co.uk + FCA 123456, unless
+  `SEO_AGENT_ALLOW_DEMO_PROFILE=1`. `doctor` PASSes the profile but WARNs on
+  the placeholder. Fixture runs are unaffected.
+- **D-6: compliance lint (`src/compliance.py`, C1–C6; pattern matching, not a
+  compliance review) runs BEFORE any draft
   write** in both modes. Deterministic path: disclosure-complete template,
   byte-stable. Agent path: one feedback retry, then `compliance_reject`,
   nothing written. Only `create_page` / `create_local_page` items are eligible,
@@ -95,7 +102,16 @@ python3.12 -m venv .venv
   injection scrub. Errors raise `SourceError` into the pipeline which logs and
   skips. Untrusted-text keys scanned: `keyword|title|snippet|text`. Live
   sources are strictly opt-in (`--with-sources`); default path never touches
-  the network.
+  the network. Two GSC sources exist: `gsc_csv` (Queries.csv: demand
+  keywords) and `gsc_pages` (`SEO_AGENT_GSC_PAGES_CSV`: query→page map,
+  surfaced as `gsc_pages` evidence in gaps). Both fingerprint the export
+  (name/size/mtime) as cache key. Search/API endpoints are NOT robots-checked
+  by design; page crawls are. ddgs was removed 2026-11-16 (declared but never
+  wired; the HTML endpoints are used directly).
+- **Report safety header.** `render_report` emits a first-block disclaimer:
+  compliance is a lint, not legal/financial advice, and a qualified adviser
+  must review before publication. Do not remove it; it is load-bearing for
+  the v1.2 review's F-4.
 - **Store** (`src/store.py`): SQLite, WAL + FK + 5 s busy timeout; caller
   groups writes into transactions. `mark_running_as_aborted(except_run_id=...)`
   on start makes half-written/crashed runs show as `aborted`, never `ok`.

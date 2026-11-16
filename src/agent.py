@@ -49,6 +49,7 @@ from src.pipeline import (
     build_keywords,
     default_run_id,
     merge_keywords,
+    mine_gsc_pages,
     mine_live_sources,
     money_keywords_for,
 )
@@ -118,6 +119,7 @@ class AgentContext:
     gaps: list[Gap] = field(default_factory=list)
     backlog: list[BacklogItem] = field(default_factory=list)
     source_counts: dict[str, int] = field(default_factory=dict)
+    query_page_map: dict[str, list[str]] = field(default_factory=dict)
     outputs: dict[str, Any] = field(default_factory=dict)
 
     # Ledger mirrors for the trace/report (LLMBudget is authoritative for tokens).
@@ -182,6 +184,11 @@ def tool_mine_sources(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]
     mined, ctx.serp, ctx.competitor_pages, ctx.source_counts = mine_live_sources(
         ctx.profile, ctx.store, ctx.trace
     )
+    ctx.query_page_map, gsc_pages_status = mine_gsc_pages(ctx.store, ctx.trace)
+    ctx.source_counts = {
+        **ctx.source_counts,
+        "gsc_pages": len(ctx.query_page_map) if gsc_pages_status == "ok" else gsc_pages_status,
+    }
     ctx.keywords = merge_keywords(build_keywords(ctx.profile), mined)
     return {"mined": len(mined), **{k: v for k, v in ctx.source_counts.items()}}
 
@@ -204,6 +211,7 @@ def tool_analyze_gaps(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]
         competitor_pages=ctx.competitor_pages,
         serp=ctx.serp,
         cities=ctx.profile.cities,
+        query_page_map=ctx.query_page_map or None,
     )
     return {
         "gaps": len(ctx.gaps),
@@ -265,6 +273,8 @@ def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
         "mode": "agent",
     }
     budgets["drafts"] = len(ctx.draft_map)
+    if ctx.with_sources:
+        budgets["sources"] = ctx.source_counts
     markdown = render_report(
         run_row,
         ctx.audit,  # type: ignore[arg-type]

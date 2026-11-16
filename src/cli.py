@@ -2,9 +2,8 @@
 
     seo-agent run --site profiles/site.json --no-llm
 
-The phase-1 build always executes the deterministic pipeline. If the LLM
-orchestrator is requested before it ships, the CLI says so and falls back to
-templates rather than stalling (D-12).
+Default runs execute the deterministic pipeline. --agent opts in to the LLM
+tool loop; both honour --with-sources and --with-drafts.
 """
 
 from __future__ import annotations
@@ -65,10 +64,35 @@ def run(
         raise typer.Exit(code=2)
 
     profile = load_profile(site)
+    if fixture is None:
+        import os
+
+        is_demo_profile = (
+            profile.domain == config.PLACEHOLDER_DOMAIN
+            and profile.fca_firm_ref == config.PLACEHOLDER_FCA_REF
+        )
+        if is_demo_profile and os.environ.get(config.ALLOW_DEMO_PROFILE_ENV) != "1":
+            console.print(
+                "[red]Refusing to crawl the placeholder demo profile[/red] "
+                f"({profile.domain}, FCA {profile.fca_firm_ref})."
+            )
+            console.print(
+                "Replace profiles/site.json with your real domain, money pages, "
+                "target keywords, competitors, cities and FCA firm reference, "
+                "or pass --fixture to run against an audit fixture. "
+                f"Set {config.ALLOW_DEMO_PROFILE_ENV}=1 to acknowledge the demo values."
+            )
+            raise typer.Exit(code=2)
+        if is_demo_profile:
+            console.print(
+                f"[yellow]Live crawl acknowledged against the placeholder demo profile "
+                f"({config.ALLOW_DEMO_PROFILE_ENV}=1). This site is fictional.[/yellow]"
+            )
     if not no_llm:
         console.print(
-            "[yellow]The LLM orchestrator is not enabled in this build; "
-            "running the deterministic template path.[/yellow]"
+            "[yellow]No --no-llm flag set; running the deterministic template "
+            "path. Agent mode (--agent) is available for the opt-in LLM tool "
+            "loop.[/yellow]"
         )
     if fixture is None:
         console.print(
@@ -188,6 +212,13 @@ def doctor(
                      f"{len(profile.target_keywords)} keywords, "
                      f"{len(profile.competitors)} competitors, "
                      f"FCA {profile.fca_firm_ref})")
+        if (
+            profile.domain == config.PLACEHOLDER_DOMAIN
+            and profile.fca_firm_ref == config.PLACEHOLDER_FCA_REF
+        ):
+            line("WARN", "placeholder demo profile values are still in the profile; "
+                         "replace before any live run (live run is refused without "
+                         f"{config.ALLOW_DEMO_PROFILE_ENV}=1 or --fixture)")
     except Exception as exc:
         failures += 1
         line("FAIL", f"profile: {type(exc).__name__}: {exc}")

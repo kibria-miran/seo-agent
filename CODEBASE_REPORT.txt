@@ -1,11 +1,35 @@
 ================================================================================
 SEO GROWTH AGENT — IMPLEMENTATION AUDIT REPORT (.txt)
 Generated: 2026-11-16
+Amended:  2026-11-16 (2nd revision, after v1.2 review)
 Scope: /seo-agent (UK-mortgage SEO audit -> gap analysis -> weekly backlog tool)
 Purpose: validate what is IMPLEMENTED vs what is still TO COME, from evidence
          in this repo (code, tests, evals, docs), not from intent.
-Method: source inspection + executing the test suite (429 passed, 2 deselected)
-        and the eval harness (16/16 PASS).
+Method: source inspection + executing the test suite and eval harness.
+
+AMENDMENTS IN 2ND REVISION
+  - Repo is now public: https://github.com/kibria-miran/seo-agent (branch
+    master). A .git WAS present all along (commits b9f9164, 3bf7044) — the
+    environment's "not a git repo" signal was wrong, and section 7a below is
+    retracted. Section 6 item 7 (no git repo) is therefore wrong and is
+    retracted too.
+  - Section 7b
+    retracted: README's Phase 8 row reads
+    "| 8 | Weekly scheduling (cron + systemd script), operational `doctor`
+    check | done |" and README documents scripts/weekly.sh + doctor.
+  - CI now exists: .github/workflows/ci.yml runs pytest + evals on Python
+    3.12 and 3.14 (added in the v1.2 review fix).
+  - `ddgs` dependency removed (was declared but never wired); HTML endpoint
+    behaviour and ToS caveats are now documented in README.
+  - Compliance is now explicitly labelled a lint, not a gate, in the README
+    first paragraph, report.md header, draft banner and DECISIONS (F-4 fix).
+  - New GscPagesSource (SEO_AGENT_GSC_PAGES_CSV) gives query→page mapping
+    without a new Source interface or paid APIs.
+  - Test count is now 440 (429 + 11 new): 440 passed, 2 deselected
+    (both `live`-marked tests in tests/test_live.py; there are NO slow-marked
+    tests anywhere).
+  - Placeholder demo profile is now refused for live runs unless
+    SEO_AGENT_ALLOW_DEMO_PROFILE=1; fixture runs unaffected.
 ================================================================================
 
 0. TL;DR

@@ -159,6 +159,32 @@ def mine_live_sources(
     return keywords, serp_results, competitor_pages, counts
 
 
+def mine_gsc_pages(
+    store: Store,
+    trace: TraceWriter,
+) -> tuple[dict[str, list[str]], str]:
+    """Optional query→page mapping from the GSC pages CSV (D-3, D-14).
+
+    Returns ``(mapping, status)`` where status is ``ok``, ``dep_unmet`` or
+    ``error``. Never raises; the run continues without the enrichment.
+    """
+
+    from src.sources.base import SourceError
+    from src.sources.gsc_pages import GscPagesSource
+
+    source = GscPagesSource()
+    try:
+        result = source.collect("pages", store=store, trace=trace)
+    except SourceError as exc:
+        trace.emit(step="sources", tool="gsc_pages", args={},
+                   source="file", status="error", kind="action",
+                   error_type=type(exc).__name__)
+        return {}, "error"
+    if result.skipped:
+        return {}, "dep_unmet"
+    return GscPagesSource.to_query_page_map(result.items), "ok"
+
+
 def merge_keywords(primary: list[Keyword], extra: list[Keyword]) -> list[Keyword]:
     """Union by (keyword, source); profile keywords first, then sorted."""
 
@@ -238,10 +264,14 @@ def run_deterministic(
         source_fetches = 0
         serp: list[SerpResult] = []
         competitor_pages: list[CompetitorPage] = []
+        counts: dict[str, str | int] = {}
+        query_pages: dict[str, list[str]] = {}
         if with_sources:
             mined, serp, competitor_pages, counts = mine_live_sources(profile, store, trace)
             keywords = merge_keywords(keywords, mined)
-            source_fetches = counts["fetches"]
+            source_fetches = counts["fetches"] if isinstance(counts.get("fetches"), int) else 0
+            query_pages, gsc_pages_status = mine_gsc_pages(store, trace)
+            counts["gsc_pages"] = len(query_pages) if gsc_pages_status == "ok" else gsc_pages_status
         clusters = build_clusters(keywords)
         trace.emit(step=2, tool="mine_keywords", args={"count": len(keywords)})
 
@@ -251,6 +281,7 @@ def run_deterministic(
             competitor_pages=competitor_pages,
             serp=serp,
             cities=profile.cities,
+            query_page_map=query_pages or None,
         )
         backlog = build_backlog(gaps, money_keywords=money_keywords_for(profile))
         drafts: dict[str, str] = {}
@@ -292,6 +323,8 @@ def run_deterministic(
             "mode": "no-llm",
             "drafts": len(drafts),
         }
+        if with_sources:
+            budgets["sources"] = counts
         markdown = render_report(
             run_row,
             audit,
@@ -372,6 +405,7 @@ __all__ = [
     "default_run_id",
     "load_profile",
     "merge_keywords",
+    "mine_gsc_pages",
     "mine_live_sources",
     "money_keywords_for",
     "run_deterministic",

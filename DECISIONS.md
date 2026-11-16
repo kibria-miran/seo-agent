@@ -11,7 +11,7 @@ is marked `amended`.
 | D-3 | No paid APIs; every source sits behind one `Source` interface with cache + throttle. | frozen |
 | D-4 | Fetched web text is untrusted data; raw HTML never reaches the LLM. | frozen |
 | D-5 | Own site max 50 pages; competitors max 5 each; robots respected; 2 s/host; honest UA. | frozen |
-| D-6 | Compliance gate (`compliance.py`) runs before any public-facing draft is written. | frozen |
+| D-6 | Compliance gate (`compliance.py`) runs before any public-facing draft is written. | frozen (amended: see v1.2 review — wording now "lint", invariant unchanged) |
 | D-7 | Human in the loop; the agent never edits or publishes the site. Output is files. | frozen |
 | D-8 | SQLite snapshot per run; diffs computed by code. | frozen |
 | D-9 | Idempotent runs; cache key `source\|query` + `ttl_seconds` (not calendar date). | frozen |
@@ -77,11 +77,48 @@ is marked `amended`.
   requirement is logged as `dep_unmet` and the tool is skipped, never run.
   `check_compliance` demonstrates the pattern; no current tool requires
   anything (kept empty by design, D-14).
-- Draft generation is gated before the write, never after: the deterministic
+- Draft generation is linted before the write, never after: the deterministic
   path uses a disclosure-complete template (byte-stable); the agent path lets
-  the LLM propose and the gate decide, with exactly one feedback retry. A
-  template that fails the gate is dropped, not shipped — the gate is the
-  authority in both modes. Drafts are written once per run; the idempotent
+  the LLM propose and the lint decide, with exactly one feedback retry. A
+  template that fails the lint is dropped, not shipped — the lint is the
+  authority in both modes, but it is a lint, not a compliance review. Drafts
+  are written once per run; the idempotent
   completion path never re-spends LLM budget on copy that already exists.
+
+## v1.2 review supersessions (recorded 2026-11-16)
+
+The v1.2 spec document is not in this repo; this section records what the
+v1.2 review (see `seo-agent-findings.txt`, local only) found and how the
+tree stands now. Where these items conflict with the frozen v1.1 rows, the
+review brief takes precedence.
+
+- **F-1 (LLM scoped to cluster labelling and brief drafting; planner
+  dropped; fixed pipeline).** The LLM never appears on the default path
+  (zero calls); agent mode remains opt-in only. A "planner" never existed
+  here. D-2 is reinterpreted as scoped to `--agent`.
+- **MAX_STEPS / loop guard / invalid-action handling** apply only inside the
+  opt-in agent loop. They are not part of the default pipeline and carry no
+  spec weight for it.
+- **F-2 (GSC is core).** The tree keeps GSC opt-in with `dep_unmet` skip
+  when unconfigured, which is honest for a profile that ships no real
+  Queries.csv. Query→page attribution is now supported through a new
+  `GscPagesSource` (env `SEO_AGENT_GSC_PAGES_CSV`), carrying query→page
+  pairs from a two-column CSV (prepared from the free Search Console API or
+  per-page Queries exports). Zero paid APIs; the Source interface and cache
+  discipline are unchanged.
+- **F-4 (compliance is a lint, not a gate).** README, `report.md`, drafts,
+  DECISIONS and the code all state explicitly that: the C1–C6 checks are
+  pattern matching; passing them does not make output compliant; a
+  qualified adviser must review every draft before publication. D-6's
+  invariant (checks run before any write, in both modes) is unchanged; the
+  wording everywhere is now "lint", never "authority". C1b is now
+  negation-aware in line with C1/C6, and a negated "no fees" test pins
+  this.
+- **F-3 (seoextract Plan B).** No change required: provenance is complete,
+  probe tests pass, a requests+bs4 replacement is small if ever needed
+  (~200–450 LOC).
+- **F-8 (success metric).** Still not implemented in code; see the review
+  findings for the proposed first-cycle baseline template (documentation
+  only, to be used when Phase B begins).
 
 See `CHANGELOG.md` for dates and context.
