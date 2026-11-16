@@ -124,3 +124,28 @@ review brief takes precedence.
   operational, not code; it does not run in CI.
 
 See `CHANGELOG.md` for dates and context.
+
+## Owner answers (2026-11-16)
+
+Recorded verbatim from the owner via question tabs. bd76f9e is NOT ratified
+by this section; no sign-off is implied.
+
+- Q1 (use case): a real client/business.
+- Q2 (audit target): https://commercialmortgageadvisorsnearme.co.uk/
+- Q3 (GSC): yes, Search Console access exists. Export method and file
+  location not yet specified (follow-up needed before D2).
+- Q4 (LLM provider): OpenRouter. Whether the API key is set in env:
+  not yet confirmed (follow-up needed before D3). Key must not be printed.
+- Q5 (Suggest/SERP scraping ToS risk): off by default.
+- Q6 (scheduling): manual runs only; no cron/systemd timer for now.
+- Q7 (report audience/format): owner only; markdown is sufficient.
+- Q8 (out/ tracked): yes, keep out/ report.md and backlog.json tracked as
+  definition-of-done samples.
+- Q9 (repo visibility): keep public. History scan found only test-fixture
+  keys (nvapi-testkey..., nvapi-abcdefghijklmnop used in redaction tests),
+  no real secrets.
+- Q10 (definition of "productive"): accepted the proposed sentence:
+  "one command produces a correct report for a real site, with tests, CI
+  green, README, and a documented setup."
+- Q11 (deadline): none.
+- Q12 (cut scope): nothing cut.
