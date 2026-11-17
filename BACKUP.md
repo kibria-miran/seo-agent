@@ -12,7 +12,9 @@ physical disk as well as this one:
 - `seo-agent-backup-20261117.bundle` — older snapshot, kept untouched. Also copied.
 
 **Off-site copy landed 2026-11-17: master was pushed to `origin`
-(`git@github.com:kibria-miran/seo-agent.git`, private) over SSH. GitHub now
+(`git@github.com:kibria-miran/seo-agent.git`) over SSH; the repo was made
+public on 2026-11-17 at the owner's explicit instruction, client data
+included. GitHub now
 holds the full history off this machine; the rclone `terabox:` remote remains
 unused.**
 
