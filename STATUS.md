@@ -1,8 +1,9 @@
 # Status
 
-Updated 2026-11-17: Phase 3 committed at `48f3811` (NO_PAGE -> WEAK_PAGE
-pre-check). Phase 4 preparation committed at the commit carrying this
-update (N-17 disagreement taxonomy, N-18 fixture comparison baseline,
+Updated 2026-11-17 (as of `11e7dff`; later commits may sit behind it):
+Phase 3 committed at `48f3811` (NO_PAGE -> WEAK_PAGE
+pre-check). Phase 4 preparation committed at `11e7dff`
+(N-17 disagreement taxonomy, N-18 fixture comparison baseline,
 `BACKUP.md`, `.gitignore` bundle/wheel entries). Phase 4 live crawl
 **not yet run** — awaiting human go-ahead; the blind hand-rank (N-9) is
 human work. The freshest complete history is

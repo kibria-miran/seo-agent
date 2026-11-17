@@ -319,3 +319,14 @@ Follow-ups recorded 2026-11-16:
   least 3 gap types, no type above 60%, backlog ≤ 30" still holds at
   27/68 = 39.7% max — but it is verified here against the post-Phase-3
   distribution, not assumed.
+- **N-19 (2026-11-17).** Hand-rank units (clarifies N-9): the blind
+  hand-rank ranks human-grouped ACTIONS, not raw gaps — the SCHEMA_MISSING
+  umbrella is one action ("add schema to the flagged pages"), each
+  per-page WEAK_PAGE fix is its own action, each NO_PAGE page is its own
+  action. The model's backlog is already grouped (umbrella as one item),
+  so comparing a raw-gap human ranking against it would systematically
+  over-weight schema and manufacture spurious disagreements. Units must
+  match: human-grouped actions vs the model's grouped backlog. Gap list
+  remains the input (never the backlog order), but the output is a ranked
+  list of actions. Record the groupings in the hand-rank file so the
+  comparison is auditable.

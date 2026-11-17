@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-11-17 — N-19 hand-rank units
+
+The blind hand-rank (N-9) now explicitly ranks human-grouped actions
+(schema umbrella as one action, per-page WEAK_PAGE/NO_PAGE as separate
+actions) against the model's grouped backlog, not raw gaps against raw
+gaps. Prevents the units mismatch that would over-weight schema and
+manufacture spurious disagreements. STATUS.md phase note updated to cite
+`11e7dff`.
+
 ## 2026-11-17 — Phase 4 prep: N-17 disagreement taxonomy, N-18 fixture baseline
 
 Two items settled before the Phase 4 live run and blind hand-rank:
