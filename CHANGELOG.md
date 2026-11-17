@@ -393,3 +393,19 @@ capability probe, but not the vendored bytes).
   in CI.
 - `third_party/PROVENANCE.md` records the addition under "Local additions"
   per the edit policy; upstream files remain verbatim.
+
+## 2026-11-17 — orchestration de-dup (Fix 5)
+
+- The deterministic pipeline and the agent loop persisted the six run stages
+  and rendered/wrote the report through duplicated blocks. Both now call the
+  shared `save_run_stages`, `previous_baseline` and `render_and_write_run`
+  in `src/pipeline.py`; behaviour and byte-identical fixture reruns are
+  unchanged (Suite: 490 passed, 2 deselected; evals 16/16).
+- `vulture --min-confidence 80` on `src/` is clean; no dead code to remove
+  (Fix 3). Fix 7 (trim periphery) remains deferred: agent mode, drafts and
+  the scraping modules stay experimental and are documented as unproven,
+  not deleted.
+- profiles/landc.json `fca_firm_ref` is still the placeholder `000000`; the
+  FCA register blocks automated lookup, so the real FRN needs a manual
+  check on register.fca.org.uk before any compliance lint on drafted copy
+  is trusted.

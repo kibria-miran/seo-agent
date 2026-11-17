@@ -56,8 +56,10 @@ from src.pipeline import (
     mine_gsc_pages,
     mine_scraping_sources,
     money_keywords_for,
+    previous_baseline,
+    render_and_write_run,
+    save_run_stages,
 )
-from src.report import render_report, write_report
 from src.security import find_injection
 from src.store import Store
 from src.trace import TraceWriter
@@ -288,17 +290,8 @@ def tool_write_outputs(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any
 def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
     from src.audit_adapter import fetch_count
 
-    previous_run_id = _previous_run_id(ctx.store, ctx.run_id, ctx.profile.domain)
-    baseline_note = (
-        None
-        if previous_run_id
-        or ctx.store.latest_run(exclude=ctx.run_id) is None
-        else "no comparable previous run for this domain"
-    )
+    previous_run_id, baseline_note = previous_baseline(ctx.store, ctx.run_id, ctx.profile.domain)
     audit_fetches = 0 if ctx.fixture_path else fetch_count()
-    diff = ctx.store.diff_runs(previous_run_id, ctx.run_id)
-    run_row: dict[str, Any] = dict(ctx.store.get_run(ctx.run_id) or {})
-    run_row["backlog_count"] = len(ctx.backlog)
     generated_at = clock.now().isoformat(timespec="seconds")
     budgets = {
         "steps": ctx.steps,
@@ -311,29 +304,23 @@ def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
     budgets["drafts"] = len(ctx.draft_map)
     if ctx.with_sources or ctx.with_scraping:
         budgets["sources"] = ctx.source_counts
-    markdown = render_report(
-        run_row,
-        ctx.audit,  # type: ignore[arg-type]
-        diff=diff,
-        backlog=ctx.backlog,
-        gaps=ctx.gaps,
+    paths, markdown, _diff = render_and_write_run(
+        ctx.store,
+        ctx.run_id,
+        audit=ctx.audit,  # type: ignore[arg-type]
         keywords=ctx.keywords,
         serp=ctx.serp,
         competitor_pages=ctx.competitor_pages,
-        drafts=sorted(ctx.draft_map),
+        gaps=ctx.gaps,
+        backlog=ctx.backlog,
+        drafts=ctx.draft_map,
         budgets=budgets,
         previous_run_id=previous_run_id,
         baseline_note=baseline_note,
         generated_at=generated_at,
+        out_root=ctx.out_root,
     )
-    paths = write_report(ctx.run_id, markdown, ctx.backlog,
-                         drafts=ctx.draft_map or None, out_root=ctx.out_root)
     return paths, markdown
-
-
-def _previous_run_id(store: Store, run_id: str, domain: str | None = None) -> str | None:
-    row = store.latest_run(exclude=run_id, domain=domain)
-    return row["run_id"] if row else None
 
 
 def _persist(ctx: AgentContext) -> None:
@@ -341,12 +328,16 @@ def _persist(ctx: AgentContext) -> None:
 
     if ctx.audit is None:
         return
-    ctx.store.save_audit(ctx.run_id, ctx.audit)
-    ctx.store.save_keywords(ctx.run_id, ctx.keywords)
-    ctx.store.save_serp(ctx.run_id, ctx.serp)
-    ctx.store.save_competitor_pages(ctx.run_id, ctx.competitor_pages)
-    ctx.store.save_gaps(ctx.run_id, ctx.gaps)
-    ctx.store.save_backlog(ctx.run_id, ctx.backlog)
+    save_run_stages(
+        ctx.store,
+        ctx.run_id,
+        audit=ctx.audit,
+        keywords=ctx.keywords,
+        serp=ctx.serp,
+        competitor_pages=ctx.competitor_pages,
+        gaps=ctx.gaps,
+        backlog=ctx.backlog,
+    )
 
 
 def _start_run(ctx: AgentContext) -> None:

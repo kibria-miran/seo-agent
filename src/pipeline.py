@@ -22,9 +22,12 @@ from src.drafts import write_drafts
 from src.gap import analyze
 from src.keywords import city_in, cluster, intent_for, normalise
 from src.models import (
+    AuditDiff,
     AuditSnapshot,
+    BacklogItem,
     Cluster,
     CompetitorPage,
+    Gap,
     Intent,
     Keyword,
     RunReport,
@@ -267,6 +270,78 @@ def default_run_id() -> str:
     return "run-" + clock.now().strftime("%Y%m%dT%H%M%SZ")
 
 
+def save_run_stages(
+    store: Store,
+    run_id: str,
+    *,
+    audit: AuditSnapshot,
+    keywords: list[Keyword],
+    serp: list[SerpResult],
+    competitor_pages: list[CompetitorPage],
+    gaps: list[Gap],
+    backlog: list[BacklogItem],
+) -> None:
+    store.save_audit(run_id, audit)
+    store.save_keywords(run_id, keywords)
+    store.save_serp(run_id, serp)
+    store.save_competitor_pages(run_id, competitor_pages)
+    store.save_gaps(run_id, gaps)
+    store.save_backlog(run_id, backlog)
+
+
+def previous_baseline(
+    store: Store, run_id: str, domain: str | None
+) -> tuple[str | None, str | None]:
+    row = store.latest_run(exclude=run_id, domain=domain)
+    previous_run_id = row["run_id"] if row else None
+    baseline_note = (
+        None
+        if previous_run_id or store.latest_run(exclude=run_id) is None
+        else "no comparable previous run for this domain"
+    )
+    return previous_run_id, baseline_note
+
+
+def render_and_write_run(
+    store: Store,
+    run_id: str,
+    *,
+    audit: AuditSnapshot,
+    keywords: list[Keyword],
+    serp: list[SerpResult],
+    competitor_pages: list[CompetitorPage],
+    gaps: list[Gap],
+    backlog: list[BacklogItem],
+    drafts: dict[str, str],
+    budgets: dict[str, Any],
+    previous_run_id: str | None,
+    baseline_note: str | None,
+    generated_at: str,
+    out_root: str | Path | None,
+) -> tuple[dict[str, Path], str, AuditDiff]:
+    diff = store.diff_runs(previous_run_id, run_id)
+    run_row: dict[str, Any] = dict(store.get_run(run_id) or {})
+    run_row["backlog_count"] = len(backlog)
+    markdown = render_report(
+        run_row,
+        audit,
+        diff=diff,
+        backlog=backlog,
+        gaps=gaps,
+        keywords=keywords,
+        serp=serp,
+        competitor_pages=competitor_pages,
+        drafts=sorted(drafts),
+        budgets=budgets,
+        previous_run_id=previous_run_id,
+        baseline_note=baseline_note,
+        generated_at=generated_at,
+    )
+    paths = write_report(run_id, markdown, backlog, drafts=drafts or None, out_root=out_root)
+    budgets["outputs"] = {name: str(path) for name, path in sorted(paths.items())}
+    return paths, markdown, diff
+
+
 def run_deterministic(
     profile: SiteProfile,
     *,
@@ -302,14 +377,7 @@ def run_deterministic(
     store = Store(db_path)
     try:
         store.mark_running_as_aborted(except_run_id=chosen_run_id)
-        previous = store.latest_run(exclude=chosen_run_id, domain=profile.domain)
-        previous_run_id = previous["run_id"] if previous else None
-        baseline_note = (
-            None
-            if previous_run_id
-            or store.latest_run(exclude=chosen_run_id) is None
-            else "no comparable previous run for this domain"
-        )
+        previous_run_id, baseline_note = previous_baseline(store, chosen_run_id, profile.domain)
         store.start_run(chosen_run_id, url=profile.domain, started_at=started_at)
 
         audit: AuditSnapshot = run_audit(
@@ -387,12 +455,16 @@ def run_deterministic(
         trace.emit(step=3, tool="analyze_gap", args={"gaps": len(gaps)})
         trace.emit(step=4, tool="build_backlog", args={"items": len(backlog)})
 
-        store.save_audit(chosen_run_id, audit)
-        store.save_keywords(chosen_run_id, keywords)
-        store.save_serp(chosen_run_id, serp)
-        store.save_competitor_pages(chosen_run_id, competitor_pages)
-        store.save_gaps(chosen_run_id, gaps)
-        store.save_backlog(chosen_run_id, backlog)
+        save_run_stages(
+            store,
+            chosen_run_id,
+            audit=audit,
+            keywords=keywords,
+            serp=serp,
+            competitor_pages=competitor_pages,
+            gaps=gaps,
+            backlog=backlog,
+        )
         store.finish_run(
             chosen_run_id,
             status="ok",
@@ -404,9 +476,6 @@ def run_deterministic(
             finished_at=clock.now(),
         )
 
-        diff = store.diff_runs(previous_run_id, chosen_run_id)
-        run_row: dict[str, Any] = dict(store.get_run(chosen_run_id) or {})
-        run_row["backlog_count"] = len(backlog)
         generated_at = clock.now().isoformat(timespec="seconds")
         budgets = {
             "steps": 7,
@@ -419,29 +488,22 @@ def run_deterministic(
         }
         if with_sources or with_scraping:
             budgets["sources"] = counts
-        markdown = render_report(
-            run_row,
-            audit,
-            diff=diff,
-            backlog=backlog,
-            gaps=gaps,
+        _paths, markdown, diff = render_and_write_run(
+            store,
+            chosen_run_id,
+            audit=audit,
             keywords=keywords,
             serp=serp,
             competitor_pages=competitor_pages,
-            drafts=sorted(drafts),
+            gaps=gaps,
+            backlog=backlog,
+            drafts=drafts,
             budgets=budgets,
             previous_run_id=previous_run_id,
             baseline_note=baseline_note,
             generated_at=generated_at,
-        )
-        paths = write_report(
-            chosen_run_id,
-            markdown,
-            backlog,
-            drafts=drafts or None,
             out_root=out_root,
         )
-        budgets["outputs"] = {name: str(path) for name, path in sorted(paths.items())}
         trace.emit(
             step=5,
             tool="write_report",
@@ -504,5 +566,8 @@ __all__ = [
     "mine_gsc_pages",
     "mine_scraping_sources",
     "money_keywords_for",
+    "previous_baseline",
+    "render_and_write_run",
     "run_deterministic",
+    "save_run_stages",
 ]

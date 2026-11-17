@@ -190,3 +190,8 @@ Follow-ups recorded 2026-11-16:
   provide later (money_pages, target_keywords, competitors, cities, FCA firm
   reference or instruction to make the FCA ref optional for non-UK finance).
   Phase B is blocked until then.
+- 2026-11-17 orchestration: run-stage persistence, previous-baseline
+  selection and report render/write are shared between the deterministic
+  pipeline and agent mode via `save_run_stages` / `previous_baseline` /
+  `render_and_write_run` in `src/pipeline.py`. The agent keeps its own
+  budget shape and idempotent mid-loop persist; only the mechanics moved.
