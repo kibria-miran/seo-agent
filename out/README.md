@@ -42,5 +42,5 @@ runs is also tied or ordered identically on money flag, `money_kw_count`
 and GSC demand), so their item order still matches what the code emits.
 The caveat stands because of provenance, not observed divergence: N-6
 forbids overwriting pinned runs, so compare them for content, treat
-ordering as unverified-but-currently-identical, and do not re-pin them to
-force agreement.
+ordering as replayed-and-currently-identical (2026-11-17 replay: no items
+move in these three runs), and do not re-pin them to force agreement.

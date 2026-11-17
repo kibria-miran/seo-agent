@@ -253,3 +253,42 @@ Follow-ups recorded 2026-11-16:
   pages (`money_page_count` in evidence, CRITICAL vs WARNING) — that is
   scoring, not ordering — and orders by `kind_rank` among schema-kind
   items.
+- **N-14 (2026-11-17).** The N-5 NO_PAGE pre-check counts the
+  ≥2-significant-token match across title + H1 + H2 combined, not within a
+  single field. Rationale: the pre-check asks "does this page plausibly
+  target this keyword?", and a page with one distinctive token in the
+  title and another in the H1 plausibly does. Rejected alternative (per-
+  field match) produces false negatives, which leave a gap as NO_PAGE
+  (create a new page) when the right action is WEAK_PAGE (fix the existing
+  page); a false positive merely shifts an item between two action types.
+- **N-15 (2026-11-17).** The pre-check uses its own stopword set, not the
+  slug-tuned `UK_MORTGAGE_STOPLIST`: `UK_MORTGAGE_STOPLIST` minus
+  `mortgage`. Measured on the 74 landc target keywords: the slug list
+  yields only one significant token for 11 keywords (all "mortgage"-led,
+  e.g. 'mortgage advice' -> ['advice']), which would silently suppress the
+  NO_PAGE -> WEAK_PAGE reclassification for the most common keyword shape.
+  With `mortgage` kept, the distribution is 2 tokens x19, 3 x36, 4 x14,
+  5 x5 — every keyword yields ≥2 (scratch dump: /tmp/landc_74kw_tokens.tsv,
+  not committed). All other stopwords (the/a/an/uk/for/in/with/and/of/to/
+  on/is/are/near/me/how/what/can/i/my/your/best) are unchanged. This list
+  is for the pre-check only; slug tokenization is untouched.
+- **N-16 (2026-11-17).** Phase 3 gate: the NO_PAGE pre-check reclassifies
+  **5 of 31** NO_PAGE gaps on the 74-keyword landc fixture
+  (`tests/fixtures/landc_audit_74kw.json`, recorded from run-20261117T153658Z):
+  'how much deposit do i need for a mortgage' -> tracker-mortgages (title
+  mortgage / h1 mortgage+need); 'independent mortgage broker' -> / (title
+  broker+mortgage); 'mortgage affordability calculator' ->
+  /mortgages/mortgage-calculator (calculator+mortgage in title and h1);
+  'mortgage broker reviews' -> / (broker+mortgage); 'mortgage rates 2026' ->
+  /best-mortgage-rates (title mortgage+rates). All five pages plausibly
+  target their cluster under N-14; count 5 is in the plausible band (not 0,
+  not 20+), so Phase 4 may proceed. One borderline case is recorded, not
+  suppressed: on the clearpath own_site fixture, 'mortgage fees explained'
+  reclassifies to WEAK_PAGE on /first-time-buyer via title `mortgage` + H2
+  `Fees` (an H2-only second token). Accepted as N-14 as written; if the
+  Phase 4 hand-rank (N-9) disagrees, tighten one constant under N-10
+  (e.g. require the second token outside H2) with a DECISIONS entry naming
+  the disagreement. Golden eval S01 re-based to the new deterministic output
+  (top item BL-0001 meta_fix, 2.0, /first-time-buyer) and S02/S2 and
+  test_gsc_demand widened/adjusted for WEAK_PAGE; each is the intended
+  effect of the pre-check, recorded here rather than silently re-pinned.

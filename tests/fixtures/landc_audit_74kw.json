@@ -1,0 +1,4894 @@
+{
+ "url": "https://www.landc.co.uk",
+ "site_score": 89.1,
+ "grade": "B",
+ "pages_crawled": 50,
+ "total_issues": 146,
+ "critical_count": 0,
+ "warning_count": 21,
+ "info_count": 125,
+ "pages": [
+  {
+   "url": "https://www.landc.co.uk/",
+   "status_code": 200,
+   "title": "L&C Mortgages | Find your best mortgage with your fee free Mortgage Broker",
+   "meta_description": "Fee Free Mortgage Advice from the UK's largest Mortgage Broker. Our award-winning mortgage advisors are available 7 days a week. Get started online today.",
+   "h1_tags": [
+    "Fee freemortgageadvice"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Fee freemortgageadvice"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "From the UK's best mortgage broker",
+     "Today\u2019sbest buymortgages",
+     "Handy tools and calculators",
+     "How can we do all this for free?",
+     "Celebrating 1 millionmortgagestories",
+     "Here\u2019s how much we\u2019ve saved customers so far this year with our Rate Check service.",
+     "Which best describes you?",
+     "Latest mortgagenews",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Latest mortgage best buys",
+     "Latest Buy to Let mortgage best buys",
+     "See how much you can borrow on a mortgage",
+     "What will my monthly mortgage repayments be?",
+     "Calculate the cost of doing nothing",
+     "How much is my house worth?",
+     "How mortgage brokers are paid",
+     "Don\u2019t pay extra",
+     "Benefit from exclusive deals",
+     "We\u2019ve got a proven track record",
+     "Free advice on the best deal for you",
+     "Be sure you\u2019ll qualify before you apply",
+     "Support right through to completion",
+     "Bank of England raises interest rates for first time in over 3 years",
+     "Autumn 2026 Budget: What does it mean for you?",
+     "How quitting smoking could improve your financial wellbeing too",
+     "World Heart Day: What if waiting longer isn't an option?"
+    ]
+   },
+   "word_count": 1945,
+   "page_score": 91.0,
+   "response_time_ms": 487.47,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "27 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "74 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us",
+   "status_code": 200,
+   "title": "About L&C Mortgages | L&C",
+   "meta_description": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+   "h1_tags": [
+    "AboutL&C\u00a0Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "AboutL&C\u00a0Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Who are we?",
+     "What we do",
+     "Check eligibility",
+     "Find your best deal",
+     "Apply online or by phone",
+     "Track your progress",
+     "In a nutshell",
+     "How can we help you?",
+     "First time buyer",
+     "Buying a home",
+     "Remortgage your home",
+     "Buy to Let",
+     "L&C - the UK's favourite mortgage partner",
+     "What MortgageAwards",
+     "Legal & GeneralBusiness Quality Awards",
+     "The Financial ReporterAwards",
+     "Word of mouth",
+     "Some important information about our service",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Our people",
+     "Our chosen charity"
+    ]
+   },
+   "word_count": 1690,
+   "page_score": 83.0,
+   "response_time_ms": 121.17,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us",
+     "issue_type": "Duplicate Meta Description",
+     "severity": "INFO",
+     "current_value": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+     "suggestion": "Write a unique meta description for this page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "10 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "25 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+   "status_code": 200,
+   "title": "Slavery and Anti Human Trafficking Statement 2023 - L&C",
+   "meta_description": "The anti-slavery and human trafficking policy sets out L&C\u2019s promise to develop policies and processes to prevent slavery and trafficking in its corporate activities.",
+   "h1_tags": [
+    "Slavery and Anti Human Trafficking Statement 2025"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Slavery and Anti Human Trafficking Statement 2025"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Introduction",
+     "Organisation structure",
+     "Supply chain and supplier due diligence",
+     "Modern Slavery risk assessment",
+     "Training",
+     "Measuring effectiveness",
+     "Monitoring and reporting",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1414,
+   "page_score": 91.0,
+   "response_time_ms": 83.4,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "166 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/complaints-data",
+   "status_code": 200,
+   "title": "Complaints Reporting - L&C",
+   "meta_description": "Every six months L&C publishes the number of customer complaints received for the previous half year. These figures are put into context using the type of products complained about.",
+   "h1_tags": [
+    "Complaints data report"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Complaints data report"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "What we publish",
+     "Why we publish it",
+     "Our details",
+     "Industry Data",
+     "Previous results"
+    ]
+   },
+   "word_count": 1164,
+   "page_score": 83.0,
+   "response_time_ms": 82.24,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "181 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "26 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/customer-reviews",
+   "status_code": 200,
+   "title": "Customer Reviews - Hear What Our Customers Think - L&C",
+   "meta_description": "Hear what our customers have to say about our award-winning, fee free advice on mortgages & life insurance.",
+   "h1_tags": [
+    "Customer reviews"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Customer reviews"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 553,
+   "page_score": 94.0,
+   "response_time_ms": 82.17,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/customer-reviews",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/customer-reviews",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+   "status_code": 200,
+   "title": "Gender Pay Gap Report | L&C",
+   "meta_description": "L&C\u2019s gender pay gap report is published in accordance with the Equality Act 2010 (Gender Pay Gap Information) Regulations. It sets out the difference in average earnings between women and men at L&C and steps taken to address this.",
+   "h1_tags": [
+    "Gender Pay Gap Report 2025"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Gender Pay Gap Report 2025"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "The proportion of men and women in each pay quartile",
+     "The proportion of men and women in each pay quartile",
+     "The proportion of men and women receiving a bonus payment",
+     "The proportion of men and women receiving a bonus payment",
+     "Action to close the gap",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Background",
+     "Our gender pay gap"
+    ]
+   },
+   "word_count": 1722,
+   "page_score": 83.0,
+   "response_time_ms": 79.7,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "232 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "27 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/keyfacts-advised",
+   "status_code": 200,
+   "title": "Keyfacts About Our Service Advised - L&C",
+   "meta_description": "Keyfacts about our advised mortgage service - view our Initial Disclosure Document Online.",
+   "h1_tags": [
+    "Keyfacts about our service"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Keyfacts about our service"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "About our services and costs",
+     "1. Whose products do we offer?",
+     "Term assurance and income protection insurance",
+     "Buyers' Protection Insurance",
+     "2. Which service will we provide you with?",
+     "Term assurance and income protection insurance",
+     "Buyers' Protection Insurance",
+     "3. Do you need to pay us for our services?",
+     "Term assurance and income protection Insurance",
+     "Buyers' Protection Insurance",
+     "4. Who regulates us?",
+     "5. What to do if you have a complaint",
+     "6. Are we covered by the Financial Services Compensation Scheme (FSCS)?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Insurance",
+     "Mortgages",
+     "Insurance",
+     "Mortgages",
+     "Insurance",
+     "Mortgages"
+    ]
+   },
+   "word_count": 1340,
+   "page_score": 94.0,
+   "response_time_ms": 212.8,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/keyfacts-advised",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "16 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/keyfacts-advised",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/list-of-lenders",
+   "status_code": 200,
+   "title": "List of Lenders",
+   "meta_description": "List of current mortgage lenders",
+   "h1_tags": [
+    "Which lenders do we work with?"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Which lenders do we work with?"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Ourlenders",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 676,
+   "page_score": 83.0,
+   "response_time_ms": 78.85,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+     "issue_type": "Meta Description Too Short",
+     "severity": "INFO",
+     "current_value": "32 characters",
+     "suggestion": "Expand the meta description to better explain the page and improve search snippet quality."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "4 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "15 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/our-awards",
+   "status_code": 200,
+   "title": "Our Awards | L&C Mortgages",
+   "meta_description": "At L&C Mortgages, we've won more awards than any other UK mortgage broker - here are the awards we've won so you can see for yourself.",
+   "h1_tags": [
+    "Awards"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Awards"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "2019 - 2026",
+     "Health & Protection Awards",
+     "Health & Protection Awards",
+     "Women's Recognition Awards",
+     "Women\u2019s Recognition Awards",
+     "L&G Business Quality Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Moneyfacts Awards",
+     "Financial Reporter Awards",
+     "L&G Mortgage Club Awards",
+     "L&G Mortgage Club Awards",
+     "L&G Mortgage Club Awards",
+     "Cover Women in Protection Awards",
+     "Cover Women in Protection Awards 2026",
+     "Cover Women in Protection Awards 2026",
+     "MoneyAge Mortgage Awards",
+     "MoneyAge Mortgage Awards",
+     "Mortgage Introducer Awards",
+     "Mortgage Introducer Awards",
+     "Mortgage Introducer Awards",
+     "Protection Review Awards",
+     "Protection Review Awards",
+     "Personal Finance Awards",
+     "Mortgage Industry Marketing Awards",
+     "Women's Recognition Awards",
+     "Women\u2019s Recognition Awards",
+     "Barclays Mortgage Intermediaries Summit and Awards",
+     "Barclays Mortgage Intermediaries Summit and Awards",
+     "Barclays Mortgage Intermediaries Summit and Awards",
+     "Barclays Mortgage Intermediaries Summit and Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Cover Women in Protection and Health Awards",
+     "Cover Women in Protection and Health Awards",
+     "Cover Women in Protection and Health Awards",
+     "Financial Reporter Awards",
+     "L&G Business Quality Awards",
+     "MoneyAge Mortgage Awards",
+     "Mortgage Strategy Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Barclays Intermediary DE&I Awards",
+     "Barclays Intermediary DE&I Awards",
+     "British Mortgage Awards",
+     "Financial Reporter Women's Recognition Rewards",
+     "Personal Finance Awards",
+     "Personal Finance Awards",
+     "Protection Guru Awards",
+     "Protection Review Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Barclays Diversity, Equity & Inclusion Awards",
+     "British Mortgage Awards",
+     "Cover Women in Protection and Health Awards",
+     "Cover Women in Protection and Health Awards",
+     "Cover Women in Protection and Health Awards",
+     "L&G Business Quality Awards",
+     "Mortgage Industry Marketing Awards",
+     "Personal Finance Awards",
+     "Personal Finance Awards",
+     "Protection Guru Awards",
+     "Protection Guru Awards",
+     "Protection Guru Awards",
+     "Protection Review Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Women\u2019s Recognition Awards",
+     "Legal & General Business Quality Awards",
+     "Legal & General Business Quality Awards",
+     "Personal Finance Awards",
+     "Personal Finance Awards",
+     "Protection Guru Awards",
+     "Protection Guru Awards",
+     "Protection Review Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Legal & General Business Quality Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Finder Customer Satisfaction Awards",
+     "Moneyfacts Investment Life and Pensions",
+     "Mortgage Strategy Awards",
+     "Personal Finance Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "AIG Life Quality Awards",
+     "Bath Life Awards",
+     "British Mortgage Awards",
+     "Mortgage Introducer Awards",
+     "2013 - 2018",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Drum Content Awards",
+     "ESTAs",
+     "Lending Awards",
+     "Life Insurance International Awards",
+     "Moneyfacts Awards",
+     "Moneyfacts Awards",
+     "Money Marketing Awards",
+     "Mortgage Introducer Awards",
+     "Personal Finance Awards",
+     "UK Search Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "Women In Finance Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Business Moneyfacts Awards",
+     "Cover Awards",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Legal and General Business Quality Awards",
+     "Legal & General Mortgage Club Awards",
+     "Moneyfacts Awards",
+     "Money Marketing Awards",
+     "Mortgage Introducer Awards",
+     "Mortgage Introducer Awards",
+     "Mortgage Introducer Awards",
+     "Mortgage Strategy Awards",
+     "UK Enterprise Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Drum Digital Trading Awards",
+     "L&G Mortgage Club Awards",
+     "Moneyfacts Awards",
+     "Moneyfacts Awards",
+     "Money Marketing Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Northern Marketing Awards",
+     "Unbiased Media IFA of the Year Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "Business Moneyfacts Awards",
+     "Cover Awards",
+     "ESTAs",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Headline Money Awards",
+     "Legal And General Mortgage Awards",
+     "Money Marketing Awards",
+     "Money Marketing Awards",
+     "Mortgage Strategy Awards",
+     "Protection Review",
+     "UK Search awards",
+     "Unbiased Media Adviser Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "Cover Awards",
+     "Legal And General Mortgage Awards",
+     "Money Marketing Awards",
+     "Mortgage Strategy Awards",
+     "MyHomeMove Awards",
+     "North East Contact Centre Awards",
+     "North East Contact Centre Awards",
+     "North East Contact Centre Awards",
+     "Protection Review Awards",
+     "Unbiased Media Adviser Awards",
+     "What Mortgage Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Business Moneyfacts Awards",
+     "Cover Awards",
+     "Financial Reporter Awards",
+     "Financial Reporter Awards",
+     "Headline Money Awards",
+     "Legal & General Mortgage Club Awards",
+     "Legal & General Mortgage Club Awards",
+     "Legal & General Mortgage Club Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "NE Call centre awards",
+     "Protection Review",
+     "Unbiased Media Adviser Awards",
+     "What Mortgage Awards",
+     "2008 - 2012",
+     "Bath Life Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Cover Awards",
+     "Headline Money Awards",
+     "Health Insurance Awards",
+     "Legal & General Mortgage Club Awards",
+     "Mortgage Finance Gazette Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "myintroducer Awards",
+     "Protection Review Awards",
+     "Unbiased Media IFA of the Year Awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "Cover Awards",
+     "Headline Money Awards",
+     "Legal & General Mortgage Club Awards",
+     "Money Marketing Awards",
+     "Money Marketing Awards",
+     "Money Marketing Awards",
+     "myintroducer Awards",
+     "myintroducer Awards",
+     "Unbiased Media IFA of the year awards",
+     "What Mortgage Awards",
+     "British Mortgage Awards",
+     "Headline Money Awards",
+     "Money Marketing Awards",
+     "Money Marketing Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Unbiased Media IFA of the Year Awards",
+     "Unbiased Media IFA of the Year Awards",
+     "British Mortgage Awards",
+     "British Mortgage Awards",
+     "Money Marketing Financial Services Awards",
+     "Mortgage Strategy Awards",
+     "British Mortgage Awards",
+     "Financial Adviser Awards",
+     "Financial Adviser Awards",
+     "Headline Money Awards",
+     "Headline Money Awards",
+     "Legal & General Mortgage Club Awards",
+     "Money Marketing Financial Services Awards",
+     "Money Marketing Financial Services Awards",
+     "National Business Awards (Wales and West)",
+     "National Business Awards (Wales and West)",
+     "Pink Service Awards",
+     "Pink Service Awards",
+     "2002 - 2007",
+     "Headline Money Awards",
+     "Headline Money Awards",
+     "Money Marketing Financial Services Awards",
+     "Money Marketing Financial Services Awards",
+     "Mortgage Strategy Awards",
+     "Pink Service Awards",
+     "Pink Service Awards",
+     "Solent Mortgage Service Awards",
+     "Solent Mortgage Service Awards",
+     "Headline Money Awards",
+     "Money Marketing Financial Services Awards",
+     "Money Marketing Financial Services Awards",
+     "Money Marketing Financial Services Awards",
+     "Mortgage Introducer Broker Awards",
+     "Pink Service Awards",
+     "Pink Service Awards",
+     "Fast Track 100 - fastest growing companies in the UK",
+     "Headline Money Awards",
+     "Money Marketing Financial Services Awards",
+     "Mortgage Introducer Broker Awards",
+     "Mortgage Introducer Broker Awards",
+     "Mortgage Magazine Awards",
+     "Mortgage Strategy Awards",
+     "Mortgage Strategy Awards",
+     "Pink Home Loans Service Awards",
+     "The Bath Chronicle Business Awards",
+     "Fast Track 100 - fastest growing companies in the UK",
+     "Money Marketing Financial Services Awards",
+     "Mortgage Strategy Awards",
+     "Envolve",
+     "Legal & General Mortgage Club Awards",
+     "Mortgage Strategy Awards"
+    ]
+   },
+   "word_count": 3226,
+   "page_score": 86.0,
+   "response_time_ms": 150.46,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/our-awards",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "284 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/our-awards",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/our-awards",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "26 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/privacy-statement",
+   "status_code": 200,
+   "title": "Privacy Statement - L&C",
+   "meta_description": "Information about how London and Country use your information, and how important your privacy is to us.",
+   "h1_tags": [
+    "Privacy statement"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Privacy statement"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Privacy notice",
+     "1. About London and Country (L&C) and how you can contact us",
+     "2. What information we collect and how we use it",
+     "3. What are the legal grounds for handling personal information?",
+     "4. Who we share your personal information with",
+     "5. Where in the world do we send information?",
+     "6. Your information rights",
+     "7. How we keep your personal information secure",
+     "8. How long do we keep your personal information for",
+     "9. Use of cookies",
+     "10. Changes to this privacy notice",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Information we collect directly"
+    ]
+   },
+   "word_count": 5653,
+   "page_score": 86.0,
+   "response_time_ms": 96.59,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "23 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/sustainability",
+   "status_code": 200,
+   "title": "Sustainability",
+   "meta_description": "L&C mortgages is committed to sustainability and is working toward net zero. We're proud to support trillion trees.",
+   "h1_tags": [
+    "Sustainability and Impact"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Sustainability and Impact"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Supporting our customers, community and the environment.",
+     "Sustainability",
+     "Charity & Community",
+     "Why are we passionate about #ChangeOneThing?",
+     "Want to find out more?",
+     "Where can I find green mortgage rates?",
+     "Who do I speak to about green mortgages or retrofitting?",
+     "What\u2019s an EPC?",
+     "Have a sustainability idea or media enquiry?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1529,
+   "page_score": 86.0,
+   "response_time_ms": 88.4,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/sustainability",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "6 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/sustainability",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/sustainability",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "14 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+   "status_code": 200,
+   "title": "About L&C | Terms of Business advised",
+   "meta_description": "Read our terms of business. London and Country is the UK's leading fee free mortgage broker. Our advice is fee-free.",
+   "h1_tags": [
+    "Terms of business"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Terms of business"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Terms of business",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1772,
+   "page_score": 94.0,
+   "response_time_ms": 205.87,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/best-mortgage-rates",
+   "status_code": 200,
+   "title": "Compare Mortgage Deals | Best Mortgage Rates in UK",
+   "meta_description": "Compare, filter and sort the latest & best mortgage interest rates from 90+ lenders at a glance, including any L&C exclusive deals. Updated in real-time.",
+   "h1_tags": [
+    "Compare mortgagedeals"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Compare mortgagedeals"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Start your mortgage online",
+     "Compare today's mortgage rates & deals",
+     "Please enter a search to get started",
+     "Our mortgage best buys",
+     "Get expert advice and find the best mortgagedeal for you",
+     "You're remortgaging your home",
+     "You're moving home",
+     "You're buying your first home",
+     "Find your best mortgage",
+     "Compare mortgagetypes",
+     "Fixed rate",
+     "Tracker",
+     "Discount rate",
+     "Offset",
+     "Get a mortgage quote",
+     "How much can I borrow?",
+     "How to get thebestmortgage deals",
+     "Check your credit score",
+     "Shop around",
+     "Check the fees",
+     "Use an L&C mortgage broker",
+     "Get a head start with an L&C Mortgage in Principle",
+     "\u200dYou\u2019ll get your Mortgage in Principle certificate in minutes",
+     "Applying won\u2019t affect your credit score",
+     "A Mortgage in Principle can help speed up the buying process",
+     "Getting started with ourmortgage guides",
+     "How to prepare for a mortgage application",
+     "What does a mortgage broker do?",
+     "Sign up to our newsletter",
+     "Comparing mortgages FAQs",
+     "How do I decide which is the best mortgage for me?",
+     "What should I consider when comparing mortgages?",
+     "What factors affect the mortgage I can get?",
+     "What is LTV and how does it affect the cost of a mortgage?",
+     "Should I compare mortgages based on annual cost?",
+     "What other mortgage cost factors should I compare?",
+     "What length fixed rate mortgage should I get?",
+     "When should I remortgage?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Lender name"
+    ]
+   },
+   "word_count": 3073,
+   "page_score": 94.0,
+   "response_time_ms": 106.57,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/best-mortgage-rates",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "15 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/best-mortgage-rates",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/buy-to-let",
+   "status_code": 200,
+   "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C",
+   "meta_description": "We're the UK's Largest Fee-Free Buy to Let Mortgage Broker & Adviser. Compare 1000s of BTL Mortgage Rates. Contact us Today. We're Open 7 days.",
+   "h1_tags": [
+    "Buy to Let"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Buy to Let"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Start the Buy to Let mortgage process today",
+     "What is aBuy to Letmortgage?",
+     "Why use a mortgage broker for yourBuy to Letmortgage?",
+     "Explore Buy to Let products",
+     "Buy to Let remortgages",
+     "Buy to Let interest-only",
+     "Buy to Let mortgage calculator",
+     "Who is eligible for aBuy to Letmortgage?",
+     "Get started with your Buy to Let mortgage",
+     "How do Buy to Let mortgages work",
+     "Tax on Buy to Let properties",
+     "Using a limited company",
+     "Buy to Let remortgage",
+     "Buy to Let mortgage FAQs",
+     "How much could I borrow on a Buy to Let mortgage?",
+     "How much deposit do I need?",
+     "Do I need a tenancy agreement?",
+     "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+     "Can I buy a Buy to Let property as a first time buyer?",
+     "What is a House in Multiple Occupation (HMO)?",
+     "Ready to find your perfectBuy to Letmortgage?",
+     "Word of mouth",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "How much deposit do I need for a Buy to Let mortgage?",
+     "We\u2019ll search across the market to find the best deal for you",
+     "We\u2019ll handle all the paperwork & make the process hassle-free",
+     "We won\u2019t charge you a penny - our entire advice service is fee free!",
+     "Start your mortgage journey today."
+    ]
+   },
+   "word_count": 2148,
+   "page_score": 91.0,
+   "response_time_ms": 87.72,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/buy-to-let",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "12 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/buy-to-let",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/buy-to-let",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "64 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/buy-to-let/best-buys",
+   "status_code": 200,
+   "title": "Compare the Best Buy to Let Mortgage Rates & Deals | L&C",
+   "meta_description": "Compare the best Buy to Let mortgage deals in the UK today, all in one place. See rates from over 50 lenders and get access to exclusive deals. Learn more.",
+   "h1_tags": [
+    "Compare Buy to Let deals"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Compare Buy to Let deals"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Start your Buy to Let mortgage online",
+     "Compare 1000s of Buy to Let mortgage rates & deals",
+     "Your results",
+     "Our Buy to Let best buys",
+     "What is aBuy to Letmortgage?",
+     "Check your Buy to Let mortgage options",
+     "Why use an L&C mortgage adviser for yourBuy to Letmortgage?",
+     "Get specialist Buy to Let mortgage advice for landlords",
+     "The basics of Buy to Let mortgages",
+     "Remortgaging Buy to Let property",
+     "How much can you borrow?",
+     "Read whatfirst time landlordSudhir Managolikar says about his experience with L&C",
+     "Buy to Let mortgages for different property portfolios",
+     "Individual rental properties",
+     "Holiday lets",
+     "HMOs",
+     "Portfolio landlords",
+     "How much rent should I charge?",
+     "Types of Buy to let mortgages",
+     "Fixed rate BTL mortgage",
+     "Variable rate BTL mortgages",
+     "Tracker mortgages",
+     "The 7 factors that affect your mortgage rate",
+     "Loan to value (LTV)",
+     "Deposit size",
+     "Credit rating",
+     "Income and affordability",
+     "Market conditions",
+     "Lender policies",
+     "Property type",
+     "Comparing Buy to Let mortgages FAQs",
+     "Do I need a Buy to Let mortgage to rent out my property?",
+     "Is a Buy to Let mortgage cheaper than a standard mortgage?",
+     "What additional fees are associated with being a landlord?",
+     "Are there minimum and maximum loan amounts?",
+     "Can I make overpayments on my Buy to Let mortgage?",
+     "Stay in the know with our newsletter",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Lender name"
+    ]
+   },
+   "word_count": 9556,
+   "page_score": 94.0,
+   "response_time_ms": 140.09,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/buy-to-let/best-buys",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "11 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/buy-to-let/best-buys",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/calculators",
+   "status_code": 200,
+   "title": "Free House Buying Calculators - Quick & Easy to Use | L&C",
+   "meta_description": "Our quick and easy to use online calculators are perfect for getting accurate estimations. \u2705 Stamp Duty. \u2705 Protection. \u2705 House value.",
+   "h1_tags": [
+    "Our calculators"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Our calculators"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Try our mortgage calculator",
+     "Our calculators",
+     "Mortgage calculator",
+     "Loan to value calculator",
+     "How much is my house worth?",
+     "How much stamp duty will I pay?",
+     "Life insurance calculator",
+     "How much can I save by making overpayments?",
+     "Offset v Savings calculator",
+     "Remortgage Calculator",
+     "Loan to value calculator",
+     "How much is my house worth?",
+     "How much can I save by making overpayments?",
+     "Offset v Savings calculator",
+     "Life insurance calculator",
+     "Buy to let calculator",
+     "Loan to value calculator",
+     "How much is my house worth?",
+     "How much stamp duty will I pay?",
+     "How much can I save by making overpayments?",
+     "Life insurance calculator",
+     "Mortgage calculator",
+     "Loan to value calculator",
+     "How much is my house worth?",
+     "How much stamp duty will I pay?",
+     "How much can I save by making overpayments?",
+     "Offset v Savings calculator",
+     "Life insurance calculator",
+     "Savings calculator",
+     "Life insurance calculator",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "First time buyers",
+     "Remortgage",
+     "Buy to Let",
+     "Buying a home",
+     "Your money"
+    ]
+   },
+   "word_count": 1271,
+   "page_score": 94.0,
+   "response_time_ms": 229.13,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/calculators",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/calculators",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/careers",
+   "status_code": 200,
+   "title": "Mortgage Broker Jobs | Financial Services Careers | L&C Mortgages",
+   "meta_description": "L&C Mortgages, the UK's leading fee free mortgage broker, are always looking for people to join our team in Bath. Find out more about jobs at L&C now\u2026",
+   "h1_tags": [
+    "Join theteam"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Join theteam"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Find out about our roles here!",
+     "We Belong",
+     "Working here",
+     "FAQs",
+     "Locations",
+     "Our roles",
+     "Ready to apply?",
+     "Tips & advice",
+     "How strong is your CV?",
+     "Our roles",
+     "Get in touch",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?",
+     "This is a heading"
+    ],
+    "h3": []
+   },
+   "word_count": 1024,
+   "page_score": 91.0,
+   "response_time_ms": 85.19,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/careers",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "11 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/careers",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/careers",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "65 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/contact-us",
+   "status_code": 200,
+   "title": "Contact L&C Mortgages",
+   "meta_description": "We're the UK's favourite mortgage partner, with offices in Bath, London & Newcastle. Contact us today. Open 7 days.",
+   "h1_tags": [
+    "Contactus"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Contactus"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Find out more",
+     "New mortgageenquiries",
+     "See how much you could borrow",
+     "See deals you might be eligible for in real-time",
+     "Get a Mortgage in Principle",
+     "Speak to myadviser",
+     "Is your mortgage application underway?",
+     "Track the progress of your application",
+     "Check if your lender needs any supporting documents",
+     "See if your mortgage offer has come through!",
+     "Press contacts",
+     "David Hollingworth",
+     "Ouroffices",
+     "Bath",
+     "Newcastle",
+     "Join the team",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 904,
+   "page_score": 86.0,
+   "response_time_ms": 280.01,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/contact-us",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "18 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "21 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/contact-us/how-to-complain",
+   "status_code": 200,
+   "title": "How To Complain To L&C Mortgages",
+   "meta_description": "Options for how to contact L&C if making a complaint, leaving negative feedback, or requiring extra help with a mortgage application. Also includes information on how to use a Claims Management Company (CMC).",
+   "h1_tags": [
+    "How to complain"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "How to complain"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "I want to give feedback",
+     "I need extra help with my mortgage",
+     "I want to complain",
+     "Thinking of using a Claims Management Company (CMC)?",
+     "1. What we will need",
+     "2. So what can you expect?",
+     "3. What happens if we can't reach a resolution together?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Complaints we've received over the last six months"
+    ]
+   },
+   "word_count": 1758,
+   "page_score": 91.0,
+   "response_time_ms": 84.51,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "208 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+   "status_code": 200,
+   "title": "Supporting our customers - L&C Mortgages",
+   "meta_description": "At L&C we want to make sure that all of our customers feel fully supported through their mortgage and protection journey. We understand that sometimes extra assistance is needed during this process.",
+   "h1_tags": [
+    "Accessibility and supporting all our customers"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Accessibility and supporting all our customers"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Hearing or speech impairment",
+     "Visual impairment",
+     "Our website",
+     "Extra support"
+    ]
+   },
+   "word_count": 1045,
+   "page_score": 91.0,
+   "response_time_ms": 80.27,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "198 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "4 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/conveyancing",
+   "status_code": 200,
+   "title": "Conveyancing - L&C Mortgages",
+   "meta_description": "Here at L&C we have our own conveyancing service to speed up the mortgage process as a whole.",
+   "h1_tags": [
+    "Conveyancing"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Conveyancing"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Get a conveyancing quote online",
+     "What is conveyancing?",
+     "What is a conveyancer?",
+     "What does a conveyancer do?",
+     "Why use L&C Conveyancing",
+     "How to get started",
+     "Our guides to conveyancing",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "A high quality, competitively priced \u2018no completion, no fee\u2019 legal package",
+     "The recommended solicitor is guaranteed to be approved and recognised by your new mortgage lender",
+     "Firms chosen for their expertise in the type of property you're buying, for example new build and leasehold properties",
+     "A solicitor or conveyancer who is guaranteed to be accepted by your mortgage lender",
+     "Specialists in your type of property \u2013 including new build, leasehold or Shared Ownership homes",
+     "Great customer service and regular updates to keep you in the loop",
+     "How does the conveyancing process work?",
+     "Remortgage conveyancing",
+     "Conveyancing for leasehold property",
+     "Buying a property with a gifted deposit"
+    ]
+   },
+   "word_count": 1039,
+   "page_score": 86.0,
+   "response_time_ms": 154.33,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/conveyancing",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "6 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/conveyancing",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/conveyancing",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "28 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/destination/newsletter",
+   "status_code": 200,
+   "title": "Newsletter",
+   "meta_description": null,
+   "h1_tags": [
+    "Let's stayin touch"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Let's stayin touch"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Which best describes you?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 558,
+   "page_score": 78.0,
+   "response_time_ms": 261.75,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/destination/newsletter",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "4 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/newsletter",
+     "issue_type": "Missing Meta Description",
+     "severity": "WARNING",
+     "current_value": "",
+     "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/newsletter",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/newsletter",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "10 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "status_code": 200,
+   "title": "1 million stories | L&C",
+   "meta_description": null,
+   "h1_tags": [],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 0,
+   "h_tags": {
+    "h1": [],
+    "h2": [
+     "Which best describes you?",
+     "Told by you, our valued customers",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Jennifer Hughes",
+     "Sarah McKirdy",
+     "Kate Hewett",
+     "Chouaib Ramoung",
+     "Georgina Parker",
+     "Ian Bennett",
+     "Fereydon Rezapour Ghoushchi",
+     "Georgie Hartshorne"
+    ]
+   },
+   "word_count": 1346,
+   "page_score": 70.0,
+   "response_time_ms": 77.8,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+     "issue_type": "Missing H1 Tag",
+     "severity": "WARNING",
+     "current_value": "0 H1 tags",
+     "suggestion": "Add a single clear H1 heading describing the main topic of the page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+     "issue_type": "Missing Meta Description",
+     "severity": "WARNING",
+     "current_value": "",
+     "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "23 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+   "status_code": 200,
+   "title": "L&C mortgage advisers | Designed for first time buyers",
+   "meta_description": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+   "h1_tags": [
+    "Comparefirst time buyermortgage deals"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Comparefirst time buyermortgage deals"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Start your mortgage online",
+     "Mortgages for first time buyers -at a glance",
+     "Trusted by over1 millioncustomers",
+     "Get mortgage advice for first time buyers and find the best deals",
+     "Compare today's mortgage\u00a0\u00a0rates & deals",
+     "Your results",
+     "Get a Mortgage in Principle",
+     "Your online Mortgage in Principle from L&C",
+     "Help forfirst timebuyers",
+     "How much can you afford",
+     "Schemes for first time buyers",
+     "Mortgages explained",
+     "The mortgage process",
+     "Talk to your L&C mortgage adviser",
+     "Recently asked questions about first time buyer mortgages",
+     "What is a loan to value ratio (LTV)?",
+     "Can you get 100% mortgages for first time buyers?",
+     "What costs are involved in getting my first mortgage?",
+     "What\u2019s the difference between repayment & interest only mortgages?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Get a Mortgage in Principle",
+     "Lender name"
+    ]
+   },
+   "word_count": 8999,
+   "page_score": 88.0,
+   "response_time_ms": 136.02,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+     "issue_type": "Duplicate Meta Description",
+     "severity": "INFO",
+     "current_value": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+     "suggestion": "Write a unique meta description for this page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "192 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "18 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/insight",
+   "status_code": 200,
+   "title": "Insight - L&C Mortgages",
+   "meta_description": "View all of the latest insights from L&C Mortgages.",
+   "h1_tags": [
+    "News & Insights"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "News & Insights"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Categories",
+     "Check yourmortgage options",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Bank of England raises interest rates for first time in over 3 years",
+     "Autumn 2026 Budget: What does it mean for you?",
+     "How quitting smoking could improve your financial wellbeing too",
+     "World Heart Day: What if waiting longer isn't an option?",
+     "Over half of UK homeowners feel pressured by mortgage payments",
+     "Renovate or relocate - how to get the home you need",
+     "Government to replace Lifetime ISA with new First Time Buyer ISA",
+     "Government reforms aim to speed up homebuying and cut costs",
+     "Inflation boost for borrowers",
+     "Self-employed? Get your mortgage paperwork in order",
+     "Buyer demand heats up after weather cools",
+     "Lloyds launches new mortgage for first-time buyers with a \u00a35,000 deposit",
+     "Inflation jumps to 3.3% in March",
+     "Lenders to get in touch with 1.6 million borrowers as deals end",
+     "Inflation stays at 3% in February, but is it the calm before the storm?",
+     "Rates held at 3.75% in March",
+     "Buyer demand falls in February amid growing economic uncertainty",
+     "What might events in the Middle East mean for your mortgage?",
+     "Tax is going digital: what landlords need to know",
+     "February home listings on course for 10-year high",
+     "Inflation drops to 3% strengthening case for Spring rate cut",
+     "Younger homebuyers paying the highest price for mortgage advice",
+     "Buy-to-Let lending rebounds as remortgaging surges",
+     "Average UK house prices top \u00a3300k for the first time"
+    ]
+   },
+   "word_count": 1632,
+   "page_score": 86.0,
+   "response_time_ms": 88.3,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/insight",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "23 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+   "status_code": 200,
+   "title": "Autumn 2026 Budget: What does it mean for you? | L&C",
+   "meta_description": "John Healey delivered his first Budget speech as Chancellor today, calling it a \u2018Budget for the working people\u2019. Here\u2019s a roundup of the announcements related to property and mortgages that could affect you.",
+   "h1_tags": [
+    "Autumn 2026 Budget: What does it mean for you?"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Autumn 2026 Budget: What does it mean for you?"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Contents",
+     "Your First Home Scheme",
+     "ISAs",
+     "Increased tax on property income",
+     "Bank Tax Hike",
+     "Cost of Living",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1081,
+   "page_score": 91.0,
+   "response_time_ms": 109.27,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "207 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+   "status_code": 200,
+   "title": "",
+   "meta_description": null,
+   "h1_tags": [
+    "Bank of England raises interest rates for first time in over 3 years"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Bank of England raises interest rates for first time in over 3 years"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Contents",
+     "What does the increase mean for you?",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "At a glance",
+     "Fixed rate borrowers",
+     "Tracker rate borrowers",
+     "Variable rate borrowers",
+     "Don\u2019t leave it to the last minute"
+    ]
+   },
+   "word_count": 1122,
+   "page_score": 78.0,
+   "response_time_ms": 87.39,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+     "issue_type": "Missing Meta Description",
+     "severity": "WARNING",
+     "current_value": "",
+     "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+     "issue_type": "Missing Title",
+     "severity": "WARNING",
+     "current_value": "",
+     "suggestion": "Add a descriptive HTML title tag for the page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+   "status_code": 200,
+   "title": "Quit Smoking and Save on Life Insurance | L&C Protection Advice",
+   "meta_description": "Quitting smoking could lower your life insurance and critical illness premiums while helping you save towards your financial goals. Discover how much you could save with L&C.",
+   "h1_tags": [
+    "How quitting smoking could improve your financial wellbeing too"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "How quitting smoking could improve your financial wellbeing too"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Contents",
+     "Main protection insurance categories",
+     "The additional costs",
+     "Financial impact of smoking",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1140,
+   "page_score": 88.0,
+   "response_time_ms": 81.85,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "174 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "63 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/insight/world-heart-day",
+   "status_code": 200,
+   "title": "World Heart Day: Protecting Your Health and Finances",
+   "meta_description": "Discover how critical illness cover can provide financial support for serious heart conditions, treatment delays and unexpected changes to your income.",
+   "h1_tags": [
+    "World Heart Day: What if waiting longer isn't an option?"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "World Heart Day: What if waiting longer isn't an option?"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Contents",
+     "The impact of delays on heart patients",
+     "The difference between policies",
+     "Taking action",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1047,
+   "page_score": 94.0,
+   "response_time_ms": 109.32,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/insight/world-heart-day",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "4 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/insight/world-heart-day",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/life-insurance",
+   "status_code": 200,
+   "title": "Compare Life Insurance Quotes - Fee-free life insurance advice | L&C",
+   "meta_description": "Instantly compare quotes for life insurance policies with L&C. Get a free quote and life insurance advice today!",
+   "h1_tags": [
+    "Protection"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Protection"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Speak to our dedicated insurance advisers today",
+     "WhyL&C?",
+     "What isprotection?",
+     "About our protection advice service",
+     "Get more expert advice with our life insurance guides",
+     "L&C is anaward-winningmortgage broker",
+     "Legal & General Business Quality Awards",
+     "Protection Guru",
+     "Protection Guru",
+     "Speak to our expert advisers now",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Expert, tailored advice to help you find the right cover for your needs.",
+     "Dedicated help to guide you through the application process.",
+     "Support on hand if you or your family need to claim on your policy.",
+     "Call free from a mobile or landline",
+     "Life insurance",
+     "Income protection",
+     "Critical illness cover",
+     "Family income benefit",
+     "Call free from a mobile or landline"
+    ]
+   },
+   "word_count": 1056,
+   "page_score": 91.0,
+   "response_time_ms": 96.42,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/life-insurance",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "11 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/life-insurance",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/life-insurance",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "68 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages",
+   "status_code": 200,
+   "title": "Find the best mortgage for you | Fee free mortgage advice",
+   "meta_description": "Find the best mortgage deal for with our fee free expert advice. From first time buyers to specialist mortgages, we'll find the right deal for you. Start your journey today.",
+   "h1_tags": [
+    "Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Mortgage products",
+     "Buying to let andinvestments",
+     "First timebuyer",
+     "Specialistmortgages",
+     "Remortgaging andraising capital",
+     "Whychoose L&C for your mortgage?",
+     "It's easy!",
+     "Over 95 lenders",
+     "Track your application",
+     "Confused by the options?",
+     "Considerations when applying for a mortgage",
+     "Mortgage FAQs",
+     "How much could I borrow?",
+     "Do I need a deposit?",
+     "How many times my salary can I borrow for a mortgage?",
+     "What mortgage can I qualify for?",
+     "How long does a mortgage application take?",
+     "Can I talk to someone about my options?",
+     "What\u2019s a repayment mortgage?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Find your 10 year fixed rate",
+     "Find your best 2 year fixed rate mortgage with L&C",
+     "Your 3 year fixed mortgage rate",
+     "Your 5 year fixed rate mortgage deal",
+     "Your green mortgage",
+     "Your interest only mortgage",
+     "Your joint mortgage",
+     "Your Let to Buy mortgage",
+     "Your offset mortgage rate",
+     "Your tracker mortgage rates",
+     "Your variable rate mortgage",
+     "Your fixed rate mortgage",
+     "Your online Mortgage in Principle from L&C",
+     "Bridging loans",
+     "Your Buy to Let interest only mortgage",
+     "Commercial Mortgages",
+     "Your holiday let mortgage",
+     "Property development finance",
+     "Your 90% mortgage",
+     "Your 95% mortgage",
+     "Your guarantor mortgage",
+     "Your right to buy mortgage",
+     "Your shared equity mortgage",
+     "Your shared ownership mortgage",
+     "Your new build mortgage",
+     "Get a survey quote online",
+     "Your contractor mortgage",
+     "Your director mortgage",
+     "Your high net worth mortgage",
+     "Your retirement interest-only mortgage",
+     "Your self build mortgage",
+     "Your self employed mortgage",
+     "Second charge loans",
+     "Here's the latest SVRs - updated 10th November 2026",
+     "Switch to a new mortgage deal",
+     "View our useful guides"
+    ]
+   },
+   "word_count": 2337,
+   "page_score": 91.0,
+   "response_time_ms": 109.84,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "173 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "16 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "status_code": 200,
+   "title": "Fixed rate mortgages",
+   "meta_description": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+   "h1_tags": [
+    "Find yourfixed ratemortgage with L&C"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Find yourfixed ratemortgage with L&C"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "From the UK's best mortgage broker",
+     "How we'll help find your fixed rate mortgage",
+     "Trusted by over1 millioncustomers",
+     "Smart digital tools make\u00a0finding a fixed rate\u00a0mortgage easier",
+     "Now find the right fixed rate mortgage",
+     "Your results",
+     "Is a fixed rate right for you?",
+     "Benefit",
+     "Things to consider",
+     "Fixed rate mortgages for everyone",
+     "You\u2019re a first time buyer",
+     "You\u2019re remortgaging",
+     "You\u2019re moving home",
+     "Apply for a fixed rate mortgage with L&C today",
+     "Recently asked questions",
+     "What is a fixed rate mortgage?",
+     "What happens when my fixed period ends?",
+     "Can I overpay on a fixed-rate mortgage?",
+     "Are there fixed rates with no fees?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Lender name"
+    ]
+   },
+   "word_count": 8667,
+   "page_score": 80.0,
+   "response_time_ms": 553.11,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+     "issue_type": "Duplicate Meta Description",
+     "severity": "INFO",
+     "current_value": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+     "suggestion": "Write a unique meta description for this page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "192 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "14 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "20 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+   "status_code": 200,
+   "title": "Loan to Value (LTV) Calculator | Calculate LTV",
+   "meta_description": "Calculate your loan to value ratio and find the best mortgage deal. Learn what LTV means, how it affects your rates, and what deals are available for different LTVs.",
+   "h1_tags": [
+    "Loan to value (LTV) calculator"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Loan to value (LTV) calculator"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "What is loan to value?",
+     "Important notice",
+     "Check your mortgage options",
+     "Latest mortgageoffers",
+     "What does LTV mean for your mortgage?",
+     "What\u2019s a good LTV for a mortgage?",
+     "LTVs on Buy to Let mortgages",
+     "FAQs",
+     "What is a good loan to value ratio?",
+     "How do you calculate loan to value?",
+     "Is it better to have a high or low LTV?",
+     "How do I calculate loan to value on a remortgage?",
+     "Related Guides",
+     "See more calculators",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "How much will my mortgage cost?",
+     "Latest mortgage best buys",
+     "What is an interest-only mortgage?",
+     "What are the different types of mortgage?",
+     "Specialist mortgage products",
+     "What does a mortgage broker do?",
+     "What are the different types of survey?",
+     "Is it cheaper to rent or buy a house?"
+    ]
+   },
+   "word_count": 2121,
+   "page_score": 91.0,
+   "response_time_ms": 305.83,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "165 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/mortgage-calculator",
+   "status_code": 200,
+   "title": "Free Online Mortgage calculator - Quick & Easy To Use | L&C",
+   "meta_description": "Our quick and easy online mortgage calculator is perfect for getting accurate estimations. \u2705 Mortgage Affordability. \u2705 Monthly payments. \u2705 Borrowing amounts.",
+   "h1_tags": [
+    "Mortgage calculator"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Mortgage calculator"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Important information about our mortgage calculator",
+     "Use our Mortgage Finder for apersonalisedquote",
+     "Get a Mortgage in Principle",
+     "FAQs about our first time buyer mortgage calculator",
+     "How many times your salary can you borrow for a mortgage?",
+     "How are your repayments calculated?",
+     "How is a mortgage calculated?",
+     "Can you borrow more money than your house costs?",
+     "How can you increase your chances of getting mortgage approval?",
+     "Use our offset calculator to see if you could save money on your mortgage",
+     "Use our loan to value calculator to see your LTV percentage",
+     "Use our mortgage overpayment calculator to see how much you could save",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1695,
+   "page_score": 94.0,
+   "response_time_ms": 90.76,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/mortgage-calculator",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/mortgage-calculator",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/mortgage-guides",
+   "status_code": 200,
+   "title": "Mortgage Guide - L&C Guide to Mortgages",
+   "meta_description": "Get the Best Mortgage Deal With L&C, The UK's Largest Fee Free Mortgage Broker & Adviser. Apply Online or Contact Us Today.",
+   "h1_tags": [
+    "Mortgage guides"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Mortgage guides"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Categories",
+     "Check yourmortgage options",
+     "Buy to Let tax",
+     "What to do before you exchange contracts",
+     "Your First Home Scheme: What you need to know",
+     "How much deposit do you need for a mortgage?",
+     "House buying schemes",
+     "Fixed Rate Mortgages",
+     "Remortgage essentials",
+     "Mortgage credit readiness: is your credit profile ready for a mortgage?",
+     "What are Shared Ownership mortgages and how do they work?",
+     "Your interest only mortgage",
+     "Getting a tracker mortgage. What you need to know",
+     "Buy to Let for Airbnb",
+     "Becoming a landlord. The basics of Buy to Let",
+     "Divorce, mortgages and adding partners. What happens when your situation changes",
+     "What is a mortgage?",
+     "Advice for buying or selling your home",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 1314,
+   "page_score": 94.0,
+   "response_time_ms": 80.65,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/mortgage-guides",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/mortgage-guides",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+   "status_code": 200,
+   "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages",
+   "meta_description": "Learn how fixed rate mortgages work, compare 2, 3, 5 and 10-year fixed terms, and explore the pros and cons to find the right mortgage for you.",
+   "h1_tags": [
+    "Fixed Rate Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Fixed Rate Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "With a fixed rate mortgage, you\u2019ll:",
+     "Find your fixed rate mortgage with L&C",
+     "Table of contents",
+     "Quick summary",
+     "What is a fixed rate mortgage?",
+     "How do fixed rate mortgages work?",
+     "What happens when your fixed rate ends?",
+     "Is a fixed rate right for you?",
+     "Our L&C adviser says",
+     "What fixed rate mortgage term is right for you?",
+     "Advantages and disadvantages of fixed rate mortgages",
+     "Our L&C adviser says",
+     "Sign up to our Newsletter",
+     "How much does a fixed rate mortgage cost?",
+     "What makes up the cost of a fixed rate mortgage?",
+     "Our L&C adviser says",
+     "How to get the best fixed rate mortgage deal",
+     "Fixed rate mortgages for different situations",
+     "Not sure which mortgage is right for you?",
+     "6 reasons to choose L&C for your fixed rate mortgage",
+     "How to apply for a fixed rate mortgage with L&C",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Related articles",
+     "Table of contents",
+     "Sign up to our Newsletter",
+     "Share",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Example of fixed rate vs variable rate mortgage payments",
+     "2-year fixed rate mortgage",
+     "3-year fixed rate mortgage",
+     "5-year fixed rate mortgage",
+     "10-year fixed rate mortgage",
+     "Find your best fixed rate",
+     "Advantages of fixed rate mortgages",
+     "Disadvantages of fixed rate mortgages",
+     "Early repayment charges may apply",
+     "Fixed rate mortgage pros and cons at a glance",
+     "Interest charges",
+     "Product or arrangement fees",
+     "Valuation fees",
+     "Legal fees",
+     "Early repayment charges (ERCs)",
+     "What can affect the interest rate you're offered?",
+     "Compare fixed rates",
+     "Fixed rate mortgages for first-time buyers",
+     "Fixed rate remortgages for when your deal\u2019s coming to an end",
+     "Fixed rate mortgages when moving home",
+     "Fixed rate mortgages for self-employed borrowers",
+     "Fixed rate Buy to Let mortgages",
+     "Find your fixed rate deal",
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Start your application today"
+    ]
+   },
+   "word_count": 3496,
+   "page_score": 94.0,
+   "response_time_ms": 858.68,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+   "status_code": 200,
+   "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages",
+   "meta_description": "Learn how fixed rate mortgages work, compare 2, 3, 5 and 10-year fixed terms, and explore the pros and cons to find the right mortgage for you.",
+   "h1_tags": [
+    "Fixed Rate Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Fixed Rate Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "With a fixed rate mortgage, you\u2019ll:",
+     "Find your fixed rate mortgage with L&C",
+     "Table of contents",
+     "Quick summary",
+     "What is a fixed rate mortgage?",
+     "How do fixed rate mortgages work?",
+     "What happens when your fixed rate ends?",
+     "Is a fixed rate right for you?",
+     "Our L&C adviser says",
+     "What fixed rate mortgage term is right for you?",
+     "Advantages and disadvantages of fixed rate mortgages",
+     "Our L&C adviser says",
+     "Sign up to our Newsletter",
+     "How much does a fixed rate mortgage cost?",
+     "What makes up the cost of a fixed rate mortgage?",
+     "Our L&C adviser says",
+     "How to get the best fixed rate mortgage deal",
+     "Fixed rate mortgages for different situations",
+     "Not sure which mortgage is right for you?",
+     "6 reasons to choose L&C for your fixed rate mortgage",
+     "How to apply for a fixed rate mortgage with L&C",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Related articles",
+     "Table of contents",
+     "Sign up to our Newsletter",
+     "Share",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Example of fixed rate vs variable rate mortgage payments",
+     "2-year fixed rate mortgage",
+     "3-year fixed rate mortgage",
+     "5-year fixed rate mortgage",
+     "10-year fixed rate mortgage",
+     "Find your best fixed rate",
+     "Advantages of fixed rate mortgages",
+     "Disadvantages of fixed rate mortgages",
+     "Early repayment charges may apply",
+     "Fixed rate mortgage pros and cons at a glance",
+     "Interest charges",
+     "Product or arrangement fees",
+     "Valuation fees",
+     "Legal fees",
+     "Early repayment charges (ERCs)",
+     "What can affect the interest rate you're offered?",
+     "Compare fixed rates",
+     "Fixed rate mortgages for first-time buyers",
+     "Fixed rate remortgages for when your deal\u2019s coming to an end",
+     "Fixed rate mortgages when moving home",
+     "Fixed rate mortgages for self-employed borrowers",
+     "Fixed rate Buy to Let mortgages",
+     "Find your fixed rate deal",
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Start your application today"
+    ]
+   },
+   "word_count": 3496,
+   "page_score": 94.0,
+   "response_time_ms": 870.49,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+   "status_code": 200,
+   "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages",
+   "meta_description": "Learn how fixed rate mortgages work, compare 2, 3, 5 and 10-year fixed terms, and explore the pros and cons to find the right mortgage for you.",
+   "h1_tags": [
+    "Fixed Rate Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Fixed Rate Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "With a fixed rate mortgage, you\u2019ll:",
+     "Find your fixed rate mortgage with L&C",
+     "Table of contents",
+     "Quick summary",
+     "What is a fixed rate mortgage?",
+     "How do fixed rate mortgages work?",
+     "What happens when your fixed rate ends?",
+     "Is a fixed rate right for you?",
+     "Our L&C adviser says",
+     "What fixed rate mortgage term is right for you?",
+     "Advantages and disadvantages of fixed rate mortgages",
+     "Our L&C adviser says",
+     "Sign up to our Newsletter",
+     "How much does a fixed rate mortgage cost?",
+     "What makes up the cost of a fixed rate mortgage?",
+     "Our L&C adviser says",
+     "How to get the best fixed rate mortgage deal",
+     "Fixed rate mortgages for different situations",
+     "Not sure which mortgage is right for you?",
+     "6 reasons to choose L&C for your fixed rate mortgage",
+     "How to apply for a fixed rate mortgage with L&C",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Related articles",
+     "Table of contents",
+     "Sign up to our Newsletter",
+     "Share",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Example of fixed rate vs variable rate mortgage payments",
+     "2-year fixed rate mortgage",
+     "3-year fixed rate mortgage",
+     "5-year fixed rate mortgage",
+     "10-year fixed rate mortgage",
+     "Find your best fixed rate",
+     "Advantages of fixed rate mortgages",
+     "Disadvantages of fixed rate mortgages",
+     "Early repayment charges may apply",
+     "Fixed rate mortgage pros and cons at a glance",
+     "Interest charges",
+     "Product or arrangement fees",
+     "Valuation fees",
+     "Legal fees",
+     "Early repayment charges (ERCs)",
+     "What can affect the interest rate you're offered?",
+     "Compare fixed rates",
+     "Fixed rate mortgages for first-time buyers",
+     "Fixed rate remortgages for when your deal\u2019s coming to an end",
+     "Fixed rate mortgages when moving home",
+     "Fixed rate mortgages for self-employed borrowers",
+     "Fixed rate Buy to Let mortgages",
+     "Find your fixed rate deal",
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Start your application today"
+    ]
+   },
+   "word_count": 3496,
+   "page_score": 94.0,
+   "response_time_ms": 834.37,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+   "status_code": 200,
+   "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages",
+   "meta_description": "Learn how fixed rate mortgages work, compare 2, 3, 5 and 10-year fixed terms, and explore the pros and cons to find the right mortgage for you.",
+   "h1_tags": [
+    "Fixed Rate Mortgages"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Fixed Rate Mortgages"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "With a fixed rate mortgage, you\u2019ll:",
+     "Find your fixed rate mortgage with L&C",
+     "Table of contents",
+     "Quick summary",
+     "What is a fixed rate mortgage?",
+     "How do fixed rate mortgages work?",
+     "What happens when your fixed rate ends?",
+     "Is a fixed rate right for you?",
+     "Our L&C adviser says",
+     "What fixed rate mortgage term is right for you?",
+     "Advantages and disadvantages of fixed rate mortgages",
+     "Our L&C adviser says",
+     "Sign up to our Newsletter",
+     "How much does a fixed rate mortgage cost?",
+     "What makes up the cost of a fixed rate mortgage?",
+     "Our L&C adviser says",
+     "How to get the best fixed rate mortgage deal",
+     "Fixed rate mortgages for different situations",
+     "Not sure which mortgage is right for you?",
+     "6 reasons to choose L&C for your fixed rate mortgage",
+     "How to apply for a fixed rate mortgage with L&C",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Related articles",
+     "Table of contents",
+     "Sign up to our Newsletter",
+     "Share",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Example of fixed rate vs variable rate mortgage payments",
+     "2-year fixed rate mortgage",
+     "3-year fixed rate mortgage",
+     "5-year fixed rate mortgage",
+     "10-year fixed rate mortgage",
+     "Find your best fixed rate",
+     "Advantages of fixed rate mortgages",
+     "Disadvantages of fixed rate mortgages",
+     "Early repayment charges may apply",
+     "Fixed rate mortgage pros and cons at a glance",
+     "Interest charges",
+     "Product or arrangement fees",
+     "Valuation fees",
+     "Legal fees",
+     "Early repayment charges (ERCs)",
+     "What can affect the interest rate you're offered?",
+     "Compare fixed rates",
+     "Fixed rate mortgages for first-time buyers",
+     "Fixed rate remortgages for when your deal\u2019s coming to an end",
+     "Fixed rate mortgages when moving home",
+     "Fixed rate mortgages for self-employed borrowers",
+     "Fixed rate Buy to Let mortgages",
+     "Find your fixed rate deal",
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Start your application today"
+    ]
+   },
+   "word_count": 3496,
+   "page_score": 94.0,
+   "response_time_ms": 657.37,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "9 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+   "status_code": 200,
+   "title": "Get an online mortgage in principle | L&C MIP",
+   "meta_description": "Your L&C Mortgage in Principle certificate shows sellers and estate agents you're a serious buyer. Start your mortgage journey with an online Mortgage in Principle certificate today",
+   "h1_tags": [
+    "Get a Mortgagein Principle online"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Get a Mortgagein Principle online"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Did you know a Mortgage in Principle can:",
+     "What is a Mortgage in Principle?",
+     "A Mortgage in Principle:",
+     "An L&C online Mortgage in Principle uses our triple filter",
+     "L&C Mortgage in Principle vs. High Street Lenders",
+     "What\u00a0the L&C Mortgage\u00a0in Principle certificate shows",
+     "How to get a Mortgage in Principle",
+     "We check over 45 lenders. A bank only checks itself.",
+     "What do you need to apply for a Mortgage in Principle?",
+     "Ready to start?",
+     "Mortgage in Principle forfirst-timebuyers",
+     "Why\u00a0do\u00a0estate agents ask for one?",
+     "How much deposit will you need?",
+     "When to apply",
+     "What happens next?",
+     "FAQs",
+     "Why do you need a Mortgage in Principle?",
+     "What happens after you receive a Mortgage in Principle?",
+     "Is a Mortgage in Principle the same as an Agreement in Principle?",
+     "Does a Mortgage in Principle affect credit score?",
+     "What do you mean by soft and hard searches?",
+     "What does a Mortgage in Principle mean?",
+     "How long does a Mortgage in Principle take?",
+     "How long is a Mortgage in Principle valid for?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 2225,
+   "page_score": 91.0,
+   "response_time_ms": 93.97,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+     "issue_type": "Meta Description Too Long",
+     "severity": "INFO",
+     "current_value": "181 characters",
+     "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "10 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+   "status_code": 200,
+   "title": "New Build Mortgage Broker - Compare Deals Online | L&C",
+   "meta_description": "Looking to get a new build mortgage? Speak to L&C, the UK's largest fee free mortgage broker and adviser. Contact us today.",
+   "h1_tags": [
+    "Buying a new build home"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Buying a new build home"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Your new build mortgage",
+     "How to apply for a new build mortgage with L&C",
+     "Apply for a new build mortgage with L&C",
+     "FAQs",
+     "When can I apply for a mortgage on a new build?",
+     "How do new build mortgages work?",
+     "When do you start paying a mortgage on a new build?",
+     "Is it easier to get a mortgage for a new build?",
+     "How do self build mortgages work?",
+     "Can you add new build extras to a mortgage?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "What is a new build mortgage?",
+     "What is classed as a new build home?",
+     "What does \u2018off plan\u2019 mean?",
+     "How much deposit do I need for a new build house?",
+     "How much deposit do I need for a new build flat?",
+     "Why do I need more deposit for a flat than a house?",
+     "Why choose a new build mortgage?",
+     "How new build mortgages work",
+     "Who can get a new build mortgage?",
+     "What schemes are available for new build mortgages?",
+     "Your First Home",
+     "Making repayments on a new build mortgage",
+     "Ready to find your perfect deal?",
+     "Variable rate mortgages",
+     "Compare rates",
+     "Mortgage calculator",
+     "Start your mortgage online"
+    ]
+   },
+   "word_count": 2723,
+   "page_score": 94.0,
+   "response_time_ms": 383.68,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "8 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/surveys",
+   "status_code": 200,
+   "title": "Surveys Explained | L&C Mortgages",
+   "meta_description": "Find out what you need to know about the different types of survey you can get when buying a home",
+   "h1_tags": [
+    "Surveys guide for home buyers"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Surveys guide for home buyers"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Get a survey quote online",
+     "Why choose a property survey?",
+     "Get the right survey",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Best practice",
+     "Independent",
+     "In person survey",
+     "Experience",
+     "Speed",
+     "Price promise",
+     "Recommended",
+     "Peace of mind",
+     "Ready to find your perfect deal?",
+     "Variable rate mortgages",
+     "Compare rates",
+     "Mortgage calculator",
+     "Start your mortgage online"
+    ]
+   },
+   "word_count": 952,
+   "page_score": 94.0,
+   "response_time_ms": 80.95,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/surveys",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "8 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/surveys",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+   "status_code": 200,
+   "title": "Best tracker mortgages \u2013 Tracker mortgage guide \u2013 L&C  Guides",
+   "meta_description": "Is a tracker mortgage the right option for you? Find out everything you need to know about tracker mortgages here.",
+   "h1_tags": [
+    "Getting a tracker mortgage. What you need to know"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Getting a tracker mortgage. What you need to know"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Table of contents",
+     "What is a tracker mortgage rate?",
+     "How do tracker mortgages work?",
+     "Key tracker mortgage terms explained",
+     "Tracker mortgage vs fixed rate mortgage",
+     "Types of tracker mortgages",
+     "Who can get a tracker mortgage?",
+     "L&C expert view",
+     "Find the right tracker mortgage for you",
+     "Sign up to our Newsletter",
+     "Was this article helpful?",
+     "Thank you for your feedback!",
+     "Related articles",
+     "Table of contents",
+     "Sign up to our Newsletter",
+     "Share",
+     "Check your mortgage options",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Base rate",
+     "Margin",
+     "Standard variable rate (SVR)",
+     "Interest rate collar",
+     "Interest rate cap",
+     "Early repayment charge (ERC)",
+     "Why borrowers choose tracker mortgages",
+     "Why borrowers choose fixed rate mortgages",
+     "Tracker mortgage vs other variable rate mortgages",
+     "Is a tracker mortgage right for you?",
+     "Two-year tracker mortgages",
+     "Five-year tracker mortgages",
+     "Lifetime tracker mortgages",
+     "Buy-to-let tracker mortgages",
+     "First time buyers",
+     "Home movers",
+     "Remortgage customers",
+     "Self-employed applicants",
+     "Other people ask",
+     "Ready to get started?"
+    ]
+   },
+   "word_count": 2545,
+   "page_score": 91.0,
+   "response_time_ms": 537.37,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "10 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+     "issue_type": "Title Too Long",
+     "severity": "INFO",
+     "current_value": "61 characters",
+     "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+   "status_code": 200,
+   "title": "Stamp Duty Calculator UK | How Much Is Your Stamp Duty",
+   "meta_description": "See how much Stamp Duty Land Tax (SDLT) you will pay in 2025 in England, Wales and Scotland on your new property with our stamp duty calculator.",
+   "h1_tags": [
+    "Stamp Duty calculator - How much is stamp Duty?"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Stamp Duty calculator - How much is stamp Duty?"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Important notice",
+     "Stay in the know with our newsletter",
+     "How much will my mortgage cost?",
+     "Check your mortgage options",
+     "What is Stamp Duty?",
+     "Stamp Duty threshold in England and NI",
+     "Latest mortgageoffers",
+     "Related guides",
+     "See more calculators",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Stamp duty calculator",
+     "Stamp Duty on second homes",
+     "Latest mortgage best buys",
+     "What is an interest-only mortgage?",
+     "What are the different types of mortgage?",
+     "Specialist mortgage products",
+     "What does a mortgage broker do?",
+     "What are the different types of survey?",
+     "Is it cheaper to rent or buy a house?"
+    ]
+   },
+   "word_count": 2235,
+   "page_score": 94.0,
+   "response_time_ms": 360.76,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "10 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/moving-home",
+   "status_code": 200,
+   "title": "Moving home - Buying a home - L&C Mortgages",
+   "meta_description": "UK's Largest Fee-Free Mortgage Broker & Adviser. Compare 95+ Lenders. Call us Mon - Sun. We'll take care of your mortgage so you can focus on your move.",
+   "h1_tags": [
+    "Buyinga home"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Buyinga home"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Start your mortgage online",
+     "Find the right mortgage\u00a0\u00a0for yourhome move",
+     "Our moving home mortgage comparison tool",
+     "Your results",
+     "Explore mortgage products",
+     "Variable rate mortgages",
+     "Fixed rate mortgages - 5 Years",
+     "Fixed rate mortgages - 10 Years",
+     "Mortgage options for moving home",
+     "Porting your mortgage",
+     "Top up mortgages",
+     "Taking out a new mortgage",
+     "Why apply for a mortgage with L&C?",
+     "When to apply for a mortgage",
+     "How to apply for a mortgage with L&C",
+     "Step 1 \u2013 Start online",
+     "Step 2 \u2013 See what you could borrow",
+     "Step 3 \u2013 Start your application with a trusted adviser",
+     "Let us guide you",
+     "How much deposit do I need?",
+     "Is it cheaper to rent or buy?",
+     "The cost of buying a house",
+     "What are the different types of house survey?",
+     "Moving house FAQs",
+     "Can downsizing impact the mortgage?",
+     "What is the \u2018Chain\u2019 when it comes to moving house?",
+     "What are the costs involved with moving home?",
+     "Do I need a mortgage in principle?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Lender name"
+    ]
+   },
+   "word_count": 9252,
+   "page_score": 94.0,
+   "response_time_ms": 134.67,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/moving-home",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "19 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/moving-home",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/our-people",
+   "status_code": 200,
+   "title": "Our People | L&C",
+   "meta_description": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+   "h1_tags": [
+    "Our people"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Our people"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Our leadership",
+     "Phil Rickards",
+     "Mark Harrington",
+     "Nicola Wildman",
+     "Steve Maydew",
+     "Matt McCall",
+     "David Gray",
+     "Gemma Bacon",
+     "Adam Connolly",
+     "Kristina Porter",
+     "Dan Payne",
+     "Join theteam",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "The Board",
+     "The Executive Committee"
+    ]
+   },
+   "word_count": 697,
+   "page_score": 83.0,
+   "response_time_ms": 80.03,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/our-people",
+     "issue_type": "Duplicate Meta Description",
+     "severity": "INFO",
+     "current_value": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+     "suggestion": "Write a unique meta description for this page."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/our-people",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "6 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/our-people",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/our-people",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "16 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/refer-a-friend",
+   "status_code": 200,
+   "title": "Refer a friend",
+   "meta_description": "Recommend your friends to L&C and receive a \u00a350 Amazon voucher when they receive their mortgage offer. No limit on referrals.",
+   "h1_tags": [
+    "Recommendyour friends to L&C"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Recommendyour friends to L&C"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Do you have friends looking for a mortgage?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 560,
+   "page_score": 86.0,
+   "response_time_ms": 78.66,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/refer-a-friend",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "4 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/refer-a-friend",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/refer-a-friend",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "14 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/remortgage",
+   "status_code": 200,
+   "title": "Find the Right Remortgage Deal | Compare Rates with L&C",
+   "meta_description": "Whether you're looking to save money, borrow more or switch lender, compare remortgage deals from leading lenders with fee free advice from L&C Mortgages.",
+   "h1_tags": [
+    "Compare remortgage rates and find yourbest deal",
+    "Compare remortgagerates and\u00a0\u00a0findyour best deal"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 2,
+   "h_tags": {
+    "h1": [
+     "Compare remortgage rates and find yourbest deal",
+     "Compare remortgagerates and\u00a0\u00a0findyour best deal"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "",
+     "Compare today\u2019s remortgage deals",
+     "Please enter a search to get started",
+     "Reasons to remortgage",
+     "Not sure which remortgage deal is right for you?",
+     "Everything you need to know about remortgaging",
+     "More remortgage guides",
+     "Can I remortgage early?",
+     "What happens when my fixed rate ends?",
+     "Should I stay with my current lender?",
+     "How often can I remortgage?",
+     "Why remortgagewith L&C?",
+     "Trusted by over 1 million customers",
+     "How do I find the best remortgage deal?",
+     "Do I need a mortgage adviser to remortgage?",
+     "Ready to find your remortgage?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "Lender name",
+     "Remortgage basics",
+     "The remortgage process and timeline",
+     "Remortgage costs and fees",
+     "Remortgage valuations and legal work",
+     "Expert mortgage advice, without the fee",
+     "More choice when searching for your deal",
+     "We\u2019ll do the legwork",
+     "More than one million customers have already trusted L&C to help with their mortgage."
+    ]
+   },
+   "word_count": 2112,
+   "page_score": 91.0,
+   "response_time_ms": 88.16,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/remortgage",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "24 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage",
+     "issue_type": "Multiple H1 Tags",
+     "severity": "INFO",
+     "current_value": "2 H1 tags",
+     "suggestion": "Use one primary H1 where possible and move other headings into H2/H3 levels."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+   "status_code": 200,
+   "title": "Mortgage Minder | L&C",
+   "meta_description": "Your mortgage, perfectly timed",
+   "h1_tags": [
+    "Mortgage Minder\u2122"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Mortgage Minder\u2122"
+    ],
+    "h2": [
+     "Timing is everything - get what you need, when you need it",
+     "When does your current mortgage deal end?",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": []
+   },
+   "word_count": 829,
+   "page_score": 83.0,
+   "response_time_ms": 77.71,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+     "issue_type": "Meta Description Too Short",
+     "severity": "INFO",
+     "current_value": "30 characters",
+     "suggestion": "Expand the meta description to better explain the page and improve search snippet quality."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "3 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+     "issue_type": "Title Too Short",
+     "severity": "WARNING",
+     "current_value": "21 characters",
+     "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+    }
+   ],
+   "final_url": null
+  },
+  {
+   "url": "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage",
+   "status_code": 200,
+   "title": "Buy To Let Remortgage | BTL Remortgaging advice",
+   "meta_description": "Learn everything you need to know about your buy to let remortgage. Our L&C advisors can help landlords find the best buy to let remortgaging deals",
+   "h1_tags": [
+    "Buy to Let remortgage guide"
+   ],
+   "h2_tags": [],
+   "h3_tags": [],
+   "h1_count": 1,
+   "h_tags": {
+    "h1": [
+     "Buy to Let remortgage guide"
+    ],
+    "h2": [
+     "Which best describes you?",
+     "Everything you need to know about a Buy to Let remortgage",
+     "When should start looking for your Buy to Let remortgage?",
+     "Buy to Let remortgage process",
+     "Apply for a Buy to Let remortgage with L&C",
+     "Frequently asked questions",
+     "Remortgage a Buy to Let property with L&C",
+     "Thanks for signing up to our newsletter",
+     "Sign up to L&C's free newsletter!",
+     "Which best describes you?"
+    ],
+    "h3": [
+     "What is a Buy to Let remortgage",
+     "Buy to Let remortgage eligibility",
+     "Find the best Buy to Let remortgage deals"
+    ]
+   },
+   "word_count": 1544,
+   "page_score": 94.0,
+   "response_time_ms": 218.42,
+   "schema_types": [],
+   "issues": [
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage",
+     "issue_type": "Missing Image Alt Text",
+     "severity": "INFO",
+     "current_value": "5 images missing alt text",
+     "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+    },
+    {
+     "page_url": "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage",
+     "issue_type": "No Schema Markup",
+     "severity": "INFO",
+     "current_value": "",
+     "suggestion": "Add relevant Schema.org structured data where appropriate."
+    }
+   ],
+   "final_url": null
+  }
+ ],
+ "issues": [
+  {
+   "page_url": "https://www.landc.co.uk/",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "27 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "74 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us",
+   "issue_type": "Duplicate Meta Description",
+   "severity": "INFO",
+   "current_value": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+   "suggestion": "Write a unique meta description for this page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "10 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "25 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "166 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "181 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/complaints-data",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "26 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/customer-reviews",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/customer-reviews",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "232 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/gender-pay-gap",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "27 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/keyfacts-advised",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "16 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/keyfacts-advised",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+   "issue_type": "Meta Description Too Short",
+   "severity": "INFO",
+   "current_value": "32 characters",
+   "suggestion": "Expand the meta description to better explain the page and improve search snippet quality."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "4 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/list-of-lenders",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "15 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/our-awards",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "284 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/our-awards",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/our-awards",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "26 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/privacy-statement",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "23 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/sustainability",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "6 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/sustainability",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/sustainability",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "14 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/best-mortgage-rates",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "15 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/best-mortgage-rates",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/buy-to-let",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "12 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/buy-to-let",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/buy-to-let",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "64 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/buy-to-let/best-buys",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "11 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/buy-to-let/best-buys",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/calculators",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/calculators",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/careers",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "11 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/careers",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/careers",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "65 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "18 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "21 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "208 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/how-to-complain",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "198 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "4 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/conveyancing",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "6 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/conveyancing",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/conveyancing",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "28 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/newsletter",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "4 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/newsletter",
+   "issue_type": "Missing Meta Description",
+   "severity": "WARNING",
+   "current_value": "",
+   "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/newsletter",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/newsletter",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "10 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "issue_type": "Missing H1 Tag",
+   "severity": "WARNING",
+   "current_value": "0 H1 tags",
+   "suggestion": "Add a single clear H1 heading describing the main topic of the page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "issue_type": "Missing Meta Description",
+   "severity": "WARNING",
+   "current_value": "",
+   "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/destination/social/1-million-stories",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "23 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+   "issue_type": "Duplicate Meta Description",
+   "severity": "INFO",
+   "current_value": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+   "suggestion": "Write a unique meta description for this page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "192 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "18 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/first-time-buyers/best-buys",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "23 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "207 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+   "issue_type": "Missing Meta Description",
+   "severity": "WARNING",
+   "current_value": "",
+   "suggestion": "Add a meta description summarizing the page in roughly 50\u2013160 characters."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+   "issue_type": "Missing Title",
+   "severity": "WARNING",
+   "current_value": "",
+   "suggestion": "Add a descriptive HTML title tag for the page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "174 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "63 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/world-heart-day",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "4 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/insight/world-heart-day",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/life-insurance",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "11 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/life-insurance",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/life-insurance",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "68 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "173 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "16 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "issue_type": "Duplicate Meta Description",
+   "severity": "INFO",
+   "current_value": "Step by step guidance from one of our helpful and friendly mortgage advisers. Personal advice, finding the best deals and supporting you with the administration. And it won't cost you a penny.",
+   "suggestion": "Write a unique meta description for this page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "192 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "14 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "20 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "165 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/mortgage-calculator",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/mortgage-calculator",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/mortgage-guides",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/mortgage-guides",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "9 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+   "issue_type": "Meta Description Too Long",
+   "severity": "INFO",
+   "current_value": "181 characters",
+   "suggestion": "Shorten the meta description to around 50\u2013160 characters to reduce truncation."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "10 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "8 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/surveys",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "8 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/surveys",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "10 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+   "issue_type": "Title Too Long",
+   "severity": "INFO",
+   "current_value": "61 characters",
+   "suggestion": "Shorten the title to around 30\u201360 characters to reduce truncation risk in search results."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "10 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/moving-home",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "19 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/moving-home",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/our-people",
+   "issue_type": "Duplicate Meta Description",
+   "severity": "INFO",
+   "current_value": "With Offices in Bath, Newcastle and London, our Team of Expert Advisers are On Hand 7 days a Week to Provide Customers With Tailored Mortgage Solutions.",
+   "suggestion": "Write a unique meta description for this page."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/our-people",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "6 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/our-people",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/our-people",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "16 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/refer-a-friend",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "4 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/refer-a-friend",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/refer-a-friend",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "14 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "24 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage",
+   "issue_type": "Multiple H1 Tags",
+   "severity": "INFO",
+   "current_value": "2 H1 tags",
+   "suggestion": "Use one primary H1 where possible and move other headings into H2/H3 levels."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+   "issue_type": "Meta Description Too Short",
+   "severity": "INFO",
+   "current_value": "30 characters",
+   "suggestion": "Expand the meta description to better explain the page and improve search snippet quality."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "3 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+   "issue_type": "Title Too Short",
+   "severity": "WARNING",
+   "current_value": "21 characters",
+   "suggestion": "Expand the title to around 30\u201360 characters while keeping it specific and relevant."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage",
+   "issue_type": "Missing Image Alt Text",
+   "severity": "INFO",
+   "current_value": "5 images missing alt text",
+   "suggestion": "Add descriptive alt text to important images for accessibility and image SEO."
+  },
+  {
+   "page_url": "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage",
+   "issue_type": "No Schema Markup",
+   "severity": "INFO",
+   "current_value": "",
+   "suggestion": "Add relevant Schema.org structured data where appropriate."
+  }
+ ],
+ "audit_date": null,
+ "extras": {},
+ "note": "Recorded from the live landc.co.uk crawl of 2026-11-17 (run-20261117T153658Z, 153658Z baseline per latest_run domain scoping); page titles, copy and issue lists are the public marketing site, captured for the Phase 3 NO_PAGE pre-check fixture only. Not a comparison baseline; ordering conventions do not apply."
+}
