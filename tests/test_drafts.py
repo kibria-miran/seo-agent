@@ -93,7 +93,7 @@ def test_write_drafts_skips_non_draftable_kinds(profile):
         make_item("BL-9001", "fix_issue", "/x", title="Fix the thing"),
         *draft_items()[:1],
     ]
-    drafts, rejected = write_drafts(items, profile, llm=None)
+    drafts, _rejected = write_drafts(items, profile, llm=None)
     assert list(drafts) == [draft_slug("/mortgage-advice-manchester")]
 
 
@@ -175,7 +175,7 @@ def test_no_llm_drafts_are_byte_identical_across_reruns(tmp_path, profile, injec
         }
 
     first_report, first = run("a")
-    second_report, second = run("b")
+    _second_report, second = run("b")
 
     assert first == second  # byte-identical drafts
     assert first  # at least one draft was written

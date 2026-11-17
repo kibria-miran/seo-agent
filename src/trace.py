@@ -101,8 +101,8 @@ def read_trace(path: str | Path | None = None) -> list[dict[str, Any]]:
     if not target.exists():
         return []
     events: list[dict[str, Any]] = []
-    for line in target.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
+    for raw_line in target.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
         if line:
             events.append(json.loads(line))
     return events

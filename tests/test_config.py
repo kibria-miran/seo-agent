@@ -125,7 +125,7 @@ def test_profile_normalises_city_case_and_preserves_order():
 
 
 def test_profile_rejects_unserved_city():
-    with pytest.raises(ValidationError, match="not in config.UK_CITIES"):
+    with pytest.raises(ValidationError, match=r"not in config\.UK_CITIES"):
         make_profile(cities=["Atlantis"])
 
 

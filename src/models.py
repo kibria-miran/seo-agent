@@ -74,7 +74,7 @@ class SiteProfile(BaseModel):
         if not parsed.hostname:
             raise ValueError("domain must include a host")
         host = parsed.hostname.lower()
-        if host.endswith(".co.uk") or host.endswith(".uk"):
+        if host.endswith((".co.uk", ".uk")):
             return value.rstrip("/")
         if host.endswith(".com"):
             config._warn_com_domain(value)
@@ -304,7 +304,7 @@ class Cluster(BaseModel):
     @model_validator(mode="after")
     def _fill_head(self) -> Cluster:
         if not self.head_term and self.keywords:
-            self.head_term = sorted(self.keywords, key=lambda k: (len(k), k))[0]
+            self.head_term = min(self.keywords, key=lambda k: (len(k), k))
         return self
 
 

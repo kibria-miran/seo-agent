@@ -250,12 +250,12 @@ def test_C6_fails_on_invented_social_proof(claim):
 
 
 def test_C6_permits_regulatory_approval_wording():
-    ok, violations = check_text("Approved by the FCA. Firm reference 123456.", "meta")
+    _ok, violations = check_text("Approved by the FCA. Firm reference 123456.", "meta")
     assert "C6" not in rules(violations)
 
 
 def test_C6_permits_negated_social_proof():
-    ok, violations = check_text("We do not use testimonials.", "meta")
+    _ok, violations = check_text("We do not use testimonials.", "meta")
     assert "C6" not in rules(violations)
 
 

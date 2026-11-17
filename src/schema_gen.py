@@ -96,7 +96,7 @@ def faq_page(faqs: Sequence[Mapping[str, Any] | tuple[str, str]]) -> dict[str, A
 
 
 def _absolute(profile: SiteProfile, path: str) -> str:
-    if path.startswith("http://") or path.startswith("https://"):
+    if path.startswith(("http://", "https://")):
         return path
     if not path.startswith("/"):
         raise SchemaError(f"breadcrumb path must start with '/': {path!r}")

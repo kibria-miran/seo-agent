@@ -59,7 +59,7 @@ def make_client(steps, **kwargs):
 def sleeper():
     calls: list[float] = []
     yield calls
-    
+
 
 
 # ---------------------------------------------------------------------------
@@ -165,7 +165,7 @@ def test_permanent_error_is_not_retried(sleeper):
 
 def test_unknown_transport_exception_is_permanent_not_retried(sleeper):
     calls = sleeper
-    client, transport = make_client([ValueError("weird")], sleeper=calls.append)
+    client, _transport = make_client([ValueError("weird")], sleeper=calls.append)
     with pytest.raises(LLMUnavailable, match="transport error"):
         client.chat([{"role": "user", "content": "hi"}])
     assert calls == []

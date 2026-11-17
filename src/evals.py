@@ -457,7 +457,7 @@ def run_scenario(scenario: Scenario, tmp_path: Path, monkeypatch: _MiniMonkeyPat
         return ScenarioResult(scenario.id, scenario.title, False, f"unknown kind {scenario.kind!r}")
     try:
         ok, detail = checker(scenario.params, tmp_path, monkeypatch)
-    except Exception as exc:  # a broken checker is a failed scenario, never a crash
+    except Exception as exc:  # noqa: BLE001 - a broken checker is a failed scenario, never a crash
         return ScenarioResult(scenario.id, scenario.title, False, f"error: {type(exc).__name__}: {exc}")
     return ScenarioResult(scenario.id, scenario.title, bool(ok), str(detail))
 

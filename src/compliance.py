@@ -22,6 +22,7 @@ import re
 import unicodedata
 from collections.abc import Iterable
 from dataclasses import dataclass
+from pathlib import Path
 
 from src import config
 
@@ -82,7 +83,7 @@ def _load_banned_claims(path=None) -> tuple[str, ...]:
     claims = list(config.BANNED_CLAIMS)
     target = path or config.BANNED_CLAIMS_PATH
     try:
-        raw = json.loads(open(target, encoding="utf-8").read())
+        raw = json.loads(Path(target).read_text(encoding="utf-8"))
     except (OSError, ValueError, TypeError):
         return tuple(claims)
     if isinstance(raw, dict):
@@ -133,15 +134,14 @@ def check_text(
 
     # C1b -- bare "no fees" needs a disclosure sentence in the same draft.
     no_fees_match = re.search(r"\bno fees?\b", text)
-    if no_fees_match and not _has_disclosure(text):
-        if not _is_negated(text, no_fees_match.start()):
-            violations.append(
-                Violation(
-                    "C1b",
-                    "'no fees' needs a fee-disclosure sentence in the same draft",
-                    "no fees",
-                )
+    if no_fees_match and not _has_disclosure(text) and not _is_negated(text, no_fees_match.start()):
+        violations.append(
+            Violation(
+                "C1b",
+                "'no fees' needs a fee-disclosure sentence in the same draft",
+                "no fees",
             )
+        )
 
     # C2 -- "free" needs a disclosure sentence in the same draft.
     free_match = re.search(r"\bfree\b", text)

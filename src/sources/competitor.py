@@ -133,7 +133,7 @@ def _cached_page(store: Store, url: str) -> CompetitorPage | None:
         return None
     try:
         return CompetitorPage(**payload)
-    except Exception:
+    except (ValueError, TypeError):
         return None
 
 
@@ -177,10 +177,9 @@ def mine_competitors(
                 if not url or not _host_matches(domain, url):
                     continue
                 bucket = urls_by_domain[domain]
-                if url not in seen_urls and url not in bucket:
-                    if len(bucket) < per_domain:
-                        bucket.append(url)
-                        seen_urls.add(url)
+                if url not in seen_urls and url not in bucket and len(bucket) < per_domain:
+                    bucket.append(url)
+                    seen_urls.add(url)
 
     pages: list[CompetitorPage] = []
     for domain in sorted(urls_by_domain):

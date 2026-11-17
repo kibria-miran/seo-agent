@@ -22,6 +22,7 @@ Frozen guardrails (see ``tests/conftest.py`` and D-14):
 
 from __future__ import annotations
 
+import contextlib
 import hashlib
 import json
 from collections.abc import Callable
@@ -209,7 +210,7 @@ def tool_mine_sources(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]
         counts.update(scrape_counts)
     ctx.source_counts = counts
     ctx.keywords = merge_keywords(build_keywords(ctx.profile), mined)
-    return {"mined": len(mined), **{k: v for k, v in ctx.source_counts.items()}}
+    return {"mined": len(mined), **dict(ctx.source_counts.items())}
 
 
 def tool_build_clusters(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
@@ -257,7 +258,7 @@ def tool_write_outputs(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any
         # skipped — the deterministic template is used instead. Written once
         # per run: re-entry (the idempotent completion path) never re-spends
         # LLM budget on copy that already exists.
-        drafts, rejected = write_drafts(
+        drafts, _rejected = write_drafts(
             ctx.backlog,
             ctx.profile,
             llm=None if ctx.fallback else ctx.llm,
@@ -417,7 +418,7 @@ def _parse_proposal(text: str) -> dict[str, Any]:
         raw = raw[start : end + 1]
     proposal = json.loads(raw)
     if not isinstance(proposal, dict):
-        raise ValueError("proposal must be a JSON object")
+        raise TypeError("proposal must be a JSON object")
     return proposal
 
 
@@ -488,10 +489,9 @@ class AgentRunner:
         except Exception as exc:
             trace.emit(step="error", tool="run_end", source="code",
                        status="error", kind="error", error_type=type(exc).__name__)
-            try:
+            with contextlib.suppress(Exception):
+                # shutdown must not mask the original error
                 _finish_run(ctx, status="aborted")
-            except Exception:
-                pass
             raise
         finally:
             store.close()
@@ -544,7 +544,7 @@ class AgentRunner:
             ctx.trace.emit(step=step, tool="llm", source="net", status="fallback",
                            kind="budget", reason=_safe(exc)[:120])
             return None, True
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - any provider failure counts toward the fallback
             ctx.consecutive_errors += 1
             ctx.trace.emit(step=step, tool="llm", source="net", status="error",
                            kind="action", error_type=type(exc).__name__)
@@ -558,7 +558,7 @@ class AgentRunner:
         self._sync_ledger(ctx)
         try:
             proposal = _parse_proposal(raw)
-        except (ValueError, json.JSONDecodeError) as exc:
+        except (ValueError, TypeError, json.JSONDecodeError) as exc:
             ctx.consecutive_errors += 1
             ctx.trace.emit(step=step, tool="parse", source="net", status="error",
                            kind="action", error_type=type(exc).__name__)
@@ -606,7 +606,7 @@ class AgentRunner:
             return None
         try:
             observation = tool.handler(args, ctx)
-        except Exception as exc:  # tool crashed; feed back once
+        except Exception as exc:  # noqa: BLE001 - tool crashed; feed back once
             return self._record_failure(ctx, messages, step, f"{type(exc).__name__}: {_safe(exc)}")
         ctx.consecutive_errors = 0  # a successful tool call resets the failure streak
         ctx.history.append({"pair": pair, "tool": name})

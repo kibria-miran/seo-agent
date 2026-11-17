@@ -251,7 +251,7 @@ def doctor(
             line("WARN", "placeholder demo profile values are still in the profile; "
                          "replace before any live run (live run is refused without "
                          f"{config.ALLOW_DEMO_PROFILE_ENV}=1 or --fixture)")
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - the self-check reports any failure as FAIL
         failures += 1
         line("FAIL", f"profile: {type(exc).__name__}: {exc}")
         profile = None
@@ -286,7 +286,7 @@ def doctor(
         probe_capabilities(_models, _core)
         line("PASS", f"seoextract {config.SEOEXTRACT_VERSION} probe clean "
                      f"({config.SEOEXTRACT_COMMIT[:8]})")
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - the self-check reports any failure as FAIL
         failures += 1
         line("FAIL", f"seoextract: {type(exc).__name__}: {exc}")
 

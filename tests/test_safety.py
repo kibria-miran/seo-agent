@@ -44,10 +44,11 @@ def test_pipeline_writes_only_under_out_and_logs(tmp_path, profile, inject_clock
 
 
 def test_write_guard_rejects_a_write_outside_the_allowlist(tmp_path):
-    with pytest.raises(pytest.fail.Exception):
-        with assert_write_paths_under(tmp_path, allowed=("out/", "logs/")):
-            (tmp_path / "secrets").mkdir()
-            (tmp_path / "secrets" / "key.txt").write_text("no", encoding="utf-8")
+    with pytest.raises(pytest.fail.Exception), assert_write_paths_under(
+        tmp_path, allowed=("out/", "logs/")
+    ):
+        (tmp_path / "secrets").mkdir()
+        (tmp_path / "secrets" / "key.txt").write_text("no", encoding="utf-8")
 
 
 def test_get_only_guard_allows_get_and_the_llm_post(monkeypatch):

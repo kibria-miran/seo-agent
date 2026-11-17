@@ -151,7 +151,7 @@ class GscCsvSource(Source):
             if not keyword:
                 continue
 
-            def _metric(name: str) -> float | None:
+            def _metric(name: str, item: Mapping[str, Any] = item) -> float | None:
                 value = item.get(name)
                 if value is None:
                     return None

@@ -114,7 +114,7 @@ def _install_politeness() -> None:
     runs only on the network path.
     """
 
-    global _POLITENESS_INSTALLED
+    global _POLITENESS_INSTALLED  # noqa: PLW0603 - idempotent one-shot install guard
     if _POLITENESS_INSTALLED:
         return
     from seoextract import crawler  # type: ignore

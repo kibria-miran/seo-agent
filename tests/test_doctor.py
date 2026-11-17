@@ -64,7 +64,7 @@ def test_weekly_script_exists_and_is_executable():
 
 def test_weekly_script_parses_without_executing():
     # sh -n parses only; it never runs the network-bearing command.
-    result = subprocess.run(["sh", "-n", str(SCRIPT)], capture_output=True, text=True)
+    result = subprocess.run(["sh", "-n", str(SCRIPT)], capture_output=True, text=True, check=False)
     assert result.returncode == 0, result.stderr
     assert result.stdout == ""
 

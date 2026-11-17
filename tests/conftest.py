@@ -296,10 +296,7 @@ def inject_clock(monkeypatch: pytest.MonkeyPatch):
     """
 
     def _inject(start: datetime | str, step: float | timedelta | None = None):
-        if isinstance(start, str):
-            base = datetime.fromisoformat(start)
-        else:
-            base = start
+        base = datetime.fromisoformat(start) if isinstance(start, str) else start
         if base.tzinfo is None:
             base = base.replace(tzinfo=timezone.utc)
         tick = timedelta(0)
@@ -328,7 +325,7 @@ def fake_fetcher(monkeypatch: pytest.MonkeyPatch):
     def _install(pages: dict[str, str]):
         try:
             from src.sources import fetch as fetch_module
-        except Exception as exc:  # pragma: no cover - import error is the failure
+        except ImportError as exc:  # pragma: no cover - import error is the failure
             pytest.fail(f"cannot import src.sources.fetch: {exc}", pytrace=False)
 
         calls: list[str] = []

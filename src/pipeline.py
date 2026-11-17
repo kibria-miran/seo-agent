@@ -10,6 +10,7 @@ D-9: the same run_id, fixture and injected clock produce byte-identical files.
 
 from __future__ import annotations
 
+import contextlib
 import json
 from pathlib import Path
 from typing import Any
@@ -37,13 +38,21 @@ from src.trace import TraceWriter
 
 def load_profile(path: str | Path) -> SiteProfile:
     profile_path = Path(path)
-    if not profile_path.is_absolute() and not profile_path.exists():
-        profile_path = config.PROFILES_DIR / profile_path
-    if not profile_path.exists():
-        raise FileNotFoundError(f"site profile not found: {profile_path}")
-    data = json.loads(profile_path.read_text(encoding="utf-8"))
+    if profile_path.is_absolute() or profile_path.exists():
+        candidate = profile_path
+    else:
+        # ``config.PROFILES_DIR`` is the directory that contains site.json, so
+        # a bare ``profiles/site.json`` (the CLI default) resolves against it.
+        # Fall back to joining the full relative path for callers that pass a
+        # root-relative value.
+        candidate = config.PROFILES_DIR / Path(path).name
+        if not candidate.exists():
+            candidate = config.PROFILES_DIR / path
+    if not candidate.exists():
+        raise FileNotFoundError(f"site profile not found: {candidate}")
+    data = json.loads(candidate.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
-        raise ValueError(f"site profile must be a JSON object: {profile_path}")
+        raise TypeError(f"site profile must be a JSON object: {candidate}")
     return SiteProfile(**data)
 
 
@@ -454,7 +463,8 @@ def run_deterministic(
             kind="error",
             error_type=type(exc).__name__,
         )
-        try:
+        with contextlib.suppress(Exception):
+            # shutdown must not mask the original error
             store.finish_run(
                 chosen_run_id,
                 status="aborted",
@@ -462,8 +472,6 @@ def run_deterministic(
                 grade="F",
                 finished_at=clock.now(),
             )
-        except Exception:
-            pass
         raise
     finally:
         store.close()

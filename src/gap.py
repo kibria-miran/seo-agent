@@ -65,7 +65,7 @@ def candidate_page(cluster: Cluster, pages: Sequence[PageData]) -> PageData | No
     for page in sorted(pages, key=lambda item: item.url):
         if page.status_code and page.status_code != 200:
             continue
-        slug_terms = set(t for t in _SLUG_RE.split(page.url.casefold()) if t)
+        slug_terms = {t for t in _SLUG_RE.split(page.url.casefold()) if t}
         overlap = len(wanted & slug_terms)
         if overlap > best_overlap:
             best = page

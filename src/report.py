@@ -82,9 +82,9 @@ def _scorecard(
         f"- Site score: **{audit.site_score:.1f}** ({audit.grade})",
         f"- Delta vs previous run: {delta}",
         f"- Pages crawled: {audit.pages_crawled}",
-        f"- Issues: {len(audit.issues)} total \u00b7 "
+        (f"- Issues: {len(audit.issues)} total \u00b7 "
         f"{counts['CRITICAL']} critical \u00b7 {counts['WARNING']} warning \u00b7 "
-        f"{counts['INFO']} info",
+        f"{counts['INFO']} info"),
         f"- Keywords mined: {len(keywords)}",
         f"- Gaps open: {len(gaps)}",
         f"- Backlog items: {run.get('backlog_count', 'n/a')}",
@@ -236,8 +236,8 @@ def _budget_section(run: Mapping[str, Any], budgets: Mapping[str, Any]) -> list[
         f"- Status: `{run.get('status', 'unknown')}`",
         f"- Steps: {steps} / {config.MAX_STEPS}",
         f"- LLM calls: {llm_calls} / {config.MAX_LLM_CALLS}",
-        f"- Tokens: {tokens_in} in / {tokens_out} out "
-        f"(caps {config.MAX_TOKENS_IN} / {config.MAX_TOKENS_OUT})",
+        (f"- Tokens: {tokens_in} in / {tokens_out} out "
+        f"(caps {config.MAX_TOKENS_IN} / {config.MAX_TOKENS_OUT})"),
         f"- Fetches: {fetches} / {config.MAX_FETCHES}",
         f"- LLM wall-clock cap: {config.MAX_LLM_SECONDS}s \u00b7 run cap: {config.MAX_RUN_SECONDS}s",
     ]
@@ -270,12 +270,12 @@ def render_report(
     lines: list[str] = [
         f"# SEO growth report \u2014 {host}",
         "",
-        "_This report is a lint, not legal or financial advice. Nothing in this "
+        ("_This report is a lint, not legal or financial advice. Nothing in this "
         "file or in any draft it references makes the output compliant with UK "
         "financial-promotion rules, and the compliance checks are automated "
         "pattern matching, not a compliance review. A qualified adviser must "
         "review everything before anything is published. This tool never edits "
-        "or publishes the site._",
+        "or publishes the site._"),
         "",
         _status_line(run, generated_at),
         "",

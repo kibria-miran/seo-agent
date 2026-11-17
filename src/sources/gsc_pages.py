@@ -117,8 +117,7 @@ class GscPagesSource(Source):
             page = str(row.get(page_col, "")).strip()
             if not query or not page:
                 continue
-            if page.startswith("/"):
-                page = page  # root-relative export is used as-is
+            # root-relative exports are used as-is; absolute URLs untouched
             key = (query, page)
             impressions = _number(row.get(impressions_col)) if impressions_col else None
             clicks = _number(row.get(clicks_col)) if clicks_col else None

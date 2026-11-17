@@ -200,7 +200,9 @@ def diff_snapshots(previous: AuditSnapshot | None, current: AuditSnapshot) -> Au
 def diff_gaps(previous: Sequence[Gap], current: Sequence[Gap]) -> tuple[list[str], list[str]]:
     before = {(g.keyword, g.gap_type.value) for g in previous}
     after = {(g.keyword, g.gap_type.value) for g in current}
-    render = lambda items: sorted(f"{keyword} :: {kind}" for keyword, kind in items)
+    def render(items: set[tuple[str, str]]) -> list[str]:
+        return sorted(f"{keyword} :: {kind}" for keyword, kind in items)
+
     return render(after - before), render(before - after)
 
 
@@ -235,7 +237,7 @@ class Store:
     def close(self) -> None:
         self.conn.close()
 
-    def __enter__(self) -> Store:
+    def __enter__(self) -> Store:  # noqa: PYI034 - py310 has no typing.Self
         return self
 
     def __exit__(self, *_exc_info: object) -> None:

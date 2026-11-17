@@ -64,7 +64,7 @@ def test_probe_names_a_missing_audit_method():
         class SEOExtract:
             pass
 
-    with pytest.raises(ImportError, match="SEOExtract.audit"):
+    with pytest.raises(ImportError, match=r"SEOExtract\.audit"):
         probe_capabilities(complete, Core)
 
 

@@ -13,6 +13,7 @@ import requests
 from typer.testing import CliRunner
 
 from src import config
+from src.audit_adapter import AuditFixtureError
 from src.cli import app
 from src.models import GapType
 from src.pipeline import (
@@ -200,7 +201,7 @@ def test_S1_rerunning_the_same_run_id_is_byte_identical(tmp_path, profile, injec
     inject_clock("2026-11-16T09:00:00+00:00")
     db = tmp_path / "seo.db"
     out = tmp_path / "out"
-    kwargs = dict(fixture_path=FIXTURE, run_id="run-golden", db_path=db, out_root=out)
+    kwargs = {"fixture_path": FIXTURE, "run_id": "run-golden", "db_path": db, "out_root": out}
 
     run_deterministic(profile, **kwargs)
     first_report = (out / "run-golden" / "report.md").read_bytes()
@@ -318,7 +319,7 @@ def test_stale_running_run_is_marked_aborted(tmp_path, profile):
 
 def test_failed_run_is_marked_aborted(tmp_path, profile):
     db = tmp_path / "seo.db"
-    with pytest.raises(Exception):
+    with pytest.raises(AuditFixtureError):
         run_deterministic(
             profile,
             fixture_path=tmp_path / "missing.json",

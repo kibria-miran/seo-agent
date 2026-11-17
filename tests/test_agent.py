@@ -58,7 +58,7 @@ def make_runner(tmp_path, responses, **kwargs):
 
 def test_agent_completes_the_stage_sequence(tmp_path, profile, inject_clock):
     inject_clock("2026-11-16T09:00:00+00:00")
-    runner, llm = make_runner(tmp_path, GOOD_SEQUENCE)
+    runner, _llm = make_runner(tmp_path, GOOD_SEQUENCE)
 
     report = runner.run(profile, fixture_path=FIXTURE)
 
@@ -126,7 +126,7 @@ def test_two_bad_proposals_fall_back_to_the_template(tmp_path, profile, inject_c
 
 def test_one_bad_proposal_is_tolerated_and_retried(tmp_path, profile, inject_clock):
     inject_clock("2026-11-16T09:00:00+00:00")
-    responses = ["not json at all"] + GOOD_SEQUENCE
+    responses = ["not json at all", *GOOD_SEQUENCE]
     runner, llm = make_runner(tmp_path, responses)
 
     report = runner.run(profile, fixture_path=FIXTURE)
@@ -144,7 +144,7 @@ def test_unknown_tool_twice_falls_back(tmp_path, profile, inject_clock):
         '{"tool": "fly", "args": {}}',
         '{"tool": "teleport", "args": {}}',
     ]
-    runner, llm = make_runner(tmp_path, responses)
+    runner, _llm = make_runner(tmp_path, responses)
 
     report = runner.run(profile, fixture_path=FIXTURE)
     assert report.status == "ok"
@@ -172,7 +172,7 @@ def test_schema_invalid_args_are_rejected(tmp_path, profile, inject_clock):
 
 def test_loop_guard_trips_on_a_repeated_pair(tmp_path, profile, inject_clock):
     inject_clock("2026-11-16T09:00:00+00:00")
-    responses = GOOD_SEQUENCE[:1] + GOOD_SEQUENCE[:1]  # audit twice consecutively
+    responses = [*GOOD_SEQUENCE[:1], *GOOD_SEQUENCE[:1]]  # audit twice consecutively
     runner, _ = make_runner(tmp_path, responses)
 
     report = runner.run(profile, fixture_path=FIXTURE)
@@ -191,7 +191,8 @@ def test_loop_guard_allows_repeats_with_new_args(tmp_path, profile, inject_clock
         '{"tool": "check_compliance", "args": {"text": "first draft copy"}}',
         '{"tool": "check_compliance", "args": {"text": "second draft copy"}}',
         '{"tool": "check_compliance", "args": {"text": "first draft copy"}}',  # non-consecutive repeat: allowed
-    ] + GOOD_SEQUENCE[1:]
+        *GOOD_SEQUENCE[1:],
+    ]
     runner, _ = make_runner(tmp_path, responses)
 
     report = runner.run(profile, fixture_path=FIXTURE)
@@ -279,13 +280,12 @@ def test_llm_budget_exhaustion_falls_back(tmp_path, profile, inject_clock):
 
     from src.llm import LLMBudget
 
-    runner, llm = make_runner(tmp_path, list(GOOD_SEQUENCE), budget=LLMBudget(max_calls=1))
+    runner, _llm = make_runner(tmp_path, list(GOOD_SEQUENCE), budget=LLMBudget(max_calls=1))
     # LLMClient-style budget is not attached to FakeLLM, so patch _propose to
     # raise through the runner's budget instead: simulate the client hitting
     # its cap on the very first call.
     import src.llm as llm_module
 
-    original = runner.llm.__call__
 
     def blown(messages, *args, **kwargs):
         raise llm_module.BudgetExceeded("MAX_LLM_CALLS=1 would be exceeded")
@@ -325,7 +325,7 @@ def test_unmet_requirement_is_logged_and_skipped(tmp_path, profile, inject_clock
     )
     monkeypatch.setattr(agent_module, "build_registry", lambda: registry)
 
-    responses = ['{"tool": "needs_env", "args": {}}'] + GOOD_SEQUENCE
+    responses = ['{"tool": "needs_env", "args": {}}', *GOOD_SEQUENCE]
     runner, _ = make_runner(tmp_path, responses)
 
     report = runner.run(profile, fixture_path=FIXTURE)

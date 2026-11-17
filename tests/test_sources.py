@@ -319,7 +319,7 @@ def test_robots_txt_disallow_blocks_the_fetch(monkeypatch):
 
     monkeypatch.setattr(fetch_module.requests, "get", fake_requests_get)
 
-    with pytest.raises(fetch_module.FetchError, match="robots.txt"):
+    with pytest.raises(fetch_module.FetchError, match=r"robots\.txt"):
         fetch_module.fetch_page("https://example.co.uk/private/page")
 
 
@@ -357,7 +357,7 @@ def test_robots_txt_allow_is_honoured(monkeypatch):
 def test_throttle_sleeps_the_remainder_between_requests_to_one_host(monkeypatch):
     monkeypatch.setattr(config, "HOST_DELAY_SECONDS", 2.0)
     slept: list[float] = []
-    monkeypatch.setattr(time, "sleep", lambda seconds: slept.append(seconds))
+    monkeypatch.setattr(time, "sleep", slept.append)
 
     state = {"now": 0.0}
 
@@ -380,7 +380,7 @@ def test_throttle_sleeps_the_remainder_between_requests_to_one_host(monkeypatch)
 
 def test_throttle_tracks_hosts_independently(monkeypatch, frozen_clock):
     slept: list[float] = []
-    monkeypatch.setattr(time, "sleep", lambda seconds: slept.append(seconds))
+    monkeypatch.setattr(time, "sleep", slept.append)
     fetch_module.throttle("a.co.uk")
     fetch_module.throttle("b.co.uk")  # clock advanced 5 s, other host: no sleep
     assert slept == []
