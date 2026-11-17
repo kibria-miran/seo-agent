@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff>=0.8"]
 tokens = ["tiktoken>=0.7"]
 
 [project.scripts]
@@ -35,6 +35,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["src", "src.sources"]
+
+[tool.setuptools.package-data]
+src = ["resources/**"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -49,3 +52,26 @@ markers = [
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+exclude = ["third_party", ".venv"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W", "F", "I", "B", "UP", "SIM", "C4", "PIE", "RUF",
+    "S", "BLE", "TRY", "PLW", "PYI", "FURB", "ISC",
+]
+# TRY003: message-rich raises are this codebase's style.
+# E501: long string/report lines are deliberate; isort keeps imports tidy.
+# RUF001/002/003: the codebase handles Unicode deliberately (homoglyph
+# folding in security.py, en/em dashes in report copy).
+ignore = ["TRY003", "E501", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# assert and subprocess use are the test idiom.
+"tests/**" = ["S101", "S603", "S607"]
+
+[tool.ruff.lint.flake8-bugbear]
+# typer.Option/typer.Argument in argument defaults are the documented typer idiom.
+extend-immutable-calls = ["typer.Option", "typer.Argument"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

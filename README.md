@@ -107,7 +107,7 @@ keywords with clicks/impressions/CTR/position) and the Pages query→page map.
 It never touches the network. A missing requirement is logged as `dep_unmet`
 and skipped; it never fails the run.
 
-### ToS-grey scraping (off by default, opt-in)
+### ToS-grey scraping (off by default, opt-in, experimental)
 
 ```bash
 .venv/bin/python -m src.cli run --site profiles/site.json --no-llm --with-scraping
@@ -169,7 +169,7 @@ crashes the harness. Results are written to `evals/results/` (gitignored);
 `evals/baselines.json` is committed and is the regression anchor for the
 deterministic fixture run.
 
-### Agent mode (Phase 6, opt-in)
+### Agent mode (Phase 6, opt-in, experimental)
 
 ```bash
 export NVIDIA_API_KEY=nvapi-...
@@ -195,7 +195,7 @@ behaviour:
 `--agent --no-llm` is a usage error (exit 2). Without a key, agent mode
 exits 2 with a message naming `NVIDIA_API_KEY`.
 
-### Compliance-gated drafts (Phase 7)
+### Compliance-gated drafts (Phase 7, experimental)
 
 ```bash
 .venv/bin/python -m src.cli run --site profiles/site.json --no-llm --with-drafts --fixture tests/fixtures/own_site_audit.json
@@ -349,6 +349,30 @@ previous one.
 All live sources sit behind one `Source` interface with cache and throttle.
 Sections that have no data in a given run (e.g. no GSC export configured)
 are explicitly empty in the report rather than invented.
+
+## Known limitations
+
+- The packaged wheel ships the read-only data it needs (vendored `seoextract`,
+  `profiles/site.json`, `evals/`, `tests/fixtures/`) under `src/resources/`.
+  Writable output still goes under `out/` and `logs/` (D-15). The checkout copy
+  wins when running from the source tree; the bundled copy is used after
+  `pip install`. Keep the two in sync — the CI packaging job and
+  `tests/test_packaging.py` enforce this.
+- `--agent`, `--with-drafts` and `--with-scraping` are **experimental** and
+  opt-in. `--agent` has never run against a real NVIDIA NIM provider
+  (unit-level FakeLLM only), `--with-drafts` output is not reviewed by an
+  adviser (by design), and `--with-scraping` uses undocumented HTML endpoints
+  that can break or return zero results without notice. Treat them as
+  unproven until a real-site crawl validates them.
+- No real site has been crawled end-to-end against a live domain. `profiles/site.json`
+  still ships with placeholder demo values (`clearpath-mortgage.co.uk`, FCA
+  `123456`); live runs against it are refused unless you acknowledge the demo
+  profile. The fixture run is deterministic and byte-identical, but fixture
+  confidence is not production confidence.
+- `APP_VERSION` (`src/config.py`) now matches `pyproject.toml` (`0.1.0`).
+- The compliance lint (C1–C6) is pattern matching, not a compliance review;
+  passing it does not make output compliant with UK financial-promotion rules.
+  A qualified adviser must review every draft before publication.
 
 ## Repository layout
 

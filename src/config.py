@@ -17,18 +17,46 @@ try:  # optional, the app works without a .env
     from dotenv import load_dotenv
 
     load_dotenv()
-except Exception:  # pragma: no cover - dotenv is an optional convenience
+except Exception:  # noqa: BLE001, S110 - dotenv is an optional convenience
     pass
 
 
-ROOT = Path(__file__).resolve().parent.parent
+# Point SEO_AGENT_ROOT at a checkout when the package is installed outside the
+# repo (pip install .): paths for profiles/, third_party/, out/ and logs/ all
+# derive from it. Default stays the repository root.
+ROOT = (
+    Path(os.environ["SEO_AGENT_ROOT"]).expanduser().resolve()
+    if os.environ.get("SEO_AGENT_ROOT")
+    else Path(__file__).resolve().parent.parent
+)
+
+# Read-only data (vendored audit layer, profiles, evals) ships both in the
+# checkout (ROOT-relative) and, for wheel installs, bundled under src/resources.
+# Resolve to the checkout copy when present, otherwise the bundled copy, so the
+# package is self-contained after ``pip install`` while tests keep running
+# against the live checkout.
+_BUNDLED = Path(__file__).resolve().parent / "resources"
+
+
+def _locate(*rel: str) -> Path:
+    """Return an existing path for read-only data: checkout first, then bundled.
+
+    The checkout copy wins when running from the source tree (tests, dev).
+    After ``pip install`` the checkout siblings do not exist, so the wheel's
+    bundled copy under ``src/resources`` is used. Never used for writable
+    output (OUT_DIR / LOGS_DIR / DATA_DIR / CACHE_DIR stay ROOT-relative).
+    """
+    checkout = ROOT.joinpath(*rel)
+    if checkout.exists():
+        return checkout
+    return _BUNDLED.joinpath(*rel)
 
 # ---------------------------------------------------------------------------
 # Identity
 # ---------------------------------------------------------------------------
 
 APP_NAME = "seo-agent"
-APP_VERSION = "1.0"
+APP_VERSION = "0.1.0"
 CONTACT_EMAIL = os.getenv("SEO_AGENT_CONTACT", "seo-agent@example.co.uk")
 USER_AGENT = f"{APP_NAME}/{APP_VERSION} (+contact: {CONTACT_EMAIL})"
 
@@ -45,7 +73,7 @@ ALLOW_DEMO_PROFILE_ENV = "SEO_AGENT_ALLOW_DEMO_PROFILE"
 
 SEOEXTRACT_COMMIT = "6544a74e340e6ac8b147b7f4ab0f09d55d142dd3"
 SEOEXTRACT_VERSION = "0.3.0"
-SEOEXTRACT_DIR = ROOT / "third_party" / "seoextract"
+SEOEXTRACT_DIR = _locate("third_party", "seoextract")
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -57,12 +85,12 @@ OUT_DIR = ROOT / "out"
 DATA_DIR = OUT_DIR / "state"
 CACHE_DIR = OUT_DIR / "cache"
 LOGS_DIR = ROOT / "logs"
-PROFILES_DIR = ROOT / "profiles"
-EVALS_DIR = ROOT / "evals"
+PROFILES_DIR = _locate("profiles")
+EVALS_DIR = _locate("evals")
+FIXTURES_DIR = _locate("tests", "fixtures")
 SCENARIOS_DIR = EVALS_DIR / "scenarios"
 EXTRA_SCENARIOS_DIR = EVALS_DIR / "extra"
 RESULTS_DIR = EVALS_DIR / "results"
-FIXTURES_DIR = ROOT / "tests" / "fixtures"
 
 DB_PATH = DATA_DIR / "seo.db"
 TRACE_PATH = LOGS_DIR / "trace.jsonl"

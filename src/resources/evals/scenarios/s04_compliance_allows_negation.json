@@ -1,0 +1,10 @@
+{
+  "id": "S04",
+  "title": "Compliance gate allows a negated mention of the banned phrase",
+  "kind": "compliance_text",
+  "params": {
+    "text": "We never guarantee approval; we compare deals from across the market. Your home may be repossessed if you do not keep up repayments on your mortgage. FCA firm reference 123456.",
+    "page_kind": "content",
+    "expect_ok": true
+  }
+}

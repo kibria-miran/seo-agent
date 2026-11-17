@@ -1,0 +1,6 @@
+{
+  "id": "S11",
+  "title": "A stale 'running' run is marked aborted",
+  "kind": "aborted_run",
+  "params": {}
+}

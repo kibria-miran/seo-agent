@@ -6,8 +6,22 @@ on:
   pull_request:
 
 jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install dev dependencies (hashed; includes ruff)
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --require-hashes -r requirements-dev.txt
+      - name: Ruff
+        run: python -m ruff check .
+
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -25,7 +39,46 @@ jobs:
         run: python -m pip install --require-hashes -r requirements-dev.txt
       - name: Install vendored seoextract (no PyPI replacement)
         run: python -m pip install --no-deps -r requirements-seoextract.txt
-      - name: Run the test suite
-        run: python -m pytest -q
+      - name: Run the test suite (with coverage)
+        run: python -m pytest -q --cov=src --cov-report=term-missing --cov-fail-under=85
       - name: Run evals (fixture regression anchor)
         run: python -m src.cli evals
+
+  packaging:
+    name: Packaging smoke test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - name: Install build tooling
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+      - name: Build the wheel
+        run: python -m pip wheel . --no-deps --no-build-isolation -w dist
+      - name: Create fresh venv and install the wheel (no checkout on path)
+        run: |
+          python -m venv /tmp/smoke-venv
+          /tmp/smoke-venv/bin/python -m pip install --upgrade pip
+          /tmp/smoke-venv/bin/python -m pip install dist/seo_agent-*.whl
+      - name: Smoke test doctor (bundled profile + vendored seoextract)
+        run: /tmp/smoke-venv/bin/seo-agent doctor
+      - name: Smoke test fixture run (bundled fixture)
+        run: |
+          FIXTURE=$(/tmp/smoke-venv/bin/python -c "from src import config; print(config.FIXTURES_DIR / 'own_site_audit.json')")
+          /tmp/smoke-venv/bin/seo-agent run --no-llm --fixture "$FIXTURE" --run-id smoke-test
+      - name: Guard: bundled seoextract commit matches pinned commit
+        run: |
+          /tmp/smoke-venv/bin/python - <<'PY'
+          from src import config
+          assert config.SEOEXTRACT_COMMIT == "6544a74e340e6ac8b147b7f4ab0f09d55d142dd3", config.SEOEXTRACT_COMMIT
+          import importlib.util
+          spec = importlib.util.spec_from_file_location(
+              "seoextract", str(config.SEOEXTRACT_DIR / "seoextract" / "__init__.py")
+          )
+          mod = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(mod)
+          assert mod.__version__ == "0.3.0", mod.__version__
+          print("bundled seoextract", mod.__version__, "commit guard OK")
+          PY
