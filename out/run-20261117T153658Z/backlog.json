@@ -1,0 +1,751 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Comparefirst time buyermortgage deals"
+      ],
+      "head_term": "first time buyer guide",
+      "page": "https://www.landc.co.uk/first-time-buyers/best-buys",
+      "title": "L&C mortgage advisers | Designed for first time buyers"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/first-time-buyers/best-buys",
+    "title": "Fix title/H1 coverage for 'first time buyer guide' on https://www.landc.co.uk/first-time-buyers/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Find yourfixed ratemortgage with L&C"
+      ],
+      "head_term": "fixed rate mortgage deals",
+      "page": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+      "title": "Fixed rate mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for 'fixed rate mortgage deals' on https://www.landc.co.uk/mortgages/fixed-rate-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fixed Rate Mortgages"
+      ],
+      "head_term": "2 year fixed mortgage",
+      "page": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+      "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for '2 year fixed mortgage' on https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fixed Rate Mortgages"
+      ],
+      "head_term": "5 year fixed mortgage rates",
+      "page": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+      "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for '5 year fixed mortgage rates' on https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Birmingham",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker birmingham"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-birmingham",
+    "title": "Create a local page for 'mortgage broker birmingham'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Bristol",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker bristol"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-bristol",
+    "title": "Create a local page for 'mortgage broker bristol'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Glasgow",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker glasgow"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-glasgow",
+    "title": "Create a local page for 'mortgage broker glasgow'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Leeds",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker leeds"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-leeds",
+    "title": "Create a local page for 'mortgage broker leeds'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "London",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker london"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-london",
+    "title": "Create a local page for 'mortgage broker london'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Manchester",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker manchester"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-manchester",
+    "title": "Create a local page for 'mortgage broker manchester'"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 8,
+    "evidence": {
+      "money_page_count": 3,
+      "money_pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/buy-to-let",
+        "https://www.landc.co.uk/remortgage"
+      ],
+      "page_count": 27,
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us/customer-reviews",
+        "https://www.landc.co.uk/best-mortgage-rates",
+        "https://www.landc.co.uk/buy-to-let",
+        "https://www.landc.co.uk/buy-to-let/best-buys",
+        "https://www.landc.co.uk/careers",
+        "https://www.landc.co.uk/first-time-buyers/best-buys",
+        "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+        "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+        "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+        "https://www.landc.co.uk/life-insurance",
+        "https://www.landc.co.uk/mortgages",
+        "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+        "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+        "https://www.landc.co.uk/mortgages/mortgage-calculator",
+        "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+        "https://www.landc.co.uk/mortgages/product/2-year-fixed-rate-mortgage",
+        "https://www.landc.co.uk/mortgages/product/3-year-fixed-rate-mortgage",
+        "https://www.landc.co.uk/mortgages/product/5-year-fixed-rate-mortgages",
+        "https://www.landc.co.uk/mortgages/product/mortgage-in-principle",
+        "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+        "https://www.landc.co.uk/mortgages/product/surveys",
+        "https://www.landc.co.uk/mortgages/product/tracker-mortgages",
+        "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+        "https://www.landc.co.uk/remortgage",
+        "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+        "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage"
+      ],
+      "required": [
+        "FAQPage",
+        "FinancialService",
+        "LocalBusiness"
+      ]
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 3,
+    "item_id": "BL-0011",
+    "kind": "schema",
+    "priority": 0.375,
+    "status": "open",
+    "target": "sitewide",
+    "title": "Add missing schema to 27 keyword-relevant pages (3 money pages)"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "10 percent deposit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0012",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/10-percent-deposit-mortgage",
+    "title": "Create a page targeting '10 percent deposit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "95 percent mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0013",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/95-percent-mortgage",
+    "title": "Create a page targeting '95 percent mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "adverse credit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0014",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/adverse-credit-mortgage",
+    "title": "Create a page targeting 'adverse credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "bad credit mortgage",
+        "bad credit mortgage broker",
+        "bad credit remortgage",
+        "mortgage with bad credit",
+        "remortgage with bad credit"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0015",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/bad-credit-mortgage",
+    "title": "Create a page targeting 'bad credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contractor mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0016",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contractor-mortgage",
+    "title": "Create a page targeting 'contractor mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "equity release remortgage",
+        "remortgage to release equity"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/remortgage",
+        "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+        "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0017",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/equity-release-remortgage",
+    "title": "Create a page targeting 'equity release remortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "how much can i borrow for a mortgage",
+        "how much can i borrow mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0018",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/how-much-can-i-borrow-mortgage",
+    "title": "Create a page targeting 'how much can i borrow mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "how much deposit do i need for a mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0019",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/how-much-deposit-do-i-need-for-a-mortgage",
+    "title": "Create a page targeting 'how much deposit do i need for a mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "independent mortgage broker"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0020",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/independent-mortgage-broker",
+    "title": "Create a page targeting 'independent mortgage broker'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "interest only mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0021",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/interest-only-mortgage",
+    "title": "Create a page targeting 'interest only mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "joint mortgage sole ownership"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0022",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/joint-mortgage-sole-ownership",
+    "title": "Create a page targeting 'joint mortgage sole ownership'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "later life mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/life-insurance"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0023",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/later-life-mortgage",
+    "title": "Create a page targeting 'later life mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "low deposit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0024",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/low-deposit-mortgage",
+    "title": "Create a page targeting 'low deposit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage affordability calculator"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+        "https://www.landc.co.uk/mortgages/mortgage-calculator",
+        "https://www.landc.co.uk/mortgages/stamp-duty-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0025",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-affordability-calculator",
+    "title": "Create a page targeting 'mortgage affordability calculator'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage broker reviews"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0026",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-broker-reviews",
+    "title": "Create a page targeting 'mortgage broker reviews'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for contractors"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0027",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-contractors",
+    "title": "Create a page targeting 'mortgage for contractors'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for doctors"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0028",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-doctors",
+    "title": "Create a page targeting 'mortgage for doctors'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for over 60s"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0029",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-over-60s",
+    "title": "Create a page targeting 'mortgage for over 60s'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for teachers"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0030",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-teachers",
+    "title": "Create a page targeting 'mortgage for teachers'"
+  }
+]

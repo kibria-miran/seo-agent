@@ -1,0 +1,756 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Free mortgage advice"
+      ],
+      "head_term": "fee free mortgage advice",
+      "page": "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+      "title": "Free Mortgage Advice | ClearPath"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+    "title": "Fix title/H1 coverage for 'fee free mortgage advice' on https://clearpath-mortgage.co.uk/free-mortgage-advice"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Birmingham",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker birmingham"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-birmingham",
+    "title": "Create a local page for 'mortgage broker birmingham'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Bristol",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker bristol"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-bristol",
+    "title": "Create a local page for 'mortgage broker bristol'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Glasgow",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker glasgow"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-glasgow",
+    "title": "Create a local page for 'mortgage broker glasgow'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Leeds",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker leeds"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-leeds",
+    "title": "Create a local page for 'mortgage broker leeds'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "London",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker london"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-london",
+    "title": "Create a local page for 'mortgage broker london'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Manchester",
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "service": "mortgage broker manchester"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-manchester",
+    "title": "Create a local page for 'mortgage broker manchester'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "10 percent deposit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/10-percent-deposit-mortgage",
+    "title": "Create a page targeting '10 percent deposit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "2 year fixed mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/2-year-fixed-mortgage",
+    "title": "Create a page targeting '2 year fixed mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "5 year fixed mortgage rates"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/5-year-fixed-mortgage-rates",
+    "title": "Create a page targeting '5 year fixed mortgage rates'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "95 percent mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0011",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/95-percent-mortgage",
+    "title": "Create a page targeting '95 percent mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "adverse credit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0012",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/adverse-credit-mortgage",
+    "title": "Create a page targeting 'adverse credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "bad credit mortgage",
+        "bad credit mortgage broker",
+        "bad credit remortgage",
+        "mortgage with bad credit",
+        "remortgage with bad credit"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0013",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/bad-credit-mortgage",
+    "title": "Create a page targeting 'bad credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "best mortgage rates"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0014",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/best-mortgage-rates",
+    "title": "Create a page targeting 'best mortgage rates'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contractor mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0015",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contractor-mortgage",
+    "title": "Create a page targeting 'contractor mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "equity release remortgage",
+        "remortgage to release equity"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0016",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/equity-release-remortgage",
+    "title": "Create a page targeting 'equity release remortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "fixed rate mortgage deals"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0017",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/fixed-rate-mortgage-deals",
+    "title": "Create a page targeting 'fixed rate mortgage deals'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "how much deposit do i need for a mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0018",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/how-much-deposit-do-i-need-for-a-mortgage",
+    "title": "Create a page targeting 'how much deposit do i need for a mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "independent mortgage broker"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0019",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/independent-mortgage-broker",
+    "title": "Create a page targeting 'independent mortgage broker'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "interest only mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0020",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/interest-only-mortgage",
+    "title": "Create a page targeting 'interest only mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "joint mortgage sole ownership"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0021",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/joint-mortgage-sole-ownership",
+    "title": "Create a page targeting 'joint mortgage sole ownership'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "later life mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0022",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/later-life-mortgage",
+    "title": "Create a page targeting 'later life mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "low deposit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0023",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/low-deposit-mortgage",
+    "title": "Create a page targeting 'low deposit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage advisor near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0024",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-advisor-near-me",
+    "title": "Create a page targeting 'mortgage advisor near me'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage affordability calculator"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0025",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-affordability-calculator",
+    "title": "Create a page targeting 'mortgage affordability calculator'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage broker near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0026",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-broker-near-me",
+    "title": "Create a page targeting 'mortgage broker near me'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage broker reviews"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0027",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-broker-reviews",
+    "title": "Create a page targeting 'mortgage broker reviews'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for contractors"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0028",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-contractors",
+    "title": "Create a page targeting 'mortgage for contractors'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for doctors"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0029",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-doctors",
+    "title": "Create a page targeting 'mortgage for doctors'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "mortgage for over 60s"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0030",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/mortgage-for-over-60s",
+    "title": "Create a page targeting 'mortgage for over 60s'"
+  }
+]
