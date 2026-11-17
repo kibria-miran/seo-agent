@@ -16,3 +16,8 @@ Convention:
 - A run is pinned here only when it is meant as a reference baseline, and this
   file is updated to list it. The test suite's baseline fixture lives in
   `tests/fixtures/landc_audit.json`, not here.
+
+Caveat on both pinned runs: they were generated against
+`profiles/landc.json` with an unverified placeholder FCA firm reference
+(`fca_firm_ref: "000000"`). Any compliance-related comparison against these
+runs is meaningless until that field is corrected (see `profiles/README.md`).
