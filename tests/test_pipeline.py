@@ -386,7 +386,7 @@ def test_cross_domain_run_produces_no_diff_against_other_sites_baseline(tmp_path
     assert report.diff.closed_items == []
     assert report.diff.closed_gaps == []
     text = (out / "run-b" / "report.md").read_text(encoding="utf-8")
-    assert "no comparable previous run for this domain" in text
+    assert "No comparable previous run for landc-mortgage.co.uk." in text
 
 
 def test_pipeline_survives_fetch_budget_refusal(tmp_path, profile, inject_clock, monkeypatch):

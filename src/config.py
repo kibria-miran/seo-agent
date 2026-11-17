@@ -12,6 +12,7 @@ from __future__ import annotations
 import os
 import warnings
 from pathlib import Path
+from urllib.parse import urlsplit
 
 try:  # optional, the app works without a .env
     from dotenv import load_dotenv
@@ -364,6 +365,22 @@ GRADE_THRESHOLDS: tuple[tuple[float, str], ...] = (
 )
 
 
+def normalize_domain(value: str | None) -> str:
+    """Return the domain key for a site url or host: lowercase host,
+    leading ``www.`` stripped, port stripped. Empty string when unparseable."""
+    raw = (value or "").strip().casefold()
+    if not raw:
+        return ""
+    if "://" not in raw:
+        raw = f"https://{raw}"
+    try:
+        host = urlsplit(raw).hostname or ""
+    except ValueError:
+        return ""
+    host = host.casefold().removeprefix("www.")
+    return host
+
+
 def grade_for(score: float) -> str:
     """Return the deterministic letter grade for a site score."""
 
@@ -390,4 +407,5 @@ def _warn_com_domain(domain: str) -> None:
 __all__ = [name for name in dir() if name.isupper()] + [
     "grade_for",
     "canonical_city",
+    "normalize_domain",
 ]

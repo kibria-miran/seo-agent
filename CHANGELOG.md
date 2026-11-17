@@ -437,3 +437,34 @@ capability probe, but not the vendored bytes).
   FCA register blocks automated lookup, so the real FRN needs a manual
   check on register.fca.org.uk before any compliance lint on drafted copy
   is trusted.
+
+## 2026-11-17 — Phase 1: baseline trust (domain-scoped, total normalisation)
+
+- Root cause of the suspected cross-domain delta (run-20261117T160000Z):
+  that run row was written with url=landc.co.uk but clearpath-shaped audit
+  pages (all fetches latency 0, audit source cache) — a fixture payload
+  written through the live DB path. Baseline *selection* in
+  `previous_baseline` was not the culprit; it already filtered by stored
+  url, but did so with exact string match and no domain column, so any
+  www/port/case/scheme difference silently produced "no baseline", and
+  cross-domain diffs still produced a fabricated score delta
+  (`current - 0.0`).
+- Fixes (N-1, N-2): `config.normalize_domain` (lowercase host, leading
+  www. stripped, port stripped); `runs` gained a `domain` column populated
+  at write time with an idempotent migration that backfills existing rows
+  in one transaction; `latest_run` matches on the normalised domain and can
+  require completed (`status='ok'`) runs; `_same_domain` compares
+  normalised keys; `diff_runs` cross-domain guard stays and
+  `AuditDiff.score_delta` is now `None` without a same-domain baseline (a
+  number never appears without one); the missing-baseline note renders the
+  literal N-2 sentence "No comparable previous run for <host>.".
+- Tests: `tests/test_baseline_scoping.py` — mixed-DB pipeline repro,
+  only-other-domain case, P1-R1..R6 table rows (R4: www/bare/port/case/
+  scheme all one domain, R5: incomplete runs never a baseline, R6:
+  cross-domain diff_runs yields no closed items and `score_delta=None`).
+  Suite: 506 passed, 2 deselected. Evals 16/16. Ruff clean.
+- `out/state/seo.db` (gitignored) backfilled: all landc runs keyed
+  `landc.co.uk`, clearpath runs `clearpath-mortgage.co.uk`.
+- `out/run-20261117T160000Z/` stays tracked but is now labelled in
+  `out/README.md` as evidence, not a baseline: it is the synthetic fixture
+  row that produced the suspected symptom, not a valid landc reference.

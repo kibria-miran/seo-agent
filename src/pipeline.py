@@ -292,12 +292,13 @@ def save_run_stages(
 def previous_baseline(
     store: Store, run_id: str, domain: str | None
 ) -> tuple[str | None, str | None]:
-    row = store.latest_run(exclude=run_id, domain=domain)
+    row = store.latest_run(exclude=run_id, domain=domain, completed_only=True)
     previous_run_id = row["run_id"] if row else None
+    host = config.normalize_domain(domain) or (domain or "").strip() or "unknown host"
     baseline_note = (
         None
         if previous_run_id or store.latest_run(exclude=run_id) is None
-        else "no comparable previous run for this domain"
+        else f"No comparable previous run for {host}."
     )
     return previous_run_id, baseline_note
 

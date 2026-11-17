@@ -39,6 +39,7 @@ _SCHEMA = """
 CREATE TABLE IF NOT EXISTS runs (
     run_id      TEXT PRIMARY KEY,
     url         TEXT NOT NULL DEFAULT '',
+    domain      TEXT NOT NULL DEFAULT '',
     started_at  TEXT NOT NULL,
     finished_at TEXT,
     status      TEXT NOT NULL,
@@ -187,7 +188,9 @@ def diff_snapshots(previous: AuditSnapshot | None, current: AuditSnapshot) -> Au
     def render(items: set[tuple[str, str]]) -> list[str]:
         return sorted(f"{page} :: {issue}" for page, issue in items)
 
-    score_delta = round(current.site_score - (previous.site_score if previous else 0.0), 4)
+    score_delta = (
+        round(current.site_score - previous.site_score, 4) if previous is not None else None
+    )
     return AuditDiff(
         score_delta=score_delta,
         new_items=render(current_issues - previous_issues),
@@ -228,6 +231,29 @@ class Store:
             for column in ("gsc_clicks", "gsc_impressions", "gsc_ctr", "gsc_position"):
                 if column not in columns:
                     self.conn.execute(f"ALTER TABLE keywords ADD COLUMN {column} REAL")
+            try:
+                self.conn.execute("BEGIN IMMEDIATE")
+                run_columns = {
+                    row["name"] for row in self.conn.execute("PRAGMA table_info(runs)")
+                }
+                if "domain" not in run_columns:
+                    self.conn.execute(
+                        "ALTER TABLE runs ADD COLUMN domain TEXT NOT NULL DEFAULT ''"
+                    )
+                for row in self.conn.execute(
+                    "SELECT run_id, url FROM runs WHERE domain = ''"
+                ).fetchall():
+                    self.conn.execute(
+                        "UPDATE runs SET domain = ? WHERE run_id = ?",
+                        (config.normalize_domain(row["url"]), row["run_id"]),
+                    )
+                self.conn.execute(
+                    "CREATE INDEX IF NOT EXISTS idx_runs_domain ON runs(domain)"
+                )
+                self.conn.execute("COMMIT")
+            except sqlite3.Error:
+                self.conn.execute("ROLLBACK")
+                raise
         except sqlite3.Error as exc:
             self.conn.close()
             raise StoreError(f"cannot initialise SQLite database {raw!r}: {exc}") from exc
@@ -266,8 +292,8 @@ class Store:
             # Re-running the same run_id is idempotent: cascade clears children.
             conn.execute("DELETE FROM runs WHERE run_id = ?", (run_id,))
             conn.execute(
-                "INSERT INTO runs(run_id, url, started_at, status) VALUES (?, ?, ?, 'running')",
-                (run_id, url, _iso(started_at or clock.now())),
+                "INSERT INTO runs(run_id, url, domain, started_at, status) VALUES (?, ?, ?, ?, 'running')",
+                (run_id, url, config.normalize_domain(url), _iso(started_at or clock.now())),
             )
 
     def finish_run(
@@ -319,7 +345,10 @@ class Store:
         return dict(row) if row else None
 
     def latest_run(
-        self, exclude: str | None = None, domain: str | None = None
+        self,
+        exclude: str | None = None,
+        domain: str | None = None,
+        completed_only: bool = False,
     ) -> dict[str, Any] | None:
         clauses: list[str] = []
         params: list[Any] = []
@@ -327,8 +356,10 @@ class Store:
             clauses.append("run_id != ?")
             params.append(exclude)
         if domain:
-            clauses.append("url = ?")
-            params.append(domain)
+            clauses.append("domain = ?")
+            params.append(config.normalize_domain(domain))
+        if completed_only:
+            clauses.append("status = 'ok'")
         where = f" WHERE {' AND '.join(clauses)}" if clauses else ""
         row = self.conn.execute(
             f"SELECT * FROM runs{where} ORDER BY started_at DESC, run_id DESC LIMIT 1",  # noqa: S608 - clauses are literal strings, only params are variable
@@ -660,8 +691,8 @@ class Store:
         current = self.get_run(current_run_id)
         if previous is None or current is None:
             return False
-        previous_host = (previous.get("url") or "").rstrip("/").casefold()
-        current_host = (current.get("url") or "").rstrip("/").casefold()
+        previous_host = previous.get("domain") or config.normalize_domain(previous.get("url"))
+        current_host = current.get("domain") or config.normalize_domain(current.get("url"))
         return bool(previous_host) and previous_host == current_host
 
     def diff_runs(self, previous_run_id: str | None, current_run_id: str) -> AuditDiff:

@@ -69,7 +69,7 @@ def _scorecard(
     baseline_note: str | None = None,
 ) -> list[str]:
     if previous_run_id:
-        delta = f"{diff.score_delta:+.1f}" if diff else "n/a"
+        delta = f"{diff.score_delta:+.1f}" if diff and diff.score_delta is not None else "n/a"
     elif baseline_note:
         delta = f"n/a ({baseline_note})"
     else:

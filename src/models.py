@@ -379,7 +379,7 @@ class BacklogItem(BaseModel):
 class AuditDiff(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
-    score_delta: float = 0.0
+    score_delta: float | None = None
     new_items: list[str] = Field(default_factory=list)
     closed_items: list[str] = Field(default_factory=list)
     new_gaps: list[str] = Field(default_factory=list)
