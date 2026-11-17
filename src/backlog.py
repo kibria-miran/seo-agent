@@ -141,6 +141,24 @@ def _normalise_url(value: str) -> str:
     return (value or "").casefold().rstrip("/")
 
 
+def _gsc_impressions(gap: Gap) -> float:
+    evidence = gap.evidence if isinstance(gap.evidence, dict) else {}
+    gsc = evidence.get("gsc") if isinstance(evidence, dict) else None
+    if not isinstance(gsc, dict):
+        return 0.0
+    try:
+        return float(gsc.get("impressions") or 0.0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _is_money_gap(gap: Gap, money_set: set[str]) -> bool:
+    if gap.gap_type == GapType.SCHEMA_MISSING:
+        evidence = gap.evidence if isinstance(gap.evidence, dict) else {}
+        return bool(evidence.get("money_page_count"))
+    return _normalise_keyword(gap.keyword) in money_set
+
+
 def build_backlog(
     gaps: Sequence[Gap],
     money_keywords: Iterable[str] = (),
@@ -149,11 +167,14 @@ def build_backlog(
 ) -> list[BacklogItem]:
     """Score, de-duplicate, sort and cap gaps.
 
-    Sort order is total: priority desc, effort asc, target asc, kind asc, then
-    keyword asc. That guarantees identical output across runs (D-9).
+    Sort order is total: priority desc, effort asc, then a demand tiebreak
+    (money keyword first, then GSC impressions desc), then target asc, kind
+    asc, keyword asc and gap_type asc. That guarantees identical output
+    across runs (D-9).
     """
 
     money = tuple(money_keywords)
+    money_set = {_normalise_keyword(k) for k in money}
     money_url_set = {_normalise_url(u) for u in (money_urls or ())}
     limit = config.MAX_BACKLOG if max_items is None else max(0, int(max_items))
 
@@ -219,6 +240,8 @@ def build_backlog(
         key=lambda c: (
             -c[0],
             c[3],
+            0 if _is_money_gap(c[1], money_set) else 1,
+            -_gsc_impressions(c[1]),
             c[2].casefold(),
             _KIND_BY_TYPE.get(c[1].gap_type, "create_page"),
             _normalise_keyword(c[1].keyword),

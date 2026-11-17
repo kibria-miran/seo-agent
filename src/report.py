@@ -172,6 +172,58 @@ def _backlog_section(backlog: Sequence[BacklogItem], limit: int = 10) -> list[st
     return lines
 
 
+_WEEK_EFFORT_BUDGET = 4
+_WEEK_LABELS = ("This week", "Next week", "Week after")
+
+
+def _week_plan_section(backlog: Sequence[BacklogItem]) -> list[str]:
+    lines = ["## This week / next week / later", ""]
+    if not backlog:
+        lines.extend(["_No backlog items produced._", ""])
+        return lines
+    lines.append(
+        "Order follows backlog priority (impact × confidence / effort). "
+        f"Each week is packed to at most {_WEEK_EFFORT_BUDGET} effort points; "
+        "effort is an estimate, not a compliance sign-off."
+    )
+    lines.append("")
+    weeks: list[list[BacklogItem]] = [[], [], []]
+    later: list[BacklogItem] = []
+    week_index = 0
+    week_load = 0
+    for item in backlog:
+        effort = max(int(item.effort), 1)
+        if week_index < len(weeks):
+            if weeks[week_index] and week_load + effort > _WEEK_EFFORT_BUDGET:
+                week_index += 1
+                week_load = 0
+            if week_index < len(weeks):
+                weeks[week_index].append(item)
+                week_load += effort
+                continue
+        later.append(item)
+    for label, items in zip(_WEEK_LABELS, weeks, strict=True):
+        lines.append(f"**{label}**")
+        if items:
+            for item in items:
+                lines.append(
+                    f"- {item.item_id}: {item.title or item.kind} (effort {item.effort})"
+                )
+        else:
+            lines.append("- Nothing scheduled.")
+        lines.append("")
+    lines.append("**Later**")
+    if later:
+        for item in later:
+            lines.append(
+                f"- {item.item_id}: {item.title or item.kind} (effort {item.effort})"
+            )
+    else:
+        lines.append("- Nothing deferred.")
+    lines.append("")
+    return lines
+
+
 def _gap_lines(title: str, values: Sequence[str]) -> list[str]:
     lines = [f"## {title}", ""]
     if not values:
@@ -301,6 +353,7 @@ def render_report(
 
     lines.extend(_open_gap_lines(gaps))
     lines.extend(_backlog_section(backlog, limit=10))
+    lines.extend(_week_plan_section(backlog))
     lines.extend(_competitor_section(competitor_pages))
     if serp:
         lines.extend(["## SERP evidence", ""])

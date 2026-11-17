@@ -306,3 +306,35 @@ def test_schema_findings_at_or_below_threshold_stay_per_page():
     items = build_backlog(gaps, money_keywords=[])
     assert len(items) == 3
     assert all(item.title.startswith("Add missing schema to https://") for item in items)
+def test_tie_break_prefers_money_keyword_over_severity_match():
+    money = make_gap(keyword="bad credit mortgage", sources=["suggest"])
+    non_money = make_gap(
+        keyword="unrelated topic",
+        evidence={"severity": "CRITICAL"},
+        sources=["suggest"],
+    )
+    assert priority_for(money, ["bad credit mortgage"]) == priority_for(non_money) == 0.5
+    items = build_backlog([non_money, money], money_keywords=["bad credit mortgage"])
+    assert [item.title for item in items] == [
+        "Create a page targeting 'bad credit mortgage'",
+        "Create a page targeting 'unrelated topic'",
+    ]
+
+
+def test_tie_break_then_gsc_impressions_desc():
+    low = make_gap(
+        keyword="low demand topic",
+        evidence={"gsc": {"impressions": 2}},
+        sources=["suggest"],
+    )
+    high = make_gap(
+        keyword="high demand topic",
+        evidence={"gsc": {"impressions": 9}},
+        sources=["suggest"],
+    )
+    assert priority_for(low) == priority_for(high) == 0.3333
+    items = build_backlog([low, high])
+    assert [item.title for item in items] == [
+        "Create a page targeting 'high demand topic'",
+        "Create a page targeting 'low demand topic'",
+    ]

@@ -200,6 +200,7 @@ def test_sections_are_present_in_a_stable_order():
         "## Gaps closed since previous run",
         "## Open gaps",
         "## Top backlog",
+        "## This week / next week / later",
         "## Competitor coverage",
         "## SERP evidence",
         "## Drafts",
@@ -243,10 +244,36 @@ def test_backlog_is_capped_at_ten_and_keeps_priority_order():
     items = sample_backlog(count=12)
     text = render(backlog=items)
     assert "Showing 10 of 12 items" in text
-    assert "BL-0001" in text
-    assert "BL-0010" in text
-    assert "BL-0011" not in text
+    backlog_section = text.split("## Top backlog", 1)[1].split(
+        "## This week / next week / later", 1
+    )[0]
+    assert "BL-0001" in backlog_section
+    assert "BL-0010" in backlog_section
+    assert "BL-0011" not in backlog_section
     assert text.index("BL-0001") < text.index("BL-0002")
+
+
+def test_week_plan_packs_by_effort_budget_and_keeps_priority_order():
+    items = [
+        make_backlog_item(item_id="BL-0001", title="Schema umbrella", effort=8, priority=0.9),
+        make_backlog_item(item_id="BL-0002", title="Create bad credit page", effort=3, priority=0.8),
+        make_backlog_item(item_id="BL-0003", title="Create borrow page", effort=3, priority=0.7),
+        make_backlog_item(item_id="BL-0004", title="Create calculator page", effort=3, priority=0.6),
+        make_backlog_item(item_id="BL-0005", title="Fix meta", effort=1, priority=0.5),
+    ]
+    text = render(backlog=items)
+    assert "## This week / next week / later" in text
+    week1 = text.split("**This week**", 1)[1].split("**Next week**", 1)[0]
+    week2 = text.split("**Next week**", 1)[1].split("**Week after**", 1)[0]
+    assert "BL-0001" in week1
+    assert "BL-0002" not in week1
+    assert "BL-0002" in week2
+
+
+def test_week_plan_handles_empty_backlog():
+    text = render(backlog=[])
+    assert "## This week / next week / later" in text
+    assert "_No backlog items produced._" in text
 
 
 def test_empty_sections_are_explicit_not_missing():
