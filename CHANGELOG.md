@@ -304,3 +304,19 @@ No spec revision.
   `README.md`, requirements with hashes) are tracked. The parent
   `/home/kibria` root repo was deliberately left untouched.
 - Suite: 429 passing at the time (441 after the v1.2 review fixes).
+## 2026-11-17 — Phase 10: hermetic seoextract pin
+
+No spec revision. Closes the v1.2 review caveat that the pinned-commit guard
+was not hermetic (it checked the config constant, `__version__` and the
+capability probe, but not the vendored bytes).
+
+- New `third_party/seoextract/VERSION` (and the identical bundled copy under
+  `src/resources/third_party/seoextract/VERSION`): contains the upstream
+  commit hash `6544a74e340e6ac8b147b7f4ab0f09d55d142dd3`, written at
+  vendoring-fix time. Not imported by seoextract at runtime.
+- `tests/test_packaging.py` gains `test_vendored_version_files_match_pin`,
+  asserting both copies byte-match `config.SEOEXTRACT_COMMIT`. The guard is
+  now self-consistent against the actual vendored bytes without needing git
+  in CI.
+- `third_party/PROVENANCE.md` records the addition under "Local additions"
+  per the edit policy; upstream files remain verbatim.

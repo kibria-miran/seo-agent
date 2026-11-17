@@ -44,6 +44,14 @@ def test_bundled_seoextract_commit_matches_pin():
     assert mod.__version__ == "0.3.0", mod.__version__
 
 
+def test_vendored_version_files_match_pin():
+    pin = config.SEOEXTRACT_COMMIT + "\n"
+    checkout = Path(config.SEOEXTRACT_DIR) / "VERSION"
+    bundled = BUNDLED_SEOEXTRACT / "VERSION"
+    assert checkout.read_text(encoding="utf-8") == pin
+    assert bundled.read_text(encoding="utf-8") == pin
+
+
 def test_bundled_seoextract_probe_passes():
     sys_path_backup = list(__import__("sys").path)
     try:

@@ -1,0 +1,33 @@
+{
+  "domain": "https://www.landc.co.uk",
+  "money_pages": ["/", "/remortgage", "/first-time-buyers", "/buy-to-let"],
+  "target_keywords": [
+    "fee free mortgage broker",
+    "remortgage deals",
+    "first time buyer mortgage",
+    "buy to let mortgage",
+    "best mortgage rates",
+    "mortgage advice",
+    "mortgage broker near me",
+    "remortgage calculator",
+    "bad credit mortgage",
+    "how much can i borrow mortgage"
+  ],
+  "competitors": [
+    "moneysavingexpert.com",
+    "habito.com",
+    "trussle.com",
+    "nationwide.co.uk"
+  ],
+  "cities": [
+    "London",
+    "Manchester",
+    "Birmingham",
+    "Leeds",
+    "Bristol",
+    "Glasgow",
+    "Cardiff",
+    "Belfast"
+  ],
+  "fca_firm_ref": "000000"
+}

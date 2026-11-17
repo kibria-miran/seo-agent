@@ -11,7 +11,17 @@
 | Vendored path | `third_party/seoextract/` |
 | PyPI wheel sha256 | `8b454966f1fcbdeeccb0569a99b8e287033b6a0298c24af0ab1a8e021d6bd3ca` |
 | PyPI sdist sha256 | `35cef96d5f5aa74f89540efb12e51dfc11e87a57e64aa9b3754605fa3a0782bc` |
-| Local diff vs upstream | none (verbatim copy of the git tree at the commit above) |
+| Local diff vs upstream | one added file: `VERSION` (see "Local additions" below); upstream files verbatim |
+
+### Local additions
+
+| File | Content | Reason |
+|---|---|---|
+| `VERSION` | the upstream commit hash `6544a74e340e6ac8b147b7f4ab0f09d55d142dd3` | lets the packaging guard byte-check the vendored bytes against `config.SEOEXTRACT_COMMIT` instead of only probing `__version__` and symbols; closes the "pinned but not hermetic" caveat from the v1.2 review |
+
+Added 2026-11-17. Not from upstream; not imported by seoextract at runtime.
+The bundled wheel copy under `src/resources/third_party/seoextract/` carries
+the identical file. Both copies are asserted by `tests/test_packaging.py`.
 
 ### Real API names (verified against vendored source)
 
