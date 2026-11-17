@@ -68,6 +68,31 @@ def tokens(text: str) -> list[str]:
     return _TOKEN_RE.findall(normalise(text))
 
 
+def precheck_terms(text: str) -> set[str]:
+    """Significant stemmed tokens for the N-5 NO_PAGE pre-check (N-15)."""
+
+    return {
+        stem_token(token)
+        for token in tokens(text)
+        if token not in config.PRECHECK_STOPLIST and len(token) > 1
+    }
+
+
+def precheck_field_tokens(page: PageData) -> dict[str, set[str]]:
+    """Per-field (title/H1/H2) raw+stemmed token sets for the pre-check."""
+
+    fields = {
+        "title": page.title or "",
+        "h1": " ".join(page.h1_tags),
+        "h2": " ".join(page.h2_tags),
+    }
+    out: dict[str, set[str]] = {}
+    for name, text in fields.items():
+        raw = tokens(text)
+        out[name] = set(raw) | {stem_token(t) for t in raw}
+    return out
+
+
 def head_terms(text: str) -> set[str]:
     """Significant stemmed tokens, with the stoplist removed."""
 

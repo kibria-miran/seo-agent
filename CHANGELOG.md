@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-11-17 — Phase 3: NO_PAGE pre-check (N-5)
+
+N-5's coverage check is implemented. Before any page-creation gap is
+emitted, the engine looks for a crawled page with >=2 significant
+head-term tokens across title + H1 + H2 combined (N-14) using the
+pre-check stoplist (N-15: UK_MORTGAGE_STOPLIST minus `mortgage`). A match
+produces WEAK_PAGE for that page with `matched_tokens` and per-field
+`matched_fields` evidence, ahead of NO_PAGE.
+
+- Gate result (N-16): 5 of 31 NO_PAGE reclassified on the 74-keyword
+  landc fixture. All five enumerated and accepted. One borderline
+  H2-only match recorded on the clearpath fixture; accepted as written,
+  tighten only under N-10 with a hand-rank disagreement.
+- Fixture `tests/fixtures/landc_audit_74kw.json` recorded from
+  run-20261117T153658Z via the DB (50 pages, 146 issues). Ordering
+  caveat in out/README.md reworded to the empirical claim (replayed:
+  no items move in the three pinned runs).
+- Consequences: golden eval S01 re-based (top item now meta_fix 2.0 on
+  /first-time-buyer); S02/S2 widened to allow WEAK_PAGE; test_gsc_demand
+  moved its query to 'bad credit mortgage' (the fees-explained cluster is
+  now WEAK_PAGE). Intent of each test unchanged; the output change is the
+  intended N-5 effect. New unit tests cover the N-14 field combination,
+  the 2-token floor and the stoplist.
+- Suite: 513 passed, 2 deselected. Evals green. Ruff clean.
+
 ## 2026-11-17 — Phase 2: backlog N-3 total order
 
 No scoring change (N-4): tiebreaks reorder, priority values are untouched.

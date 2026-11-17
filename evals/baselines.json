@@ -3,7 +3,7 @@
   "grade": "B",
   "site_score": 87.5,
   "top_backlog_id": "BL-0001",
-  "top_backlog_kind": "create_local_page",
-  "top_backlog_priority": 0.4333,
-  "top_backlog_target": "/mortgage-advice-manchester"
+  "top_backlog_kind": "meta_fix",
+  "top_backlog_priority": 2.0,
+  "top_backlog_target": "https://clearpath-mortgage.co.uk/first-time-buyer"
 }

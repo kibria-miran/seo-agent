@@ -251,7 +251,7 @@ def test_S2_zero_issue_site_still_produces_gap_items(tmp_path, profile):
     )
     assert report.status == "ok"
     assert report.backlog
-    assert all(item.gap_type in {GapType.NO_PAGE.value, GapType.LOCAL_MISSING.value} for item in report.backlog)
+    assert all(item.gap_type in {GapType.NO_PAGE.value, GapType.LOCAL_MISSING.value, GapType.WEAK_PAGE.value} for item in report.backlog)
 
 
 # ---------------------------------------------------------------------------

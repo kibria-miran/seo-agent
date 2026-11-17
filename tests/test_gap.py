@@ -93,6 +93,58 @@ def test_candidate_page_uses_url_slug_and_is_deterministic():
     assert candidate_page(cluster, [alpha, beta]) is alpha
 
 
+def test_no_page_reclassifies_to_weak_page_when_fields_combine():
+    page = make_page(
+        url=f"{BASE}/best-mortgage-rates",
+        title="Best mortgage rates",
+        h1_tags=["Talk to a human"],
+        h2_tags=["Fees you should know"],
+    )
+    cluster = make_cluster(
+        cluster_id="c-fees",
+        head_term="mortgage fees explained",
+        keywords=["mortgage fees explained"],
+    )
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    coverage = [g for g in gaps if g.gap_type == GapType.WEAK_PAGE]
+    assert len(coverage) == 1
+    gap = coverage[0]
+    assert gap.target == page.url
+    # N-14: one token in the title, one in an H2, is enough combined.
+    assert set(gap.evidence["matched_tokens"]) == {"mortgage", "fee"}
+    assert gap.evidence["matched_fields"]["title"] == ["mortgage"]
+    assert gap.evidence["matched_fields"]["h2"] == ["fee"]
+
+
+def test_precheck_needs_two_significant_tokens_in_one_or_joined_fields():
+    page = make_page(
+        url=f"{BASE}/remortgage",
+        title="Remortgage deals",
+        h1_tags=["Find your best remortgage"],
+        h2_tags=[],
+    )
+    cluster = make_cluster(
+        cluster_id="c-remcalc",
+        head_term="remortgage calculator",
+        keywords=["remortgage calculator"],
+    )
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    coverage = [g for g in gaps if g.gap_type == GapType.NO_PAGE]
+    assert len(coverage) == 1
+
+
+def test_precheck_ignores_stoplist_only_matches():
+    page = make_page(url=f"{BASE}/", title="The and the for", h1_tags=["and of to"], h2_tags=[])
+    cluster = make_cluster(
+        cluster_id="c-fees",
+        head_term="mortgage fees explained",
+        keywords=["mortgage fees explained"],
+    )
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    coverage = [g for g in gaps if g.gap_type == GapType.NO_PAGE]
+    assert len(coverage) == 1
+
+
 # ---------------------------------------------------------------------------
 # LOCAL_MISSING
 # ---------------------------------------------------------------------------

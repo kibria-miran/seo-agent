@@ -245,6 +245,11 @@ UK_MORTGAGE_STOPLIST = frozenset(
         "best",
     }
 )
+# N-15: the N-5 NO_PAGE pre-check matches prose (title/H1/H2), not slugs, so
+# the slug stoplist is too aggressive there: `mortgage` is the head term most
+# keywords share and must stay significant. Pre-check use only; slug
+# tokenisation is untouched.
+PRECHECK_STOPLIST = UK_MORTGAGE_STOPLIST - {"mortgage"}
 
 # ---------------------------------------------------------------------------
 # Scoring (section 7)

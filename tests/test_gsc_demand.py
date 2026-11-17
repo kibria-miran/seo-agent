@@ -135,7 +135,7 @@ def test_gsc_demand_boosts_priority_through_the_pipeline(tmp_path, inject_clock,
     csv_path = tmp_path / "Queries.csv"
     csv_path.write_text(
         "Top queries,Clicks,Impressions,CTR,Position\n"
-        "mortgage fees explained,50,5000,1.0%,4.2\n",
+        "bad credit mortgage,50,5000,1.0%,4.2\n",
         encoding="utf-8",
     )
     monkeypatch.setenv("SEO_AGENT_GSC_CSV", str(csv_path))
@@ -153,8 +153,8 @@ def test_gsc_demand_boosts_priority_through_the_pipeline(tmp_path, inject_clock,
         with_sources=True,
     )
     by_target = {item.target: item for item in report.backlog}
-    boosted = by_target["/mortgage-fees-explained"]
-    plain = by_target["/bad-credit-mortgage"]
+    boosted = by_target["/bad-credit-mortgage"]
+    plain = by_target["/mortgage-broker-near-me"]
     assert boosted.gap_type == GapType.NO_PAGE.value
     assert plain.gap_type == GapType.NO_PAGE.value
     assert boosted.evidence["gsc"]["impressions"] == 5000.0

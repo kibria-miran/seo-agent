@@ -163,7 +163,7 @@ def check_clean_site_produces_gaps(params, tmp_path, monkeypatch):
     )
     report = _run_pipeline(tmp_path, monkeypatch, profile, fixture=variant_path, run_id="eval-s02")
     ok = bool(report.backlog) and all(
-        item.gap_type in {"NO_PAGE", "LOCAL_MISSING"} for item in report.backlog
+        item.gap_type in {"NO_PAGE", "LOCAL_MISSING", "WEAK_PAGE"} for item in report.backlog
     )
     types = sorted({item.gap_type for item in report.backlog})
     return ok, f"backlog={len(report.backlog)} gap_types={types}"

@@ -8,6 +8,9 @@ Gap policy for an uncovered cluster
 1. A city mentioned in the cluster -> ``LOCAL_MISSING``.
 2. A page whose URL slug clearly targets the cluster but whose title/H1 miss
    the head term -> ``WEAK_PAGE`` (reuses the coverage stemmer, I-9).
+2b. The N-5 pre-check: any crawled page with >=2 significant head-term
+    tokens across title + H1 + H2 combined (N-14, stoplist per N-15) ->
+    ``WEAK_PAGE`` for that page, ahead of ``NO_PAGE``.
 3. At least two competitor domains cover it -> ``COMP_COVERS``.
 4. Otherwise -> ``NO_PAGE``.
 
@@ -24,7 +27,15 @@ import re
 from collections.abc import Iterable, Mapping, Sequence
 
 from src import config
-from src.keywords import city_in, head_covered, head_terms, normalise, page_covers
+from src.keywords import (
+    city_in,
+    head_covered,
+    head_terms,
+    normalise,
+    page_covers,
+    precheck_field_tokens,
+    precheck_terms,
+)
 from src.models import (
     AuditSnapshot,
     Cluster,
@@ -55,6 +66,37 @@ def _page_text(page: PageData) -> str:
 
 def _competitor_text(page: CompetitorPage) -> str:
     return " ".join([page.title or "", " ".join(page.h_tags.get("h1", []))])
+
+
+def content_match_page(
+    head: str, pages: Sequence[PageData]
+) -> tuple[PageData, set[str], dict[str, list[str]]] | None:
+    """Best page matching the N-5 pre-check for ``head`` (N-14: fields combined).
+
+    Returns the page, the matched significant tokens and the per-field hits,
+    or None when no page has at least two significant head-term tokens across
+    title + H1 + H2 combined. Deterministic: most matched tokens, then URL.
+    """
+
+    wanted = precheck_terms(head)
+    if len(wanted) < 2:
+        return None
+    best: tuple[PageData, set[str], dict[str, list[str]]] | None = None
+    for page in pages:
+        field_tokens = precheck_field_tokens(page)
+        matched = wanted & (set().union(*field_tokens.values()) if field_tokens else set())
+        if len(matched) < 2:
+            continue
+        fields = {
+            name: sorted(matched & toks)
+            for name, toks in field_tokens.items()
+            if matched & toks
+        }
+        if best is None or len(matched) > len(best[1]) or (
+            len(matched) == len(best[1]) and page.url < best[0].url
+        ):
+            best = (page, matched, fields)
+    return best
 
 
 def candidate_page(cluster: Cluster, pages: Sequence[PageData]) -> PageData | None:
@@ -222,6 +264,28 @@ def _coverage_gap(
             },
             sources=[],  # audit rule -> confidence 1.0
             target=weak.url,
+        )
+
+    weak_content = content_match_page(head, pages)
+    if weak_content is not None:
+        match_page, matched, matched_fields = weak_content
+        return Gap(
+            keyword=head,
+            cluster_id=cluster.cluster_id,
+            gap_type=GapType.WEAK_PAGE,
+            evidence={
+                "page": match_page.url,
+                "title": match_page.title,
+                "h1": match_page.h1_tags,
+                "h2": match_page.h2_tags,
+                "head_term": head,
+                "matched_tokens": sorted(matched),
+                "matched_fields": matched_fields,
+                **gsc_evidence,
+                **({"gsc_pages": gsc_pages} if gsc_pages else {}),
+            },
+            sources=[],  # audit rule -> confidence 1.0
+            target=match_page.url,
         )
 
     comps = competitor_matches(head, competitor_pages)
