@@ -1,0 +1,125 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 8,
+    "evidence": {
+      "money_page_count": 3,
+      "money_pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/buy-to-let",
+        "https://www.landc.co.uk/remortgage"
+      ],
+      "page_count": 17,
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/best-mortgage-rates",
+        "https://www.landc.co.uk/buy-to-let",
+        "https://www.landc.co.uk/buy-to-let/best-buys",
+        "https://www.landc.co.uk/careers",
+        "https://www.landc.co.uk/first-time-buyers/best-buys",
+        "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+        "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+        "https://www.landc.co.uk/life-insurance",
+        "https://www.landc.co.uk/mortgages",
+        "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+        "https://www.landc.co.uk/mortgages/mortgage-calculator",
+        "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+        "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+        "https://www.landc.co.uk/remortgage",
+        "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder",
+        "https://www.landc.co.uk/remortgage/remortgage-products/buy-to-let-remortgage"
+      ],
+      "required": [
+        "FAQPage",
+        "FinancialService",
+        "LocalBusiness"
+      ]
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 3,
+    "item_id": "BL-0001",
+    "kind": "schema",
+    "priority": 0.375,
+    "status": "open",
+    "target": "sitewide",
+    "title": "Add missing schema to 17 keyword-relevant pages (3 money pages)"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "bad credit mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/bad-credit-mortgage",
+    "title": "Create a page targeting 'bad credit mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "how much can i borrow mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/how-much-can-i-borrow-mortgage",
+    "title": "Create a page targeting 'how much can i borrow mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "remortgage calculator"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+        "https://www.landc.co.uk/mortgages/mortgage-calculator",
+        "https://www.landc.co.uk/mortgages/stamp-duty-calculator",
+        "https://www.landc.co.uk/remortgage",
+        "https://www.landc.co.uk/remortgage/mortgage-minder/mortgageminder"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/remortgage-calculator",
+    "title": "Create a page targeting 'remortgage calculator'"
+  }
+]
