@@ -195,3 +195,41 @@ Follow-ups recorded 2026-11-16:
   pipeline and agent mode via `save_run_stages` / `previous_baseline` /
   `render_and_write_run` in `src/pipeline.py`. The agent keeps its own
   budget shape and idempotent mid-loop persist; only the mechanics moved.
+
+## Product-chapter decisions (2026-11-17, N-1..N-12, frozen)
+
+- **N-1.** Baselines are domain-scoped with NO unscoped fallback anywhere:
+  latest_run, previous_baseline, diff_runs, report rendering. Domain key =
+  lowercase host, leading "www." stripped, port stripped.
+- **N-2.** A missing or cross-domain baseline renders the literal sentence
+  "No comparable previous run for <host>." Delta fields are None. A number
+  must never appear without a same-domain baseline.
+- **N-3.** Backlog order is a TOTAL order, deterministic under input
+  shuffling: (-priority, -is_money, -gsc_impressions, -money_kw_count,
+  kind_rank, target, keyword, item_id). Byte-identical rerun (S12) stays
+  green.
+- **N-4.** Tiebreakers change ORDER only, never the priority value.
+  Priority = impact x confidence / effort x gsc_multiplier, as today.
+- **N-5.** NO_PAGE is emitted only after a coverage check. If any crawled
+  page has >= 2 significant keyword tokens in title, H1 or H2 (stopwords
+  pinned in config.py), the gap becomes WEAK_PAGE for that page, not
+  NO_PAGE.
+- **N-6.** Reference runs are pinned and numbered, never overwritten.
+  Tracked: report.md and backlog.json only. DB and trace are gitignored.
+- **N-7.** Live crawling targets only the user's own domain and the landc
+  validation domain, MAX_OWN_PAGES 50, robots checked, 2 s/host, GET only.
+  No competitor scraping.
+- **N-8.** No fabricated regulatory identifiers. Any draft/compliance path
+  refuses to run while fca_firm_ref == "000000" and says why.
+- **N-9.** Hand-rank protocol is BLIND: rank the top 10 on paper from the
+  report's gap list BEFORE opening the model's backlog order. Store it in
+  out/backlog-handrank-<date>.md. Metric: overlap of top 5 and the position
+  of each disagreement.
+- **N-10.** Scoring constants change only when a recorded hand-rank
+  disagreement points at them, one constant per commit, with a DECISIONS
+  entry that names the disagreement.
+- **N-11.** Periphery (agent, drafts, scraping) gets a dated decision, not
+  a deletion, and only after Phase 5 produces own-site data.
+- **N-12.** Commit policy for the CLI agent: do NOT commit or push unless
+  the human says so. At each gate print `git status --short` and a proposed
+  commit message, then STOP and wait.

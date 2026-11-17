@@ -1,5 +1,30 @@
 # Changelog
 
+## 2026-11-17 — Phase 0 reconciliation (numbers as measured)
+
+- Evals: the "16/16 vs 8/8" discrepancy (C-1) is resolved. `evals` with no
+  flag runs the frozen v1.2 eight (`evals/scenarios/`, 8/8); `--extra` runs
+  `evals/extra/`; `--all` runs both (16/16). No scenarios were removed or
+  renamed. Both numbers are correct for their flags.
+- Suite re-run on this working tree: 494 passed, 2 deselected (`not slow
+  and not live`).
+- Ruff: one finding on the uncommitted week-plan code in `src/report.py`
+  (B905, `zip()` without `strict=`). Fixed with `strict=True` (labels and
+  buckets are the same length).
+- Working tree at reconciliation: modified `profiles/landc.json` (widened
+  to 74 keywords), `src/backlog.py`, `src/report.py`, `tests/test_backlog.py`,
+  `tests/test_report_determinism.py` (tiebreaker + week plan, uncommitted);
+  untracked `out/run-20261117T153658Z/`, `out/run-20261117T160000Z/`
+  (post-tiebreak rerun), `out/backlog-handrank-20261117.md`,
+  `seo-agent-backup-20261117.bundle`.
+- `out/run-20261117T160000Z/report.md` reproduces the suspected cross-domain
+  symptom ("Delta vs previous run: -1.6", clearpath-mortgage.co.uk URLs under
+  "New issues since previous run", "Pages crawled: 6") on a landc run.
+  Unverified until Phase 1 Step 1 reproduces it in a test.
+- The backup bundle `seo-agent-backup-20261117.bundle` is complete only up
+  to the last commit; it contains none of the uncommitted files above (C-6).
+  Refresh it after the human commits.
+
 ## 2026-11-17 — schema umbrella money-page weighting, GSC pipeline test
 
 - The SCHEMA_MISSING umbrella backlog item is now money-page-weighted: its
@@ -7,9 +32,12 @@
   (`money_urls`, passed by the pipeline and agent), `impact` is CRITICAL
   when at least one flagged page is a money page (WARNING otherwise), and
   the title reports the money-page count. On the landc profile the
-  umbrella covers `/`, `/buy-to-let` and `/remortgage`, so it now ranks
-  first (0.375) instead of coasting at WARNING on all 17 pages. The #1
-  rank is conditional on the NO_PAGE items carrying no GSC demand: even
+  umbrella covers `/`, `/buy-to-let` and `/remortgage`, so it ranks first
+  (0.375) instead of coasting at WARNING on all 17 pages. Conditions for
+  that rank: the 10-keyword landc profile with no GSC data attached. On
+  the 74-keyword profile (`out/run-20261117T153658Z/`, pre-tiebreak) it
+  ranks #11 behind four WEAK_PAGE items at 2.0. The #1 rank is also
+  conditional on the NO_PAGE items carrying no GSC demand: even
   modest GSC impressions (x1.1 at >=10) would put a coverage gap ahead of
   it. The rank holds for landc because there is no GSC data, and the
   umbrella is an impact-weighted grouping, not a confidence-weighted one
