@@ -1,0 +1,631 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Loan to value (LTV) calculator"
+      ],
+      "head_term": "remortgage calculator",
+      "page": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+      "title": "Loan to Value (LTV) Calculator | Calculate LTV"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/loan-to-value-calculator",
+    "title": "Fix title/H1 coverage for 'remortgage calculator' on https://www.landc.co.uk/mortgages/loan-to-value-calculator"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/",
+    "title": "Add missing schema to https://www.landc.co.uk/"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/anti-slavery-and-trafficking"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/complaints-data",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/complaints-data",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/complaints-data"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/customer-reviews",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/customer-reviews",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/customer-reviews"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/gender-pay-gap",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/gender-pay-gap",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/gender-pay-gap"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/keyfacts-advised",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/keyfacts-advised",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/keyfacts-advised"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/list-of-lenders",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/list-of-lenders",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/list-of-lenders"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/our-awards",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/our-awards",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/our-awards"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/privacy-statement",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0011",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/privacy-statement",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/privacy-statement"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/sustainability",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0012",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/sustainability",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/sustainability"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0013",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/terms-of-business-advised",
+    "title": "Add missing schema to https://www.landc.co.uk/about-us/terms-of-business-advised"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0014",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Add missing schema to https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0015",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Add missing schema to https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/buy-to-let/best-buys",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0016",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let/best-buys",
+    "title": "Add missing schema to https://www.landc.co.uk/buy-to-let/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/calculators",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0017",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/calculators",
+    "title": "Add missing schema to https://www.landc.co.uk/calculators"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/careers",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0018",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/careers",
+    "title": "Add missing schema to https://www.landc.co.uk/careers"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/contact-us",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0019",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/contact-us",
+    "title": "Add missing schema to https://www.landc.co.uk/contact-us"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/contact-us/how-to-complain",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0020",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/contact-us/how-to-complain",
+    "title": "Add missing schema to https://www.landc.co.uk/contact-us/how-to-complain"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0021",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/contact-us/supporting-our-customers",
+    "title": "Add missing schema to https://www.landc.co.uk/contact-us/supporting-our-customers"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/conveyancing",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0022",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/conveyancing",
+    "title": "Add missing schema to https://www.landc.co.uk/conveyancing"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/destination/newsletter",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0023",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/destination/newsletter",
+    "title": "Add missing schema to https://www.landc.co.uk/destination/newsletter"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/destination/social/1-million-stories",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0024",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/destination/social/1-million-stories",
+    "title": "Add missing schema to https://www.landc.co.uk/destination/social/1-million-stories"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/first-time-buyers/best-buys",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0025",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/first-time-buyers/best-buys",
+    "title": "Add missing schema to https://www.landc.co.uk/first-time-buyers/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/insight",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0026",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight",
+    "title": "Add missing schema to https://www.landc.co.uk/insight"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0027",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you",
+    "title": "Add missing schema to https://www.landc.co.uk/insight/autumn-2026-budget-what-does-it-mean-for-you"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0028",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+    "title": "Add missing schema to https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0029",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing",
+    "title": "Add missing schema to https://www.landc.co.uk/insight/quitting-smoking-could-improve-your-financial-wellbeing"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.landc.co.uk/insight/world-heart-day",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0030",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight/world-heart-day",
+    "title": "Add missing schema to https://www.landc.co.uk/insight/world-heart-day"
+  }
+]

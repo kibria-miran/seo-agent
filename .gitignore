@@ -40,3 +40,6 @@ seo-agent-findings*
 
 # owner-provided GSC exports (never commit)
 secrets/
+
+# build artifacts
+build/
