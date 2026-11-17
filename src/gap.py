@@ -11,8 +11,11 @@ Gap policy for an uncovered cluster
 3. At least two competitor domains cover it -> ``COMP_COVERS``.
 4. Otherwise -> ``NO_PAGE``.
 
-This gives each uncovered cluster exactly one coverage gap, plus independent
-``SCHEMA_MISSING`` gaps for pages that lack all required schema types.
+This gives each uncovered cluster exactly one coverage gap, plus
+``SCHEMA_MISSING`` gaps for keyword-relevant pages (slug overlap with a
+cluster head term, or title/H1 coverage) that lack all required schema
+types. Pages no cluster can reach are not flagged: schema evidence must
+discriminate, or the backlog degenerates into one schema warning per page.
 """
 
 from __future__ import annotations
@@ -60,6 +63,7 @@ def candidate_page(cluster: Cluster, pages: Sequence[PageData]) -> PageData | No
     wanted = head_terms(cluster.head_term)
     if not wanted:
         return None
+    min_overlap = min(config.WEAK_PAGE_MIN_SLUG_OVERLAP, len(wanted))
     best: PageData | None = None
     best_overlap = 0
     for page in sorted(pages, key=lambda item: item.url):
@@ -67,7 +71,7 @@ def candidate_page(cluster: Cluster, pages: Sequence[PageData]) -> PageData | No
             continue
         slug_terms = {t for t in _SLUG_RE.split(page.url.casefold()) if t}
         overlap = len(wanted & slug_terms)
-        if overlap > best_overlap:
+        if overlap >= min_overlap and overlap > best_overlap:
             best = page
             best_overlap = overlap
     return best
@@ -264,13 +268,37 @@ def _coverage_gap(
     )
 
 
+def _page_relevant(page: PageData, clusters: Sequence[Cluster]) -> bool:
+    """True when a page is plausibly a target for at least one cluster.
+
+    Slug-term overlap (same rule as candidate_page) or title/H1 coverage.
+    SCHEMA_MISSING is demand-relevant evidence, not a site-wide lint: pages
+    no keyword cluster can reach are not worth a schema nag in the backlog.
+    """
+
+    slug_terms = {t for t in _SLUG_RE.split(page.url.casefold()) if t}
+    for cluster in clusters:
+        head = cluster.head_term
+        if not head:
+            continue
+        if head_terms(head) & slug_terms:
+            return True
+        if page_covers(head, page):
+            return True
+    return False
+
+
 def _schema_gaps(
-    pages: Sequence[PageData], required_schema: Sequence[str]
+    pages: Sequence[PageData],
+    required_schema: Sequence[str],
+    relevant_urls: set[str],
 ) -> list[Gap]:
     gaps: list[Gap] = []
     required = tuple(required_schema)
     for page in sorted(pages, key=lambda item: item.url):
         if page.status_code and page.status_code != 200:
+            continue
+        if page.url not in relevant_urls:
             continue
         if any(schema in required for schema in page.schema_types):
             continue
@@ -312,7 +340,8 @@ def analyze(
         unique_clusters.setdefault(cluster.cluster_id, cluster)
 
     gaps: list[Gap] = []
-    for cluster in sorted(unique_clusters.values(), key=lambda item: item.cluster_id):
+    ordered_clusters = sorted(unique_clusters.values(), key=lambda item: item.cluster_id)
+    for cluster in ordered_clusters:
         if any(page_covers(cluster.head_term, page) for page in pages):
             continue
         gap = _coverage_gap(
@@ -321,7 +350,10 @@ def analyze(
         if gap is not None:
             gaps.append(gap)
 
-    gaps.extend(_schema_gaps(pages, required_schema))
+    relevant_urls = {
+        page.url for page in pages if _page_relevant(page, ordered_clusters)
+    }
+    gaps.extend(_schema_gaps(pages, required_schema, relevant_urls))
 
     return sorted(
         gaps,

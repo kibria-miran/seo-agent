@@ -1,5 +1,44 @@
 # Changelog
 
+## 2026-11-17 — real-site findings: diff scoping, fetch ledger, schema backlog
+
+Addresses the four findings from the landc.co.uk live-run review
+(`out/run-20261117T143756Z/`).
+
+- Cross-site diff pollution fixed: `Store.latest_run` accepts a `domain`
+  filter, the pipeline and agent now pick the previous run scoped to the
+  same profile domain, and `Store.diff_runs` refuses a cross-domain
+  baseline outright. When only other sites' runs exist, the report prints
+  `Delta vs previous run: n/a (no comparable previous run for this
+  domain)` instead of a fabricated cross-site delta and "issues closed".
+- Fetch ledger covers the vendored crawler: the adapter's politeness
+  wrapper now counts live-crawl GETs (pages + robots.txt) against
+  `MAX_FETCHES` (120) and refuses further crawls with a synthetic
+  429 page once the budget is spent; a `budget` trace event is emitted.
+  `Fetches: n / 120` in reports now includes the audit crawl, not only
+  source fetches. Fixture runs report 0.
+- Schema degeneracy fixed in two steps: (1) SCHEMA_MISSING is now emitted
+  only for keyword-cluster-relevant pages (slug or title/H1 overlap with a
+  cluster head term), replacing "every 200 page lacking LocalBusiness/
+  FinancialService/FAQPage"; (2) more than 3 such findings are grouped
+  into a single umbrella backlog item whose evidence lists every flagged
+  page. Schema knowledge remains in the report's gap list.
+- GSC demand now weights backlog priority: a cluster with >=1000 / >=100 /
+  >=10 impressions multiplies its gaps' priority by 1.5 / 1.25 / 1.1.
+  Agent mode passes `gsc_demand` into gap analysis (it did not before).
+- WEAK_PAGE requires >=2 shared significant slug tokens with the head term
+  (capped by head-term size); the "remortgage calculator" ->
+  loan-to-value-calculator single-token mapping is gone.
+- Real-site regression baseline added: `tests/fixtures/landc_audit.json`
+  (the recorded 2026-11-17 landc.co.uk crawl, public marketing copy, used
+  for diff/gap regression only) + `tests/test_real_site.py` asserting a
+  non-degenerate gap distribution, cluster-relevant schema flags and a
+  non-schema-flooded backlog.
+- New tests: cross-domain diff refusal, domain-scoped `latest_run`,
+  fetch-ledger counting/refusal, schema umbrella grouping, GSC demand
+  boost, landc regression (3).
+- Suite: 486 passed, 2 deselected. Evals: frozen eight 8/8, --all 16/16.
+
 ## 2026-11-16 — report sources, GSC demand and scraping policy
 
 Owner answers Q5 recorded 2026-11-16 (DECISIONS.md): scraping off by default.

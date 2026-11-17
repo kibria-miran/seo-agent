@@ -74,7 +74,8 @@ def test_weak_page_when_slug_matches_but_title_and_h1_miss_head_term():
     cluster = make_cluster(
         cluster_id="c-calc", head_term="remortgage calculator", keywords=["remortgage calculator"]
     )
-    gaps = analyze(make_audit(pages=[page]), [cluster])
+    gaps = [g for g in analyze(make_audit(pages=[page]), [cluster])
+            if g.gap_type == GapType.WEAK_PAGE]
     assert len(gaps) == 1
     gap = gaps[0]
     assert gap.gap_type == GapType.WEAK_PAGE
@@ -120,7 +121,8 @@ def test_local_page_that_covers_city_is_not_a_gap():
         h1_tags=["Mortgage advice in Manchester"],
     )
     cluster = make_cluster(head_term="mortgage advice manchester")
-    assert analyze(make_audit(pages=[page]), [cluster]) == []
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    assert all(g.gap_type != GapType.SCHEMA_MISSING for g in gaps)
 
 
 # ---------------------------------------------------------------------------
@@ -177,7 +179,9 @@ def test_single_competitor_is_evidence_for_no_page_not_a_comp_covers():
 
 def test_schema_missing_for_a_page_with_no_required_schema():
     page = make_page(url=f"{BASE}/no-schema", schema_types=[])
-    gaps = analyze(make_audit(pages=[page]), [])
+    cluster = make_cluster(cluster_id="c-ns", head_term="no schema")
+    gaps = [g for g in analyze(make_audit(pages=[page]), [cluster])
+            if g.gap_type == GapType.SCHEMA_MISSING]
     assert len(gaps) == 1
     gap = gaps[0]
     assert gap.gap_type == GapType.SCHEMA_MISSING
@@ -188,18 +192,24 @@ def test_schema_missing_for_a_page_with_no_required_schema():
 
 def test_unrelated_schema_still_counts_as_missing():
     page = make_page(url=f"{BASE}/website-only", schema_types=["WebSite"])
-    assert analyze(make_audit(pages=[page]), [])[0].gap_type == GapType.SCHEMA_MISSING
+    cluster = make_cluster(cluster_id="c-web", head_term="website only")
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    assert any(g.gap_type == GapType.SCHEMA_MISSING for g in gaps)
 
 
 @pytest.mark.parametrize("schema", ["LocalBusiness", "FinancialService", "FAQPage"])
 def test_any_required_schema_is_enough(schema):
     page = make_page(url=f"{BASE}/ok", schema_types=[schema])
-    assert analyze(make_audit(pages=[page]), []) == []
+    cluster = make_cluster(cluster_id="c-ok", head_term="ok")
+    gaps = analyze(make_audit(pages=[page]), [cluster])
+    assert all(g.gap_type != GapType.SCHEMA_MISSING for g in gaps)
 
 
 def test_schema_required_list_can_be_overridden():
     page = make_page(url=f"{BASE}/ok", schema_types=["FinancialService"])
-    gaps = analyze(make_audit(pages=[page]), [], required_schema=("FAQPage",))
+    cluster = make_cluster(cluster_id="c-ok", head_term="ok")
+    gaps = [g for g in analyze(make_audit(pages=[page]), [cluster], required_schema=("FAQPage",))
+            if g.gap_type == GapType.SCHEMA_MISSING]
     assert gaps[0].gap_type == GapType.SCHEMA_MISSING
     assert gaps[0].evidence["required"] == ["FAQPage"]
 
@@ -312,3 +322,17 @@ def test_no_page_evidence_lists_nearest_pages_not_full_census():
     assert listed == sorted(listed)
     assert len(listed) == 5
     assert "https://example.co.uk/unrelated-page" not in listed
+
+
+def test_schema_gap_only_on_cluster_relevant_pages():
+    relevant = make_page(url=f"{BASE}/remortgage-calculator", title="Calc", schema_types=[])
+    irrelevant = make_page(url=f"{BASE}/about-our-team", title="Team", schema_types=[])
+    cluster = make_cluster(cluster_id="c-rc", head_term="remortgage calculator")
+    gaps = [g for g in analyze(make_audit(pages=[relevant, irrelevant]), [cluster])
+            if g.gap_type == GapType.SCHEMA_MISSING]
+    assert [g.target for g in gaps] == [relevant.url]
+
+
+def test_no_clusters_means_no_schema_gaps():
+    page = make_page(url=f"{BASE}/some-page", schema_types=[])
+    assert analyze(make_audit(pages=[page]), []) == []

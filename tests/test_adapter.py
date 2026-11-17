@@ -294,3 +294,58 @@ def test_missing_vendored_checkout_raises_a_clear_import_error(monkeypatch):
     monkeypatch.setattr(audit_adapter, "SEOEXTRACT_AVAILABLE", False)
     with pytest.raises(ImportError, match="not importable"):
         run_audit(SITE)
+
+
+# ---------------------------------------------------------------------------
+# Live-crawl fetch ledger (D-13 budget covers the vendored crawler)
+# ---------------------------------------------------------------------------
+
+
+def _install_fake_crawler(monkeypatch, *, max_fetches):
+    from seoextract import crawler
+
+    calls: list[str] = []
+
+    def fake_original(url, session):
+        calls.append(url)
+        return {
+            "url": url,
+            "final_url": url,
+            "status_code": 200,
+            "html": "<html></html>",
+            "response_time_ms": 1.0,
+        }
+
+    monkeypatch.setattr(crawler, "fetch_page", fake_original)
+    monkeypatch.setattr(crawler, "_load_robots", lambda base: None)
+    monkeypatch.setattr(config, "MAX_FETCHES", max_fetches)
+    monkeypatch.setattr(audit_adapter.time, "sleep", lambda _seconds: None)
+    monkeypatch.setattr(audit_adapter, "_POLITENESS_INSTALLED", False)
+    audit_adapter.reset_fetch_count()
+    audit_adapter._install_politeness()
+    return crawler, calls
+
+
+def test_live_crawl_fetches_are_counted(monkeypatch):
+    crawler, calls = _install_fake_crawler(monkeypatch, max_fetches=10)
+
+    crawler._load_robots("https://example.co.uk")
+    assert audit_adapter.fetch_count() == 2
+
+    crawler.fetch_page("https://example.co.uk/a", session=None)
+    assert audit_adapter.fetch_count() == 3
+    assert calls == ["https://example.co.uk/a"]
+    assert not audit_adapter.fetch_budget_exhausted()
+
+
+def test_crawl_is_refused_once_the_fetch_budget_is_spent(monkeypatch):
+    crawler, calls = _install_fake_crawler(monkeypatch, max_fetches=2)
+
+    crawler.fetch_page("https://example.co.uk/a", session=None)
+    crawler.fetch_page("https://example.co.uk/b", session=None)
+    refused = crawler.fetch_page("https://example.co.uk/c", session=None)
+
+    assert calls == ["https://example.co.uk/a", "https://example.co.uk/b"]
+    assert refused["status_code"] == 429
+    assert audit_adapter.fetch_count() == 2
+    assert audit_adapter.fetch_budget_exhausted()

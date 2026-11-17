@@ -318,16 +318,22 @@ class Store:
         row = self.conn.execute("SELECT * FROM runs WHERE run_id = ?", (run_id,)).fetchone()
         return dict(row) if row else None
 
-    def latest_run(self, exclude: str | None = None) -> dict[str, Any] | None:
+    def latest_run(
+        self, exclude: str | None = None, domain: str | None = None
+    ) -> dict[str, Any] | None:
+        clauses: list[str] = []
+        params: list[Any] = []
         if exclude:
-            row = self.conn.execute(
-                "SELECT * FROM runs WHERE run_id != ? ORDER BY started_at DESC, run_id DESC LIMIT 1",
-                (exclude,),
-            ).fetchone()
-        else:
-            row = self.conn.execute(
-                "SELECT * FROM runs ORDER BY started_at DESC, run_id DESC LIMIT 1"
-            ).fetchone()
+            clauses.append("run_id != ?")
+            params.append(exclude)
+        if domain:
+            clauses.append("url = ?")
+            params.append(domain)
+        where = f" WHERE {' AND '.join(clauses)}" if clauses else ""
+        row = self.conn.execute(
+            f"SELECT * FROM runs{where} ORDER BY started_at DESC, run_id DESC LIMIT 1",  # noqa: S608 - clauses are literal strings, only params are variable
+            params,
+        ).fetchone()
         return dict(row) if row else None
 
     def list_runs(self, limit: int = 20) -> list[dict[str, Any]]:
@@ -649,14 +655,27 @@ class Store:
 
     # -- diff --------------------------------------------------------------
 
+    def _same_domain(self, previous_run_id: str, current_run_id: str) -> bool:
+        previous = self.get_run(previous_run_id)
+        current = self.get_run(current_run_id)
+        if previous is None or current is None:
+            return False
+        previous_host = (previous.get("url") or "").rstrip("/").casefold()
+        current_host = (current.get("url") or "").rstrip("/").casefold()
+        return bool(previous_host) and previous_host == current_host
+
     def diff_runs(self, previous_run_id: str | None, current_run_id: str) -> AuditDiff:
         current = self.load_audit(current_run_id)
         previous = None
-        if previous_run_id:
+        if previous_run_id and self._same_domain(previous_run_id, current_run_id):
             try:
                 previous = self.load_audit(previous_run_id)
             except StoreError:
                 previous = None
+        else:
+            # A cross-domain baseline would fabricate a score delta and
+            # mislabel other sites' fixed issues as this site's wins.
+            previous_run_id = None
         diff = diff_snapshots(previous, current)
         new_gaps, closed_gaps = diff_gaps(
             self.load_gaps(previous_run_id) if previous_run_id else [],

@@ -220,3 +220,54 @@ def test_gap_types_map_to_kind_and_effort(gap_type, kind, effort):
 def test_priority_rounding_is_stable_to_four_places():
     gap = make_gap(sources=["suggest", "serp", "gsc"])
     assert priority_for(gap) == round(priority_for(gap), 4)
+
+
+# ---------------------------------------------------------------------------
+# GSC demand weighting and schema umbrella grouping
+# ---------------------------------------------------------------------------
+
+
+def test_gsc_demand_boosts_priority():
+    unboosted = make_gap(gap_type=GapType.NO_PAGE, sources=["suggest"])
+    boosted = make_gap(
+        gap_type=GapType.NO_PAGE,
+        sources=["suggest"],
+        evidence={"gsc": {"impressions": 5000.0, "clicks": 10.0}},
+    )
+    assert priority_for(boosted) > priority_for(unboosted)
+    small = make_gap(
+        gap_type=GapType.NO_PAGE,
+        sources=["suggest"],
+        evidence={"gsc": {"impressions": 50.0}},
+    )
+    none = make_gap(
+        gap_type=GapType.NO_PAGE,
+        sources=["suggest"],
+        evidence={"gsc": {"impressions": 1.0}},
+    )
+    assert priority_for(small) > priority_for(none) > priority_for(unboosted) - 1e-9
+
+
+def test_schema_findings_above_threshold_group_into_one_umbrella_item():
+    gaps = [
+        make_gap(gap_type=GapType.SCHEMA_MISSING, target=f"https://example.co.uk/p{i}", sources=[])
+        for i in range(6)
+    ]
+    items = build_backlog(gaps, money_keywords=[])
+    assert len(items) == 1
+    item = items[0]
+    assert item.gap_type == GapType.SCHEMA_MISSING.value
+    assert item.evidence["page_count"] == 6
+    assert item.evidence["pages"] == sorted(f"https://example.co.uk/p{i}" for i in range(6))
+    assert item.effort == 6
+    assert item.title == "Add missing schema to 6 keyword-relevant pages"
+
+
+def test_schema_findings_at_or_below_threshold_stay_per_page():
+    gaps = [
+        make_gap(gap_type=GapType.SCHEMA_MISSING, target=f"https://example.co.uk/p{i}", sources=[])
+        for i in range(3)
+    ]
+    items = build_backlog(gaps, money_keywords=[])
+    assert len(items) == 3
+    assert all(item.title.startswith("Add missing schema to https://") for item in items)

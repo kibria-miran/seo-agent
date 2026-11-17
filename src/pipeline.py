@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from src import clock, config
-from src.audit_adapter import run_audit
+from src.audit_adapter import fetch_budget_exhausted, fetch_count, run_audit
 from src.backlog import build_backlog
 from src.drafts import write_drafts
 from src.gap import analyze
@@ -302,8 +302,14 @@ def run_deterministic(
     store = Store(db_path)
     try:
         store.mark_running_as_aborted(except_run_id=chosen_run_id)
-        previous = store.latest_run(exclude=chosen_run_id)
+        previous = store.latest_run(exclude=chosen_run_id, domain=profile.domain)
         previous_run_id = previous["run_id"] if previous else None
+        baseline_note = (
+            None
+            if previous_run_id
+            or store.latest_run(exclude=chosen_run_id) is None
+            else "no comparable previous run for this domain"
+        )
         store.start_run(chosen_run_id, url=profile.domain, started_at=started_at)
 
         audit: AuditSnapshot = run_audit(
@@ -311,10 +317,15 @@ def run_deterministic(
             max_pages=config.MAX_OWN_PAGES,
             fixture_path=fixture_path,
         )
+        audit_fetches = 0 if fixture_path is not None else fetch_count()
+        if fetch_budget_exhausted():
+            trace.emit(step="budget", tool="audit_site", source="code",
+                       status="error", kind="budget", reason="max_fetches")
         trace.emit(
             step=1,
             tool="audit_site",
-            args={"url": profile.base_url, "max_pages": config.MAX_OWN_PAGES},
+            args={"url": profile.base_url, "max_pages": config.MAX_OWN_PAGES,
+                  "fetches": audit_fetches},
             source="cache" if fixture_path is not None else "net",
         )
         keywords = build_keywords(profile)
@@ -395,7 +406,7 @@ def run_deterministic(
         generated_at = clock.now().isoformat(timespec="seconds")
         budgets = {
             "steps": 7,
-            "fetches": source_fetches,
+            "fetches": source_fetches + audit_fetches,
             "llm_calls": 0,
             "tokens_in": 0,
             "tokens_out": 0,
@@ -416,6 +427,7 @@ def run_deterministic(
             drafts=sorted(drafts),
             budgets=budgets,
             previous_run_id=previous_run_id,
+            baseline_note=baseline_note,
             generated_at=generated_at,
         )
         paths = write_report(

@@ -264,6 +264,24 @@ EFFORT_PAGE = 3
 
 MULTI_SOURCE_THRESHOLD = 3
 
+# WEAK_PAGE candidates must share at least this many significant slug
+# tokens with the cluster head term (capped by the head term's size).
+WEAK_PAGE_MIN_SLUG_OVERLAP = 2
+
+# GSC demand weighting for backlog priority: impressions observed for a
+# cluster's queries scale the priority of gaps tied to that cluster.
+GSC_BOOST_TIER_1_IMPRESSIONS = 1000
+GSC_BOOST_TIER_2_IMPRESSIONS = 100
+GSC_BOOST_TIER_3_IMPRESSIONS = 10
+GSC_BOOST_TIER_1 = 1.5
+GSC_BOOST_TIER_2 = 1.25
+GSC_BOOST_TIER_3 = 1.1
+
+# More than this many SCHEMA_MISSING findings are grouped into one umbrella
+# backlog item; the per-page gaps remain in the report's gap list.
+SCHEMA_UMBRELLA_MIN_PAGES = 3
+SCHEMA_UMBRELLA_MAX_EFFORT = 8
+
 # ---------------------------------------------------------------------------
 # Compliance (section 8.6 / 10). Starting point, not legal advice.
 # ---------------------------------------------------------------------------

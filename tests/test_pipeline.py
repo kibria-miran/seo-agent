@@ -365,3 +365,25 @@ def test_cli_version():
     assert result.exit_code == 0
     assert "seo-agent" in result.output
     assert config.SEOEXTRACT_COMMIT[:8] in result.output
+
+
+def test_cross_domain_run_produces_no_diff_against_other_sites_baseline(tmp_path, profile, inject_clock):
+    other_data = read_json(config.PROFILES_DIR / "site.json")
+    other_data["domain"] = "https://landc-mortgage.co.uk"
+    other_path = tmp_path / "landc.json"
+    other_path.write_text(json.dumps(other_data), encoding="utf-8")
+    other = load_profile(other_path)
+    variant = make_variant(tmp_path / "variant.json", score=90.0)
+    db = tmp_path / "seo.db"
+    out = tmp_path / "out"
+
+    inject_clock("2026-11-16T09:00:00+00:00")
+    run_deterministic(profile, fixture_path=FIXTURE, run_id="run-a", db_path=db, out_root=out)
+
+    inject_clock("2026-11-17T09:00:00+00:00")
+    report = run_deterministic(other, fixture_path=variant, run_id="run-b", db_path=db, out_root=out)
+
+    assert report.diff.closed_items == []
+    assert report.diff.closed_gaps == []
+    text = (out / "run-b" / "report.md").read_text(encoding="utf-8")
+    assert "no comparable previous run for this domain" in text

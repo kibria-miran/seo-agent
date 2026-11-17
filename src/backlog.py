@@ -11,6 +11,29 @@ from collections.abc import Iterable, Sequence
 from src import config
 from src.models import BacklogItem, Gap, GapType
 
+_SCHEMA_REQUIRED_UNION_KEY = "required"
+
+
+def demand_multiplier(gap: Gap) -> float:
+    """GSC demand boost: scale priority when the cluster carries search volume."""
+
+    evidence = gap.evidence or {}
+    gsc = evidence.get("gsc") if isinstance(evidence, dict) else None
+    if not isinstance(gsc, dict):
+        return 1.0
+    impressions = gsc.get("impressions")
+    if impressions is None:
+        return 1.0
+    value = float(impressions or 0.0)
+    if value >= config.GSC_BOOST_TIER_1_IMPRESSIONS:
+        return config.GSC_BOOST_TIER_1
+    if value >= config.GSC_BOOST_TIER_2_IMPRESSIONS:
+        return config.GSC_BOOST_TIER_2
+    if value >= config.GSC_BOOST_TIER_3_IMPRESSIONS:
+        return config.GSC_BOOST_TIER_3
+    return 1.0
+
+
 _SEVERITY_IMPACT = {
     "CRITICAL": config.IMPACT_CRITICAL,
     "WARNING": config.IMPACT_WARNING,
@@ -74,7 +97,7 @@ def priority_for(gap: Gap, money_keywords: Iterable[str] = ()) -> float:
     impact = impact_for(gap, money_keywords)
     confidence = confidence_for(gap)
     effort = effort_for(gap)
-    return round((impact * confidence) / effort, 4)
+    return round((impact * confidence / effort) * demand_multiplier(gap), 4)
 
 
 def _target_for(gap: Gap) -> str:
@@ -95,6 +118,9 @@ def _title_for(gap: Gap, target: str) -> str:
     if gap.gap_type == GapType.WEAK_PAGE:
         return f"Fix title/H1 coverage for '{keyword}' on {target}"
     if gap.gap_type == GapType.SCHEMA_MISSING:
+        page_count = gap.evidence.get("page_count") if isinstance(gap.evidence, dict) else None
+        if page_count:
+            return f"Add missing schema to {page_count} keyword-relevant pages"
         return f"Add missing schema to {target}"
     if gap.gap_type == GapType.COMP_COVERS:
         return f"Cover competitor topic '{keyword}'"
@@ -131,6 +157,43 @@ def build_backlog(
         existing = best.get(key)
         if existing is None or candidate[0] > existing[0]:
             best[key] = candidate
+
+    schema_entries = [
+        c for c in best.values() if c[1].gap_type == GapType.SCHEMA_MISSING
+    ]
+    if len(schema_entries) > config.SCHEMA_UMBRELLA_MIN_PAGES:
+        pages = sorted({c[2] for c in schema_entries})
+        required = sorted(
+            {
+                schema
+                for c in schema_entries
+                for schema in (c[1].evidence.get("required", []) if isinstance(c[1].evidence, dict) else [])
+            }
+        )
+        umbrella = Gap(
+            keyword="schema",
+            cluster_id="",
+            gap_type=GapType.SCHEMA_MISSING,
+            evidence={"page_count": len(pages), "pages": pages, "required": required},
+            sources=[],
+            target="sitewide",
+        )
+        effort = max(
+            config.EFFORT_SCHEMA, min(len(pages), config.SCHEMA_UMBRELLA_MAX_EFFORT)
+        )
+        impact = config.IMPACT_WARNING
+        confidence = config.CONFIDENCE_AUDIT
+        priority = round(impact * confidence / effort, 4)
+        for key in [k for k, c in best.items() if c[1].gap_type == GapType.SCHEMA_MISSING]:
+            del best[key]
+        best[("schema", GapType.SCHEMA_MISSING.value, "sitewide")] = (
+            priority,
+            umbrella,
+            "sitewide",
+            effort,
+            impact,
+            confidence,
+        )
 
     ordered = sorted(
         best.values(),

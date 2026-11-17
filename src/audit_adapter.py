@@ -104,6 +104,28 @@ except BaseException as exc:  # noqa: BLE001 - import-time capability probe
 
 _LAST_CALL: dict[str, float] = {}
 _POLITENESS_INSTALLED = False
+_FETCH_COUNT = 0
+_FETCH_BUDGET_EXHAUSTED = False
+
+
+def reset_fetch_count() -> None:
+    """Clear the live-crawl fetch ledger (tests and per-run accounting)."""
+
+    global _FETCH_COUNT, _FETCH_BUDGET_EXHAUSTED  # noqa: PLW0603 - module ledger
+    _FETCH_COUNT = 0
+    _FETCH_BUDGET_EXHAUSTED = False
+
+
+def fetch_count() -> int:
+    """Network GETs performed by the vendored crawler since reset_fetch_count()."""
+
+    return _FETCH_COUNT
+
+
+def fetch_budget_exhausted() -> bool:
+    """True when the crawl was refused fetches by the MAX_FETCHES budget."""
+
+    return _FETCH_BUDGET_EXHAUSTED
 
 
 def _install_politeness() -> None:
@@ -122,8 +144,20 @@ def _install_politeness() -> None:
     crawler.HEADERS["User-Agent"] = config.USER_AGENT
     crawler.BOT_NAME = config.APP_NAME
     original = crawler.fetch_page
+    original_load_robots = crawler._load_robots
 
     def polite_fetch(url: str, session: Any) -> dict[str, Any]:
+        global _FETCH_COUNT, _FETCH_BUDGET_EXHAUSTED  # noqa: PLW0603 - module ledger
+        if _FETCH_COUNT >= config.MAX_FETCHES:
+            _FETCH_BUDGET_EXHAUSTED = True
+            return {
+                "url": url,
+                "final_url": url,
+                "status_code": 429,
+                "html": "",
+                "response_time_ms": 0.0,
+                "error": f"seo-agent fetch budget exhausted ({config.MAX_FETCHES})",
+            }
         host = urlparse(url).hostname or ""
         now = time.monotonic()
         last = _LAST_CALL.get(host)
@@ -132,10 +166,19 @@ def _install_politeness() -> None:
             if remaining > 0:
                 time.sleep(remaining)
         _LAST_CALL[host] = time.monotonic()
+        _FETCH_COUNT += 1
         return original(url, session)
+
+    def counting_load_robots(base_url: str) -> Any:
+        global _FETCH_COUNT  # noqa: PLW0603 - module ledger
+        # The vendored loader issues two GETs (status probe + parser.read()).
+        _FETCH_COUNT += 2
+        return original_load_robots(base_url)
 
     polite_fetch._seo_agent_polite = True  # type: ignore[attr-defined]
     crawler.fetch_page = polite_fetch
+    counting_load_robots._seo_agent_robots = True  # type: ignore[attr-defined]
+    crawler._load_robots = counting_load_robots
     _POLITENESS_INSTALLED = True
 
 
@@ -284,6 +327,7 @@ def run_audit(
         ) from SEOEXTRACT_IMPORT_ERROR
 
     _install_politeness()
+    reset_fetch_count()
     result = _SEOExtract.audit(url, max_pages=max_pages or config.MAX_OWN_PAGES)
     return snapshot_from_value(result, url=url)
 
@@ -294,8 +338,11 @@ __all__ = [
     "SEOEXTRACT_AVAILABLE",
     "AuditFixtureError",
     "_install_politeness",
+    "fetch_budget_exhausted",
+    "fetch_count",
     "load_fixture",
     "probe_capabilities",
+    "reset_fetch_count",
     "run_audit",
     "snapshot_from_value",
 ]

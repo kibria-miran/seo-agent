@@ -66,9 +66,12 @@ def _scorecard(
     previous_run_id: str | None,
     keywords: Sequence[Keyword],
     gaps: Sequence[Gap],
+    baseline_note: str | None = None,
 ) -> list[str]:
     if previous_run_id:
         delta = f"{diff.score_delta:+.1f}" if diff else "n/a"
+    elif baseline_note:
+        delta = f"n/a ({baseline_note})"
     else:
         delta = "n/a (first run)"
     counts = {
@@ -262,6 +265,7 @@ def render_report(
     drafts: Sequence[str] = (),
     budgets: Mapping[str, Any] | None = None,
     previous_run_id: str | None = None,
+    baseline_note: str | None = None,
     generated_at: str | None = None,
 ) -> str:
     """Render the full report. Body is timestamp-free; header is not."""
@@ -280,7 +284,7 @@ def render_report(
         _status_line(run, generated_at),
         "",
     ]
-    lines.extend(_scorecard(audit, run, diff, previous_run_id, keywords, gaps))
+    lines.extend(_scorecard(audit, run, diff, previous_run_id, keywords, gaps, baseline_note))
     lines.extend(_gsc_demand_section(keywords))
     lines.extend(_sources_section(budgets or {}))
 

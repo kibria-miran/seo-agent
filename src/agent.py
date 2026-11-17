@@ -50,6 +50,7 @@ from src.pipeline import (
     build_clusters,
     build_keywords,
     default_run_id,
+    gsc_demand_for,
     merge_keywords,
     mine_file_sources,
     mine_gsc_pages,
@@ -232,6 +233,7 @@ def tool_analyze_gaps(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]
         serp=ctx.serp,
         cities=ctx.profile.cities,
         query_page_map=ctx.query_page_map or None,
+        gsc_demand=gsc_demand_for(ctx.keywords),
     )
     return {
         "gaps": len(ctx.gaps),
@@ -280,13 +282,23 @@ def tool_write_outputs(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any
 
 
 def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
-    diff = ctx.store.diff_runs(_previous_run_id(ctx.store, ctx.run_id), ctx.run_id)
+    from src.audit_adapter import fetch_count
+
+    previous_run_id = _previous_run_id(ctx.store, ctx.run_id, ctx.profile.domain)
+    baseline_note = (
+        None
+        if previous_run_id
+        or ctx.store.latest_run(exclude=ctx.run_id) is None
+        else "no comparable previous run for this domain"
+    )
+    audit_fetches = 0 if ctx.fixture_path else fetch_count()
+    diff = ctx.store.diff_runs(previous_run_id, ctx.run_id)
     run_row: dict[str, Any] = dict(ctx.store.get_run(ctx.run_id) or {})
     run_row["backlog_count"] = len(ctx.backlog)
     generated_at = clock.now().isoformat(timespec="seconds")
     budgets = {
         "steps": ctx.steps,
-        "fetches": ctx.source_counts.get("fetches", 0),
+        "fetches": ctx.source_counts.get("fetches", 0) + audit_fetches,
         "llm_calls": ctx.llm_calls,
         "tokens_in": ctx.tokens_in,
         "tokens_out": ctx.tokens_out,
@@ -306,7 +318,8 @@ def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
         competitor_pages=ctx.competitor_pages,
         drafts=sorted(ctx.draft_map),
         budgets=budgets,
-        previous_run_id=_previous_run_id(ctx.store, ctx.run_id),
+        previous_run_id=previous_run_id,
+        baseline_note=baseline_note,
         generated_at=generated_at,
     )
     paths = write_report(ctx.run_id, markdown, ctx.backlog,
@@ -314,8 +327,8 @@ def _render_and_write(ctx: AgentContext) -> tuple[dict[str, Any], str]:
     return paths, markdown
 
 
-def _previous_run_id(store: Store, run_id: str) -> str | None:
-    row = store.latest_run(exclude=run_id)
+def _previous_run_id(store: Store, run_id: str, domain: str | None = None) -> str | None:
+    row = store.latest_run(exclude=run_id, domain=domain)
     return row["run_id"] if row else None
 
 

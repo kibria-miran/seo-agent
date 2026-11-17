@@ -36,7 +36,27 @@ is marked `amended`.
   GET rather than HEAD. This supersedes the HEAD wording in 8.1 and keeps the
   HTTP-method safety invariant test strict.
 
+- **R-4 (fetch ledger covers the audit crawl):** the adapter's politeness
+  wrapper counts live-crawl GETs (pages + robots.txt, 2 per crawl) against
+  `MAX_FETCHES` and returns a synthetic 429 page once the cap is reached.
+  `Fetches: n / 120` in reports now includes the crawl, satisfying D-13 as
+  written rather than as previously implemented. Fixture runs report 0.
+
 ## Implementation notes (not revisions)
+- 2026-11-17 scoring behaviour: gaps tied to a cluster with GSC impressions
+  are priority-weighted x1.5 / x1.25 / x1.1 (>=1000 / >=100 / >=10
+  impressions). More than 3 SCHEMA_MISSING findings for keyword-relevant
+  pages are grouped into one umbrella backlog item (evidence lists every
+  page); the gap list keeps the per-page entries for the report.
+- 2026-11-17 schema policy: SCHEMA_MISSING fires only on pages that are
+  keyword-cluster-relevant (slug or title/H1 overlap with a cluster head
+  term), not on every crawled 200 page. WEAK_PAGE requires >=2 shared
+  significant slug tokens (capped by head-term size).
+- 2026-11-17 diff policy: run-vs-run diffs are computed only against a
+  previous run for the same profile domain; cross-domain baselines are
+  refused and the report prints "n/a (no comparable previous run for this
+  domain)".
+
 
 - The SQLite snapshot defaults to `out/state/seo.db` and the source cache to
   `out/cache/`, so D-15's write allowlist (`out/`, `logs/`) holds for every

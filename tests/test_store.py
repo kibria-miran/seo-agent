@@ -367,3 +367,31 @@ def test_ttl_default_is_24_hours(store):
     store.set_cache("a|b", {})
     row = store.conn.execute("SELECT ttl_seconds FROM cache WHERE key='a|b'").fetchone()
     assert row["ttl_seconds"] == config.CACHE_TTL_SECONDS
+
+
+def test_diff_refuses_cross_domain_baseline(store):
+    previous = make_audit(issues=[make_issue(issue_type="Duplicate Title")], site_score=80.0)
+    current = make_audit(issues=[make_issue(issue_type="Missing Title")], site_score=89.0)
+    store.start_run("previous", url="https://clearpath-mortgage.co.uk")
+    store.save_audit("previous", previous)
+    store.save_gaps("previous", [make_gap(keyword="old topic")])
+    store.finish_run("previous", status="ok", site_score=80.0, grade="B")
+    store.start_run("current", url="https://landc-mortgage.co.uk")
+    store.save_audit("current", current)
+    store.save_gaps("current", [make_gap(keyword="new topic")])
+    store.finish_run("current", status="ok", site_score=89.0, grade="B")
+
+    diff = store.diff_runs("previous", "current")
+    assert diff.closed_items == []
+    assert diff.closed_gaps == []
+
+
+def test_latest_run_scopes_to_domain(store):
+    store.start_run("run-a", url="https://a.co.uk", started_at="2026-11-16T09:00:00+00:00")
+    store.finish_run("run-a", status="ok", site_score=10.0, grade="F")
+    store.start_run("run-b", url="https://b.co.uk", started_at="2026-11-17T09:00:00+00:00")
+    store.finish_run("run-b", status="ok", site_score=20.0, grade="F")
+
+    assert store.latest_run(exclude="run-b", domain="https://b.co.uk") is None
+    assert store.latest_run(exclude="run-b", domain="https://a.co.uk")["run_id"] == "run-a"
+    assert store.latest_run(exclude="run-b")["run_id"] == "run-a"
