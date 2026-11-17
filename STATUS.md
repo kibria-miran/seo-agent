@@ -1,5 +1,17 @@
 # Status
 
+Updated 2026-11-17: Phase 3 committed at `48f3811` (NO_PAGE -> WEAK_PAGE
+pre-check). Phase 4 preparation committed at the commit carrying this
+update (N-17 disagreement taxonomy, N-18 fixture comparison baseline,
+`BACKUP.md`, `.gitignore` bundle/wheel entries). Phase 4 live crawl
+**not yet run** — awaiting human go-ahead; the blind hand-rank (N-9) is
+human work. The freshest complete history is
+`seo-agent-backup-20261117-p3.bundle` at `48f3811`, on this disk only
+(see `BACKUP.md`).
+
+The snapshot below is from 2026-11-16 and is kept as history; where it
+disagrees with git log, git log wins.
+
 Generated 2026-11-16 from the working tree at bd76f9e + uncommitted changes.
 Every item carries file:line evidence. Nothing here is committed; see
 "Cleanup" for the known defects and stale lines.

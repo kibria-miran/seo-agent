@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-11-17 — Phase 4 prep: N-17 disagreement taxonomy, N-18 fixture baseline
+
+Two items settled before the Phase 4 live run and blind hand-rank:
+
+- N-17 defines what counts as a pre-check disagreement (hand-rank excludes
+  a reclassified item from the top 10 -> N-10 applies to the token rule)
+  vs a scoring disagreement (included but ranked lower -> N-10 applies to
+  the WEAK_PAGE impact/effort constants). Recorded before the hand-rank so
+  the outcome is interpretable; one constant per commit.
+- N-18 records the post-Phase-3 74kw fixture gap distribution as the
+  Phase 4 comparison baseline: SCHEMA_MISSING 27, NO_PAGE 26, WEAK_PAGE 9,
+  LOCAL_MISSING 6 (68 total, max 39.7%). Live run should be within ±5 per
+  type and 5 ± 3 reclass count; compare against this, not the pre-Phase-3
+  31/27/6/4.
+- `BACKUP.md` added: bundle provenance and restore/copy-off instructions;
+  the p3 bundle is on this disk only as of 2026-11-17.
+
 ## 2026-11-17 — Phase 3: NO_PAGE pre-check (N-5)
 
 N-5's coverage check is implemented. Before any page-creation gap is

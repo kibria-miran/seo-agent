@@ -292,3 +292,30 @@ Follow-ups recorded 2026-11-16:
   (top item BL-0001 meta_fix, 2.0, /first-time-buyer) and S02/S2 and
   test_gsc_demand widened/adjusted for WEAK_PAGE; each is the intended
   effect of the pre-check, recorded here rather than silently re-pinned.
+- **N-17 (2026-11-17).** Hand-rank disagreement taxonomy for Phase 4 (N-9,
+  N-10), decided before the hand-rank so a disagreement is interpretable.
+  If the blind hand-rank EXCLUDES a pre-check-reclassified item from the
+  top 10, that is a pre-check disagreement: N-10 applies to the pre-check's
+  token rule (e.g. require the second token outside H2, N-16), not to
+  scoring. If the hand-rank INCLUDES the item but ranks it lower than the
+  model, that is a scoring disagreement: N-10 applies to the WEAK_PAGE
+  impact/effort constants, not the token rule. Priority-2.0 (meta_fix
+  effort) placement is a prior, not a verdict; an exclusion must not be
+  "explained" as a priority complaint, and a demotion must not be
+  "explained" as a match complaint. One constant per commit, DECISIONS
+  entry naming which class of disagreement it answers.
+- **N-18 (2026-11-17).** Phase 4 comparison baseline, measured on the
+  74-keyword landc fixture AFTER Phase 3 (run-phase4-fixture-20261117,
+  fixture `tests/fixtures/landc_audit_74kw.json`, deterministic, then
+  discarded): SCHEMA_MISSING 27, NO_PAGE 26, WEAK_PAGE 9, LOCAL_MISSING 6;
+  68 gaps total; no type above 40%; WEAK_PAGE moved 4 -> 9, consistent
+  with the 5 reclassifications recorded in N-16. The Phase 4 live run's
+  per-type distribution should be within ±5 of these counts, and its
+  reclass count should be 5 ± 3 (the fixture is a 50-page crawl of the
+  same site, so it should be near-identical). A materially different
+  reclass count means the live crawl differs from the fixture (new or
+  changed pages/titles); record that before the hand-rank. Do not compare
+  the live run against the pre-Phase-3 baseline (31/27/6/4). E9's "at
+  least 3 gap types, no type above 60%, backlog ≤ 30" still holds at
+  27/68 = 39.7% max — but it is verified here against the post-Phase-3
+  distribution, not assumed.

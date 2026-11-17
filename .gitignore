@@ -43,3 +43,7 @@ secrets/
 
 # build artifacts
 build/
+
+# deliberately untracked: backup bundles and built wheels
+*.bundle
+dist/*.whl
