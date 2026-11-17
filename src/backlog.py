@@ -120,6 +120,12 @@ def _title_for(gap: Gap, target: str) -> str:
     if gap.gap_type == GapType.SCHEMA_MISSING:
         page_count = gap.evidence.get("page_count") if isinstance(gap.evidence, dict) else None
         if page_count:
+            money_count = gap.evidence.get("money_page_count") if isinstance(gap.evidence, dict) else None
+            if money_count:
+                return (
+                    f"Add missing schema to {page_count} keyword-relevant pages "
+                    f"({money_count} money pages)"
+                )
             return f"Add missing schema to {page_count} keyword-relevant pages"
         return f"Add missing schema to {target}"
     if gap.gap_type == GapType.COMP_COVERS:
@@ -131,10 +137,15 @@ def _dedupe_key(gap: Gap) -> tuple[str, str, str]:
     return (_normalise_keyword(gap.keyword), gap.gap_type.value, _target_for(gap))
 
 
+def _normalise_url(value: str) -> str:
+    return (value or "").casefold().rstrip("/")
+
+
 def build_backlog(
     gaps: Sequence[Gap],
     money_keywords: Iterable[str] = (),
     max_items: int | None = None,
+    money_urls: Iterable[str] | None = None,
 ) -> list[BacklogItem]:
     """Score, de-duplicate, sort and cap gaps.
 
@@ -143,6 +154,7 @@ def build_backlog(
     """
 
     money = tuple(money_keywords)
+    money_url_set = {_normalise_url(u) for u in (money_urls or ())}
     limit = config.MAX_BACKLOG if max_items is None else max(0, int(max_items))
 
     best: dict[tuple[str, str, str], tuple[float, Gap, str, int, int, float]] = {}
@@ -170,18 +182,25 @@ def build_backlog(
                 for schema in (c[1].evidence.get("required", []) if isinstance(c[1].evidence, dict) else [])
             }
         )
+        money_pages = sorted(p for p in pages if _normalise_url(p) in money_url_set)
         umbrella = Gap(
             keyword="schema",
             cluster_id="",
             gap_type=GapType.SCHEMA_MISSING,
-            evidence={"page_count": len(pages), "pages": pages, "required": required},
+            evidence={
+                "page_count": len(pages),
+                "pages": pages,
+                "required": required,
+                "money_pages": money_pages,
+                "money_page_count": len(money_pages),
+            },
             sources=[],
             target="sitewide",
         )
         effort = max(
             config.EFFORT_SCHEMA, min(len(pages), config.SCHEMA_UMBRELLA_MAX_EFFORT)
         )
-        impact = config.IMPACT_WARNING
+        impact = config.IMPACT_CRITICAL if money_pages else config.IMPACT_WARNING
         confidence = config.CONFIDENCE_AUDIT
         priority = round(impact * confidence / effort, 4)
         for key in [k for k, c in best.items() if c[1].gap_type == GapType.SCHEMA_MISSING]:

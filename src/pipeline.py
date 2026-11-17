@@ -373,7 +373,11 @@ def run_deterministic(
             query_page_map=query_pages or None,
             gsc_demand=gsc_demand_for(keywords),
         )
-        backlog = build_backlog(gaps, money_keywords=money_keywords_for(profile))
+        backlog = build_backlog(
+            gaps,
+            money_keywords=money_keywords_for(profile),
+            money_urls=profile.money_urls,
+        )
         drafts: dict[str, str] = {}
         if with_drafts:
             drafts, rejected = write_drafts(backlog, profile, trace=trace, run_id=chosen_run_id)

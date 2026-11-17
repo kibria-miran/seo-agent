@@ -263,6 +263,41 @@ def test_schema_findings_above_threshold_group_into_one_umbrella_item():
     assert item.title == "Add missing schema to 6 keyword-relevant pages"
 
 
+def test_schema_umbrella_carries_money_page_impact():
+    pages = ["https://example.co.uk/money"] + [
+        f"https://example.co.uk/p{i}" for i in range(5)
+    ]
+    gaps = [
+        make_gap(gap_type=GapType.SCHEMA_MISSING, target=page, sources=[])
+        for page in pages
+    ]
+    items = build_backlog(
+        gaps, money_keywords=[], money_urls=["https://example.co.uk/money/"]
+    )
+    assert len(items) == 1
+    item = items[0]
+    assert item.impact == config.IMPACT_CRITICAL
+    assert item.evidence["money_pages"] == ["https://example.co.uk/money"]
+    assert item.evidence["money_page_count"] == 1
+    assert item.effort == 6
+    assert item.priority == round(config.IMPACT_CRITICAL * config.CONFIDENCE_AUDIT / 6, 4)
+    assert "1 money pages" in item.title
+
+
+def test_schema_umbrella_without_money_pages_stays_warning():
+    gaps = [
+        make_gap(gap_type=GapType.SCHEMA_MISSING, target=f"https://example.co.uk/p{i}", sources=[])
+        for i in range(6)
+    ]
+    items = build_backlog(
+        gaps, money_keywords=[], money_urls=["https://example.co.uk/money"]
+    )
+    assert len(items) == 1
+    assert items[0].impact == config.IMPACT_WARNING
+    assert items[0].evidence["money_pages"] == []
+    assert items[0].evidence["money_page_count"] == 0
+
+
 def test_schema_findings_at_or_below_threshold_stay_per_page():
     gaps = [
         make_gap(gap_type=GapType.SCHEMA_MISSING, target=f"https://example.co.uk/p{i}", sources=[])

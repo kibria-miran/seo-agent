@@ -43,6 +43,16 @@ is marked `amended`.
   written rather than as previously implemented. Fixture runs report 0.
 
 ## Implementation notes (not revisions)
+- 2026-11-17 umbrella weighting: the SCHEMA_MISSING umbrella item takes the
+  impact of its money pages, not all flagged pages — `impact` is CRITICAL
+  when any flagged page is a profile money page, else WARNING, and the
+  evidence lists `money_pages` / `money_page_count`. The item is an
+  impact-weighted grouping, not a confidence-weighted one: confidence
+  stays CONFIDENCE_AUDIT = 1.0 regardless of how many pages it covers.
+  Its "ranks first" outcome on landc is conditional on the NO_PAGE items
+  carrying no GSC demand; modest GSC impressions (x1.1 at >=10, x1.25 at
+  >=100, x1.5 at >=1000) would reorder it behind a coverage gap.
+
 - 2026-11-17 scoring behaviour: gaps tied to a cluster with GSC impressions
   are priority-weighted x1.5 / x1.25 / x1.1 (>=1000 / >=100 / >=10
   impressions). More than 3 SCHEMA_MISSING findings for keyword-relevant

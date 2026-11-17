@@ -62,7 +62,9 @@ def test_landc_schema_gaps_only_flag_cluster_relevant_pages(landc):
 def test_landc_backlog_is_not_schema_flooded(landc):
     profile, audit, clusters = landc
     gaps = analyze(audit, clusters, cities=profile.cities)
-    backlog = build_backlog(gaps, money_keywords=money_keywords_for(profile))
+    backlog = build_backlog(
+        gaps, money_keywords=money_keywords_for(profile), money_urls=profile.money_urls
+    )
     schema_items = [i for i in backlog if i.gap_type == GapType.SCHEMA_MISSING.value]
     assert len(schema_items) == 1
     assert schema_items[0].evidence["page_count"] == len(

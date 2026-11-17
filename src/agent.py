@@ -244,7 +244,11 @@ def tool_analyze_gaps(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]
 def tool_build_backlog(args: dict[str, Any], ctx: AgentContext) -> dict[str, Any]:
     if not ctx.gaps:
         tool_analyze_gaps({}, ctx)
-    ctx.backlog = build_backlog(ctx.gaps, money_keywords=money_keywords_for(ctx.profile))
+    ctx.backlog = build_backlog(
+        ctx.gaps,
+        money_keywords=money_keywords_for(ctx.profile),
+        money_urls=ctx.profile.money_urls,
+    )
     return {
         "items": len(ctx.backlog),
         "top": [item.target for item in ctx.backlog[:3]],

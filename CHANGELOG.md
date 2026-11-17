@@ -1,5 +1,39 @@
 # Changelog
 
+## 2026-11-17 — schema umbrella money-page weighting, GSC pipeline test
+
+- The SCHEMA_MISSING umbrella backlog item is now money-page-weighted: its
+  evidence lists the flagged pages that are profile money pages
+  (`money_urls`, passed by the pipeline and agent), `impact` is CRITICAL
+  when at least one flagged page is a money page (WARNING otherwise), and
+  the title reports the money-page count. On the landc profile the
+  umbrella covers `/`, `/buy-to-let` and `/remortgage`, so it now ranks
+  first (0.375) instead of coasting at WARNING on all 17 pages. The #1
+  rank is conditional on the NO_PAGE items carrying no GSC demand: even
+  modest GSC impressions (x1.1 at >=10) would put a coverage gap ahead of
+  it. The rank holds for landc because there is no GSC data, and the
+  umbrella is an impact-weighted grouping, not a confidence-weighted one
+  (confidence stays CONFIDENCE_AUDIT = 1.0 either way; more pages do not
+  raise audit confidence).
+- Both `run_deterministic` and agent mode pass `gsc_demand=` into gap
+  analysis; confirmed. New pipeline-level integration test drives
+  `run_deterministic` with a fixture and `SEO_AGENT_GSC_CSV` set and
+  asserts a GSC-backed NO_PAGE outranks an otherwise-identical GSC-less
+  one end-to-end.
+- Live re-run `run-20261117T150656Z` (no-llm): `Fetches: 52 / 120`,
+  score 89.1 (B), 4 backlog items, evals 16/16.
+- Fetch-budget refusal is now also tested at pipeline level, not just the
+  adapter: a fake crawler spends the MAX_FETCHES budget mid-crawl and the
+  run still yields a report, the trace carries the `budget` event
+  (`reason=max_fetches`), and the audit snapshot keeps the synthetic-429
+  page in a form gap analysis tolerates.
+- Reference runs `out/run-20261117T143756Z/` and `out/run-20261117T150656Z/`
+  (report.md + backlog.json only) are now pinned as frozen baselines for
+  future comparison, with `out/README.md` explaining the convention; they
+  are not regenerable from the current DB, which stays gitignored.
+- Suite: 490 passed, 2 deselected (+2 umbrella money-weighting tests,
+  +1 GSC pipeline integration test, +1 fetch-budget pipeline test).
+
 ## 2026-11-17 — real-site findings: diff scoping, fetch ledger, schema backlog
 
 Addresses the four findings from the landc.co.uk live-run review

@@ -387,3 +387,73 @@ def test_cross_domain_run_produces_no_diff_against_other_sites_baseline(tmp_path
     assert report.diff.closed_gaps == []
     text = (out / "run-b" / "report.md").read_text(encoding="utf-8")
     assert "no comparable previous run for this domain" in text
+
+
+def test_pipeline_survives_fetch_budget_refusal(tmp_path, profile, inject_clock, monkeypatch):
+    """Drive the crawl past the fetch cap with a fake crawler.
+
+    Robots (2 fetches) plus the homepage spend a MAX_FETCHES=3 budget, so the
+    second page is refused with a synthetic 429. The report must still
+    generate, the trace must record the budget event, and the audit snapshot
+    must carry the synthetic-429 page in a way gap analysis tolerates.
+    """
+    from seoextract import crawler
+
+    from src import audit_adapter
+
+    inject_clock("2026-11-17T15:06:56+00:00")
+
+    def fake_fetch(url, session):
+        if url == "https://clearpath-mortgage.co.uk/":
+            html = (
+                "<html><head><title>Clearpath</title></head>"
+                "<body><h1>Clearpath</h1>"
+                "<a href='/remortgage'>remortgage</a>"
+                "<a href='/free-mortgage-advice'>advice</a>"
+                "</body></html>"
+            )
+        else:
+            html = "<html></html>"
+        return {
+            "url": url,
+            "final_url": url,
+            "status_code": 200,
+            "html": html,
+            "response_time_ms": 1.0,
+        }
+
+    monkeypatch.setattr(crawler, "fetch_page", fake_fetch)
+    monkeypatch.setattr(crawler, "_load_robots", lambda base: None)
+    monkeypatch.setattr(config, "MAX_FETCHES", 3)
+    monkeypatch.setattr(audit_adapter.time, "sleep", lambda _seconds: None)
+    monkeypatch.setattr(audit_adapter, "_POLITENESS_INSTALLED", False)
+    audit_adapter.reset_fetch_count()
+
+    trace_path = tmp_path / "trace.jsonl"
+    try:
+        report = run_deterministic(
+            profile,
+            run_id="run-budget-refusal",
+            db_path=tmp_path / "seo.db",
+            out_root=tmp_path / "out",
+            trace_path=trace_path,
+        )
+
+        assert report.status == "ok"
+        assert audit_adapter.fetch_budget_exhausted()
+        assert report.backlog
+
+        events = [
+            json.loads(line)
+            for line in trace_path.read_text(encoding="utf-8").splitlines()
+        ]
+        assert any(
+            e.get("step") == "budget" and e.get("reason") == "max_fetches" for e in events
+        )
+
+        with Store(tmp_path / "seo.db") as store:
+            snapshot = store.load_audit("run-budget-refusal")
+        refused = [p for p in snapshot.pages if p.status_code == 429]
+        assert refused
+    finally:
+        audit_adapter.reset_fetch_count()

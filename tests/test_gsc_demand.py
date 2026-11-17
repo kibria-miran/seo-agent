@@ -128,3 +128,36 @@ def test_report_renders_gsc_demand_section_when_data_present():
 def test_report_omits_gsc_demand_section_without_data():
     markdown = _render(keywords=[make_keyword(keyword="remortgage advice")])
     assert "GSC demand" not in markdown
+
+
+def test_gsc_demand_boosts_priority_through_the_pipeline(tmp_path, inject_clock, monkeypatch):
+    inject_clock("2026-11-16T09:00:00+00:00")
+    csv_path = tmp_path / "Queries.csv"
+    csv_path.write_text(
+        "Top queries,Clicks,Impressions,CTR,Position\n"
+        "mortgage fees explained,50,5000,1.0%,4.2\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("SEO_AGENT_GSC_CSV", str(csv_path))
+
+    from src import config
+    from src.pipeline import load_profile, run_deterministic
+
+    profile = load_profile(config.PROFILES_DIR / "site.json")
+    report = run_deterministic(
+        profile,
+        fixture_path=config.FIXTURES_DIR / "own_site_audit.json",
+        run_id="run-gsc-it",
+        db_path=tmp_path / "seo.db",
+        out_root=tmp_path / "out",
+        with_sources=True,
+    )
+    by_target = {item.target: item for item in report.backlog}
+    boosted = by_target["/mortgage-fees-explained"]
+    plain = by_target["/bad-credit-mortgage"]
+    assert boosted.gap_type == GapType.NO_PAGE.value
+    assert plain.gap_type == GapType.NO_PAGE.value
+    assert boosted.evidence["gsc"]["impressions"] == 5000.0
+    assert "gsc" not in plain.evidence
+    assert boosted.priority == round(plain.priority * config.GSC_BOOST_TIER_1, 4)
+    assert report.backlog.index(boosted) < report.backlog.index(plain)
