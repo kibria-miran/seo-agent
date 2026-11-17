@@ -196,7 +196,7 @@ Follow-ups recorded 2026-11-16:
   `render_and_write_run` in `src/pipeline.py`. The agent keeps its own
   budget shape and idempotent mid-loop persist; only the mechanics moved.
 
-## Product-chapter decisions (2026-11-17, N-1..N-12, frozen)
+## Product-chapter decisions (2026-11-17, N-1..N-13, frozen)
 
 - **N-1.** Baselines are domain-scoped with NO unscoped fallback anywhere:
   latest_run, previous_baseline, diff_runs, report rendering. Domain key =
@@ -204,10 +204,19 @@ Follow-ups recorded 2026-11-16:
 - **N-2.** A missing or cross-domain baseline renders the literal sentence
   "No comparable previous run for <host>." Delta fields are None. A number
   must never appear without a same-domain baseline.
-- **N-3.** Backlog order is a TOTAL order, deterministic under input
-  shuffling: (-priority, -is_money, -gsc_impressions, -money_kw_count,
-  kind_rank, target, keyword, item_id). Byte-identical rerun (S12) stays
-  green.
+- **N-3 (amended 2026-11-17).** Backlog order is a TOTAL order,
+  deterministic under input shuffling: (-priority, -is_money,
+  -gsc_impressions, -money_kw_count, kind_rank, target, keyword,
+  gap_type, content_digest). The terminal `item_id` from the original
+  wording is removed: ids are positional (BL-0001.. assigned after the
+  sort), so they cannot discriminate the items that produce them — they
+  are an output of the sort, not an input. `gap_type` ascending and then
+  a stable digest of the gap's content (normalised keyword, type,
+  cluster, target, evidence, sources) stand in for it and keep the order
+  total even between byte-different findings on the same keyword and
+  target. `kind_rank` orders kinds meta_fix 0 < schema 1 <
+  create_local_page 2 < create_page 3 (cheapest, quickest first); N-3
+  did not define it. Byte-identical rerun (S12) stays green.
 - **N-4.** Tiebreakers change ORDER only, never the priority value.
   Priority = impact x confidence / effort x gsc_multiplier, as today.
 - **N-5.** NO_PAGE is emitted only after a coverage check. If any crawled
@@ -233,3 +242,14 @@ Follow-ups recorded 2026-11-16:
 - **N-12.** Commit policy for the CLI agent: do NOT commit or push unless
   the human says so. At each gate print `git status --short` and a proposed
   commit message, then STOP and wait.
+- **N-13 (2026-11-17).** `money_kw_count` is the number of profile money
+  keywords covered by the item's keyword set: `evidence["cluster_keywords"]`
+  where present (order-insensitive, normalised), else the item's own
+  keyword. The sitewide SCHEMA_MISSING umbrella has no keyword set, so it
+  counts 0 — it is an item, not a keyword. An earlier draft counted the
+  umbrella's flagged money pages instead, which made the sort key compare
+  page counts against keyword counts; that was rejected so the key
+  compares like with like. The umbrella remains impact-weighted by money
+  pages (`money_page_count` in evidence, CRITICAL vs WARNING) — that is
+  scoring, not ordering — and orders by `kind_rank` among schema-kind
+  items.

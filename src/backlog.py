@@ -6,6 +6,7 @@ never sets a priority, an effort or a rank (D-2).
 
 from __future__ import annotations
 
+import json
 from collections.abc import Iterable, Sequence
 
 from src import config
@@ -54,6 +55,13 @@ _KIND_BY_TYPE = {
     GapType.NO_PAGE: "create_page",
     GapType.LOCAL_MISSING: "create_local_page",
     GapType.COMP_COVERS: "create_page",
+}
+
+_KIND_RANK = {
+    "meta_fix": 0,
+    "schema": 1,
+    "create_local_page": 2,
+    "create_page": 3,
 }
 
 
@@ -159,6 +167,49 @@ def _is_money_gap(gap: Gap, money_set: set[str]) -> bool:
     return _normalise_keyword(gap.keyword) in money_set
 
 
+def _money_kw_count(gap: Gap, money_set: set[str]) -> int:
+    """Number of profile money keywords the item covers.
+
+    An item is never itself a keyword: the sitewide SCHEMA_MISSING
+    umbrella has no keyword set and counts 0 here, so the N-3 key never
+    compares page counts against keyword counts.
+    """
+
+    evidence = gap.evidence if isinstance(gap.evidence, dict) else {}
+    cluster = evidence.get("cluster_keywords")
+    if isinstance(cluster, (list, tuple)) and cluster:
+        terms = {_normalise_keyword(str(term)) for term in cluster}
+    else:
+        terms = {_normalise_keyword(gap.keyword)}
+    return sum(1 for term in terms if term in money_set)
+
+
+def _kind_rank(gap: Gap) -> int:
+    kind = _KIND_BY_TYPE.get(gap.gap_type, "create_page")
+    return _KIND_RANK.get(kind, len(_KIND_RANK))
+
+
+def _content_key(gap: Gap) -> str:
+    """Stable content digest; the terminal tiebreak in the N-3 order.
+
+    Item ids are positional (BL-0001..) so they cannot order the items that
+    produce them. The digest stands in for N-3's terminal ``item_id`` and
+    keeps the order total even between byte-different findings on the same
+    keyword and target.
+    """
+
+    evidence = gap.evidence if isinstance(gap.evidence, dict) else {}
+    payload = {
+        "keyword": _normalise_keyword(gap.keyword),
+        "gap_type": gap.gap_type.value,
+        "cluster_id": gap.cluster_id,
+        "target": _target_for(gap).casefold(),
+        "evidence": evidence,
+        "sources": sorted(set(gap.sources)),
+    }
+    return json.dumps(payload, sort_keys=True, default=str, separators=(",", ":"))
+
+
 def build_backlog(
     gaps: Sequence[Gap],
     money_keywords: Iterable[str] = (),
@@ -167,10 +218,12 @@ def build_backlog(
 ) -> list[BacklogItem]:
     """Score, de-duplicate, sort and cap gaps.
 
-    Sort order is total: priority desc, effort asc, then a demand tiebreak
-    (money keyword first, then GSC impressions desc), then target asc, kind
-    asc, keyword asc and gap_type asc. That guarantees identical output
-    across runs (D-9).
+    Sort order is total and deterministic under input shuffling (N-3):
+    priority desc, money keyword first, GSC impressions desc, money keyword
+    count desc, kind rank asc (meta_fix, schema, create_local_page,
+    create_page), then target asc, keyword asc, gap_type asc and finally a
+    content digest asc. Item ids are assigned positionally after sorting.
+    Tiebreaks change order only, never the priority value (N-4).
     """
 
     money = tuple(money_keywords)
@@ -188,7 +241,11 @@ def build_backlog(
         priority = priority_for(gap, money)
         candidate = (priority, gap, target, effort, impact, confidence)
         existing = best.get(key)
-        if existing is None or candidate[0] > existing[0]:
+        if (
+            existing is None
+            or candidate[0] > existing[0]
+            or (candidate[0] == existing[0] and _content_key(gap) < _content_key(existing[1]))
+        ):
             best[key] = candidate
 
     schema_entries = [
@@ -239,13 +296,14 @@ def build_backlog(
         best.values(),
         key=lambda c: (
             -c[0],
-            c[3],
-            0 if _is_money_gap(c[1], money_set) else 1,
+            -int(_is_money_gap(c[1], money_set)),
             -_gsc_impressions(c[1]),
+            -_money_kw_count(c[1], money_set),
+            _kind_rank(c[1]),
             c[2].casefold(),
-            _KIND_BY_TYPE.get(c[1].gap_type, "create_page"),
             _normalise_keyword(c[1].keyword),
             c[1].gap_type.value,
+            _content_key(c[1]),
         ),
     )[:limit]
 

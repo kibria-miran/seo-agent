@@ -338,3 +338,107 @@ def test_tie_break_then_gsc_impressions_desc():
         "Create a page targeting 'high demand topic'",
         "Create a page targeting 'low demand topic'",
     ]
+
+# ---------------------------------------------------------------------------
+# N-3 total order: shuffle invariance and terminal ties (Phase 2)
+# ---------------------------------------------------------------------------
+
+
+def _phase2_gaps():
+    return [
+        make_gap(keyword="capital one card", target="/zulu-capital-card",
+                 evidence={"cluster_keywords": ["capital one card", "capital one card rates"]},
+                 sources=["suggest"]),
+        make_gap(keyword="beta capital card", target="/alpha-capital-card",
+                 evidence={"cluster_keywords": ["beta capital card"]},
+                 sources=["suggest"]),
+        make_gap(keyword="bad credit mortgage", target="/bad-credit-mortgage",
+                 evidence={"gsc": {"impressions": 2.0}}, sources=["suggest"]),
+        make_gap(keyword="remortgage calculator", target="/remortgage-calculator",
+                 evidence={"gsc": {"impressions": 9.0}}, sources=["suggest"]),
+        make_gap(keyword="weak demand topic", gap_type=GapType.WEAK_PAGE, sources=[],
+                 evidence={"severity": "INFO", "page": "https://example.co.uk/weak"}),
+        make_gap(keyword="rival topic", target="/rival-topic",
+                 sources=["habito.com"], gap_type=GapType.COMP_COVERS),
+        make_gap(keyword="rival topic", target="/rival-topic", sources=["suggest"]),
+        make_gap(keyword="dup topic", target="/dup-topic",
+                 evidence={"pages": ["b.co.uk"]}, sources=["suggest"]),
+        make_gap(keyword="dup topic", target="/dup-topic",
+                 evidence={"pages": ["a.co.uk"]}, sources=["suggest"]),
+        make_gap(keyword="schema", gap_type=GapType.SCHEMA_MISSING, target="https://example.co.uk/mp1", sources=[]),
+        make_gap(keyword="schema", gap_type=GapType.SCHEMA_MISSING, target="https://example.co.uk/mp2", sources=[]),
+        make_gap(keyword="schema", gap_type=GapType.SCHEMA_MISSING, target="https://example.co.uk/mp3", sources=[]),
+        make_gap(keyword="schema", gap_type=GapType.SCHEMA_MISSING, target="https://example.co.uk/mp4", sources=[]),
+        make_gap(keyword="mortgage advice leeds", gap_type=GapType.LOCAL_MISSING,
+                 target="/leeds-mortgage-advice", sources=["cities"]),
+        make_gap(keyword="zero evidence topic", gap_type=GapType.NO_PAGE,
+                 target="/zero-evidence-topic", evidence={}, sources=["suggest"]),
+    ]
+
+
+_PHASE2_MONEY = ["capital one card", "capital one card rates", "beta capital card"]
+_PHASE2_MONEY_URLS = ["https://example.co.uk/mp1", "https://example.co.uk/mp2"]
+
+
+def test_shuffled_gaps_produce_identical_backlog_bytes():
+    import random
+
+    base = _phase2_gaps()
+    money = list(_PHASE2_MONEY)
+    expected = [
+        item.model_dump_json()
+        for item in build_backlog(
+            list(base), money_keywords=money, money_urls=_PHASE2_MONEY_URLS
+        )
+    ]
+    assert len(expected) > 0
+    for seed in range(20):
+        shuffled = list(base)
+        random.Random(seed).shuffle(shuffled)  # noqa: S311 - determinism probe, not crypto
+        actual = [
+            item.model_dump_json()
+            for item in build_backlog(
+                shuffled, money_keywords=money, money_urls=_PHASE2_MONEY_URLS
+            )
+        ]
+        assert actual == expected, f"seed {seed} produced a different backlog"
+
+
+def test_money_tie_breaks_on_money_kw_count_before_target():
+    gaps = [
+        make_gap(keyword="beta capital card", target="/alpha-capital-card",
+                 evidence={"cluster_keywords": ["beta capital card"]},
+                 sources=["suggest"]),
+        make_gap(keyword="capital one card", target="/zulu-capital-card",
+                 evidence={"cluster_keywords": ["capital one card", "capital one card rates"]},
+                 sources=["suggest"]),
+    ]
+    items = build_backlog(gaps, money_keywords=_PHASE2_MONEY)
+    assert [item.target for item in items] == ["/zulu-capital-card", "/alpha-capital-card"]
+
+
+def test_money_gsc_tie_keeps_equal_money_kw_count_and_orders_by_impressions():
+    gaps = [
+        make_gap(keyword="bad credit mortgage", target="/bad-credit-mortgage",
+                 evidence={"gsc": {"impressions": 2.0}}, sources=["suggest"]),
+        make_gap(keyword="remortgage calculator", target="/remortgage-calculator",
+                 evidence={"gsc": {"impressions": 9.0}}, sources=["suggest"]),
+    ]
+    money = ["bad credit mortgage", "remortgage calculator"]
+    items = build_backlog(gaps, money_keywords=money)
+    assert [item.target for item in items] == ["/remortgage-calculator", "/bad-credit-mortgage"]
+    assert [item.priority for item in items] == [0.5, 0.5]
+
+
+def test_final_tie_breaks_by_gap_type_then_content():
+    no_page = make_gap(keyword="rival topic", target="/rival-topic", sources=["suggest"])
+    comp_covers = make_gap(
+        keyword="rival topic", target="/rival-topic",
+        sources=["habito.com"], gap_type=GapType.COMP_COVERS,
+    )
+    forward = [item.model_dump_json() for item in build_backlog([no_page, comp_covers])]
+    backward = [item.model_dump_json() for item in build_backlog([comp_covers, no_page])]
+    assert forward == backward
+    items = build_backlog([no_page, comp_covers])
+    assert [item.gap_type for item in items] == ["COMP_COVERS", "NO_PAGE"]
+    assert [item.item_id for item in items] == ["BL-0001", "BL-0002"]

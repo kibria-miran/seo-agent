@@ -1,5 +1,61 @@
 # Changelog
 
+## 2026-11-17 — Phase 2: backlog N-3 total order
+
+No scoring change (N-4): tiebreaks reorder, priority values are untouched.
+
+- The backlog sort key now matches N-3 exactly: (-priority, -is_money,
+  -gsc_impressions, -money_kw_count, kind_rank, target, keyword, then a
+  terminal discriminator). Two clarifications are recorded here because
+  N-3 does not spell them out: (i) `kind_rank` orders kinds meta_fix 0 <
+  schema 1 < create_local_page 2 < create_page 3 (mirrors the gap
+  analysis severity order; quick, cheap items first); (ii) N-3's terminal
+  `item_id` cannot be used literally because ids are positional
+  (BL-0001.. assigned after the sort). The final key elements are
+  `gap_type` ascending and then a stable content digest of the gap
+  (normalised keyword, type, cluster, target, evidence, sources), which
+  keeps the order total even between byte-different findings on the same
+  keyword and target. Ids stay sequential by final position.
+- `money_kw_count`: number of profile money keywords covered by the
+  item's keyword set (`evidence["cluster_keywords"]` where present, else
+  the item's own keyword). The sitewide SCHEMA_MISSING umbrella has no
+  keyword set and counts 0 (it is an item, not a keyword), so the key
+  never compares page counts against keyword counts; the umbrella orders
+  by `kind_rank` among schema-kind items. This supersedes the earlier
+  draft of this entry, which had the umbrella count its flagged money
+  pages.
+- The pre-Phase-2 secondary key (`effort`) is gone; the money flag is now
+  the primary tiebreak after priority. Order changes where effort differs
+  but money flag and GSC demand agree — that is the intended N-3
+  behaviour (N-4: order only, priority unchanged).
+- Dedupe of equal-priority identical (keyword, gap_type, target) gaps now
+  keeps the smaller content digest instead of the first gap seen, making
+  the output invariant under input permutation rather than merely stable.
+- New tests: E5 shuffle gate — a representative gap list (money/non-money
+  NO_PAGE with different cluster sizes, GSC-weighted pairs, audit-backed
+  WEAK_PAGE/SCHEMA_MISSING, the schema umbrella, LOCAL_MISSING,
+  COMP_COVERS, equal-priority duplicates with different evidence) shuffled
+  across 20 fixed seeds yields byte-identical `model_dump_json` output.
+  Tie tests: money (different `money_kw_count`, ordered by count before
+  target); GSC (both money, equal `money_kw_count`, impressions 9 > 2 at
+  equal 0.5 priority); terminal tie (COMP_COVERS before NO_PAGE on equal
+  score/target/keyword; ids BL-0001/BL-0002 assigned by final position).
+- Pinned reference runs (`out/run-20261117T143756Z/`, `T150656Z/`,
+  `T153658Z/`) were produced with the pre-Phase-2 key and their ordering
+  convention differs; N-6 forbids overwriting them, so this is recorded in
+  `out/README.md` instead — do not diff ordering against them.
+- Evals 16/16 (S12 byte-identical rerun green, S13 cap/order green).
+  Suite: 510 passed, 2 deselected. Ruff clean.
+
+Out-of-band DB cleanup (not part of the commit; `out/state/seo.db` is
+gitignored): the synthetic `run-20261117T160000Z` row was deleted with its
+child rows (audit_pages/issues, keywords, gaps, backlog). Its
+`domain = landc.co.uk` label with clearpath-shaped pages would otherwise
+have been picked as the landc baseline by `latest_run(completed_only=True)`;
+baseline selection now resolves to `run-20261117T153658Z`. The tracked
+evidence directory `out/run-20261117T160000Z/` remains, still labelled
+evidence-not-baseline. This discharges the Phase 4 checklist item early.
+
 ## 2026-11-17 — Phase 0 reconciliation (numbers as measured)
 
 - Evals: the "16/16 vs 8/8" discrepancy (C-1) is resolved. `evals` with no
