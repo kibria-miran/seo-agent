@@ -304,6 +304,11 @@ Follow-ups recorded 2026-11-16:
   "explained" as a priority complaint, and a demotion must not be
   "explained" as a match complaint. One constant per commit, DECISIONS
   entry naming which class of disagreement it answers.
+  Third class (added 2026-11-17, N-22): match-quality disagreement — the
+  item is present at the right position but for the wrong reason (wrong
+  keyword/page pair). Neither exclusion nor demotion; N-10 applies to the
+  pre-check's inputs (profile keyword or match rule), not to scoring or
+  the token-count floor. Record the pair and why it is the wrong pair.
 - **N-18 (2026-11-17).** Phase 4 comparison baseline, measured on the
   74-keyword landc fixture AFTER Phase 3 (run-phase4-fixture-20261117,
   fixture `tests/fixtures/landc_audit_74kw.json`, deterministic, then
@@ -330,3 +335,52 @@ Follow-ups recorded 2026-11-16:
   remains the input (never the backlog order), but the output is a ranked
   list of actions. Record the groupings in the hand-rank file so the
   comparison is auditable.
+- **N-20 (2026-11-17).** The 74kw fixture was not a faithful replay of
+  the live audit it was recorded from: `h2_tags`/`h3_tags` were recorded
+  as empty on all 50 pages while the same data existed under `h_tags`
+  (the DB's `h_tags_json` was intact). Consequence: fixture-mode
+  replays gave the pre-check zero H2 tokens, so N-16's "5 of 31
+  reclassified" and N-18's 27/26/9/6 baseline understated WEAK_PAGE
+  matches. Fixed 2026-11-17 by restoring `h2_tags`/`h3_tags` from
+  `h_tags` (no other change; titles, H1s, issues untouched). After the
+  fix the fixture reproduces the Phase 4 live run
+  (run-20261117T171357Z) EXACTLY — same 68 gaps, zero symmetric
+  difference, same distribution: SCHEMA_MISSING 27, WEAK_PAGE 27,
+  NO_PAGE 8, LOCAL_MISSING 6 (max 39.7%). Corrected Phase 4 baseline:
+  live reclass count is 23 of 31 (not 5), matching the live run's
+  "23 NO_PAGE closed / 23 WEAK_PAGE new" diff. N-16's count stands as
+  recorded (it was accurate for the fixture as committed); it is
+  superseded as the live-behaviour reference by this entry. Hand-rank
+  (N-9) operates on the corrected fixture/live output. The fixture is
+  the only consumer-independent artifact affected; no tests used it.
+- **N-21 (2026-11-17).** Pre-hand-rank classification of the 23 live
+  reclassifications (run-20261117T171357Z; evidence `matched_tokens` /
+  `matched_fields` per gap): all 23 involve H2. Breakdown — 2 matches
+  are carried by title/H1 alone ('independent mortgage broker',
+  'mortgage broker reviews', title [broker, mortgage]); 15 are
+  H2-assisted with exactly one token outside H2 (title or H1 supplies
+  `mortgage` or similar, H2 supplies the second token); 6 are H2-only
+  (both tokens from H2, nothing in title/H1: 'later life mortgage',
+  'mortgage rates 2026', 'remortgage broker', 'remortgage calculator',
+  'should i remortgage now', 'when to remortgage'). Pattern: the live
+  pre-check leans entirely on H2; 21 of 23 need it. Note that live H2
+  extraction includes site chrome (nav/newsletter headings), though the
+  matched tokens above are topically relevant, not chrome. This is the
+  finding the hand-rank must weigh: if the hand-rank excludes several
+  of these, the N-17 pre-check class points at N-14's cross-field rule
+  (e.g. require the second token outside H2), and the 6 H2-only cases
+  are the first suspects. Recorded before the hand-rank, not after.
+  Fixture fidelity check (2026-11-17): all 50 pages' h1/h2/h3_tags in
+  the corrected fixture are byte-identical to the live DB's h_tags_json
+  (0/50 mismatch), and the corrected fixture replays the live run's 68
+  gaps with zero symmetric difference. The pre-check does not lean on
+  title/H1 alone for any of the 21 H2-assisted matches; the 6 H2-only
+  cases above are the first place N-14 would be tightened under N-10.
+  E9 distributional note: E9 still passes (max 39.7% < 60%, ≥3 types,
+  backlog 30) but against a distribution it was not calibrated for:
+  pre-Phase-3 the NO_PAGE share was 31/68 (45.6%); post-Phase-3 the
+  WEAK_PAGE and SCHEMA_MISSING shares are tied at 27/68 (39.7%) and
+  NO_PAGE is 8/68 (11.8%). The pass means "no single type may exceed
+  60% of gaps"; it is not evidence of distribution health.
+- **N-22 (2026-11-17).** Third disagreement class added to N-17:
+  match-quality disagreement. See N-17.

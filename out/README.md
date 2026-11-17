@@ -8,6 +8,14 @@ not regenerable from the current state: the crawl database (`out/state/seo.db`)
 and the trace logs are gitignored, so re-running the crawl would not reproduce
 these files byte for byte.
 
+`run-20261117T171357Z/` is the post-Phase-3 pinned baseline (first live
+run after the NO_PAGE pre-check, N-5/N-14/N-15): SCHEMA_MISSING 27,
+WEAK_PAGE 27, NO_PAGE 8, LOCAL_MISSING 6; 23 reclassified. It is
+reproducible in gap content from the corrected
+`tests/fixtures/landc_audit_74kw.json` (see DECISIONS N-20). The three
+pre-Phase-3 pins remain as history; `153658Z` carries a pre-Phase-3
+gap-engine caveat.
+
 Convention:
 
 - `run-20261117T160000Z/` is **evidence, not a baseline**: a synthetic
@@ -44,3 +52,10 @@ The caveat stands because of provenance, not observed divergence: N-6
 forbids overwriting pinned runs, so compare them for content, treat
 ordering as replayed-and-currently-identical (2026-11-17 replay: no items
 move in these three runs), and do not re-pin them to force agreement.
+
+Caveat on `run-20261117T153658Z/` (2026-11-17): it predates the Phase 3
+NO_PAGE pre-check (WEAK_PAGE did not exist yet), so its 31 NO_PAGE gaps
+reflect the pre-Phase-3 gap engine. It also predates N-14/N-15. When
+comparing post-Phase-3 runs against it, expect 23 NO_PAGE -> WEAK_PAGE
+reclassifications on this site (see DECISIONS N-16/N-20 and the Phase 4
+baseline in N-18/N-20); do not read them as content changes.

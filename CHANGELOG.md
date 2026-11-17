@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-11-17 — N-21/N-22 pre-hand-rank findings
+
+Before the blind hand-rank: fixture H2 restoration verified byte-identical
+against the live DB for all 50 pages; the 23 live reclassifications were
+dumped and classified — 2 carried by title/H1, 15 H2-assisted with one
+token outside H2, 6 H2-only (all matches involve H2). N-17 gains the
+match-quality disagreement class (present, right position, wrong pair);
+E9's pass is noted as a distribution it was not calibrated for
+(WEAK_PAGE 39.7%, SCHEMA 39.7%, NO_PAGE 11.8%).
+
+## 2026-11-17 — Phase 4 live run + N-20 fixture fix
+
+First live run since Phase 3: `run-20261117T171357Z` (landc.co.uk,
+`--no-llm`, fetches 52/120, delta +0.0 vs 153658Z, week plan present).
+Gap distribution: SCHEMA_MISSING 27, WEAK_PAGE 27, NO_PAGE 8,
+LOCAL_MISSING 6 (68 total, max 39.7%); 23 NO_PAGE reclassified by the
+pre-check.
+
+- N-20: the 74kw fixture silently dropped H2/H3 tags (recorded empty
+  while the DB's h_tags_json was intact), understating the pre-check.
+  Fixture fixed from `h_tags`; it now replays the live run exactly
+  (68/68 identical, zero symmetric difference). N-16's "5 of 31" stands
+  as recorded for the fixture as committed; live reclass is 23 of 31.
+  N-18 baseline superseded by N-20's numbers.
+- out/README.md: 153658Z flagged as pre-Phase-3 gap engine.
+
 ## 2026-11-17 — N-19 hand-rank units
 
 The blind hand-rank (N-9) now explicitly ranks human-grouped actions

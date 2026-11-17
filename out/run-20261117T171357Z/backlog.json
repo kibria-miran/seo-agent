@@ -1,0 +1,1606 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fee freemortgageadvice"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "From the UK's best mortgage broker",
+        "Today’sbest buymortgages",
+        "Handy tools and calculators",
+        "How can we do all this for free?",
+        "Celebrating 1 millionmortgagestories",
+        "Here’s how much we’ve saved customers so far this year with our Rate Check service.",
+        "Which best describes you?",
+        "Latest mortgagenews",
+        "Check your mortgage options",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "independent mortgage broker",
+      "matched_fields": {
+        "h2": [
+          "broker",
+          "mortgage"
+        ],
+        "title": [
+          "broker",
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "broker",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/",
+      "title": "L&C Mortgages | Find your best mortgage with your fee free Mortgage Broker"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/",
+    "title": "Fix title/H1 coverage for 'independent mortgage broker' on https://www.landc.co.uk/"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fee freemortgageadvice"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "From the UK's best mortgage broker",
+        "Today’sbest buymortgages",
+        "Handy tools and calculators",
+        "How can we do all this for free?",
+        "Celebrating 1 millionmortgagestories",
+        "Here’s how much we’ve saved customers so far this year with our Rate Check service.",
+        "Which best describes you?",
+        "Latest mortgagenews",
+        "Check your mortgage options",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "mortgage broker reviews",
+      "matched_fields": {
+        "h2": [
+          "broker",
+          "mortgage"
+        ],
+        "title": [
+          "broker",
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "broker",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/",
+      "title": "L&C Mortgages | Find your best mortgage with your fee free Mortgage Broker"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/",
+    "title": "Fix title/H1 coverage for 'mortgage broker reviews' on https://www.landc.co.uk/"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Sustainability and Impact"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Supporting our customers, community and the environment.",
+        "Sustainability",
+        "Charity & Community",
+        "Why are we passionate about #ChangeOneThing?",
+        "Want to find out more?",
+        "Where can I find green mortgage rates?",
+        "Who do I speak to about green mortgages or retrofitting?",
+        "What’s an EPC?",
+        "Have a sustainability idea or media enquiry?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "mortgage rates 2026",
+      "matched_fields": {
+        "h2": [
+          "mortgage",
+          "rates"
+        ]
+      },
+      "matched_tokens": [
+        "mortgage",
+        "rates"
+      ],
+      "page": "https://www.landc.co.uk/about-us/sustainability",
+      "title": "Sustainability"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/about-us/sustainability",
+    "title": "Fix title/H1 coverage for 'mortgage rates 2026' on https://www.landc.co.uk/about-us/sustainability"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "adverse credit mortgage",
+      "matched_fields": {
+        "h2": [
+          "credit",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "credit",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'adverse credit mortgage' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "bad credit mortgage",
+      "matched_fields": {
+        "h2": [
+          "credit",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "credit",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'bad credit mortgage' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "how much can i borrow mortgage",
+      "matched_fields": {
+        "h2": [
+          "borrow",
+          "mortgage",
+          "much"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "borrow",
+        "mortgage",
+        "much"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'how much can i borrow mortgage' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "remortgage broker",
+      "matched_fields": {
+        "h2": [
+          "broker",
+          "remortgage"
+        ]
+      },
+      "matched_tokens": [
+        "broker",
+        "remortgage"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'remortgage broker' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "should i remortgage now",
+      "matched_fields": {
+        "h2": [
+          "remortgage",
+          "should"
+        ]
+      },
+      "matched_tokens": [
+        "remortgage",
+        "should"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'should i remortgage now' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare mortgagedeals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Compare today's mortgage rates & deals",
+        "Please enter a search to get started",
+        "Our mortgage best buys",
+        "Get expert advice and find the best mortgagedeal for you",
+        "You're remortgaging your home",
+        "You're moving home",
+        "You're buying your first home",
+        "Find your best mortgage",
+        "Compare mortgagetypes",
+        "Fixed rate",
+        "Tracker",
+        "Discount rate",
+        "Offset",
+        "Get a mortgage quote",
+        "How much can I borrow?",
+        "How to get thebestmortgage deals",
+        "Check your credit score",
+        "Shop around",
+        "Check the fees",
+        "Use an L&C mortgage broker",
+        "Get a head start with an L&C Mortgage in Principle",
+        "‍You’ll get your Mortgage in Principle certificate in minutes",
+        "Applying won’t affect your credit score",
+        "A Mortgage in Principle can help speed up the buying process",
+        "Getting started with ourmortgage guides",
+        "How to prepare for a mortgage application",
+        "What does a mortgage broker do?",
+        "Sign up to our newsletter",
+        "Comparing mortgages FAQs",
+        "How do I decide which is the best mortgage for me?",
+        "What should I consider when comparing mortgages?",
+        "What factors affect the mortgage I can get?",
+        "What is LTV and how does it affect the cost of a mortgage?",
+        "Should I compare mortgages based on annual cost?",
+        "What other mortgage cost factors should I compare?",
+        "What length fixed rate mortgage should I get?",
+        "When should I remortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "when to remortgage",
+      "matched_fields": {
+        "h2": [
+          "remortgage",
+          "when"
+        ]
+      },
+      "matched_tokens": [
+        "remortgage",
+        "when"
+      ],
+      "page": "https://www.landc.co.uk/best-mortgage-rates",
+      "title": "Compare Mortgage Deals | Best Mortgage Rates in UK"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/best-mortgage-rates",
+    "title": "Fix title/H1 coverage for 'when to remortgage' on https://www.landc.co.uk/best-mortgage-rates"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "how much deposit do i need for a mortgage",
+      "matched_fields": {
+        "h2": [
+          "deposit",
+          "do",
+          "mortgage",
+          "much",
+          "need"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "deposit",
+        "do",
+        "mortgage",
+        "much",
+        "need"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'how much deposit do i need for a mortgage' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "interest only mortgage",
+      "matched_fields": {
+        "h2": [
+          "interest",
+          "mortgage",
+          "only"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "interest",
+        "mortgage",
+        "only"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0011",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'interest only mortgage' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "low deposit mortgage",
+      "matched_fields": {
+        "h2": [
+          "deposit",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "deposit",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0012",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'low deposit mortgage' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "mortgage affordability calculator",
+      "matched_fields": {
+        "h2": [
+          "calculator",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "calculator",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0013",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'mortgage affordability calculator' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "mortgage with 5 deposit",
+      "matched_fields": {
+        "h2": [
+          "deposit",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "deposit",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0014",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'mortgage with 5 deposit' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy to Let"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start the Buy to Let mortgage process today",
+        "What is aBuy to Letmortgage?",
+        "Why use a mortgage broker for yourBuy to Letmortgage?",
+        "Explore Buy to Let products",
+        "Buy to Let remortgages",
+        "Buy to Let interest-only",
+        "Buy to Let mortgage calculator",
+        "Who is eligible for aBuy to Letmortgage?",
+        "Get started with your Buy to Let mortgage",
+        "How do Buy to Let mortgages work",
+        "Tax on Buy to Let properties",
+        "Using a limited company",
+        "Buy to Let remortgage",
+        "Buy to Let mortgage FAQs",
+        "How much could I borrow on a Buy to Let mortgage?",
+        "How much deposit do I need?",
+        "Do I need a tenancy agreement?",
+        "Are there any property types that are difficult to secure a Buy to Let mortgage on?",
+        "Can I buy a Buy to Let property as a first time buyer?",
+        "What is a House in Multiple Occupation (HMO)?",
+        "Ready to find your perfectBuy to Letmortgage?",
+        "Word of mouth",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "remortgage calculator",
+      "matched_fields": {
+        "h2": [
+          "calculator",
+          "remortgage"
+        ]
+      },
+      "matched_tokens": [
+        "calculator",
+        "remortgage"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let",
+      "title": "Buy to Let Mortgage Broker & Adviser - Fee-Free BTL Broker - L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0015",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage for 'remortgage calculator' on https://www.landc.co.uk/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Compare Buy to Let deals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your Buy to Let mortgage online",
+        "Compare 1000s of Buy to Let mortgage rates & deals",
+        "Your results",
+        "Our Buy to Let best buys",
+        "What is aBuy to Letmortgage?",
+        "Check your Buy to Let mortgage options",
+        "Why use an L&C mortgage adviser for yourBuy to Letmortgage?",
+        "Get specialist Buy to Let mortgage advice for landlords",
+        "The basics of Buy to Let mortgages",
+        "Remortgaging Buy to Let property",
+        "How much can you borrow?",
+        "Read whatfirst time landlordSudhir Managolikar says about his experience with L&C",
+        "Buy to Let mortgages for different property portfolios",
+        "Individual rental properties",
+        "Holiday lets",
+        "HMOs",
+        "Portfolio landlords",
+        "How much rent should I charge?",
+        "Types of Buy to let mortgages",
+        "Fixed rate BTL mortgage",
+        "Variable rate BTL mortgages",
+        "Tracker mortgages",
+        "The 7 factors that affect your mortgage rate",
+        "Loan to value (LTV)",
+        "Deposit size",
+        "Credit rating",
+        "Income and affordability",
+        "Market conditions",
+        "Lender policies",
+        "Property type",
+        "Comparing Buy to Let mortgages FAQs",
+        "Do I need a Buy to Let mortgage to rent out my property?",
+        "Is a Buy to Let mortgage cheaper than a standard mortgage?",
+        "What additional fees are associated with being a landlord?",
+        "Are there minimum and maximum loan amounts?",
+        "Can I make overpayments on my Buy to Let mortgage?",
+        "Stay in the know with our newsletter",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "portfolio landlord mortgage",
+      "matched_fields": {
+        "h2": [
+          "landlord",
+          "mortgage",
+          "portfolio"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "landlord",
+        "mortgage",
+        "portfolio"
+      ],
+      "page": "https://www.landc.co.uk/buy-to-let/best-buys",
+      "title": "Compare the Best Buy to Let Mortgage Rates & Deals | L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0016",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/buy-to-let/best-buys",
+    "title": "Fix title/H1 coverage for 'portfolio landlord mortgage' on https://www.landc.co.uk/buy-to-let/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Our calculators"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Try our mortgage calculator",
+        "Our calculators",
+        "Mortgage calculator",
+        "Loan to value calculator",
+        "How much is my house worth?",
+        "How much stamp duty will I pay?",
+        "Life insurance calculator",
+        "How much can I save by making overpayments?",
+        "Offset v Savings calculator",
+        "Remortgage Calculator",
+        "Loan to value calculator",
+        "How much is my house worth?",
+        "How much can I save by making overpayments?",
+        "Offset v Savings calculator",
+        "Life insurance calculator",
+        "Buy to let calculator",
+        "Loan to value calculator",
+        "How much is my house worth?",
+        "How much stamp duty will I pay?",
+        "How much can I save by making overpayments?",
+        "Life insurance calculator",
+        "Mortgage calculator",
+        "Loan to value calculator",
+        "How much is my house worth?",
+        "How much stamp duty will I pay?",
+        "How much can I save by making overpayments?",
+        "Offset v Savings calculator",
+        "Life insurance calculator",
+        "Savings calculator",
+        "Life insurance calculator",
+        "Check your mortgage options",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "later life mortgage",
+      "matched_fields": {
+        "h2": [
+          "life",
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "life",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/calculators",
+      "title": "Free House Buying Calculators - Quick & Easy to Use | L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0017",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/calculators",
+    "title": "Fix title/H1 coverage for 'later life mortgage' on https://www.landc.co.uk/calculators"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Comparefirst time buyermortgage deals"
+      ],
+      "head_term": "first time buyer guide",
+      "page": "https://www.landc.co.uk/first-time-buyers/best-buys",
+      "title": "L&C mortgage advisers | Designed for first time buyers"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0018",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/first-time-buyers/best-buys",
+    "title": "Fix title/H1 coverage for 'first time buyer guide' on https://www.landc.co.uk/first-time-buyers/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Comparefirst time buyermortgage deals"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Mortgages for first time buyers -at a glance",
+        "Trusted by over1 millioncustomers",
+        "Get mortgage advice for first time buyers and find the best deals",
+        "Compare today's mortgage  rates & deals",
+        "Your results",
+        "Get a Mortgage in Principle",
+        "Your online Mortgage in Principle from L&C",
+        "Help forfirst timebuyers",
+        "How much can you afford",
+        "Schemes for first time buyers",
+        "Mortgages explained",
+        "The mortgage process",
+        "Talk to your L&C mortgage adviser",
+        "Recently asked questions about first time buyer mortgages",
+        "What is a loan to value ratio (LTV)?",
+        "Can you get 100% mortgages for first time buyers?",
+        "What costs are involved in getting my first mortgage?",
+        "What’s the difference between repayment & interest only mortgages?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "what mortgage can i afford",
+      "matched_fields": {
+        "h2": [
+          "afford",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "afford",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/first-time-buyers/best-buys",
+      "title": "L&C mortgage advisers | Designed for first time buyers"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0019",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/first-time-buyers/best-buys",
+    "title": "Fix title/H1 coverage for 'what mortgage can i afford' on https://www.landc.co.uk/first-time-buyers/best-buys"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Bank of England raises interest rates for first time in over 3 years"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Contents",
+        "What does the increase mean for you?",
+        "Was this article helpful?",
+        "Thank you for your feedback!",
+        "Check your mortgage options",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "mortgage for over 60s",
+      "matched_fields": {
+        "h1": [
+          "over"
+        ],
+        "h2": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "mortgage",
+        "over"
+      ],
+      "page": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+      "title": ""
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0020",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years",
+    "title": "Fix title/H1 coverage for 'mortgage for over 60s' on https://www.landc.co.uk/insight/bank-of-england-raises-interest-rates-for-first-time-in-over-3-years"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Mortgages"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Mortgage products",
+        "Buying to let andinvestments",
+        "First timebuyer",
+        "Specialistmortgages",
+        "Remortgaging andraising capital",
+        "Whychoose L&C for your mortgage?",
+        "It's easy!",
+        "Over 95 lenders",
+        "Track your application",
+        "Confused by the options?",
+        "Considerations when applying for a mortgage",
+        "Mortgage FAQs",
+        "How much could I borrow?",
+        "Do I need a deposit?",
+        "How many times my salary can I borrow for a mortgage?",
+        "What mortgage can I qualify for?",
+        "How long does a mortgage application take?",
+        "Can I talk to someone about my options?",
+        "What’s a repayment mortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "95 percent mortgage",
+      "matched_fields": {
+        "h1": [
+          "mortgage"
+        ],
+        "h2": [
+          "95",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "95",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/mortgages",
+      "title": "Find the best mortgage for you | Fee free mortgage advice"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0021",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages",
+    "title": "Fix title/H1 coverage for '95 percent mortgage' on https://www.landc.co.uk/mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Find yourfixed ratemortgage with L&C"
+      ],
+      "head_term": "fixed rate mortgage deals",
+      "page": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+      "title": "Fixed rate mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0022",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for 'fixed rate mortgage deals' on https://www.landc.co.uk/mortgages/fixed-rate-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Mortgage guides"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Categories",
+        "Check yourmortgage options",
+        "Buy to Let tax",
+        "What to do before you exchange contracts",
+        "Your First Home Scheme: What you need to know",
+        "How much deposit do you need for a mortgage?",
+        "House buying schemes",
+        "Fixed Rate Mortgages",
+        "Remortgage essentials",
+        "Mortgage credit readiness: is your credit profile ready for a mortgage?",
+        "What are Shared Ownership mortgages and how do they work?",
+        "Your interest only mortgage",
+        "Getting a tracker mortgage. What you need to know",
+        "Buy to Let for Airbnb",
+        "Becoming a landlord. The basics of Buy to Let",
+        "Divorce, mortgages and adding partners. What happens when your situation changes",
+        "What is a mortgage?",
+        "Advice for buying or selling your home",
+        "Check your mortgage options",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "joint mortgage sole ownership",
+      "matched_fields": {
+        "h1": [
+          "mortgage"
+        ],
+        "h2": [
+          "mortgage",
+          "ownership"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "mortgage",
+        "ownership"
+      ],
+      "page": "https://www.landc.co.uk/mortgages/mortgage-guides",
+      "title": "Mortgage Guide - L&C Guide to Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0023",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/mortgage-guides",
+    "title": "Fix title/H1 coverage for 'joint mortgage sole ownership' on https://www.landc.co.uk/mortgages/mortgage-guides"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fixed Rate Mortgages"
+      ],
+      "head_term": "2 year fixed mortgage",
+      "page": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+      "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0024",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for '2 year fixed mortgage' on https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Fixed Rate Mortgages"
+      ],
+      "head_term": "5 year fixed mortgage rates",
+      "page": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+      "title": "Fixed Rate Mortgages: How They Work | L&C Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0025",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages",
+    "title": "Fix title/H1 coverage for '5 year fixed mortgage rates' on https://www.landc.co.uk/mortgages/product/10-year-fixed-rate-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buying a new build home"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Your new build mortgage",
+        "How to apply for a new build mortgage with L&C",
+        "Apply for a new build mortgage with L&C",
+        "FAQs",
+        "When can I apply for a mortgage on a new build?",
+        "How do new build mortgages work?",
+        "When do you start paying a mortgage on a new build?",
+        "Is it easier to get a mortgage for a new build?",
+        "How do self build mortgages work?",
+        "Can you add new build extras to a mortgage?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "self employed mortgage",
+      "matched_fields": {
+        "h2": [
+          "mortgage",
+          "self"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "mortgage",
+        "self"
+      ],
+      "page": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+      "title": "New Build Mortgage Broker - Compare Deals Online | L&C"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0026",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/mortgages/product/new-build-mortgages",
+    "title": "Fix title/H1 coverage for 'self employed mortgage' on https://www.landc.co.uk/mortgages/product/new-build-mortgages"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buyinga home"
+      ],
+      "h2": [
+        "Which best describes you?",
+        "Start your mortgage online",
+        "Find the right mortgage  for yourhome move",
+        "Our moving home mortgage comparison tool",
+        "Your results",
+        "Explore mortgage products",
+        "Variable rate mortgages",
+        "Fixed rate mortgages - 5 Years",
+        "Fixed rate mortgages - 10 Years",
+        "Mortgage options for moving home",
+        "Porting your mortgage",
+        "Top up mortgages",
+        "Taking out a new mortgage",
+        "Why apply for a mortgage with L&C?",
+        "When to apply for a mortgage",
+        "How to apply for a mortgage with L&C",
+        "Step 1 – Start online",
+        "Step 2 – See what you could borrow",
+        "Step 3 – Start your application with a trusted adviser",
+        "Let us guide you",
+        "How much deposit do I need?",
+        "Is it cheaper to rent or buy?",
+        "The cost of buying a house",
+        "What are the different types of house survey?",
+        "Moving house FAQs",
+        "Can downsizing impact the mortgage?",
+        "What is the ‘Chain’ when it comes to moving house?",
+        "What are the costs involved with moving home?",
+        "Do I need a mortgage in principle?",
+        "Thanks for signing up to our newsletter",
+        "Sign up to L&C's free newsletter!",
+        "Which best describes you?"
+      ],
+      "head_term": "10 percent deposit mortgage",
+      "matched_fields": {
+        "h2": [
+          "10",
+          "deposit",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "10",
+        "deposit",
+        "mortgage"
+      ],
+      "page": "https://www.landc.co.uk/moving-home",
+      "title": "Moving home - Buying a home - L&C Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0027",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://www.landc.co.uk/moving-home",
+    "title": "Fix title/H1 coverage for '10 percent deposit mortgage' on https://www.landc.co.uk/moving-home"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Birmingham",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker birmingham"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0028",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-birmingham",
+    "title": "Create a local page for 'mortgage broker birmingham'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Bristol",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker bristol"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0029",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-bristol",
+    "title": "Create a local page for 'mortgage broker bristol'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "city": "Glasgow",
+      "pages": [
+        "https://www.landc.co.uk/",
+        "https://www.landc.co.uk/about-us",
+        "https://www.landc.co.uk/about-us/anti-slavery-and-trafficking",
+        "https://www.landc.co.uk/about-us/complaints-data",
+        "https://www.landc.co.uk/about-us/customer-reviews"
+      ],
+      "service": "mortgage broker glasgow"
+    },
+    "gap_type": "LOCAL_MISSING",
+    "impact": 2,
+    "item_id": "BL-0030",
+    "kind": "create_local_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/mortgage-broker-glasgow",
+    "title": "Create a local page for 'mortgage broker glasgow'"
+  }
+]
