@@ -36,7 +36,9 @@ GOOD_SEQUENCE = [
 
 @pytest.fixture
 def profile():
-    return load_profile(config.PROFILES_DIR / "site.json")
+    from conftest import make_demo_profile
+
+    return make_demo_profile()
 
 
 def make_runner(tmp_path, responses, **kwargs):

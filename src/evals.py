@@ -28,6 +28,9 @@ from typing import Any
 
 from src import clock, config
 
+# Frozen demo profile: profiles/site.json is the user's real site and changes.
+DEMO_PROFILE_PATH = config.EVALS_DIR / "profile-demo.json"
+
 
 @dataclass(frozen=True)
 class Scenario:
@@ -127,7 +130,7 @@ def check_golden_baseline(params, tmp_path, monkeypatch):
 
     from src.pipeline import load_profile
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     report = _run_pipeline(
         tmp_path, monkeypatch, profile,
         fixture=config.FIXTURES_DIR / "own_site_audit.json", run_id="eval-s01",
@@ -157,7 +160,7 @@ def check_clean_site_produces_gaps(params, tmp_path, monkeypatch):
 
     from src.pipeline import load_profile
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     variant_path = _write_variant(
         tmp_path / "clean.json", {"issues": [], "site_score": 100.0, "grade": "A"}
     )
@@ -232,7 +235,7 @@ def check_money_impact(params, tmp_path, monkeypatch):
     from src.models import Gap, GapType
     from src.pipeline import load_profile, money_keywords_for
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     money = money_keywords_for(profile)
     money_gap = Gap(keyword=money[0], gap_type=GapType.NO_PAGE, evidence={})
     plain_gap = Gap(keyword="remortgage rates comparison", gap_type=GapType.NO_PAGE, evidence={})
@@ -270,7 +273,7 @@ def check_aborted_run(params, tmp_path, monkeypatch):
     from src.pipeline import load_profile
     from src.store import Store
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     db = tmp_path / "eval-s11.db"
     with Store(db) as store:
         store.start_run("stale", url="https://clearpath-mortgage.co.uk")
@@ -289,7 +292,7 @@ def check_byte_identical_rerun(params, tmp_path, monkeypatch):
     from src import pipeline
     from src.pipeline import load_profile
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     out = tmp_path / "out"
     db = tmp_path / "eval-s12.db"
     with _inject_clock(monkeypatch):
@@ -365,7 +368,7 @@ def check_two_run_diff(params, tmp_path, monkeypatch):
     from src.pipeline import load_profile
     from src.store import Store
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     variant = {
         "issues": [
             issue
@@ -410,7 +413,7 @@ def check_competitor_gap(params, tmp_path, monkeypatch):
     from src.models import CompetitorPage
     from src.pipeline import build_clusters, build_keywords, load_profile, money_keywords_for
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(DEMO_PROFILE_PATH)
     audit = run_audit(profile.base_url, fixture_path=config.FIXTURES_DIR / "own_site_audit.json")
     keywords = build_keywords(profile)
     clusters = build_clusters(keywords)

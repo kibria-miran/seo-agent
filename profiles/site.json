@@ -1,24 +1,34 @@
 {
-  "domain": "https://clearpath-mortgage.co.uk",
-  "money_pages": ["/", "/free-mortgage-advice", "/remortgage"],
+  "domain": "https://easyfinance.uk.com",
+  "money_pages": [
+    "/",
+    "/services",
+    "/services/first-time-buyer",
+    "/services/remortgage",
+    "/services/buy-to-let",
+    "/services/commercial",
+    "/services/bridging"
+  ],
   "target_keywords": [
-    "free mortgage advice",
-    "mortgage broker near me",
-    "remortgage calculator",
-    "first time buyer mortgage",
-    "buy to let mortgage",
-    "mortgage advice manchester",
-    "bad credit mortgage",
-    "mortgage fees explained",
-    "how much can i borrow mortgage",
-    "mortgage adviser london"
+    "commercial mortgage advisors near me",
+    "commercial mortgage broker",
+    "commercial mortgage advisor",
+    "commercial mortgage rates",
+    "commercial mortgage calculator",
+    "commercial mortgage deposit",
+    "commercial property mortgage",
+    "business mortgage",
+    "commercial remortgage",
+    "semi commercial mortgage",
+    "owner occupier commercial mortgage",
+    "commercial buy to let mortgage",
+    "commercial mortgage broker near me"
   ],
   "competitors": [
-    "moneysavingexpert.com",
-    "habito.com",
-    "trussle.com",
-    "lcplc.co.uk",
-    "nationwide.co.uk"
+    "commercialtrust.co.uk",
+    "onlinemortgageadvisor.co.uk",
+    "mfbrokers.co.uk",
+    "cliftonpf.co.uk"
   ],
   "cities": [
     "London",
@@ -30,5 +40,5 @@
     "Cardiff",
     "Belfast"
   ],
-  "fca_firm_ref": "123456"
+  "fca_firm_ref": "744119"
 }

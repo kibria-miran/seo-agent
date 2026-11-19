@@ -54,11 +54,13 @@ def trace(tmp_path):
 
 
 def _profile():
-    return load_profile(config.PROFILES_DIR / "site.json")
+    from conftest import make_demo_profile
+
+    return make_demo_profile()
 
 
 def _patch_pages(monkeypatch, pages_by_url):
-    def fake_http_get(url, *, respect_robots=False, timeout=None, delay=None):
+    def fake_http_get(url, *, respect_robots=False, timeout=None, delay=None, user_agent=None):
         if url not in pages_by_url:
             raise fetch_module.FetchError(f"unexpected GET {url}")
         body = pages_by_url[url]
@@ -187,9 +189,13 @@ def test_mine_competitors_caches_parsed_pages(monkeypatch, store, trace):
     calls_before = store.cache_count()
 
     # Second run: discovery hits the SERP cache; the page itself hits the
-    # competitor_page cache — no additional parse happens.
-    def explode(*args, **kwargs):
-        raise AssertionError("page was re-fetched despite the cache")
+    # competitor_page cache — no additional parse happens. Fallback probes for
+    # competitors with no discovered URLs may still be attempted, so only the
+    # already-parsed page must not be re-fetched.
+    def explode(url, *args, **kwargs):
+        if url == "https://www.habito.com/cached":
+            raise AssertionError("page was re-fetched despite the cache")
+        raise fetch_module.FetchError(f"unexpected fallback GET {url}")
 
     monkeypatch.setattr(fetch_module, "http_get", explode)
     second = mine_competitors(_profile(), store=store, trace=trace, max_queries=5)

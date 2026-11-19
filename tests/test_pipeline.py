@@ -33,7 +33,9 @@ FIXTURE = config.FIXTURES_DIR / "own_site_audit.json"
 
 @pytest.fixture
 def profile():
-    return load_profile(config.PROFILES_DIR / "site.json")
+    from conftest import make_demo_profile
+
+    return make_demo_profile()
 
 
 def read_json(path):
@@ -75,8 +77,13 @@ def make_variant(path, *, score=90.0):
 
 
 def test_load_profile_from_the_repo_file(profile):
-    assert profile.domain == "https://clearpath-mortgage.co.uk"
-    assert len(profile.target_keywords) == 10
+    """The shipped profile loads and is a real site, not the demo placeholder."""
+
+    shipped = load_profile(config.PROFILES_DIR / "site.json")
+    assert shipped.domain.startswith("https://")
+    assert shipped.domain != config.PLACEHOLDER_DOMAIN
+    assert len(shipped.target_keywords) >= 10
+    assert profile.domain == config.PLACEHOLDER_DOMAIN
 
 
 def test_load_profile_accepts_a_bare_name(tmp_path, monkeypatch):

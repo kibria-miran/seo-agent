@@ -22,6 +22,7 @@ import builtins
 import contextlib
 import copy
 import itertools
+import json
 from collections.abc import Iterator
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -263,6 +264,16 @@ def make_profile(**overrides: Any) -> SiteProfile:
     }
     data.update(overrides)
     return SiteProfile(**data)
+
+
+def make_demo_profile() -> SiteProfile:
+    """The frozen demo profile behind the golden tests and eval scenarios.
+
+    ``profiles/site.json`` is the user's real site and changes with it, so
+    anything asserting exact scores/backlog counts must not read it.
+    """
+
+    return SiteProfile(**json.loads((config.EVALS_DIR / "profile-demo.json").read_text(encoding="utf-8")))
 
 
 def make_run_report(**overrides: Any) -> RunReport:

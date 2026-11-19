@@ -53,7 +53,9 @@ def frozen_clock(inject_clock):
 
 
 def _profile():
-    return load_profile(config.PROFILES_DIR / "site.json")
+    from conftest import make_demo_profile
+
+    return make_demo_profile()
 
 
 class FakeResponse:
@@ -66,7 +68,7 @@ class FakeResponse:
 def _patch_http_get(monkeypatch, mapping):
     calls = []
 
-    def fake_get(url, *, respect_robots=False, timeout=None, delay=None):
+    def fake_get(url, *, respect_robots=False, timeout=None, delay=None, user_agent=None):
         calls.append(url)
         for needle, payload in mapping.items():
             if needle in url:

@@ -135,7 +135,7 @@ def test_gsc_demand_boosts_priority_through_the_pipeline(tmp_path, inject_clock,
     csv_path = tmp_path / "Queries.csv"
     csv_path.write_text(
         "Top queries,Clicks,Impressions,CTR,Position\n"
-        "bad credit mortgage,50,5000,1.0%,4.2\n",
+        "bad credit mortgage,250,5000,5.0%,4.2\n",
         encoding="utf-8",
     )
     monkeypatch.setenv("SEO_AGENT_GSC_CSV", str(csv_path))
@@ -143,7 +143,7 @@ def test_gsc_demand_boosts_priority_through_the_pipeline(tmp_path, inject_clock,
     from src import config
     from src.pipeline import load_profile, run_deterministic
 
-    profile = load_profile(config.PROFILES_DIR / "site.json")
+    profile = load_profile(config.EVALS_DIR / "profile-demo.json")
     report = run_deterministic(
         profile,
         fixture_path=config.FIXTURES_DIR / "own_site_audit.json",

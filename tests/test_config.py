@@ -87,8 +87,9 @@ def test_profile_accepts_a_valid_uk_site():
 def test_profile_reads_the_real_profiles_file():
     raw = json.loads((config.PROFILES_DIR / "site.json").read_text(encoding="utf-8"))
     profile = SiteProfile(**raw)
-    assert len(profile.target_keywords) == 10
-    assert len(profile.competitors) == 5
+    assert profile.domain.startswith("https://")
+    assert len(profile.target_keywords) >= 10
+    assert profile.competitors
     assert len(profile.cities) == 8
 
 
