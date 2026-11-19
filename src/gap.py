@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable, Mapping, Sequence
+from urllib.parse import urlsplit
 
 from src import config
 from src.keywords import (
@@ -352,6 +353,16 @@ def _page_relevant(page: PageData, clusters: Sequence[Cluster]) -> bool:
     return False
 
 
+def _path_of(url: str) -> str:
+    """Readable page identifier for gaps that describe a page, not a keyword."""
+
+    try:
+        path = urlsplit(url or "").path.rstrip("/")
+    except ValueError:
+        return url or ""
+    return path or "/"
+
+
 def _schema_gaps(
     pages: Sequence[PageData],
     required_schema: Sequence[str],
@@ -368,7 +379,10 @@ def _schema_gaps(
             continue
         gaps.append(
             Gap(
-                keyword=page.title or page.url,
+                # A schema gap is page-level, not keyword-level. Using the page
+                # title here made the report list "Buy-to-Let Mortgages | Easy
+                # Financial Services" as if it were a search term.
+                keyword=_path_of(page.url),
                 cluster_id="",
                 gap_type=GapType.SCHEMA_MISSING,
                 evidence={

@@ -124,6 +124,9 @@ def _title_for(gap: Gap, target: str) -> str:
     if gap.gap_type == GapType.LOCAL_MISSING:
         return f"Create a local page for '{keyword}'"
     if gap.gap_type == GapType.WEAK_PAGE:
+        count = gap.evidence.get("keyword_count") if isinstance(gap.evidence, dict) else None
+        if isinstance(count, int) and count > 1:
+            return f"Fix title/H1 coverage on {target} ({count} keywords)"
         return f"Fix title/H1 coverage for '{keyword}' on {target}"
     if gap.gap_type == GapType.SCHEMA_MISSING:
         page_count = gap.evidence.get("page_count") if isinstance(gap.evidence, dict) else None
@@ -210,6 +213,49 @@ def _content_key(gap: Gap) -> str:
     return json.dumps(payload, sort_keys=True, default=str, separators=(",", ":"))
 
 
+def _merge_page_weak_gaps(
+    entries: dict[tuple[str, str, str], tuple[float, Gap, str, int, int, float]],
+) -> dict[tuple[str, str, str], tuple[float, Gap, str, int, int, float]]:
+    """Collapse WEAK_PAGE gaps that share a page into one actionable item.
+
+    Eight keywords pointing at ``/services`` are one title/H1 edit, not eight
+    sprint items. The merged item keeps the strongest keyword's priority and
+    records the full keyword set, so money-keyword coverage still counts.
+    Deterministic: groups and representatives are ordered, never sampled.
+    """
+
+    groups: dict[str, list[tuple[float, Gap, str, int, int, float]]] = {}
+    for _key, candidate in entries.items():
+        if candidate[1].gap_type != GapType.WEAK_PAGE:
+            continue
+        groups.setdefault(_normalise_url(_target_for(candidate[1])), []).append(candidate)
+
+    merged = dict(entries)
+    for target_key in sorted(groups):
+        group = groups[target_key]
+        if len(group) < 2:
+            continue
+        group.sort(key=lambda c: (-c[0], _content_key(c[1])))
+        priority, source, target, effort, impact, confidence = group[0]
+        keywords = sorted({_normalise_keyword(c[1].keyword) for c in group})
+        evidence = dict(source.evidence)
+        evidence["keywords"] = keywords
+        evidence["keyword_count"] = len(keywords)
+        evidence["cluster_keywords"] = keywords
+        for candidate in group:
+            merged.pop(_dedupe_key(candidate[1]), None)
+        combined = Gap(
+            keyword=source.keyword,
+            cluster_id=source.cluster_id,
+            gap_type=GapType.WEAK_PAGE,
+            evidence=evidence,
+            sources=list(source.sources),
+            target=target,
+        )
+        merged[_dedupe_key(combined)] = (priority, combined, target, effort, impact, confidence)
+    return merged
+
+
 def build_backlog(
     gaps: Sequence[Gap],
     money_keywords: Iterable[str] = (),
@@ -248,9 +294,9 @@ def build_backlog(
         ):
             best[key] = candidate
 
-    schema_entries = [
-        c for c in best.values() if c[1].gap_type == GapType.SCHEMA_MISSING
-    ]
+    best = _merge_page_weak_gaps(best)
+
+    schema_entries = [c for c in best.values() if c[1].gap_type == GapType.SCHEMA_MISSING]
     if len(schema_entries) > config.SCHEMA_UMBRELLA_MIN_PAGES:
         pages = sorted({c[2] for c in schema_entries})
         required = sorted(

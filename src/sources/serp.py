@@ -25,6 +25,8 @@ from src.sources.base import Source, SourceError
 
 SERP_URL = "https://html.duckduckgo.com/html/"
 MAX_RESULTS = 10
+# DuckDuckGo blocks non-browser UAs; use a browser-like identity for the HTML endpoint.
+BROWSER_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 class SerpSource(Source):
     """Top organic results for a query, ranked 1..N."""
@@ -34,7 +36,7 @@ class SerpSource(Source):
     def fetch(self, query: str) -> Sequence[Mapping[str, Any]]:
         url = f"{SERP_URL}?{urlencode({'q': query})}"
         try:
-            body = fetch.http_get(url)
+            body = fetch.http_get(url, user_agent=BROWSER_UA)
         except fetch.FetchError as exc:
             raise SourceError(f"serp failed for {query!r}: {exc}") from exc
         soup = BeautifulSoup(body, "lxml")

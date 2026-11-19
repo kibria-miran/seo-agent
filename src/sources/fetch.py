@@ -68,12 +68,14 @@ def http_get(
     respect_robots: bool = False,
     timeout: float | None = None,
     delay: float | None = None,
+    user_agent: str | None = None,
 ) -> bytes:
     """GET ``url`` with the honest UA and shared throttle. Returns the body.
 
     ``respect_robots=True`` checks the host's robots.txt first (page crawls).
     Search/API endpoints pass ``False``; they are not page crawls but are
-    still throttled and GET-only.
+    still throttled and GET-only. ``user_agent`` overrides the default UA
+    for hosts that require a browser-like identity (e.g. DuckDuckGo HTML).
     """
 
     host = urlparse(url).hostname or ""
@@ -81,10 +83,11 @@ def http_get(
         raise FetchError(f"robots.txt disallows fetching {url}")
     throttle(host, delay=delay)
     _module_state["fetches"] += 1
+    ua = user_agent if user_agent is not None else USER_AGENT
     try:
         response = requests.get(
             url,
-            headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.5"},
+            headers={"User-Agent": ua, "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.5"},
             timeout=timeout or config.HTTP_TIMEOUT_SECONDS,
         )
     except requests.RequestException as exc:

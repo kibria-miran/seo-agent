@@ -1,5 +1,53 @@
 # Changelog
 
+## 2026-11-19 — Phase A live-run work split from Phase B (B3 frozen)
+
+The uncommitted Phase A/B diff was reviewed, split, and committed as four
+reviewable commits: (1) profile swap to the real site with tests/evals on
+the frozen demo profile; (2) headless-Chrome crawl path and weekly render
+opt-in; (3) agent `explain_gaps` step; (4) sources/reporting fixes below.
+The originally squashed a843865 was soft-reset before any push to make it
+bisectable. Contents: real-site profile (`profiles/site.json`) with tests and evals
+moved to the frozen demo profile (`evals/profile-demo.json`); headless-Chrome
+crawl path (`src/render.py`, `AuditBlockedError` when every crawled page is
+a bot-challenge interstitial); honest-UA override for the DDG HTML SERP
+endpoint; competitor-URL fallback probing; fetch-budget reservation for
+competitor mining; WEAK_PAGE gaps merged per page in the backlog; schema
+gaps keyed on page path not title; canonical URL diff keys (www/scheme/trailing
+slash); agent `explain_gaps` tool (LLM explains why the top backlog items
+matter and the next action; rank and priority stay in code); trace writer
+shared by CLI and agent; GSC CTR stored as a ratio so the report renders it
+correctly. GSC-in-scoring beyond the committed impression tiers (a low-CTR
+priority bonus) was cut as B3, post-A work: it would contaminate the A/B
+clean/agent comparison and was reverted before commit.
+
+## 2026-11-19 — CI restored to green; weekly script opts into render
+
+- CI was red on master since 2026-11-17: the packaging smoke test's
+  `Guard:` step name contained an unquoted `: `, a YAML syntax error, so no
+  job ever started. The step name is now quoted and the guard imports the
+  vendored seoextract via `sys.path` (the previous `spec_from_file_location`
+  dropped `submodule_search_locations` and could not resolve relative
+  imports). CI is green again (test 3.12/3.14, lint, evals, wheel smoke).
+- `scripts/weekly.sh` now exports `SEO_AGENT_RENDER=1` and `CHROME_BIN`
+  automatically when `/opt/google/chrome/chrome` exists, so the weekly run
+  crawls bot-challenged hosts instead of failing on the interstitial.
+- The suite is 513 passed, 2 deselected (up from 464: render and GSC-demand
+  coverage added in the uncommitted Phase A/B work).
+- Determinism re-verified on the live site: `run-20261119T115000Z`
+  (`--no-llm`, `SEO_AGENT_RENDER=1`) — score 94.5, 13 pages, 4 backlog items,
+  byte-identical rerun expectations intact.
+
+## 2026-11-18 — NIM default model retired (Phase 2 unblock)
+
+`nvidia/llama-3.1-nemotron-70b-instruct` reached end of life on 2026-11-15 and
+returns HTTP 410, so `--agent` could not make any LLM call and fell back to the
+deterministic path. Default `NIM_MODEL` switched to
+`mistralai/mistral-large-4-1t-a52b` (still overridable via `NIM_MODEL` env var).
+`self_test` max_tokens raised from 4 to 60 because the replacement is a
+reasoning model that needs budget for reasoning + content. LLM connectivity
+verified via `self_test` (29+34 tokens).
+
 ## 2026-11-17 — N-21/N-22 pre-hand-rank findings
 
 Before the blind hand-rank: fixture H2 restoration verified byte-identical

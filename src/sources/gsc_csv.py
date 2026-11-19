@@ -127,6 +127,9 @@ class GscCsvSource(Source):
             clicks = _number(row.get(clicks_col)) if clicks_col else None
             impressions = _number(row.get(impressions_col)) if impressions_col else None
             ctr = _number(row.get(ctr_col)) if ctr_col else None
+            # GSC exports CTR as a percent string ("0.57%"); store it as a ratio.
+            if ctr is not None:
+                ctr = ctr / 100.0
             position = _number(row.get(position_col)) if position_col else None
             entry = best.get(keyword)
             impressions = impressions or 0.0

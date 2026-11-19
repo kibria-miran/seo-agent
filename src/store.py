@@ -16,6 +16,7 @@ from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from src import clock, config
 from src.models import (
@@ -177,26 +178,61 @@ def cache_key(source: str, query: str) -> str:
     return f"{source}|{query.strip().casefold()}"
 
 
+def _canonical_page(url: str) -> str:
+    """Comparison key for a page URL: scheme, ``www.`` and trailing slash insensitive.
+
+    A run sees ``https://www.example.com/x`` and the next sees
+    ``https://example.com/x`` depending on how the profile spells the domain.
+    Comparing raw URLs reports every issue as both new and closed (seen in
+    ``run-live-real-2``), so the diff keys on the canonical form and renders
+    the URL from the run it belongs to.
+    """
+
+    raw = (url or "").strip().casefold()
+    if not raw:
+        return ""
+    if "://" not in raw:
+        raw = f"https://{raw}"
+    try:
+        parsed = urlsplit(raw)
+    except ValueError:
+        return raw
+    host = (parsed.hostname or "").removeprefix("www.")
+    path = parsed.path.rstrip("/") or "/"
+    return f"{host}{path}"
+
+
 def diff_snapshots(previous: AuditSnapshot | None, current: AuditSnapshot) -> AuditDiff:
-    previous_issues = set()
-    previous_gaps = set()
-    if previous is not None:
-        previous_issues = {(i.page_url, i.issue_type) for i in previous.issues}
+    def issue_map(snapshot: AuditSnapshot | None) -> dict[tuple[str, str], str]:
+        if snapshot is None:
+            return {}
+        return {
+            (_canonical_page(issue.page_url), issue.issue_type): issue.page_url
+            for issue in snapshot.issues
+        }
 
-    current_issues = {(i.page_url, i.issue_type) for i in current.issues}
+    previous_issues = issue_map(previous)
+    current_issues = issue_map(current)
 
-    def render(items: set[tuple[str, str]]) -> list[str]:
-        return sorted(f"{page} :: {issue}" for page, issue in items)
+    def render(items: dict[tuple[str, str], str]) -> list[str]:
+        return sorted(f"{page} :: {issue[1]}" for issue, page in items.items())
 
+    new_items = render(
+        {key: current_issues[key] for key in current_issues.keys() - previous_issues.keys()}
+    )
+    closed_items = render(
+        {key: previous_issues[key] for key in previous_issues.keys() - current_issues.keys()}
+    )
     score_delta = (
         round(current.site_score - previous.site_score, 4) if previous is not None else None
     )
     return AuditDiff(
         score_delta=score_delta,
-        new_items=render(current_issues - previous_issues),
-        closed_items=render(previous_issues - current_issues),
-        new_gaps=render(previous_gaps),
-        closed_gaps=render(previous_gaps),
+        new_items=new_items,
+        closed_items=closed_items,
+        # Gap diffs are computed in diff_runs() against Gap rows, not snapshots.
+        new_gaps=[],
+        closed_gaps=[],
     )
 
 

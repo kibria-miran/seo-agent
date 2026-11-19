@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import contextlib
 import json
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
@@ -123,9 +124,19 @@ def mine_scraping_sources(
     serp_results: list[SerpResult] = []
     counts = {"suggest": 0, "serp": 0, "competitor_pages": 0}
 
+    # Reserve fetch budget for competitor mining so suggest/serp can't starve it
+    # (D-13: budgets enforced in code, never by prompts).
+    competitor_reserve = (
+        config.MAX_SERP_QUERIES
+        + config.MAX_COMP_PAGES * len(profile.competitors)
+        + len(profile.competitors)
+    )
+
     suggest = SuggestSource()
     suggest_empty = 0
     for seed in seed_terms(profile):
+        if sources_fetch.fetch_count() >= config.MAX_FETCHES - competitor_reserve:
+            break
         try:
             result = suggest.collect(seed, store=store, trace=trace)
         except SourceError as exc:
@@ -143,6 +154,8 @@ def mine_scraping_sources(
     serp = SerpSource()
     serp_empty = 0
     for query in profile.target_keywords[: config.MAX_SERP_QUERIES]:
+        if sources_fetch.fetch_count() >= config.MAX_FETCHES - competitor_reserve:
+            break
         try:
             result = serp.collect(query, store=store, trace=trace)
         except SourceError as exc:

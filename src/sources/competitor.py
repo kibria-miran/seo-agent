@@ -181,6 +181,23 @@ def mine_competitors(
                     bucket.append(url)
                     seen_urls.add(url)
 
+    # Fallback: DDG ``site:`` discovery can be blocked (anomaly challenge) or
+    # return nothing. When a competitor domain yielded no discovered URLs,
+    # build likely money-page URLs from the profile's own money_pages slugs
+    # and try them directly. Network/robots/injection failures are skipped so
+    # discovery still degrades gracefully.
+    for domain in profile.competitors:
+        if urls_by_domain[domain]:
+            continue
+        for path in profile.money_pages:
+            if len(urls_by_domain[domain]) >= per_domain:
+                break
+            url = f"https://{domain}{path}"
+            if url in seen_urls:
+                continue
+            seen_urls.add(url)
+            urls_by_domain[domain].append(url)
+
     pages: list[CompetitorPage] = []
     for domain in sorted(urls_by_domain):
         for url in sorted(urls_by_domain[domain]):
