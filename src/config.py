@@ -139,7 +139,7 @@ COUNT_HEAD_AGAINST_FETCH_BUDGET = False
 # ---------------------------------------------------------------------------
 
 NIM_BASE_URL = os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
-NIM_MODEL = os.getenv("NIM_MODEL", "nvidia/llama-3.1-nemotron-70b-instruct")
+NIM_MODEL = os.getenv("NIM_MODEL", "mistralai/mistral-large-4-1t-a52b")
 NIM_API_KEY_ENV = "NVIDIA_API_KEY"
 LLM_TIMEOUT_SECONDS = 30.0
 LLM_TEMPERATURE = 0.3
@@ -292,6 +292,12 @@ GSC_BOOST_TIER_3 = 1.1
 # backlog item; the per-page gaps remain in the report's gap list.
 SCHEMA_UMBRELLA_MIN_PAGES = 3
 SCHEMA_UMBRELLA_MAX_EFFORT = 8
+
+# Option A: the LLM explains WHY the top backlog items matter and WHAT to do.
+# It never sets priority, rank, effort or compliance (D-2) — those stay in code.
+ANALYSIS_LIMIT = 5
+ANALYSIS_MAX_TOKENS = 900
+ANALYSIS_MAX_CHARS = 400
 
 # ---------------------------------------------------------------------------
 # Compliance (section 8.6 / 10). Starting point, not legal advice.

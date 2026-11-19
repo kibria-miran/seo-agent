@@ -340,7 +340,7 @@ def self_test() -> str:
             {"role": "system", "content": "You are terse."},
             {"role": "user", "content": "Reply with the single word: ok"},
         ],
-        max_tokens=4,
+        max_tokens=60,
     )
     return f"{response.model}: ok ({response.tokens_in}+{response.tokens_out} tokens)"
 

@@ -16,7 +16,8 @@ from rich.console import Console
 
 from src import config
 from src.evals import load_scenarios, run_evals
-from src.pipeline import load_profile, run_deterministic
+from src.pipeline import default_run_id, load_profile, run_deterministic
+from src.trace import TraceWriter
 
 app = typer.Typer(add_completion=False, no_args_is_help=True)
 console = Console()
@@ -122,21 +123,37 @@ def run(
         from src.agent import AgentRunner
         from src.llm import LLMClient, LLMUnavailable
 
+        effective_run_id = run_id or default_run_id()
+        trace_path: Path | None = None
+        if out_root is not None:
+            trace_path = out_root.parent / "logs" / "trace.jsonl"
+        trace = TraceWriter(trace_path or Path(config.TRACE_PATH), effective_run_id)
+
         try:
-            llm = LLMClient.from_env()
+            llm = LLMClient.from_env(trace=trace)
         except LLMUnavailable as exc:
             console.print(f"[red]Agent mode unavailable:[/red] {exc}")
             raise typer.Exit(code=2) from exc
         runner = AgentRunner(
             llm,
-            run_id=run_id,
+            run_id=effective_run_id,
             db_path=str(db_path) if db_path else None,
             out_root=str(out_root) if out_root else None,
+            trace=trace,
             with_sources=with_sources,
             with_scraping=with_scraping,
             with_drafts=with_drafts,
         )
-        report = runner.run(profile, fixture_path=fixture)
+        from src.audit_adapter import AuditBlockedError
+        try:
+            report = runner.run(profile, fixture_path=fixture)
+        except AuditBlockedError as exc:
+            console.print(f"[red]Audit blocked:[/red] {exc}")
+            console.print(
+                "[dim]Retry with SEO_AGENT_RENDER=1 to crawl through headless "
+                "Chrome, or allow the agent user agent at the host.[/dim]"
+            )
+            raise typer.Exit(code=2) from exc
         console.print(
             f"[green]Agent run {report.run_id} complete[/green] · "
             f"score {report.site_score:.1f} ({report.grade}) · "
@@ -148,16 +165,26 @@ def run(
             console.print(f"Report: {report.budgets['outputs'].get('report', '(not written)')}")
         return
 
-    report = run_deterministic(
-        profile,
-        fixture_path=fixture,
-        run_id=run_id,
-        db_path=db_path,
-        out_root=out_root,
-        with_sources=with_sources,
-        with_scraping=with_scraping,
-        with_drafts=with_drafts,
-    )
+    from src.audit_adapter import AuditBlockedError
+
+    try:
+        report = run_deterministic(
+            profile,
+            fixture_path=fixture,
+            run_id=run_id,
+            db_path=db_path,
+            out_root=out_root,
+            with_sources=with_sources,
+            with_scraping=with_scraping,
+            with_drafts=with_drafts,
+        )
+    except AuditBlockedError as exc:
+        console.print(f"[red]Audit blocked:[/red] {exc}")
+        console.print(
+            "[dim]Retry with SEO_AGENT_RENDER=1 to crawl through headless "
+            "Chrome, or allow the agent user agent at the host.[/dim]"
+        )
+        raise typer.Exit(code=2) from exc
     console.print(
         f"[green]Run {report.run_id} complete[/green] \u00b7 "
         f"score {report.site_score:.1f} ({report.grade}) \u00b7 "

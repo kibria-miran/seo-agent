@@ -152,13 +152,23 @@ def _sources_section(budgets: Mapping[str, Any]) -> list[str]:
     return lines
 
 
-def _backlog_section(backlog: Sequence[BacklogItem], limit: int = 10) -> list[str]:
+def _backlog_section(
+    backlog: Sequence[BacklogItem],
+    limit: int = 10,
+    analysis: Mapping[str, Mapping[str, str]] | None = None,
+) -> list[str]:
     lines = ["## Top backlog", ""]
     if not backlog:
         lines.extend(["_No backlog items produced._", ""])
         return lines
     shown = list(backlog[:limit])
     lines.append(f"Showing {len(shown)} of {len(backlog)} items, highest priority first.")
+    if analysis:
+        lines.append("")
+        lines.append(
+            "_Items marked `agent` carry an LLM-written explanation. Priority, "
+            "rank and evidence remain code-computed._"
+        )
     lines.append("")
     for item in shown:
         lines.append(
@@ -168,6 +178,10 @@ def _backlog_section(backlog: Sequence[BacklogItem], limit: int = 10) -> list[st
             f"\n   - kind `{item.kind}` \u00b7 target `{item.target}` \u00b7 status `{item.status}`"
             f"\n   - evidence: `{_evidence(item.evidence)}`"
         )
+        note = (analysis or {}).get(item.item_id)
+        if note:
+            lines.append(f"   - `agent` why: {note.get('why', '')}")
+            lines.append(f"   - `agent` do: {note.get('action', '')}")
     lines.append("")
     return lines
 
@@ -311,6 +325,7 @@ def render_report(
     diff: AuditDiff | None = None,
     backlog: Sequence[BacklogItem] = (),
     gaps: Sequence[Gap] = (),
+    analysis: Mapping[str, Mapping[str, str]] | None = None,
     keywords: Sequence[Keyword] = (),
     serp: Sequence[SerpResult] = (),
     competitor_pages: Sequence[CompetitorPage] = (),
@@ -352,7 +367,7 @@ def render_report(
         lines.extend(_gap_lines("Gaps closed since previous run", []))
 
     lines.extend(_open_gap_lines(gaps))
-    lines.extend(_backlog_section(backlog, limit=10))
+    lines.extend(_backlog_section(backlog, limit=10, analysis=analysis))
     lines.extend(_week_plan_section(backlog))
     lines.extend(_competitor_section(competitor_pages))
     if serp:
