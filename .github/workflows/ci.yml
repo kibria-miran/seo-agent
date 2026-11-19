@@ -71,14 +71,11 @@ jobs:
       - name: "Guard: bundled seoextract commit matches pinned commit"
         run: |
           /tmp/smoke-venv/bin/python - <<'PY'
+          import sys
           from src import config
           assert config.SEOEXTRACT_COMMIT == "6544a74e340e6ac8b147b7f4ab0f09d55d142dd3", config.SEOEXTRACT_COMMIT
-          import importlib.util
-          spec = importlib.util.spec_from_file_location(
-              "seoextract", str(config.SEOEXTRACT_DIR / "seoextract" / "__init__.py")
-          )
-          mod = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(mod)
-          assert mod.__version__ == "0.3.0", mod.__version__
-          print("bundled seoextract", mod.__version__, "commit guard OK")
+          sys.path.insert(0, str(config.SEOEXTRACT_DIR))
+          import seoextract
+          assert seoextract.__version__ == "0.3.0", seoextract.__version__
+          print("bundled seoextract", seoextract.__version__, "commit guard OK")
           PY
