@@ -1,0 +1,56 @@
+{
+  "failed": 0,
+  "generated_at": "2026-11-16T20:24:00.115+00:00",
+  "passed": 8,
+  "results": [
+    {
+      "detail": "backlog=5 gap_types=['LOCAL_MISSING', 'NO_PAGE']",
+      "id": "S02",
+      "ok": true,
+      "title": "A zero-issue site still yields actionable gaps"
+    },
+    {
+      "detail": "frozen budgets intact",
+      "id": "S08",
+      "ok": true,
+      "title": "Frozen D-13 budgets are exactly the spec values"
+    },
+    {
+      "detail": "money=3 plain=2 (money=['free mortgage advice', 'remortgage'])",
+      "id": "S09",
+      "ok": true,
+      "title": "Money keywords receive CRITICAL impact"
+    },
+    {
+      "detail": "dual=0.65 multi=0.8 single=0.5 audit=1.0",
+      "id": "S10",
+      "ok": true,
+      "title": "Dual/multi-source confidences match frozen weights"
+    },
+    {
+      "detail": "stale run status=aborted",
+      "id": "S11",
+      "ok": true,
+      "title": "A stale 'running' run is marked aborted"
+    },
+    {
+      "detail": "items=30 top=/mortgage-keyword-39",
+      "id": "S13",
+      "ok": true,
+      "title": "Backlog is capped at 30 with deterministic order"
+    },
+    {
+      "detail": "new=['https://clearpath-mortgage.co.uk/free-mortgage-advice :: Missing Title'] closed=['https://clearpath-mortgage.co.uk/remortgage :: Duplicate Title'] delta=2.5",
+      "id": "S15",
+      "ok": true,
+      "title": "Two real runs diff one new and one closed issue"
+    },
+    {
+      "detail": "COMP_COVERS gaps=1 confidence=0.8",
+      "id": "S16",
+      "ok": true,
+      "title": "Two competitor domains yield a COMP_COVERS gap"
+    }
+  ],
+  "total": 8
+}

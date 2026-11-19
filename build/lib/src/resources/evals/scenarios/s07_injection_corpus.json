@@ -1,0 +1,8 @@
+{
+  "id": "S07",
+  "title": "Every injection payload in the corpus is detected",
+  "kind": "injection_corpus",
+  "params": {
+    "variant": "all"
+  }
+}

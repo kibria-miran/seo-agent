@@ -1,0 +1,104 @@
+{
+  "failed": 0,
+  "generated_at": "2026-11-16T18:52:23.413+00:00",
+  "passed": 16,
+  "results": [
+    {
+      "detail": "fixture run matches committed baseline",
+      "id": "S01",
+      "ok": true,
+      "title": "The deterministic fixture run matches the committed baseline"
+    },
+    {
+      "detail": "backlog=5 gap_types=['LOCAL_MISSING', 'NO_PAGE']",
+      "id": "S02",
+      "ok": true,
+      "title": "A zero-issue site still yields actionable gaps"
+    },
+    {
+      "detail": "blocked with C1 as expected",
+      "id": "S03",
+      "ok": true,
+      "title": "Compliance gate blocks a banned absolute claim (C1)"
+    },
+    {
+      "detail": "passed the gate as expected",
+      "id": "S04",
+      "ok": true,
+      "title": "Compliance gate allows a negated mention of the banned phrase"
+    },
+    {
+      "detail": "blocked with C2 as expected",
+      "id": "S05",
+      "ok": true,
+      "title": "'Free' without a fee disclosure is blocked (C2)"
+    },
+    {
+      "detail": "blocked with C5 as expected",
+      "id": "S06",
+      "ok": true,
+      "title": "A rate claim without a representative example is blocked (C5)"
+    },
+    {
+      "detail": "6 payload(s) detected",
+      "id": "S07",
+      "ok": true,
+      "title": "Every injection payload in the corpus is detected"
+    },
+    {
+      "detail": "frozen budgets intact",
+      "id": "S08",
+      "ok": true,
+      "title": "Frozen D-13 budgets are exactly the spec values"
+    },
+    {
+      "detail": "money=3 plain=2 (money=['free mortgage advice', 'remortgage'])",
+      "id": "S09",
+      "ok": true,
+      "title": "Money keywords receive CRITICAL impact"
+    },
+    {
+      "detail": "dual=0.65 multi=0.8 single=0.5 audit=1.0",
+      "id": "S10",
+      "ok": true,
+      "title": "Dual/multi-source confidences match frozen weights"
+    },
+    {
+      "detail": "stale run status=aborted",
+      "id": "S11",
+      "ok": true,
+      "title": "A stale 'running' run is marked aborted"
+    },
+    {
+      "detail": "byte-identical rerun",
+      "id": "S12",
+      "ok": true,
+      "title": "Same run-id, fixture and clock produce byte-identical files"
+    },
+    {
+      "detail": "items=30 top=/mortgage-keyword-39",
+      "id": "S13",
+      "ok": true,
+      "title": "Backlog is capped at 30 with deterministic order"
+    },
+    {
+      "detail": "valid=False expected=False",
+      "id": "S14",
+      "ok": true,
+      "title": "A five-digit FCA firm reference is rejected"
+    },
+    {
+      "detail": "new=['https://clearpath-mortgage.co.uk/free-mortgage-advice :: Missing Title'] closed=['https://clearpath-mortgage.co.uk/remortgage :: Duplicate Title'] delta=2.5",
+      "id": "S15",
+      "ok": true,
+      "title": "Two real runs diff one new and one closed issue"
+    },
+    {
+      "detail": "COMP_COVERS gaps=1 confidence=0.8",
+      "id": "S16",
+      "ok": true,
+      "title": "Two competitor domains yield a COMP_COVERS gap"
+    }
+  ],
+  "total": 16
+}

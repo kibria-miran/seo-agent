@@ -1,0 +1,244 @@
+SEO-AGENT: PHASE A REVIEW FINDINGS (READ-ONLY) — v2, current tree
+Repo: ~/seo-agent-check (github.com/kibria-miran/seo-agent, master)
+Reviewed against: HEAD = bd76f9e "Apply v1.2 review fixes" PLUS uncommitted
+working-tree changes (see "PROCESS WARNING" below). The first version of this
+file described 3bf7044; most of what it flagged has since been worked on, so
+each concern is re-stated against the current tree. No code was changed by
+this review pass.
+Spec reference: "v1.2" as described in the review brief. No v1.2 spec exists
+in the repo; DECISIONS.md declares itself spec v1.1 (frozen) and now carries
+a "v1.2 review supersessions" section instead.
+
+PROCESS WARNING (read first)
+- Phase A was declared read-only and was to stop for approval. That did NOT
+  happen in this repo. HEAD bd76f9e (2026-11-16 18:42) already contains a
+  commit applying review fixes: README/report/drafts reworded to "lint, not
+  gate", a placeholder-profile refusal for live runs, a new GscPagesSource,
+  CI at .github/workflows/ci.yml, pyproject classifiers, C1b negation-aware,
+  first-cycle F-8 template, evals re-run. The commit was authored by an
+  automated agent ("Assisted-by: Crush"), i.e. a prior session did Phase B
+  work without the approval the brief demands.
+- On top of that, the working tree carries UNCOMMITTED changes: nearest-pages
+  evidence cap in gap.py + test, a source_empty trace event in sources/base.py,
+  regenerated out/run-20261116T090000Z artefacts, the F-8 template
+  evals/first-cycle.md, and doc touch-ups. Two defects in those uncommitted
+  edits:
+    1. README.md:365 contains a literal "\n" inside the markdown line
+       ("...edit policy.\n- `evals/first-cycle.md`..."). Broken rendering.
+    2. CODEBASE_REPORT.txt:28 says "Test count is now 441 ... 440 passed"
+       — self-contradictory; the suite reports 441 passed, 2 deselected.
+- seo-agent-findings.txt is TRACKED in git (added in bd76f9e), not untracked
+  as the brief requested.
+- profiles/site.json still holds the fictional clearpath-mortgage.co.uk /
+  FCA 123456 values. Not touched.
+Decision needed from you: keep bd76f9e as-is, keep+fix the uncommitted
+changes, or revert some of them. Nothing here has been committed or pushed
+by this review pass, and I have not run anything against the network.
+
+Test/eval state on this machine (Python 3.14.8):
+  .venv/bin/python -m pytest -q  -> 441 passed, 2 deselected (5.36 s)
+  Deselected = tests/test_live.py::test_live_self_test_one_real_call and
+  ::test_live_client_budget_ledger_records_tokens, both @pytest.mark.live
+  (one real NVIDIA NIM call; need NVIDIA_API_KEY + network). No slow-marked
+  tests exist.
+  .venv/bin/python -m src.cli evals -> 16/16 PASS (verified this run)
+  CI: .github/workflows/ci.yml runs pytest + evals on 3.12 and 3.14.
+
+================================================================================
+C1. Drift from the v1.2 spec.
+a) LLM-per-turn loop on the default path? NO. src/cli.py default path always
+   runs run_deterministic; --agent is opt-in and exits 2 without
+   NVIDIA_API_KEY. v1.2 F-1 (LLM only for labelling/drafting) is now
+   recorded in DECISIONS.md "v1.2 review supersessions"; D-2 is
+   reinterpreted as scoped to --agent. No planner ever existed here.
+   Verdict: conformant in code; docs now say so.
+b) The 8 kept v1.2 scenarios all exist and pass (S01, S03, S04, S05, S06, S07,
+   S12, S14). The repo still has 16 scenarios (8 extra). Recorded as drift in
+   DECISIONS supersessions? Not explicitly — the extra 8 are unmentioned.
+   Verdict: 8 kept exist and pass; 16 total is documented drift, unresolved.
+c) GSC optional, silently skipped; what the report shows: still no GSC
+   section when absent; dep_unmet is logged in the trace, and (new in the
+   uncommitted base.py change) a source_empty trace event now fires when a
+   source yields zero items, but the report itself still shows nothing.
+   Verdict: partly fixed (trace visibility improved); report remains silent.
+d) README status line vs table: README now says "Phases 0–9 complete"
+   (line 15) and the table agrees. Verdict: resolved (stale line fixed).
+e) DECISIONS.md DOES now mark the v1.2-superseded items (supersessions
+   section; D-6 annotated "amended: see v1.2 review"; MAX_STEPS / loop
+   guard / invalid-action scoped to the opt-in agent loop). Verdict: resolved.
+Effort remaining: small (decide fate of the 8 extra scenarios; surface
+dep_unmet in the report body).
+
+C2. No real run; placeholder profile; refusal? FIXED in code.
+- profiles/site.json still fictional (clearpath-mortgage.co.uk, FCA 123456);
+  the committed out/run-20261116T090000Z is still the fixture.
+- Live runs (--fixture absent) now REFUSE the exact placeholder pair unless
+  SEO_AGENT_ALLOW_DEMO_PROFILE=1 is set (src/cli.py:66-89, config.py:38-39);
+  tests/test_placeholder_profile.py covers it; doctor prints a WARN.
+  .env.example documents the flag.
+Verdict: confirmed fixed. Caveat: the guard matches only the exact shipped
+placeholder pair, not other fictional values a user might paste in.
+Effort: done; optional hardening tiny.
+
+C3. DuckDuckGo access: ddgs vs html endpoint; robots; throttle; UA.
+- ddgs is GONE from requirements.txt and pyproject.toml (removed in bd76f9e).
+  Declared-but-unused is resolved by deletion.
+- serp.py still GETs https://html.duckduckgo.com/html/ directly and parses
+  blocks; suggest.py still GETs suggestqueries.google.com/complete/search.
+- robots.txt is never consulted for these endpoints (http_get default
+  respect_robots=False; endpoint calls opt out deliberately, documented).
+- 2 s/host throttle and honest config.USER_AGENT still apply; both count
+  toward MAX_FETCHES. A source that yields zero items now logs source_empty
+  (uncommitted change) so silent parser rot is at least visible in the trace.
+- ToS posture: unchanged — undocumented html endpoint scraping; grey area,
+  not lawful-API access; fragile to markup changes (now detectable via
+  source_empty, still not auto-detected as an error).
+Verdict: partly fixed (dep hygiene + emptiness signal); ToS/robots posture
+remains a documented judgement call, not a resolved risk.
+Effort: small to close fully (switch SERP to a sanctioned API would need a
+key; or accept and document the posture explicitly in README).
+
+C4. GSC input is Queries.csv; no query→page mapping. FIXED.
+- src/sources/gsc_csv.py unchanged in behaviour (parses Queries.csv,
+  keyword-level evidence only).
+- NEW src/sources/gsc_pages.py (GscPagesSource, env SEO_AGENT_GSC_PAGES_CSV)
+  carries query→page pairs from a two-column CSV; wired into the Source
+  registry and pipeline; zero paid APIs; Source interface unchanged; cache
+  discipline identical. tests/test_gsc_pages.py added.
+- gap.py consumes gsc_pages to annotate coverage evidence (gsc_pages key in
+  evidence for NO_PAGE / LOCAL_MISSING / WEAK_PAGE).
+- Clicks/impressions/CTR/position from Queries.csv are still discarded
+  downstream; only presence is used as a demand signal.
+Verdict: fixed as proposed (Option A), smallest-change route honoured.
+Effort: done. Remaining nit: report still cannot show per-keyword GSC
+metrics (see C9 for baseline capture).
+
+C5. README CLI claims vs reality. FIXED.
+- README rewritten: status line and table agree; CLI section documents
+  --no-llm, --agent, --with-drafts, doctor, scripts/weekly.sh, evals;
+  the fictional "always executes the deterministic pipeline / LLM
+  orchestrator not enabled" wording is gone (cli.py prints an accurate
+  pointer at --agent instead).
+- --agent builds LLMClient.from_env(), exits 2 without NVIDIA_API_KEY;
+  --agent --no-llm exits 2; deterministic path prints zero LLM calls.
+- --with-drafts honoured on both paths; drafts written only after the
+  compliance lint passes (one retry, then dropped).
+Verdict: fixed. Remaining: doctor is documented but the evals subcommand
+output location (evals/results/, gitignored?) is undocumented.
+Effort: done.
+
+C6. Python version / CI. FIXED.
+- .github/workflows/ci.yml: matrix 3.12 and 3.14, hashed installs, pytest +
+  evals, vendored seoextract installed with --no-deps.
+- pyproject.toml: requires-python >=3.10, classifiers 3.10–3.14.
+- README quickstart still python3.12; suite verified on 3.14.8 (441 passed).
+Verdict: fixed. Note: "CI runs on 3.12 and 3.14" is now true of the config;
+whether the workflow has actually run green on GitHub is unverified from
+this local checkout.
+Effort: done.
+
+C7. Compliance wording — lint vs gate. FIXED, with residue.
+- README first paragraph: "Compliance is a lint, not a gate." + explicit
+  manual-review-required language. report.md first paragraph carries the
+  same disclaimer (verified in regenerated out/run artefact).
+- Drafts carry "THIS DRAFT HAS NOT BEEN REVIEWED" banner (src/drafts.py:71-75).
+- DECISIONS F-4 and D-6 amended; "gate" survives only as historical/frozen
+  wording explicitly annotated as amended, plus a few docstrings
+  (compliance.py header "compliance gate", drafts.py docstring remnants,
+  README headings "Compliance-gated drafts", README phase table row
+  "C1–C6 gate before any write", README:325/338/351). The invariant is
+  labelled lint in prose but the word "gate" is still used as a noun in
+  several places.
+- C1b (no fees) is now negation-aware (src/compliance.py:137 area) with a
+  negated-phrase test (tests/test_compliance.py:100). Per-rule pass/fail
+  tests exist for C1, C1b, C2–C6 and the S16 integration test.
+Verdict: fixed substantively; the residual "gate" nouns are cosmetic.
+Effort remaining: small (rename remaining "gate" nouns to "lint" if you want
+zero occurrences).
+
+C8. seoextract Plan B (F-3). No change needed; assessment stands.
+- third_party/PROVENANCE.md records upstream URL, exact commit
+  6544a74e340e6ac8b147b7f4ab0f09d55d142dd3, tag v0.3.0, vendored-on date,
+  sha256s, "Local diff: none", import strategy, edit policy.
+- Capability probe (audit_adapter.probe_capabilities) tested for missing
+  symbols/methods.
+- A requests+bs4 replacement at the adapter boundary ≈ 200–450 lines.
+Verdict: confirmed satisfactory; Plan B is cheap and tested.
+Effort: none now.
+
+C9. Success metric (F-8). FIXED (template only; operational step not done).
+- evals/first-cycle.md exists (untracked in the working tree): baseline
+  table (date, query, page, impressions, clicks, CTR, avg position; money
+  keywords + top 20 by impressions; branded listed separately), dated change
+  log per applied item with reviewer, 4–6 week re-check. Linked from README
+  Documentation and DECISIONS F-8.
+- Nothing in the repo records a real baseline — none can exist until the
+  real-site run (Phase B) with the real Queries.csv.
+Verdict: template delivered; the metric itself is unmeasured until Phase B.
+Effort: done (template); baseline capture is operational.
+
+C10. Trust in AGENTS.md and CODEBASE_REPORT.txt. Partly fixed, still stale.
+AGENTS.md: test-count line updated (441). R2/R3-type claims re-verified true.
+- Money-keywords-from-slugs, source order, keyword dedupe, ruff-not-wired:
+  still true. Domain-suffix restriction still undocumented there.
+- AGENTS.md is regenerated to match bd76f9e but is uncommitted and its
+  "on 3.12 and 3.14" claim is now backed by CI config (unverified green).
+CODEBASE_REPORT.txt:
+  R1/R2/R3 (429/440 counts, evals 16/16, no .github) — now stale: CI exists,
+  suite is 441.
+  R4 ("no .git present") — FALSE, .git exists; noted in-file as amended.
+  R5 (README phase-8 table stale) — was false/stale, now moot; README documents
+  doctor/weekly.sh.
+  NEW self-contradiction: line 28 "Test count is now 441 ... 440 passed".
+- Root cause unchanged: these files are hand-written snapshots that rot.
+Verdict: directionally useful, still not a trustworthy sole arbiter; both
+need one regeneration pass after the current uncommitted changes settle.
+Effort: small.
+
+C11. Report usefulness — backlog vs evidence_json. Improved.
+- Backlog items remain explainable from evidence_json. NO_PAGE / LOCAL_MISSING
+  evidence now lists the nearest pages by slug-term overlap (cap 5, stable
+  alphabetical fill) instead of the full 6–page census (uncommitted gap.py
+  change + test_no_page_evidence_lists_nearest_pages_not_full_census).
+- README sample excerpt no longer contradicts the artefact (regenerated);
+  the committed run's report.md carries the lint disclaimer.
+- Scoring is still impact×confidence/effort with LOCAL_MISSING (impact 2,
+  conf 0.65) outranking single-source NO_PAGE (conf 0.50); money pages are
+  uncovered-critical only when uncovered (fixture covers both, so none).
+  The Manchester/London local pages outrank 'bad credit mortgage' — a code-
+  visible, human-overridable ordering, now with honest evidence.
+Verdict: partly fixed; ranking judgement remains the operator's.
+Effort: done for evidence noise; scoring semantics is a product decision.
+
+================================================================================
+RANKED TOP-5 TO FIX FIRST (effort), re-ranked against the current tree
+1. Decide the fate of the uncommitted changes + fix the two defects in them:
+   README.md:365 literal "\n"; CODEBASE_REPORT.txt:28 "441 ... 440". Either
+   commit them (after `pytest -q` green: it is, 441/2) or drop them; do not
+   leave them dangling. (small)
+2. Resolve the process breach: bd76f9e applied Phase-A fixes without
+   approval. Review that commit line-by-line (it touches compliance wording,
+   the placeholder guard, GscPagesSource, CI, hashed requirements) and tell
+   me explicitly: keep, amend, or cherry-pick apart. Nothing is pushed.
+   (medium, mostly your time)
+3. Report-surface for sources: report.md still shows nothing when GSC/SERP
+   are absent (dep_unmet only in trace); add a one-line sources status block
+   to report.md (ok / skipped / empty). Also decide the 8 extra eval
+   scenarios' fate vs the frozen v1.2 eight. (small–medium)
+4. Remaining "gate" nouns (compliance.py header, README headings/table rows,
+   drafts.py docstrings) → "lint", if you want zero occurrences; and make the
+   placeholder guard refuse other obvious fictional values, not just the
+   shipped pair. (small)
+5. Regenerate AGENTS.md / CODEBASE_REPORT.txt once the tree settles, and keep
+   them honest by generating test counts from the suite, not by hand.
+   (small)
+
+Still open from the original list and NOT in top-5: report GSC metrics
+(impressions/clicks) per keyword in report.md — only presence is used today
+(C4/C9); GitHub CI green run unverified (C6); SERP ToS posture is accepted,
+not resolved (C3).
+
+PHASE A STOP POINT
+Findings updated to the current tree. Nothing committed or pushed by this
+pass; profiles/site.json untouched; no network used. Awaiting your
+decision before any Phase B/C work.

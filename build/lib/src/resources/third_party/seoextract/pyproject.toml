@@ -1,0 +1,28 @@
+[project]
+name = "seoextract"
+version = "0.3.0"
+description = "A lightweight Python SEO audit engine that returns Pydantic structured output."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Britto K" }
+]
+dependencies = [
+    "beautifulsoup4",
+    "lxml",
+    "requests",
+    "pydantic",
+    "python-dotenv",
+    "typer",
+    "rich"
+]
+[project.scripts]
+seoextract = "seoextract.cli:app"
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["seoextract*"]

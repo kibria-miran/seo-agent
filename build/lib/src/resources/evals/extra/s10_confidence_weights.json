@@ -1,0 +1,6 @@
+{
+  "id": "S10",
+  "title": "Dual/multi-source confidences match frozen weights",
+  "kind": "confidence",
+  "params": {}
+}

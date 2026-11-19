@@ -1,0 +1,9 @@
+{
+  "id": "S14",
+  "title": "A five-digit FCA firm reference is rejected",
+  "kind": "profile_validation",
+  "params": {
+    "fca_firm_ref": "12345",
+    "expect_ok": false
+  }
+}

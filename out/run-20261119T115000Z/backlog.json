@@ -1,0 +1,160 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Your Trusted Mortgage Partners"
+      ],
+      "h2": [
+        "Your Expert Advisers",
+        "Why We StartedEasy Financial Services",
+        "What We Stand For",
+        "Regulated & Professional",
+        "Ready to Find YourPerfect Mortgage?"
+      ],
+      "head_term": "commercial mortgage advisor",
+      "matched_fields": {
+        "h1": [
+          "mortgage"
+        ],
+        "h2": [
+          "adviser",
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "adviser",
+        "mortgage"
+      ],
+      "page": "https://easyfinance.uk.com/about",
+      "title": "About Us | Easy Financial Services"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://easyfinance.uk.com/about",
+    "title": "Fix title/H1 coverage for 'commercial mortgage advisor' on https://easyfinance.uk.com/about"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgage broker",
+        "commercial mortgage calculator",
+        "commercial mortgage deposit",
+        "commercial mortgage rates",
+        "commercial property mortgage",
+        "commercial remortgage",
+        "owner occupier commercial mortgage",
+        "semi commercial mortgage"
+      ],
+      "h1": [
+        "Mortgage Solutions for Every Need"
+      ],
+      "h2": [
+        "First Time Buyer",
+        "Remortgages",
+        "Buy-to-Let",
+        "Commercial",
+        "Bridging Loans",
+        "The Easy Financial Services Difference",
+        "Ready to Find YourPerfect Mortgage?"
+      ],
+      "head_term": "commercial mortgage broker",
+      "keyword_count": 8,
+      "keywords": [
+        "commercial mortgage broker",
+        "commercial mortgage calculator",
+        "commercial mortgage deposit",
+        "commercial mortgage rates",
+        "commercial property mortgage",
+        "commercial remortgage",
+        "owner occupier commercial mortgage",
+        "semi commercial mortgage"
+      ],
+      "matched_fields": {
+        "h1": [
+          "mortgage"
+        ],
+        "h2": [
+          "commercial",
+          "mortgage"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "commercial",
+        "mortgage"
+      ],
+      "page": "https://easyfinance.uk.com/services",
+      "title": "Mortgage Services | Easy Financial Services"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://easyfinance.uk.com/services",
+    "title": "Fix title/H1 coverage on https://easyfinance.uk.com/services (8 keywords)"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Buy-to-Let Mortgages"
+      ],
+      "head_term": "commercial buy to let mortgage",
+      "page": "https://easyfinance.uk.com/services/buy-to-let",
+      "title": "Buy-to-Let Mortgages | Easy Financial Services"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://easyfinance.uk.com/services/buy-to-let",
+    "title": "Fix title/H1 coverage for 'commercial buy to let mortgage' on https://easyfinance.uk.com/services/buy-to-let"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 4,
+    "evidence": {
+      "money_page_count": 3,
+      "money_pages": [
+        "https://easyfinance.uk.com/services/buy-to-let",
+        "https://easyfinance.uk.com/services/commercial",
+        "https://easyfinance.uk.com/services/remortgage"
+      ],
+      "page_count": 4,
+      "pages": [
+        "https://easyfinance.uk.com/services/buy-to-let",
+        "https://easyfinance.uk.com/services/commercial",
+        "https://easyfinance.uk.com/services/remortgage",
+        "https://easyfinance.uk.com/terms"
+      ],
+      "required": [
+        "FAQPage",
+        "FinancialService",
+        "LocalBusiness"
+      ]
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 3,
+    "item_id": "BL-0004",
+    "kind": "schema",
+    "priority": 0.75,
+    "status": "open",
+    "target": "sitewide",
+    "title": "Add missing schema to 4 keyword-relevant pages (3 money pages)"
+  }
+]

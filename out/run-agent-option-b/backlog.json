@@ -1,0 +1,1108 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 2,
+    "evidence": {
+      "page": "https://www.easyfinance.uk.com/",
+      "required": [
+        "LocalBusiness",
+        "FinancialService",
+        "FAQPage"
+      ],
+      "schema_types": []
+    },
+    "gap_type": "SCHEMA_MISSING",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "schema",
+    "priority": 1.0,
+    "status": "open",
+    "target": "https://www.easyfinance.uk.com/",
+    "title": "Add missing schema to https://www.easyfinance.uk.com/"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "business finance broker near me",
+        "business loan advisor near me",
+        "business loan broker near me",
+        "business loan consultant near me",
+        "business mortgage",
+        "business mortgage advisor",
+        "business mortgage advisor near me",
+        "business mortgage broker",
+        "business mortgage broker near me",
+        "business mortgage calculator",
+        "business mortgage calculator uk",
+        "business mortgage finance",
+        "business mortgage finance 7 plc",
+        "business mortgage loan",
+        "business mortgage loan calculator",
+        "business mortgage rates",
+        "business mortgage uk",
+        "commercial finance broker near me",
+        "commercial lending broker near me",
+        "commercial lending brokers near me",
+        "commercial loan broker near me",
+        "commercial mortgage advisor",
+        "commercial mortgage advisor jobs",
+        "commercial mortgage advisor near me",
+        "commercial mortgage advisor salary",
+        "commercial mortgage advisor uk",
+        "commercial mortgage advisors near me",
+        "commercial mortgage broker",
+        "commercial mortgage broker birmingham",
+        "commercial mortgage broker edmonton",
+        "commercial mortgage broker fees",
+        "commercial mortgage broker jobs",
+        "commercial mortgage broker license",
+        "commercial mortgage broker near me",
+        "commercial mortgage broker salary",
+        "commercial mortgage broker toronto",
+        "commercial mortgage calculator",
+        "commercial mortgage calculator alberta",
+        "commercial mortgage calculator bc",
+        "commercial mortgage calculator canada",
+        "commercial mortgage calculator free",
+        "commercial mortgage calculator ireland",
+        "commercial mortgage calculator natwest",
+        "commercial mortgage calculator ontario",
+        "commercial mortgage calculator uk",
+        "commercial mortgage calculator usa",
+        "commercial mortgage deposit",
+        "commercial mortgage deposit amount",
+        "commercial mortgage deposit calculator",
+        "commercial mortgage deposit loan",
+        "commercial mortgage deposit percentage",
+        "commercial mortgage deposit required",
+        "commercial mortgage deposit uk",
+        "commercial mortgage lenders near me",
+        "commercial mortgage rates",
+        "commercial mortgage rates alberta",
+        "commercial mortgage rates bc",
+        "commercial mortgage rates calculator",
+        "commercial mortgage rates canada",
+        "commercial mortgage rates ireland",
+        "commercial mortgage rates ontario",
+        "commercial mortgage rates today",
+        "commercial mortgage rates uk",
+        "commercial mortgage rates vs residential",
+        "commercial property deposit",
+        "commercial property deposit required",
+        "commercial property deposit rules",
+        "commercial property mortgage",
+        "commercial property mortgage broker",
+        "commercial property mortgage calculator",
+        "commercial property mortgage calculator nz",
+        "commercial property mortgage calculator uk",
+        "commercial property mortgage deposit",
+        "commercial property mortgage interest rates",
+        "commercial property mortgage loan interest rates",
+        "commercial property mortgage payment calculator",
+        "commercial property mortgage rates",
+        "commercial remortgage",
+        "commercial remortgage calculator",
+        "commercial remortgage rates",
+        "current owner occupied commercial mortgage rates",
+        "owner occupied commercial lending",
+        "owner occupied commercial loan",
+        "owner occupied commercial loan rates",
+        "owner occupied commercial mortgage calculator",
+        "owner occupied commercial mortgage rates",
+        "owner occupied commercial property loan",
+        "remortgage commercial property",
+        "remortgage commercial property calculator",
+        "semi commercial mortgage",
+        "semi commercial mortgage broker",
+        "semi commercial mortgage calculator",
+        "semi commercial mortgage calculator uk",
+        "semi commercial mortgage deposit",
+        "semi commercial mortgage lenders",
+        "semi commercial mortgage lenders uk",
+        "semi commercial mortgage rates",
+        "semi commercial mortgage rates uk",
+        "semi commercial mortgage uk"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.moneysupermarket.com/business-finance/commercial-mortgages/",
+        "https://www.citizensbank.com/small-business/loans/mortgage.aspx",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.lendingtree.com/business/small/",
+        "https://www.barclays.co.uk/business-banking/borrow/commercial-mortgages/",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.bop.com.pk/PunjabRozgarScheme",
+        "https://www.barclays.co.uk/business-banking/borrow/mortgages/",
+        "https://business.bankofamerica.com/en/business-loans",
+        "https://www.natwest.com/business/loans-and-finance/commercial-buy-to-let-mortgages.html",
+        "https://www.commercialloanadvisors.com/",
+        "https://www.financenation.com/blog/commercial-mortgage-deposits",
+        "https://www.tide.co/blog/funding/commercial-mortgage-deposits/",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.natwest.com/business/loans-and-finance/commercial-remortgage.html",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.amusacommercialcapital.com/owner-occupied-commercial-real-estate-and-business-loans"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/business-mortgage",
+    "title": "Create a page targeting 'business mortgage'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "can you remortgage a commercial property"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.lendingtree.com/home/refinance/need-know-commercial-mortgage-refinance/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/can-you-remortgage-a-commercial-property",
+    "title": "Create a page targeting 'can you remortgage a commercial property'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial buy to let mortgage",
+        "commercial buy to let mortgage broker",
+        "commercial buy to let mortgage calculator",
+        "commercial buy to let mortgage comparison",
+        "commercial buy to let mortgage deposit",
+        "commercial buy to let mortgage rates",
+        "commercial buy to let mortgage rates uk",
+        "commercial buy to let mortgage rates uk calculator",
+        "commercial buy to let mortgage uk"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.natwest.com/business/loans-and-finance/commercial-buy-to-let-mortgages.html",
+        "https://mortgagelane.com/insights/commercial-buy-to-let-mortgages",
+        "https://brickflow.com/commercial-mortgage/commercial-buy-to-let-mortgage",
+        "https://mortgage118.com/commercial/buy-to-let",
+        "https://htgmortgages.com/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/funding/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/blog/buy-to-let-mortgage-commercial-property/",
+        "https://www.onlinemoneyadvisor.co.uk/commercial-mortgage/buy-to-let/",
+        "https://propp.io/commercial-mortgages/buy-to-let-commercial-mortgage",
+        "https://moneysavingguru.co.uk/commercial-mortgages/commercial-buy-to-let/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-buy-to-let-mortgage",
+    "title": "Create a page targeting 'commercial buy to let mortgage'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial lending advisors"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://commercialcapadvisors.com/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-lending-advisors",
+    "title": "Create a page targeting 'commercial lending advisors'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial loan advisor"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.commercialloanadvisors.com/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-loan-advisor",
+    "title": "Create a page targeting 'commercial loan advisor'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgage brokerage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.elitecapadvisors.com/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgage-brokerage",
+    "title": "Create a page targeting 'commercial mortgage brokerage'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages broker"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.elitecapadvisors.com/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://commercialmortgagedepot.com/",
+        "https://www.berkadia.com/",
+        "https://cloptoncapital.com/",
+        "https://www.accesscm.com/",
+        "https://www.shawbrook.co.uk/property-finance/commercial-mortgages/",
+        "https://www.oakmontcommercial.com/",
+        "https://albcommercialcapital.com/",
+        "https://commercial-lender.com/",
+        "https://avanacapital.com/broker-resources/commercial-mortgage-broker-near-me/",
+        "https://clutch.co/pk/real-estate/commercial-brokerage",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://brokerspotter.com/",
+        "https://www.apexcommercial.com/commercial-mortgage",
+        "https://mortgageadviser.directory/listing-category/commercial-mortgage-brokers-near-me/",
+        "https://www.berkadia.com/",
+        "https://commercial-lender.com/",
+        "https://www.gantryinc.com/",
+        "https://realcommercialmortgage.com/",
+        "https://www.corecocommercial.co.uk/commercial-remortgage/"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgages-broker",
+    "title": "Create a page targeting 'commercial mortgages broker'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages calculator"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://www.mortgagecalculator.org/calcs/commercial-apg.php",
+        "https://mortgage-calculator.net/commercial",
+        "https://loan-calculators.org/commercial-property",
+        "https://commercialloandirect.com/monthly-payment-calculator",
+        "https://wowa.ca/calculators/commercial-mortgage-calculator",
+        "https://www.commercialcalc.com/commercial-mortgage-calculator",
+        "https://www.commloan.com/commercial-mortgages/calculator",
+        "https://mortgagecalculator.biz/c/commercial-loan.php",
+        "https://lumencalculator.com/commercial-mortgage-calculator/",
+        "https://www.mortgagecalculator.org/calcs/commercial.php"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgages-calculator",
+    "title": "Create a page targeting 'commercial mortgages calculator'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.moneysupermarket.com/business-finance/commercial-mortgages/",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.barclays.co.uk/business-banking/borrow/commercial-mortgages/",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.natwest.com/business/loans-and-finance/commercial-buy-to-let-mortgages.html",
+        "https://mortgagelane.com/insights/commercial-buy-to-let-mortgages",
+        "https://brickflow.com/commercial-mortgage/commercial-buy-to-let-mortgage",
+        "https://mortgage118.com/commercial/buy-to-let",
+        "https://htgmortgages.com/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/funding/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/blog/buy-to-let-mortgage-commercial-property/",
+        "https://www.onlinemoneyadvisor.co.uk/commercial-mortgage/buy-to-let/",
+        "https://propp.io/commercial-mortgages/buy-to-let-commercial-mortgage",
+        "https://moneysavingguru.co.uk/commercial-mortgages/commercial-buy-to-let/",
+        "https://www.ccmcommercialmortgage.com/",
+        "https://advisorcmi.com/wp-content/uploads/2023/11/Flyer-2.pdf",
+        "https://commercialcapadvisors.com/",
+        "https://www.accesscm.com/",
+        "https://www.commercialloanadvisors.com/",
+        "https://www.berkadia.com/",
+        "https://commercialmortgagedepot.com/",
+        "https://www.elitecapadvisors.com/",
+        "https://www.slatt.com/commercial-mortgage-banking-advisors/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://commercialmortgagedepot.com/",
+        "https://www.berkadia.com/",
+        "https://cloptoncapital.com/",
+        "https://www.accesscm.com/",
+        "https://www.shawbrook.co.uk/property-finance/commercial-mortgages/",
+        "https://www.oakmontcommercial.com/",
+        "https://albcommercialcapital.com/",
+        "https://commercial-lender.com/",
+        "https://avanacapital.com/broker-resources/commercial-mortgage-broker-near-me/",
+        "https://clutch.co/pk/real-estate/commercial-brokerage",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://brokerspotter.com/",
+        "https://www.apexcommercial.com/commercial-mortgage",
+        "https://mortgageadviser.directory/listing-category/commercial-mortgage-brokers-near-me/",
+        "https://www.berkadia.com/",
+        "https://commercial-lender.com/",
+        "https://www.gantryinc.com/",
+        "https://realcommercialmortgage.com/",
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://www.mortgagecalculator.org/calcs/commercial-apg.php",
+        "https://mortgage-calculator.net/commercial",
+        "https://loan-calculators.org/commercial-property",
+        "https://commercialloandirect.com/monthly-payment-calculator",
+        "https://wowa.ca/calculators/commercial-mortgage-calculator",
+        "https://www.commercialcalc.com/commercial-mortgage-calculator",
+        "https://www.commloan.com/commercial-mortgages/calculator",
+        "https://mortgagecalculator.biz/c/commercial-loan.php",
+        "https://lumencalculator.com/commercial-mortgage-calculator/",
+        "https://brickflow.com/brickflow-thinks/commercial-mortgage-deposit",
+        "https://www.onlinemortgageadvisor.co.uk/commercial-mortgages/commercial-mortgage-deposit/",
+        "https://fundingguru.com/blog/commercial-mortgage-deposit-requirements-what-lenders-look-for",
+        "https://lesolace.com/how-much-deposit-do-you-need-for-a-commercial-mortgage/",
+        "https://fundingguru.com/blog/do-i-need-a-deposit-for-a-commercial-mortgage",
+        "https://www.hylend.co.uk/commercial-mortgages/deposit/",
+        "https://www.allica.bank/blog/commercial-mortgage-deposit",
+        "https://www.fundingoptions.com/blog/education/how-much-deposit-do-i-need-for-a-commercial-mortgage/",
+        "https://www.financenation.com/blog/commercial-mortgage-deposits",
+        "https://www.tide.co/blog/funding/commercial-mortgage-deposits/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "https://avanacapital.com/business-loans/commercial-mortgage-rates-today/",
+        "https://commercialloandirect.com/commercial-rates",
+        "https://www.commloan.com/commercial-mortgages/mortgage-rates",
+        "https://www.northmarq.com/insights/rates-spreads",
+        "https://www.commercialcalc.com/commercial-loan-rates",
+        "https://ufigtoday.com/todays-rates/",
+        "https://www.clearhouselending.com/commercial-mortgage-rates",
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://commercial.mortgage/",
+        "https://business.bankofamerica.com/en/business-loans/commercial-real-estate-loans",
+        "https://www.nerdwallet.com/business/loans/learn/commercial-real-estate-loan-rates",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.commloan.com/commercial-mortgages",
+        "https://smallbiztrends.com/commercial-property-mortgage/",
+        "https://en.wikipedia.org/wiki/Commercial_mortgage",
+        "https://www.nav.com/blog/commercial-real-estate-loan-rates-71890/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.nav.com/business-financing-options/commercial-real-estate-loans/",
+        "https://www.natwest.com/business/loans-and-finance/commercial-remortgage.html",
+        "https://commercialmortgagesbroker.co.uk/knowledge-hub/commercial-remortgage-guide",
+        "https://commercialloandirect.com/commercial-mortgages-refinance",
+        "https://www.jpmorgan.com/commercial-real-estate/commercial-property-refinancing-loans",
+        "https://www.lendingtree.com/home/refinance/need-know-commercial-mortgage-refinance/",
+        "https://refiloop.com/commercial-mortgage-refinancing-guide/",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.corecocommercial.co.uk/commercial-remortgage/",
+        "https://axiantpartners.com/commercial-real-estate-loans/articles/how-to-refinance-commercial-mortgage/",
+        "https://www.prosperhomeloans.co.uk/article/commercial-remortgage-process",
+        "https://www.oakmontcommercial.com/lending-solutions/owner-occupied-loans/",
+        "https://broadway.bank/commercial/loans-financing/lending-solutions/owner-occupied-real-estate-loans",
+        "https://www.mfbrokers.co.uk/commercial/owner-occupier",
+        "https://www.sunwestbank.com/commercial-real-estate/owner-occupied-real-estate/",
+        "https://www.punjab-zameen.gov.pk/",
+        "https://www.crestmontcapital.com/blog/owner-occupied-commercial-real-estate-loans",
+        "https://www.commercialmortgageconnection.com/owner-occupied-commercial-mortgage/",
+        "https://www.punjab-zameen.gov.pk/greenCertificateInfo",
+        "https://loanbase.com/cre-loans/owner-occupied-commercial-real-estate-guide/",
+        "https://www.amusacommercialcapital.com/owner-occupied-commercial-real-estate-and-business-loans",
+        "https://www.onlinemortgageadvisor.co.uk/commercial-mortgages/semi-commercial-mortgages/",
+        "https://www.ybs.co.uk/commercial/product/semi-commercial-mortgages",
+        "https://abcfinance.co.uk/commercial-mortgages/semi-commercial/",
+        "https://togethermoney.com/commercial-mortgages/semi-commercial-property",
+        "https://www.financenation.com/blog/semi-commercial-mortgage",
+        "https://www.commercialtrust.co.uk/semi-commercial-mortgages/",
+        "https://mortgage118.com/blog/what-is-a-semi-commercial-mortgage",
+        "https://www.ascotmortgages.co.uk/mortgages/commercial-mortgages/semi-commercial-mortgages/",
+        "https://www.stewartmilnehomes.com/semi-commercial-mortgage/",
+        "https://mortgagelane.com/mortgages/semi-commercial-mortgage"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgages-near-me",
+    "title": "Create a page targeting 'commercial mortgages near me'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages rates"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.moneysupermarket.com/business-finance/commercial-mortgages/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "https://avanacapital.com/business-loans/commercial-mortgage-rates-today/",
+        "https://commercialloandirect.com/commercial-rates",
+        "https://www.commloan.com/commercial-mortgages/mortgage-rates",
+        "https://www.northmarq.com/insights/rates-spreads",
+        "https://www.commercialcalc.com/commercial-loan-rates",
+        "https://ufigtoday.com/todays-rates/",
+        "https://www.clearhouselending.com/commercial-mortgage-rates",
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://commercial.mortgage/",
+        "https://www.nerdwallet.com/business/loans/learn/commercial-real-estate-loan-rates",
+        "https://www.nav.com/blog/commercial-real-estate-loan-rates-71890/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0011",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgages-rates",
+    "title": "Create a page targeting 'commercial mortgages rates'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages uk"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.moneysupermarket.com/business-finance/commercial-mortgages/",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.barclays.co.uk/business-banking/borrow/commercial-mortgages/",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.natwest.com/business/loans-and-finance/commercial-buy-to-let-mortgages.html",
+        "https://mortgagelane.com/insights/commercial-buy-to-let-mortgages",
+        "https://brickflow.com/commercial-mortgage/commercial-buy-to-let-mortgage",
+        "https://mortgage118.com/commercial/buy-to-let",
+        "https://htgmortgages.com/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/funding/commercial-buy-to-let-mortgage/",
+        "https://bizl.co/blog/buy-to-let-mortgage-commercial-property/",
+        "https://www.onlinemoneyadvisor.co.uk/commercial-mortgage/buy-to-let/",
+        "https://propp.io/commercial-mortgages/buy-to-let-commercial-mortgage",
+        "https://moneysavingguru.co.uk/commercial-mortgages/commercial-buy-to-let/",
+        "https://www.ccmcommercialmortgage.com/",
+        "https://advisorcmi.com/wp-content/uploads/2023/11/Flyer-2.pdf",
+        "https://commercialcapadvisors.com/",
+        "https://www.accesscm.com/",
+        "https://www.commercialloanadvisors.com/",
+        "https://www.berkadia.com/",
+        "https://commercialmortgagedepot.com/",
+        "https://www.elitecapadvisors.com/",
+        "https://www.slatt.com/commercial-mortgage-banking-advisors/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://commercialmortgagedepot.com/",
+        "https://www.berkadia.com/",
+        "https://cloptoncapital.com/",
+        "https://www.accesscm.com/",
+        "https://www.shawbrook.co.uk/property-finance/commercial-mortgages/",
+        "https://www.oakmontcommercial.com/",
+        "https://albcommercialcapital.com/",
+        "https://commercial-lender.com/",
+        "https://avanacapital.com/broker-resources/commercial-mortgage-broker-near-me/",
+        "https://clutch.co/pk/real-estate/commercial-brokerage",
+        "https://selectcommercial.com/commercial-mortgage-broker/",
+        "https://brokerspotter.com/",
+        "https://www.apexcommercial.com/commercial-mortgage",
+        "https://mortgageadviser.directory/listing-category/commercial-mortgage-brokers-near-me/",
+        "https://www.berkadia.com/",
+        "https://commercial-lender.com/",
+        "https://www.gantryinc.com/",
+        "https://realcommercialmortgage.com/",
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://www.mortgagecalculator.org/calcs/commercial-apg.php",
+        "https://mortgage-calculator.net/commercial",
+        "https://loan-calculators.org/commercial-property",
+        "https://commercialloandirect.com/monthly-payment-calculator",
+        "https://wowa.ca/calculators/commercial-mortgage-calculator",
+        "https://www.commercialcalc.com/commercial-mortgage-calculator",
+        "https://www.commloan.com/commercial-mortgages/calculator",
+        "https://mortgagecalculator.biz/c/commercial-loan.php",
+        "https://lumencalculator.com/commercial-mortgage-calculator/",
+        "https://brickflow.com/brickflow-thinks/commercial-mortgage-deposit",
+        "https://www.onlinemortgageadvisor.co.uk/commercial-mortgages/commercial-mortgage-deposit/",
+        "https://fundingguru.com/blog/commercial-mortgage-deposit-requirements-what-lenders-look-for",
+        "https://lesolace.com/how-much-deposit-do-you-need-for-a-commercial-mortgage/",
+        "https://fundingguru.com/blog/do-i-need-a-deposit-for-a-commercial-mortgage",
+        "https://www.hylend.co.uk/commercial-mortgages/deposit/",
+        "https://www.allica.bank/blog/commercial-mortgage-deposit",
+        "https://www.fundingoptions.com/blog/education/how-much-deposit-do-i-need-for-a-commercial-mortgage/",
+        "https://www.financenation.com/blog/commercial-mortgage-deposits",
+        "https://www.tide.co/blog/funding/commercial-mortgage-deposits/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "https://avanacapital.com/business-loans/commercial-mortgage-rates-today/",
+        "https://commercialloandirect.com/commercial-rates",
+        "https://www.commloan.com/commercial-mortgages/mortgage-rates",
+        "https://www.northmarq.com/insights/rates-spreads",
+        "https://www.commercialcalc.com/commercial-loan-rates",
+        "https://ufigtoday.com/todays-rates/",
+        "https://www.clearhouselending.com/commercial-mortgage-rates",
+        "https://www.mortgagecalculator.org/calcs/commercial.php",
+        "https://commercial.mortgage/",
+        "https://business.bankofamerica.com/en/business-loans/commercial-real-estate-loans",
+        "https://www.nerdwallet.com/business/loans/learn/commercial-real-estate-loan-rates",
+        "https://www.pnc.com/en/small-business/borrowing/business-loans/commercial-mortgage.html",
+        "https://www.commloan.com/commercial-mortgages",
+        "https://smallbiztrends.com/commercial-property-mortgage/",
+        "https://en.wikipedia.org/wiki/Commercial_mortgage",
+        "https://www.nav.com/blog/commercial-real-estate-loan-rates-71890/",
+        "https://selectcommercial.com/commercial-mortgage-rates.php",
+        "https://www.citi.com/small-business/loans/commercial-mortgage",
+        "https://www.nav.com/business-financing-options/commercial-real-estate-loans/",
+        "https://www.natwest.com/business/loans-and-finance/commercial-remortgage.html",
+        "https://commercialmortgagesbroker.co.uk/knowledge-hub/commercial-remortgage-guide",
+        "https://commercialloandirect.com/commercial-mortgages-refinance",
+        "https://www.jpmorgan.com/commercial-real-estate/commercial-property-refinancing-loans",
+        "https://www.lendingtree.com/home/refinance/need-know-commercial-mortgage-refinance/",
+        "https://refiloop.com/commercial-mortgage-refinancing-guide/",
+        "https://www.natwest.com/business/loans-and-finance/commercial-mortgage.html",
+        "https://www.corecocommercial.co.uk/commercial-remortgage/",
+        "https://axiantpartners.com/commercial-real-estate-loans/articles/how-to-refinance-commercial-mortgage/",
+        "https://www.prosperhomeloans.co.uk/article/commercial-remortgage-process",
+        "https://www.oakmontcommercial.com/lending-solutions/owner-occupied-loans/",
+        "https://broadway.bank/commercial/loans-financing/lending-solutions/owner-occupied-real-estate-loans",
+        "https://www.mfbrokers.co.uk/commercial/owner-occupier",
+        "https://www.sunwestbank.com/commercial-real-estate/owner-occupied-real-estate/",
+        "https://www.punjab-zameen.gov.pk/",
+        "https://www.crestmontcapital.com/blog/owner-occupied-commercial-real-estate-loans",
+        "https://www.commercialmortgageconnection.com/owner-occupied-commercial-mortgage/",
+        "https://www.punjab-zameen.gov.pk/greenCertificateInfo",
+        "https://loanbase.com/cre-loans/owner-occupied-commercial-real-estate-guide/",
+        "https://www.amusacommercialcapital.com/owner-occupied-commercial-real-estate-and-business-loans",
+        "https://www.onlinemortgageadvisor.co.uk/commercial-mortgages/semi-commercial-mortgages/",
+        "https://www.ybs.co.uk/commercial/product/semi-commercial-mortgages",
+        "https://abcfinance.co.uk/commercial-mortgages/semi-commercial/",
+        "https://togethermoney.com/commercial-mortgages/semi-commercial-property",
+        "https://www.financenation.com/blog/semi-commercial-mortgage",
+        "https://www.commercialtrust.co.uk/semi-commercial-mortgages/",
+        "https://mortgage118.com/blog/what-is-a-semi-commercial-mortgage",
+        "https://www.ascotmortgages.co.uk/mortgages/commercial-mortgages/semi-commercial-mortgages/",
+        "https://www.stewartmilnehomes.com/semi-commercial-mortgage/",
+        "https://mortgagelane.com/mortgages/semi-commercial-mortgage"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0012",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/commercial-mortgages-uk",
+    "title": "Create a page targeting 'commercial mortgages uk'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "how to get a commercial mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://bizl.co/funding/commercial-buy-to-let-mortgage/",
+        "https://moneysavingguru.co.uk/commercial-mortgages/commercial-buy-to-let/",
+        "https://www.onlinemortgageadvisor.co.uk/commercial-mortgages/semi-commercial-mortgages/",
+        "https://togethermoney.com/commercial-mortgages/semi-commercial-property"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0013",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/how-to-get-a-commercial-mortgage",
+    "title": "Create a page targeting 'how to get a commercial mortgage'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "owner occupied business mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.amusacommercialcapital.com/owner-occupied-commercial-real-estate-and-business-loans"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0014",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/owner-occupied-business-mortgage",
+    "title": "Create a page targeting 'owner occupied business mortgage'"
+  },
+  {
+    "confidence": 0.65,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "owner occupier commercial mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": [
+        "https://www.oakmontcommercial.com/lending-solutions/owner-occupied-loans/",
+        "https://broadway.bank/commercial/loans-financing/lending-solutions/owner-occupied-real-estate-loans",
+        "https://www.mfbrokers.co.uk/commercial/owner-occupier",
+        "https://www.sunwestbank.com/commercial-real-estate/owner-occupied-real-estate/",
+        "https://www.punjab-zameen.gov.pk/",
+        "https://www.crestmontcapital.com/blog/owner-occupied-commercial-real-estate-loans",
+        "https://www.commercialmortgageconnection.com/owner-occupied-commercial-mortgage/",
+        "https://www.punjab-zameen.gov.pk/greenCertificateInfo",
+        "https://loanbase.com/cre-loans/owner-occupied-commercial-real-estate-guide/",
+        "https://www.amusacommercialcapital.com/owner-occupied-commercial-real-estate-and-business-loans"
+      ]
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0015",
+    "kind": "create_page",
+    "priority": 0.4333,
+    "status": "open",
+    "target": "/owner-occupier-commercial-mortgage",
+    "title": "Create a page targeting 'owner occupier commercial mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "business financial advisors near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0016",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/business-financial-advisors-near-me",
+    "title": "Create a page targeting 'business financial advisors near me'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial buy to let mortgages barclays"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0017",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-buy-to-let-mortgages-barclays",
+    "title": "Create a page targeting 'commercial buy to let mortgages barclays'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial financial advisor"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0018",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-financial-advisor",
+    "title": "Create a page targeting 'commercial financial advisor'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages canada"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0019",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgages-canada",
+    "title": "Create a page targeting 'commercial mortgages canada'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages for everyone"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0020",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgages-for-everyone",
+    "title": "Create a page targeting 'commercial mortgages for everyone'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages for limited companies"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0021",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgages-for-limited-companies",
+    "title": "Create a page targeting 'commercial mortgages for limited companies'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgages scotland"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0022",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgages-scotland",
+    "title": "Create a page targeting 'commercial mortgages scotland'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact dermatitis"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0023",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-dermatitis",
+    "title": "Create a page targeting 'contact dermatitis'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact details"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0024",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-details",
+    "title": "Create a page targeting 'contact details'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact google com"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0025",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-google-com",
+    "title": "Create a page targeting 'contact google com'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact number"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0026",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-number",
+    "title": "Create a page targeting 'contact number'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact out",
+        "contact out extension"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0027",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-out",
+    "title": "Create a page targeting 'contact out'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contact whatsapp"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0028",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contact-whatsapp",
+    "title": "Create a page targeting 'contact whatsapp'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contacts google"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0029",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contacts-google",
+    "title": "Create a page targeting 'contacts google'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "contacts google com delete"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://www.easyfinance.uk.com/"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0030",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/contacts-google-com-delete",
+    "title": "Create a page targeting 'contacts google com delete'"
+  }
+]

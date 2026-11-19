@@ -1,0 +1,274 @@
+[
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "h1": [
+        "Free mortgage advice, without the jargon"
+      ],
+      "h2": [
+        "How we help",
+        "Popular guides",
+        "Speak to an adviser"
+      ],
+      "head_term": "commercial mortgage advisor",
+      "matched_fields": {
+        "h1": [
+          "mortgage"
+        ],
+        "h2": [
+          "adviser"
+        ],
+        "title": [
+          "mortgage"
+        ]
+      },
+      "matched_tokens": [
+        "adviser",
+        "mortgage"
+      ],
+      "page": "https://clearpath-mortgage.co.uk/",
+      "title": "Free Mortgage Advice from ClearPath Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0001",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://clearpath-mortgage.co.uk/",
+    "title": "Fix title/H1 coverage for 'commercial mortgage advisor' on https://clearpath-mortgage.co.uk/"
+  },
+  {
+    "confidence": 1.0,
+    "effort": 1,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial buy to let mortgage",
+        "commercial mortgage rates"
+      ],
+      "h1": [
+        "Buy-to-let mortgages"
+      ],
+      "head_term": "commercial buy to let mortgage",
+      "keyword_count": 2,
+      "keywords": [
+        "commercial buy to let mortgage",
+        "commercial mortgage rates"
+      ],
+      "page": "https://clearpath-mortgage.co.uk/buy-to-let",
+      "title": "Buy-to-let Mortgages"
+    },
+    "gap_type": "WEAK_PAGE",
+    "impact": 2,
+    "item_id": "BL-0002",
+    "kind": "meta_fix",
+    "priority": 2.0,
+    "status": "open",
+    "target": "https://clearpath-mortgage.co.uk/buy-to-let",
+    "title": "Fix title/H1 coverage on https://clearpath-mortgage.co.uk/buy-to-let (2 keywords)"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "business mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0003",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/business-mortgage",
+    "title": "Create a page targeting 'business mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgage advisors near me",
+        "commercial mortgage broker",
+        "commercial mortgage broker near me"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0004",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgage-broker",
+    "title": "Create a page targeting 'commercial mortgage broker'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgage calculator"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0005",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgage-calculator",
+    "title": "Create a page targeting 'commercial mortgage calculator'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial mortgage deposit"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0006",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-mortgage-deposit",
+    "title": "Create a page targeting 'commercial mortgage deposit'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial property mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0007",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-property-mortgage",
+    "title": "Create a page targeting 'commercial property mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "commercial remortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/remortgage",
+        "https://clearpath-mortgage.co.uk/remortgage-calculator"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0008",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/commercial-remortgage",
+    "title": "Create a page targeting 'commercial remortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "owner occupier commercial mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0009",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/owner-occupier-commercial-mortgage",
+    "title": "Create a page targeting 'owner occupier commercial mortgage'"
+  },
+  {
+    "confidence": 0.5,
+    "effort": 3,
+    "evidence": {
+      "cluster_keywords": [
+        "semi commercial mortgage"
+      ],
+      "competitors": [],
+      "pages": [
+        "https://clearpath-mortgage.co.uk/",
+        "https://clearpath-mortgage.co.uk/buy-to-let",
+        "https://clearpath-mortgage.co.uk/first-time-buyer",
+        "https://clearpath-mortgage.co.uk/free-mortgage-advice",
+        "https://clearpath-mortgage.co.uk/remortgage"
+      ],
+      "serp": []
+    },
+    "gap_type": "NO_PAGE",
+    "impact": 2,
+    "item_id": "BL-0010",
+    "kind": "create_page",
+    "priority": 0.3333,
+    "status": "open",
+    "target": "/semi-commercial-mortgage",
+    "title": "Create a page targeting 'semi commercial mortgage'"
+  }
+]
