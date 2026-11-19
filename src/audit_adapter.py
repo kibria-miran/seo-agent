@@ -21,12 +21,14 @@ import sys
 import time
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
+from urllib.robotparser import RobotFileParser
 
 from src import config
 from src.models import AuditSnapshot, Severity
 from src.models import PageData as OurPageData
 from src.models import SEOIssue as OurSEOIssue
+from src.render import CHALLENGE_TITLE_MARKERS, is_challenge_title
 
 REQUIRED_MODEL_NAMES: tuple[str, ...] = ("AuditResult", "PageData", "SEOIssue")
 REQUIRED_CORE_ATTR = "SEOExtract.audit"
@@ -37,6 +39,15 @@ DEFAULT_FIXTURE_PATH: Path | str | None = None
 
 class AuditFixtureError(ValueError):
     """Raised when a fixture file is missing or not a valid audit document."""
+
+
+class AuditBlockedError(RuntimeError):
+    """The site served a bot-challenge page instead of content.
+
+    Reporting gaps and a score from a WAF interstitial is worse than failing:
+    every existing page looks missing and the score is meaningless. Callers
+    must abort the run rather than persist a fabricated report.
+    """
 
 
 def _ensure_vendor_on_path() -> None:
@@ -106,6 +117,7 @@ _LAST_CALL: dict[str, float] = {}
 _POLITENESS_INSTALLED = False
 _FETCH_COUNT = 0
 _FETCH_BUDGET_EXHAUSTED = False
+_RENDERER: Any = None
 
 
 def reset_fetch_count() -> None:
@@ -128,19 +140,29 @@ def fetch_budget_exhausted() -> bool:
     return _FETCH_BUDGET_EXHAUSTED
 
 
-def _install_politeness() -> None:
+def _forget_renderer() -> None:
+    """Drop the closed Chrome fetcher so a later run reinstalls cleanly."""
+
+    global _RENDERER  # noqa: PLW0603 - module ledger
+    _RENDERER = None
+
+
+def _install_politeness(renderer: Any = None) -> None:
     """Give the vendored crawler our honest UA, bot name and 2 s host delay.
 
     seoextract 0.3.0 ships a browser UA and no delay. Editing the fork is
     forbidden (D-1), so the adapter wraps its ``fetch_page`` at runtime. This
-    runs only on the network path.
+    runs only on the network path. When ``SEO_AGENT_RENDER=1`` the wrapper
+    fetches through headless Chrome instead of plain HTTP.
     """
 
-    global _POLITENESS_INSTALLED  # noqa: PLW0603 - idempotent one-shot install guard
+    global _POLITENESS_INSTALLED, _RENDERER  # noqa: PLW0603 - module globals
     if _POLITENESS_INSTALLED:
+        _RENDERER = renderer or _RENDERER
         return
     from seoextract import crawler  # type: ignore
 
+    _RENDERER = renderer
     crawler.HEADERS["User-Agent"] = config.USER_AGENT
     crawler.BOT_NAME = config.APP_NAME
     original = crawler.fetch_page
@@ -167,10 +189,20 @@ def _install_politeness() -> None:
                 time.sleep(remaining)
         _LAST_CALL[host] = time.monotonic()
         _FETCH_COUNT += 1
+        if _RENDERER is not None:
+            return _RENDERER.fetch(url, session)
         return original(url, session)
 
     def counting_load_robots(base_url: str) -> Any:
         global _FETCH_COUNT  # noqa: PLW0603 - module ledger
+        if _RENDERER is not None:
+            _FETCH_COUNT += 1
+            parser = RobotFileParser()
+            try:
+                parser.parse(_RENDERER.fetch_text(urljoin(base_url, "/robots.txt")).splitlines())
+            except Exception:  # noqa: BLE001 - an unreadable robots.txt allows the crawl
+                return None
+            return parser
         # The vendored loader issues two GETs (status probe + parser.read()).
         _FETCH_COUNT += 2
         return original_load_robots(base_url)
@@ -304,6 +336,24 @@ def load_fixture(path: str | Path, url: str | None = None) -> AuditSnapshot:
     return snapshot_from_value(data, url=url)
 
 
+def detect_challenge(snapshot: AuditSnapshot) -> str | None:
+    """Return the WAF marker when every crawled page is a challenge page.
+
+    A single blocked page among real pages is a partial audit, not a blocked
+    site, so the check requires *all* pages to look like an interstitial.
+    """
+
+    if not snapshot.pages:
+        return None
+    titles = [(page.title or "").casefold() for page in snapshot.pages]
+    if not all(is_challenge_title(title) for title in titles):
+        return None
+    for marker in CHALLENGE_TITLE_MARKERS:
+        if marker in titles[0]:
+            return marker
+    return None  # pragma: no cover - unreachable when the loop above passed
+
+
 def run_audit(
     url: str,
     max_pages: int | None = None,
@@ -326,18 +376,42 @@ def run_audit(
             "third_party/PROVENANCE.md) or run with fixture_path=."
         ) from SEOEXTRACT_IMPORT_ERROR
 
-    _install_politeness()
+    renderer = None
+    if config.RENDER_JS:
+        from src.render import ChromeBrowser
+
+        renderer = ChromeBrowser()
+    _install_politeness(renderer)
     reset_fetch_count()
-    result = _SEOExtract.audit(url, max_pages=max_pages or config.MAX_OWN_PAGES)
-    return snapshot_from_value(result, url=url)
+    try:
+        result = _SEOExtract.audit(url, max_pages=max_pages or config.MAX_OWN_PAGES)
+    finally:
+        if renderer is not None:
+            renderer.close()
+            _forget_renderer()
+    snapshot = snapshot_from_value(result, url=url)
+    marker = detect_challenge(snapshot)
+    if marker is not None:
+        raise AuditBlockedError(
+            f"{url} returned a bot-protection page (title contains {marker!r}) "
+            f"for all {len(snapshot.pages)} crawled page(s). The site never served "
+            "real content, so gaps and the site score would be fabricated. "
+            "Set SEO_AGENT_RENDER=1 to crawl through headless Chrome (handles the "
+            "challenge and client-side rendering), allow the agent's user agent/IP "
+            "at the host, or run against a saved HTML snapshot with --fixture."
+        )
+    return snapshot
 
 
 __all__ = [
     "DEFAULT_FIXTURE_PATH",
     "REQUIRED_MODEL_NAMES",
     "SEOEXTRACT_AVAILABLE",
+    "AuditBlockedError",
     "AuditFixtureError",
+    "CHALLENGE_TITLE_MARKERS",
     "_install_politeness",
+    "detect_challenge",
     "fetch_budget_exhausted",
     "fetch_count",
     "load_fixture",

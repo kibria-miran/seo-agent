@@ -19,6 +19,18 @@ SITE=${SEO_AGENT_SITE:-"$PROJECT_DIR/profiles/site.json"}
 LOG_DIR="$PROJECT_DIR/logs"
 mkdir -p "$LOG_DIR"
 
+# Sites fronting every URL with a JS bot-challenge need the headless-Chrome
+# path. Opt in automatically when a Chrome binary is discoverable and none was
+# configured; RENDER stays off on hosts that serve plain HTTP.
+if [ -z "${CHROME_BIN:-}" ] && [ -x /opt/google/chrome/chrome ]; then
+    CHROME_BIN=/opt/google/chrome/chrome
+    export CHROME_BIN
+fi
+if [ -n "${CHROME_BIN:-}" ] && [ -z "${SEO_AGENT_RENDER:-}" ]; then
+    SEO_AGENT_RENDER=1
+    export SEO_AGENT_RENDER
+fi
+
 {
     printf '%s doctor\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
     "$PROJECT_DIR/.venv/bin/python" -m src.cli doctor --site "$SITE"
